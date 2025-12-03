@@ -374,6 +374,10 @@ h1, h2, h3, h4 {
     align-items: start;
 }
 
+.split-layout__right p + p {
+    padding-top: 0.75rem;
+}
+
 .text-link {
     display: inline-block;
     color: var(--accent);

@@ -16,41 +16,51 @@
 <body>
 
     <!-- Header -->
-    <header class="header" id="header">
-        <div class="container header__container">
-            <a href="#" class="logo-link">
-                <span class="logo-text">PIXELBRUTE</span>
-            </a>
+   <!-- Header -->
+<header class="header" id="header">
+    <div class="container header__container">
+        <a href="#" class="logo-link">
+            <span class="logo-text">PIXELBRUTE</span>
+        </a>
 
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li><a href="#home" class="nav__link">Accueil</a></li>
-                    <li><a href="#projects" class="nav__link">Projets</a></li>
-                    <li><a href="#process" class="nav__link">Processus</a></li>
-                    <li><a href="#about" class="nav__link">À propos</a></li>
-                </ul>
-            </nav>
-
-            <div class="header__actions">
-                <a href="mailto:contact@pixelbrute.be?subject=Demande d'appel&body=Bonjour,%0D%0A%0D%0AJe souhaite discuter d'un projet web.%0D%0A%0D%0AVous pouvez aussi me joindre au : +32492200275" class="btn btn--primary btn--small">Réserver un appel</a>
-                <button class="mobile-toggle" aria-label="Toggle Menu">
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div class="mobile-menu">
-            <ul class="mobile-menu__list">
-                <li><a href="#home" class="mobile-menu__link">Accueil</a></li>
-                <li><a href="#projects" class="mobile-menu__link">Projets</a></li>
-                <li><a href="#process" class="mobile-menu__link">Processus</a></li>
-                <li><a href="#about" class="mobile-menu__link">À propos</a></li>
-                <li><a href="mailto:contact@pixelbrute.be?subject=Demande d'appel&body=Bonjour,%0D%0A%0D%0AJe souhaite discuter d'un projet web.%0D%0A%0D%0AVous pouvez aussi me joindre au : +32492200275" class="btn btn--primary mobile-cta">Réserver un appel</a></li>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li><a href="#home" class="nav__link">Accueil</a></li>
+                <li><a href="#projects" class="nav__link">Projets</a></li>
+                <li><a href="#process" class="nav__link">Processus</a></li>
+                <li><a href="#about" class="nav__link">À propos</a></li>
             </ul>
+        </nav>
+
+        <div class="header__actions">
+            <!-- Lien optimisé (encodé) pour fonctionner partout -->
+            <a href="mailto:contact@pixelbrute.be?subject=Demande%20de%20RDV%20-%20Projet%20Web&body=Bonjour%20Esteban%2C%0D%0A%0D%0AJe%20souhaite%20r%C3%A9server%20un%20appel%20pour%20discuter%20de%20mon%20projet.%0D%0A%0D%0AMes%20disponibilit%C3%A9s%20sont%20%3A%0D%0A-%20%0D%0A%0D%0AMon%20num%C3%A9ro%20%3A%20" class="btn btn--primary btn--small">Réserver un appel</a>
+            
+            <button class="mobile-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </header>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <ul class="mobile-menu__list">
+            <li><a href="#home" class="mobile-menu__link">Accueil</a></li>
+            <li><a href="#projects" class="mobile-menu__link">Projets</a></li>
+            <li><a href="#process" class="mobile-menu__link">Processus</a></li>
+            <li><a href="#about" class="mobile-menu__link">À propos</a></li>
+            
+            <!-- BOUTON EMAIL -->
+            <li><a href="mailto:contact@pixelbrute.be?subject=Demande%20de%20RDV%20-%20Projet%20Web&body=Bonjour%20Esteban%2C%0D%0A%0D%0AJe%20souhaite%20r%C3%A9server%20un%20appel.%0D%0A%0D%0AMon%20num%C3%A9ro%20%3A%20" class="btn btn--primary mobile-cta">Réserver un appel</a></li>
+            
+            <!-- AJOUT : BOUTON APPEL DIRECT (Visible sur mobile) -->
+            <li style="margin-top: 10px;">
+                <a href="tel:+32492200275" style="color: var(--accent); font-size: 1.1rem; border-bottom: 1px solid var(--accent);">Ou appeler le +32 492 20 02 75</a>
+            </li>
+        </ul>
+    </div>
+</header>
 
     <main>
         <!-- Hero Section -->
@@ -102,7 +112,7 @@
                 <h2 class="section-title">La différence entre survivre et prospérer.</h2>
                 <p class="lead-text">
                     Sans présence digitale, votre commerce touche toujours le même cercle restreint. 
-                    Avec un site web optimisé, votre zone de chalandise s'étend et votre chiffre d'affaires décolle.
+                    Un site bien conçu élargit votre visibilité et soutient directement votre croissance.
                 </p>
                 
                 <div class="roi-stat-box">
@@ -331,39 +341,47 @@
                 <div class="split-layout">
                     <div class="split-layout__left reveal">
                         <span class="section-label">Derrière les designs</span>
-                        <h2 class="section-title">Créer des expériences web calmes et confiantes.</h2>
+                        <h2 class="section-title">Créer des expériences web.</h2>
                         <p class="lead-text">
-                            La technologie ne devrait pas faire peur. Mon objectif est de vous mettre à l'aise dès notre première conversation jusqu'au lancement final.
+                            La technologie ne devrait pas faire peur.  Mon objectif est de vous mettre à l'aise dès notre première rencontre jusqu'au lancement final.
                         </p>
                     </div>
                     <div class="split-layout__right reveal delay-1">
                         <p>
-                            De nombreux entrepreneurs se sentent dépassés par le monde numérique. Je comble ce fossé.
-                            Je ne me contente pas d'écrire du code ; j'écoute votre histoire. Je simplifie les décisions.
-                            Que vous ayez besoin d'une simple page d'atterrissage ou d'une refonte complète de marque, j'explique tout en français simple—pas de jargon confus, juste des résultats clairs.
+                            De nombreux entrepreneurs se sentent dépassés par le monde numérique.  Je comble ce fossé !
+                            Je ne me contente pas d'écrire du code  ;  j'écoute votre histoire.  Je simplifie les décisions. 
+                            Que vous ayez besoin d'une simple landing page ou d'une refonte complète de marque, la qualité sera toujours au rendez-vous.
                         </p>
                         <p>
-                            Je crois en la transparence concernant les délais, les prix et ce qui est réellement inclus. Vous ne vous demanderez jamais "quelle est la prochaine étape ?".
+                            Mon approche est centrée sur l'humain.  Je valorise la communication claire et honnête,  et je m'assure que vous comprenez chaque étape du processus.
                         </p>
-                        <a href="#" class="text-link disabled">Télécharger la checklist de projet (Bientôt disponible)</a>
+                        <a href="#" class="text-link disabled">La qualité reste ma priorité.</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact CTA -->
-        <section id="contact" class="cta-section">
-            <div class="container">
-                <div class="cta-card reveal">
-                    <h2 class="cta-title">Prêt à parler de votre site web ?</h2>
-                    <p class="cta-text">C'est juste une conversation. Pas de jargon, aucune obligation. Voyons comment nous pouvons faire briller votre marque.</p>
+        <!-- Contact CTA -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <div class="cta-card reveal">
+                <h2 class="cta-title">Prêt à parler de votre site web ?</h2>
+                <p class="cta-text">Voyons comment je peux faire briller votre marque.</p>
+                
+                <div class="cta-buttons">
+                    <!-- Lien mailto sécurisé -->
+                    <a href="mailto:contact@pixelbrute.be?subject=Demande%20d%27appel%20gratuit&body=Bonjour%20Esteban%2C%0D%0A%0D%0AJe%20souhaite%20r%C3%A9server%20un%20appel%20gratuit%20pour%20discuter%20de%20mon%20projet%20web.%0D%0A%0D%0AVous%20pouvez%20aussi%20me%20joindre%20au%20%3A%20" class="btn btn--primary btn--large">Réserver un appel gratuit</a>
                     
-                    <div class="cta-buttons">
-                        <a href="mailto:contact@pixelbrute.be?subject=Demande d'appel gratuit&body=Bonjour,%0D%0A%0D%0AJe souhaite réserver un appel gratuit pour discuter de mon projet web.%0D%0A%0D%0AVous pouvez aussi me joindre au : +32492200275" class="btn btn--primary btn--large">Réserver un appel gratuit</a>
+                    <!-- Lien Téléphone Cliquable (s'affiche en petit en dessous) -->
+                    <div style="margin-top: 1.5rem;">
+                        <span style="color: #666; font-size: 0.9rem;">Ou directement par téléphone :</span><br>
+                        <a href="tel:+32492200275" style="color: #0d1812; font-weight: 700; font-size: 1.1rem; margin-top: 5px; display: inline-block;">+32 492 20 02 75</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     </main>
 
     <!-- Footer -->
@@ -379,7 +397,8 @@
                     <a href="#projects">Projets</a>
                     <a href="#process">Processus</a>
                     <a href="#about">À propos</a>
-                    <a href="mailto:contact@pixelbrute.be">Contact</a>
+                    <!-- Lien mail simple -->
+                    <a href="mailto:contact@pixelbrute.be">contact@pixelbrute.be</a>
                 </div>
             </div>
             <div class="footer__legal">
