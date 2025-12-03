@@ -100,11 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const roiSection = document.querySelector('.roi-section');
     const graphContainer = document.querySelector('.graph-container');
     const numberElement = document.getElementById('roiCounter');
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
     
     // Configuration
     const targetNumber = 184; 
     const cycleDuration = 5000; // 5 secondes au total par cycle
     let roiInterval; // Variable pour stocker l'intervalle
+    let mobileStartTimeout = null;
+    let firstAnimationDone = false;
 
     function runAnimation() {
         if (!graphContainer || !numberElement) return;
@@ -141,17 +144,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Observer pour le graphique
-    if (roiSection) {
+        if (roiSection) {
         const roiObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    runAnimation(); // Premier lancement
-                    // Relance toutes les 5 secondes si pas déjà lancé
-                    if (!roiInterval) {
-                        roiInterval = setInterval(runAnimation, cycleDuration);
+                    const startAnimation = () => {
+                        runAnimation(); // Premier lancement
+                        // Relance toutes les 5 secondes si pas dǸj�� lancǸ
+                        if (!roiInterval) {
+                            roiInterval = setInterval(runAnimation, cycleDuration);
+                        }
+                        firstAnimationDone = true;
+                        mobileStartTimeout = null;
+                    };
+
+                    // Sur mobile, on attend 1s pour laisser le scroll commencer
+                    if (isMobile && !firstAnimationDone) {
+                        if (!mobileStartTimeout) {
+                            mobileStartTimeout = setTimeout(startAnimation, 1000);
+                        }
+                    } else {
+                        startAnimation();
                     }
                 } else {
-                    // Arrêt si on ne voit plus l'écran pour économiser la batterie
+                    // ArrǦt si on ne voit plus l'Ǹcran pour Ǹconomiser la batterie
+                    if (mobileStartTimeout) {
+                        clearTimeout(mobileStartTimeout);
+                        mobileStartTimeout = null;
+                    }
                     if(roiInterval) {
                         clearInterval(roiInterval);
                         roiInterval = null;
@@ -163,3 +183,5 @@ document.addEventListener('DOMContentLoaded', () => {
         roiObserver.observe(roiSection);
     }
 });
+
+

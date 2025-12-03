@@ -849,29 +849,76 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
-/* Texte et Compteur */
+/* --- Texte et Compteur (Style Doré 184%) --- */
 .roi-stat-box {
     margin-top: 2.5rem;
-    padding: 2rem;
-    background: rgba(255,255,255,0.03);
-    border-radius: 12px;
-    border-left: 4px solid var(--accent); /* Couleur or */
+    padding: 0; /* On retire le padding pour laisser le texte respirer */
+    background: transparent; /* Fond transparent pour cleaner le look */
+    border: none; /* On retire la bordure gauche pour l'effet "clean" de l'image */
 }
 
-/* CORRECTIF POUR LE CHIFFRE "0" */
 .roi-counter-wrapper {
-    display: inline-flex; /* Important: inline-flex pour ne pas prendre toute la largeur */
-    align-items: center;  /* Centre verticalement */
-    justify-content: flex-start;
-    gap: 10px; /* Espace entre le + et le chiffre */
+    display: inline-flex;
+    align-items: flex-start; /* Aligne le % en haut du chiffre */
+    line-height: 0.85;       /* Resserre la hauteur pour un effet compact */
+    position: relative;
+    padding: 10px;           /* Espace pour ne pas couper l'ombre portée (glow) */
 }
 
+/* Le chiffre (184) */
 .roi-number {
-    display: inline-block;
-    min-width: 120px; /* EmpÃªche le chiffre de bouger quand il change */
-    font-variant-numeric: tabular-nums; /* EmpÃªche les sauts de largeur */
-    line-height: 1; 
-    /* Si le 0 est toujours Ã©crasÃ©, supprimez width/height fixes s'il y en a */
+    font-family: 'Syne', sans-serif; /* Ta police Syne est parfaite pour ça */
+    font-weight: 800;                /* Extra Gras */
+    /* Taille fluide : énorme sur PC (140px), adapté sur mobile */
+    font-size: clamp(6rem, 12vw, 9rem); 
+    
+    /* DÉGRADÉ DORÉ MÉTALLIQUE */
+    background: linear-gradient(180deg, #F9E4B7 0%, #DCAE66 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #DCAE66; /* Fallback pour vieux navigateurs */
+
+    /* EFFET DE LUEUR (GLOW) */
+    filter: drop-shadow(0 0 20px rgba(220, 174, 102, 0.4));
+    
+    /* Stabilisation pour le compteur JS */
+    font-variant-numeric: tabular-nums;
+    min-width: 1ch; 
+    
+}
+
+/* Le symbole (%) et le (+) */
+.roi-symbol, .roi-plus {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    /* Taille : environ la moitié du chiffre */
+    font-size: clamp(3rem, 6vw, 4.5rem); 
+    
+    /* Ajustement de position pour l'aligner joliment */
+    margin-left: 5px;
+    margin-top: 10px; 
+
+    /* MÊME DÉGRADÉ QUE LE CHIFFRE */
+    background: linear-gradient(180deg, #F9E4B7 0%, #DCAE66 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* MÊME EFFET GLOW */
+    filter: drop-shadow(0 0 20px rgba(220, 174, 102, 0.4));
+}
+
+/* Le texte en dessous */
+.roi-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9rem;
+    color: #8da399; /* Couleur vert-grisâtre de ton image de ref */
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding-left: 10px; /* Léger alignement avec le texte */
 }
 
 /* CORRECTIF POUR ASSURER LA VISIBILITÃ‰ DU GRAPHIQUE */
@@ -930,8 +977,14 @@ h1, h2, h3, h4 {
     border-radius: 50%;
 }
 
-.legend-item.stagnant .dot { background-color: #555; }
-.legend-item.stagnant { color: #888; }
+.legend-item.stagnant .dot { 
+    background-color: #FF5555; /* Rouge */
+    box-shadow: 0 0 5px rgba(255, 85, 85, 0.5); /* Petit éclat rouge */
+}
+.legend-item.stagnant { 
+    color: #ff8888; /* Texte légèrement rouge */
+}
+
 
 .legend-item.growth .dot { background-color: var(--accent); box-shadow: 0 0 10px var(--accent); }
 .legend-item.growth { color: var(--accent); font-weight: bold; }
@@ -990,10 +1043,19 @@ h1, h2, h3, h4 {
 /* Ligne Stagnante (Sans site) */
 .line-stagnant {
     fill: none;
-    stroke: #555;
-    stroke-width: 2;
-    stroke-dasharray: 5, 5; /* PointillÃ©s */
-    opacity: 0.5;
+    stroke: #FF5555; /* Rouge vif */
+    stroke-width: 3; /* Un peu moins épais que la courbe or pour la hiérarchie */
+    stroke-dasharray: none; /* ENLÈVE LES POINTILLÉS */
+    stroke-linecap: round;
+    
+    /* Ajout du Glow rouge pour être cohérent avec l'or */
+    filter: drop-shadow(0 0 5px rgba(255, 85, 85, 0.5)); 
+    opacity: 0.8;
+}
+/* --- NOUVEAU : Zone remplie rouge --- */
+.area-stagnant {
+    fill: url(#stagnantGradient); /* Utilise le dégradé défini dans le HTML */
+    opacity: 0.8;
 }
 
 /* Ligne Croissance (Avec site) */
