@@ -1125,3 +1125,64 @@ h1, h2, h3, h4 {
         font-size: 4rem;
     }
 }
+
+
+/* --- AMÉLIORATION UX MOBILE POUR LES PROJETS --- */
+@media (max-width: 768px) {
+    
+    /* 1. On rend l'overlay toujours visible, mais subtil */
+    .project-card__overlay {
+        opacity: 1; /* Toujours visible sur mobile */
+        
+        /* Au lieu d'un fond noir complet, on met un dégradé en bas pour que le bouton ressorte */
+        background: linear-gradient(to top, rgba(13, 24, 18, 0.8) 0%, transparent 60%);
+        
+        /* On place le bouton tout en bas */
+        align-items: flex-end; 
+        padding-bottom: 1.5rem; /* Espace du bas */
+    }
+
+    /* 2. On transforme le "Ghost Button" (transparent) en bouton plein (Solid) */
+    .project-card__overlay .ghost-btn {
+        background-color: var(--accent); /* Fond OR */
+        color: var(--bg-dark); /* Texte foncé */
+        border: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        
+        /* On ajoute une icône flèche via CSS pour inciter au clic */
+        padding: 0.6rem 1.2rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Ombre pour qu'il flotte */
+    }
+
+    /* Ajout d'une petite flèche après le texte "Voir le projet" */
+    .project-card__overlay .ghost-btn::after {
+        content: " →";
+        display: inline-block;
+        margin-left: 5px;
+        transition: transform 0.3s;
+    }
+    
+    /* 3. Petit retour visuel quand on tape dessus avec le doigt */
+    .project-card__overlay .ghost-btn:active {
+        transform: scale(0.95);
+    }
+}
+
+@media (max-width: 768px) {
+    
+    /* ... autres styles ... */
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        
+        /* MODIFICATION ICI : On passe de 2rem à 4rem */
+        gap: 3rem; 
+    }
+    
+    /* Optionnel : On peut aussi ajouter un peu de marge sous l'image */
+    .project-card__image {
+        margin-bottom: 1rem; /* Un peu plus d'espace entre l'image et le titre */
+    }
+}
+
