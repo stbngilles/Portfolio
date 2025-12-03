@@ -1190,3 +1190,135 @@ h1, h2, h3, h4 {
     }
 }
 
+
+/* --- Services Section --- */
+.services {
+    background-color: var(--bg-section);
+    padding: var(--space-xl) 0;
+    position: relative; 
+}
+
+/* Alignement Header : "Mes services" en dessous de "Ce que je fais" */
+.services .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Grille des Services (Desktop) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--bg-card);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.service-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(220, 174, 102, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+.service-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* --- RESPONSIVE MOBILE : Scroll Horizontal + Flèche Swipe --- */
+@media (max-width: 768px) {
+    
+    /* Configuration du Scroll (Swipe) */
+    .services-grid {
+        display: flex; 
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+        
+        /* Cache la barre de scroll */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; 
+    }
+    .services-grid::-webkit-scrollbar { display: none; }
+
+    .service-card {
+        min-width: 280px; /* Largeur fixe */
+        scroll-snap-align: start;
+        margin-right: 0;
+    }
+    
+    /* 1. La Flèche flottante (Indicateur de Swipe) */
+    .services::before {
+        content: "→"; /* La flèche */
+        position: absolute;
+        right: 10px; /* Collé à droite */
+        
+        /* Position verticale : Ajusté pour être au milieu des cartes */
+        top: 65%; 
+        transform: translateY(-50%);
+        
+        /* Design de la bulle */
+        width: 40px; height: 40px;
+        background: var(--accent); /* Fond or */
+        color: var(--bg-dark); /* Flèche sombre */
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 800; font-size: 1.2rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        
+        z-index: 10;
+        pointer-events: none; /* Permet de cliquer à travers */
+        
+        /* Animation de rebond vers la droite */
+        animation: swipeHint 1.5s infinite ease-in-out;
+    }
+
+    @keyframes swipeHint {
+        0%, 100% { transform: translate(0, -50%); opacity: 1; }
+        50% { transform: translate(10px, -50%); opacity: 0.6; } /* Bouge de 10px */
+    }
+
+    /* 2. Le dégradé de fond à droite (pour l'esthétique) */
+    .services::after {
+        content: '';
+        position: absolute;
+        right: 0; bottom: 0;
+        top: 50%; /* Commence à mi-hauteur pour ne pas couvrir le titre */
+        height: 50%;
+        width: 15%;
+        background: linear-gradient(to left, var(--bg-section), transparent);
+        pointer-events: none;
+        z-index: 2;
+    }
+}
