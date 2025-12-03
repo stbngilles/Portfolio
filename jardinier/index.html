@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Harvest | Architecte Paysagiste</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Playfair Display (pour le style élégant/italique) et Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+        <!-- CURSEUR CUSTOM -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- CONTENEUR DES FEUILLES (Géré par JS) -->
+    <div id="leaves-container"></div>
+
+    <!-- BOUTON RETOUR -->
+    <a href="../index.html#projects" class="close-btn" title="Retour aux projets">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    </a>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">GREEN HARVEST</div>
+        <div class="menu-btn">MENU</div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="reveal-text">Découvrez l'art de <br> <em>cultiver</em> et <em>sublimer</em> <br> votre jardin.</h1>
+            <p class="reveal-text delay-1">Spécialistes en création d'espaces verts enchanteurs qui captivent les sens.</p>
+            <div class="hero-footer reveal-text delay-2">
+                <span>2710 Route des Chênes,<br>Provence, France</span>
+                <a href="#services" class="circle-btn">Explorez <span>&darr;</span></a>
+            </div>
+        </div>
+        <!-- Image de fond sombre/foret -->
+        <div class="hero-bg" style="background-image: url('imageJardins/pexels-pixabay-259588.jpg');"></div>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section class="about section-dark">
+        <div class="container grid-about">
+            <div class="about-text reveal">
+                <span class="tag">À Propos</span>
+                <h2>Nous transformons vos rêves de verdure en <br> <em>œuvres d'art vivantes</em>.</h2>
+                <p>Nous offrons les meilleures solutions pour votre jardin, du design paysager à la décoration exotique. Notre objectif est d'inspirer votre vision et de faire de votre retraite verte une réalité.</p>
+                <a href="#" class="link-arrow">Lire notre histoire &rarr;</a>
+            </div>
+            <div class="about-image reveal delay-1">
+                <!-- Photo Jardinière / Serre -->
+                <div class="img-frame" style="background-image: url('imageJardins/pexels-pixabay-208321.jpg');"></div>
+                <div class="deco-star">*</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES CARDS -->
+    <section id="services" class="services section-lime">
+        <div class="container">
+            <div class="intro-services reveal">
+                <span class="tag-dark">Nos Services</span>
+                <h3>Des solutions sur mesure pour<br><em>votre retraite végétale</em>.</h3>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="card reveal delay-1" style="background-image: url('TroisCartes/PremierCarte.jpg');">
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <h4>Architecture<br><em>Paysagère</em></h4>
+                        <p>Conception 3D et aménagement structurel de vos espaces extérieurs.</p>
+                    </div>
+                    <div class="card-icon">&nearr;</div>
+                </div>
+                <!-- Card 2 -->
+                <div class="card reveal delay-2" style="background-image: url('TroisCartes/DeuxiemeCartes.jpg');">
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <h4>Arrangements<br><em>Floraux</em></h4>
+                        <p>Sélection de plantes rares et création de massifs colorés toute l'année.</p>
+                    </div>
+                    <div class="card-icon">&nearr;</div>
+                </div>
+                <!-- Card 3 -->
+                <div class="card reveal delay-3" style="background-image: url('TroisCartes/TroisiemeCartes.jpg');">
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <h4>Éléments<br><em>Décoratifs</em></h4>
+                        <p>Fontaines, allées en pierre et sculptures pour une touche unique.</p>
+                    </div>
+                    <div class="card-icon">&nearr;</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION AVANT / APRÈS (Interactive) -->
+    <section class="before-after section-dark">
+        <div class="container">
+            <h2 class="reveal">Le pouvoir de la <em>transformation</em>.</h2>
+            <p class="reveal">Glissez pour voir le changement.</p>
+
+            <div class="compare-wrapper reveal delay-1" id="compare">
+                <!-- AVANT -->
+                <img src="avantApres/avant.png" alt="Avant" class="compare-before" />
+
+                <!-- APRÈS -->
+                <img src="avantApres/apres.jpg" alt="Après" class="compare-after" id="afterImage" />
+
+                <div class="compare-handle" id="handle"></div>
+
+                <input type="range" min="0" max="100" value="50" class="compare-range" id="compareRange" />
+            </div>
+        </div>
+    </section>
+
+    <!-- AJOUT 1 : LES CHIFFRES CLÉS (ANIMÉS) -->
+    <section class="stats-section section-dark">
+        <div class="container grid-stats">
+            <div class="stat-item reveal">
+                <span class="stat-number" data-target="150">0</span>
+                <span class="stat-label">Jardins Créés</span>
+            </div>
+            <div class="stat-item reveal delay-1">
+                <span class="stat-number" data-target="12">0</span>
+                <span class="stat-label">Prix de Design</span>
+            </div>
+            <div class="stat-item reveal delay-2">
+                <span class="stat-number" data-target="100">0</span>
+                <span class="stat-label">% Satisfaction</span>
+            </div>
+            <div class="stat-item reveal delay-3">
+                <span class="stat-number" data-target="850">0</span>
+                <span class="stat-label">Arbres Plantés</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- AJOUT 2 : NOTRE PROCESSUS (TIMELINE) -->
+    <section class="process-section section-lime">
+        <div class="container">
+            <div class="section-header-left reveal">
+                <span class="tag-dark">Méthodologie</span>
+                <h2>Comment nous faisons<br><em>fleurir</em> votre projet.</h2>
+            </div>
+
+            <div class="timeline reveal delay-1">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>L'Écoute</h3>
+                    <p>Rencontre sur place pour comprendre l'âme du lieu et vos envies profondes.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Le Design</h3>
+                    <p>Création de plans 3D et sélection de la palette végétale adaptée au climat.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>La Plantation</h3>
+                    <p>Mise en œuvre par nos artisans avec respect des sols et de la biodiversité.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h3>L'Entretien</h3>
+                    <p>Un suivi saisonnier pour garantir que votre jardin grandisse en beauté.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AJOUT 3 : TÉMOIGNAGE (BIG QUOTE) -->
+    <section class="testimonial-section section-dark">
+        <div class="container reveal">
+            <div class="quote-icon">“</div>
+            <p class="quote-text">Green Harvest a complètement réinventé notre extérieur. Ce n'est plus un simple jardin, c'est une pièce de la maison à ciel ouvert où nous passons tout notre temps.</p>
+            <div class="quote-author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop" alt="Client">
+                <div class="author-info">
+                    <h4>Marc Lemoine</h4>
+                    <span>Propriétaire, Villa des Pins</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <h2>Prêt à <em>cultiver</em> votre projet ?</h2>
+            <a href="mailto:contact@greenharvest.com" class="big-link">contact@greenharvest.com</a>
+            <div class="footer-meta">
+                <p>&copy; 2023 Green Harvest.</p>
+                <div class="socials">
+                    <a href="#">Instagram</a>
+                    <a href="#">Pinterest</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

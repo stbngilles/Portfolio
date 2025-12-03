@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"c:\\Users\\gille\\OneDrive\\Desktop\\PortfolioPixelbrute\\*.html\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

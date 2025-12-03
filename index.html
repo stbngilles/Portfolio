@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXELBRUTE | Designer & Développeur Web</title>
+    <meta name="description" content="Sites web sur mesure pour petites entreprises. Design web calme, confiant et sans jargon par Esteban.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syne:wght@400;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="#" class="logo-link">
+                <span class="logo-text">PIXELBRUTE</span>
+            </a>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="#home" class="nav__link">Accueil</a></li>
+                    <li><a href="#projects" class="nav__link">Projets</a></li>
+                    <li><a href="#process" class="nav__link">Processus</a></li>
+                    <li><a href="#about" class="nav__link">À propos</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__actions">
+                <a href="mailto:hello@pixelbrut.com" class="btn btn--primary btn--small">Réserver un appel</a>
+                <button class="mobile-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu">
+            <ul class="mobile-menu__list">
+                <li><a href="#home" class="mobile-menu__link">Accueil</a></li>
+                <li><a href="#projects" class="mobile-menu__link">Projets</a></li>
+                <li><a href="#process" class="mobile-menu__link">Processus</a></li>
+                <li><a href="#about" class="mobile-menu__link">À propos</a></li>
+                <li><a href="mailto:hello@pixelbrut.com" class="btn btn--primary mobile-cta">Réserver un appel</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero__bg">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="esteban_mobile.png">
+                    <img src="esteban.png" alt="Esteban Portrait" class="hero__img">
+                </picture>
+                <div class="hero__overlay"></div>
+            </div>
+
+            <div class="container hero__content">
+                <div class="hero__text-col reveal">
+                    <span class="eyebrow">Salut, je suis Esteban</span>
+                    <h1 class="hero__title">Designer Web <br>& Développeur</h1>
+                    <p class="hero__desc">
+                        Je crée des sites web sur mesure pour les entreprises locales qui veulent se démarquer sans stress.
+                        Je suis là pour vous guider à travers la technologie, afin que vous puissiez vous concentrer sur ce que vous faites de mieux.
+                    </p>
+
+                    <div class="hero__tags">
+                        <span class="pill">Sites Web Sur Mesure</span>
+                        <span class="pill">UI Alignée à la Marque</span>
+                        <span class="pill">SEO Optimisé</span>
+                    </div>
+
+                    <div class="hero__btns">
+                        <a href="#projects" class="btn btn--primary">Voir mes projets</a>
+                        <a href="#process" class="btn btn--secondary">Comment je travaille</a>
+                    </div>
+
+                    <div class="hero__trust">
+                        <div class="trust-indicator"></div>
+                        <span>Sites web conçus pour les petites entreprises qui veulent se sentir en confiance en ligne.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- ROI / Growth Module Section -->
+<section class="section roi-section">
+    <div class="container">
+        <div class="roi-grid">
+            
+            <!-- Colonne Texte -->
+            <div class="roi-text reveal">
+                <span class="eyebrow">Croissance & Visibilité</span>
+                <h2 class="section-title">La différence entre survivre et prospérer.</h2>
+                <p class="lead-text">
+                    Sans présence digitale, votre commerce touche toujours le même cercle restreint. 
+                    Avec un site web optimisé, votre zone de chalandise s'étend et votre chiffre d'affaires décolle.
+                </p>
+                
+                <div class="roi-stat-box">
+                    <div class="roi-counter-wrapper">
+                        <span class="roi-plus">+</span>
+                        <span class="roi-number" id="roiCounter">0</span>
+                        <span class="roi-symbol">%</span>
+                    </div>
+                    <p class="roi-label">De clients potentiels en plus après 3 mois</p>
+                </div>
+            </div>
+
+
+<!-- Colonne Graphique Comparatif -->
+<div class="roi-visual reveal delay-1">
+    <div class="graph-header">
+        <div class="legend-item stagnant">
+            <span class="dot"></span> Sans site web
+        </div>
+        <div class="legend-item growth">
+            <span class="dot"></span> Avec nouveau site
+        </div>
+    </div>
+
+    <div class="graph-container">
+        <!-- Grille de fond -->
+        <div class="grid-lines">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <!-- SVG Chart CORRIGÉ -->
+        <!-- viewBox 0 0 600 300 signifie : largeur 600 unités, hauteur 300 unités -->
+        <svg viewBox="0 0 600 300" class="growth-chart" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="growthGradient" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#DCAE66" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="#DCAE66" stop-opacity="0"/>
+                </linearGradient>
+                
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- COURBE 1 : Stagnation (Reste en bas, vers Y=250/260) -->
+            <path class="line-stagnant" 
+                  d="M0,260 C100,265 200,255 300,260 S500,265 600,260" />
+
+            <!-- COURBE 2 : Croissance (Monte vers Y=50) -->
+            <!-- Area (Zone remplie) -->
+            <path class="area-growth" 
+                  d="M0,260 C80,260 120,200 200,220 S300,100 400,120 S520,30 600,50 L600,300 L0,300 Z" />
+            
+            <!-- Line (Le trait doré) -->
+            <path class="line-growth" 
+                  d="M0,260 C80,260 120,200 200,220 S300,100 400,120 S520,30 600,50" />
+            
+            <!-- Point final -->
+            <circle cx="600" cy="50" r="6" class="chart-end-dot" />
+        </svg>
+
+        <!-- Axe X (Mois) -->
+        <div class="graph-labels">
+            <span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</section>
+        
+         <!-- Projects Grid -->
+        <section id="projects" class="section projects">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Projets Sélectionnés</h2>
+                </div>
+
+                <div class="project-grid">
+                    <!-- Project Card 1 - Coworking -->
+                    <article class="project-card reveal delay-1">
+                        <a href="Coworking/index.html" target="_blank">
+                            <div class="project-card__image">
+                                <img src="CoworkingView.png" alt="Espace de Coworking" class="project-image project-image--coworking">
+                                <div class="project-card__overlay">
+                                    <span class="ghost-btn">Voir le Projet</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="project-card__info">
+                            <div class="project-card__meta">Design & Développement</div>
+                            <h3 class="project-card__title">Espace de Coworking</h3>
+                            <p class="project-card__desc">Une plateforme moderne pour un espace de coworking, avec système de réservation et présentation des espaces.</p>
+                        </div>
+                    </article>
+
+                    <!-- Project Card 2 - Jardinier -->
+                    <article class="project-card reveal">
+                        <a href="jardinier/index.html" target="_blank">
+                            <div class="project-card__image">
+                                <img src="jardinier view.png" alt="Service de Jardinage" class="project-image project-image--jardinier">
+                                <div class="project-card__overlay">
+                                    <span class="ghost-btn">Voir le Projet</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="project-card__info">
+                            <div class="project-card__meta">Design & Développement</div>
+                            <h3 class="project-card__title">Service de Jardinage</h3>
+                            <p class="project-card__desc">Un site web naturel et accueillant pour un service de jardinage professionnel, avec galerie avant/après.</p>
+                        </div>
+                    </article>
+
+                    <!-- Project Card 3 -->
+                    <article class="project-card reveal delay-1">
+                        <a href="Coiffure/index.html" target="_blank">
+                            <div class="project-card__image">
+                                <img src="MaisonNoirCouverture.png" alt="Salon de Coiffure" class="project-image">
+                                <div class="project-card__overlay">
+                                    <span class="ghost-btn">Voir le Projet</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="project-card__info">
+                            <div class="project-card__meta">Design & Développement</div>
+                            <h3 class="project-card__title">Salon de Coiffure</h3>
+                            <p class="project-card__desc">Une présence élégante en ligne pour un salon de coiffure moderne, avec une interface soignée et raffinée.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        
+       
+
+        <!-- Process Timeline (Scrollytelling) -->
+<section id="process" class="process-wrapper">
+    <div class="process-sticky">
+
+        <div class="container process-container">
+            <h2 class="section-title center-text">Comment nous travaillerons ensemble</h2>
+
+            <div class="process-content">
+                <!-- Les étapes se superposent ici -->
+
+                <!-- Step 1 -->
+                <div class="process-step active" data-step="1">
+                    <div class="huge-number">01</div>
+                    <div class="step-info">
+                        <h3>L'Appel</h3>
+                        <p>Une conversation détendue d’une vingtaine de minutes. Vous m’expliquez votre projet, vos attentes, et nous vérifions si le feeling et les besoins s’alignent.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step" data-step="2">
+                    <div class="huge-number">02</div>
+                    <div class="step-info">
+                        <h3>Le Plan</h3>
+                        <p>Je vous transmets une proposition simple et transparente : un prix défini à l’avance et un planning concret. Tout est clair dès le départ.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step" data-step="3">
+                    <div class="huge-number">03</div>
+                    <div class="step-info">
+                        <h3>Design</h3>
+                        <p>On construit ensemble l’esthétique du site. Je vous présente des maquettes fidèles au rendu final pour valider le style, l’ambiance et les fonctionnalités avant même de toucher au code.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step" data-step="4">
+                    <div class="huge-number">04</div>
+                    <div class="step-info">
+                        <h3>Développement</h3>
+                        <p>Je développe votre site avec un code propre, rapide et parfaitement responsive. L’objectif : un site fluide, robuste et optimisé pour le référencement dès le premier jour.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="process-step" data-step="5">
+                    <div class="huge-number">05</div>
+                    <div class="step-info">
+                        <h3>Lancement</h3>
+                        <p>Une fois le site en ligne, deux options : vous pouvez me confier la maintenance via un abonnement, ou gérer vous-même l’hébergement et les mises à jour. À vous de choisir ce qui vous convient le mieux !</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Barre de progression visuelle -->
+            <div class="process-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <p class="scroll-hint">Scrollez pour explorer ↓</p>
+        </div>
+    </div>
+</section>
+
+
+
+        <!-- Testimonials -->
+        <section class="section testimonials">
+            <div class="container">
+                <div class="testimonial-grid">
+                    <blockquote class="testimonial reveal">
+                        <p>"Esteban m'a mise tellement à l'aise. Je ne connais rien à la technologie, mais il a tout expliqué simplement. Le site web est magnifique."</p>
+                        <cite>— Sarah, Propriétaire de Boutique de Fleurs</cite>
+                    </blockquote>
+                    <blockquote class="testimonial reveal delay-1">
+                        <p>"Enfin, un développeur qui écoute ! Nous nous sommes sentis accompagnés et jamais perdus. Le projet était dans les temps et le budget."</p>
+                        <cite>— Marc, Gérant de Restaurant à Liège</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+<!-- Behind The Designs (About) -->
+        <section id="about" class="section about">
+            <div class="container">
+                <div class="split-layout">
+                    <div class="split-layout__left reveal">
+                        <span class="section-label">Derrière les designs</span>
+                        <h2 class="section-title">Créer des expériences web calmes et confiantes.</h2>
+                        <p class="lead-text">
+                            La technologie ne devrait pas faire peur. Mon objectif est de vous mettre à l'aise dès notre première conversation jusqu'au lancement final.
+                        </p>
+                    </div>
+                    <div class="split-layout__right reveal delay-1">
+                        <p>
+                            De nombreux entrepreneurs se sentent dépassés par le monde numérique. Je comble ce fossé.
+                            Je ne me contente pas d'écrire du code ; j'écoute votre histoire. Je simplifie les décisions.
+                            Que vous ayez besoin d'une simple page d'atterrissage ou d'une refonte complète de marque, j'explique tout en français simple—pas de jargon confus, juste des résultats clairs.
+                        </p>
+                        <p>
+                            Je crois en la transparence concernant les délais, les prix et ce qui est réellement inclus. Vous ne vous demanderez jamais "quelle est la prochaine étape ?".
+                        </p>
+                        <a href="#" class="text-link disabled">Télécharger la checklist de projet (Bientôt disponible)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section id="contact" class="cta-section">
+            <div class="container">
+                <div class="cta-card reveal">
+                    <h2 class="cta-title">Prêt à parler de votre site web ?</h2>
+                    <p class="cta-text">C'est juste une conversation. Pas de jargon, aucune obligation. Voyons comment nous pouvons faire briller votre marque.</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="pixelbrute.studio@gmail.com" class="btn btn--primary btn--large">Réserver un appel gratuit</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div>
+                    <span class="footer-logo-text">PIXELBRUTE</span>
+                    <p class="footer__copy">© 2025 PIXELBRUTE. Tous droits réservés.</p>
+                </div>
+                <div class="footer__links">
+                    <a href="#home">Accueil</a>
+                    <a href="#projects">Projets</a>
+                    <a href="#process">Processus</a>
+                    <a href="#about">À propos</a>
+                    <a href="mailto:hello@pixelbrut.com">Contact</a>
+                </div>
+            </div>
+            <div class="footer__legal">
+                <span>Fabriqué avec soin à Liège, Belgique</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

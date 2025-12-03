@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS | Industrial Workspace</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Space Grotesk (Titres techniques) & Inter (Texte) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- CURSEUR PERSONNALISÉ -->    
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- TEXTURE DE FOND (Béton) -->
+    <div class="bg-texture"></div>
+
+    <!-- BOUTON RETOUR -->
+    <a href="../index.html#projects" class="close-btn" title="Retour aux projets">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    </a>
+
+    <!-- NAVIGATION -->
+    <nav class="glass-nav">
+        <div class="logo">NEXUS<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#spaces">Espaces</a></li>
+            <li><a href="#amenities">Avantages</a></li>
+            <li><a href="#pricing">Tarifs</a></li>
+            <li><a href="#book" class="btn-primary">Réserver une visite</a></li>
+        </ul>
+        <div class="hamburger">///</div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="label-industrial">EST. 2024 // PARIS AREA</span>
+                <h1>MATIÈRE BRUTE.<br>IDÉES <em>RAFFINÉES</em>.</h1>
+                <p>L'espace de travail conçu pour les créateurs qui bâtissent le futur. Architecture industrielle, infrastructure haut débit.</p>
+                <div class="hero-ctas">
+                    <a href="#pricing" class="btn-black">Voir les bureaux</a>
+                    <a href="#amenities" class="btn-link">Découvrir l'espace &darr;</a>
+                </div>
+            </div>
+            <!-- Image Hero style architectural -->
+            <div class="hero-img">
+                 <div class="img-block" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop');"></div>
+            </div>
+        </div>
+    </header>
+    <!-- INFINITE MARQUEE -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>HIGH SPEED NETWORK /// PRIVATE OFFICES /// CREATIVE COMMUNITY /// 24/7 ACCESS /// COFFEE ROASTERS /// </span>
+            <span>HIGH SPEED NETWORK /// PRIVATE OFFICES /// CREATIVE COMMUNITY /// 24/7 ACCESS /// COFFEE ROASTERS /// </span>
+        </div>
+    </div>
+
+    <!-- BENTO GRID (AMENITIES) -->
+    <section id="amenities" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>INFRASTRUCTURE</h2>
+                <div class="line"></div>
+            </div>
+            
+            <div class="bento-grid">
+                <!-- Box 1: Large -->
+                <div class="bento-box box-large" style="background-image: url('https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?q=80&w=2070&auto=format&fit=crop');">
+                    <div class="box-content">
+                        <h3>Open Space</h3>
+                        <p>Lumière naturelle et acoustique traitée.</p>
+                    </div>
+                </div>
+                
+                <!-- Box 2: Medium (Icon) -->
+                <div class="bento-box box-medium bg-orange">
+                    <div class="icon-stat">10GB/s</div>
+                    <h3>Fibre Dédiée</h3>
+                </div>
+
+                <!-- Box 3: Medium -->
+                <div class="bento-box box-medium bg-dark">
+                    <h3>24/7 Access</h3>
+                    <p>Badge sécurisé.</p>
+                </div>
+
+                <!-- Box 4: Wide -->
+                <div class="bento-box box-wide" style="background-image: url('https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=2070&auto=format&fit=crop');">
+                     <div class="box-content">
+                        <h3>Meeting Rooms</h3>
+                        <p>Équipées pour la visio 4K.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE MAP (SIMULATION) -->
+    <section class="map-section section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>PLAN DU NIVEAU 1</h2>
+            </div>
+            <div class="map-container">
+                <!-- Image de plan architectural (Blueprint) -->
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop" alt="Floor Plan" class="map-bg">
+                
+                <!-- Points interactifs (Hotspots) -->
+                <div class="hotspot" style="top: 30%; left: 20%;" data-info="Espace Détente - 40m²">
+                    <div class="dot"></div>
+                    <div class="tooltip">Espace Détente</div>
+                </div>
+                <div class="hotspot" style="top: 50%; left: 60%;" data-info="Bureaux Privés - Disponibles">
+                    <div class="dot pulse"></div>
+                    <div class="tooltip">Bureaux Privés</div>
+                </div>
+                <div class="hotspot" style="top: 70%; left: 40%;" data-info="Salle Conférence A">
+                    <div class="dot"></div>
+                    <div class="tooltip">Conférence A</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING WITH TOGGLE -->
+    <section id="pricing" class="section-padding bg-light">
+        <div class="container">
+            <div class="pricing-header">
+                <h2>TARIFICATION</h2>
+                <!-- Le Switcher -->
+                <div class="pricing-toggle">
+                    <span class="toggle-label active" id="monthly-label">Mensuel</span>
+                    <label class="switch">
+                        <input type="checkbox" id="pricing-switch">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="toggle-label" id="yearly-label">Annuel <span class="badge">-20%</span></span>
+                </div>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Plan 1 -->
+                <div class="pricing-card">
+                    <div class="plan-name">NOMAD</div>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount" data-monthly="290" data-yearly="230">290</span>
+                        <span class="duration">/mois</span>
+                    </div>
+                    <ul class="features">
+                        <li>Accès Open Space</li>
+                        <li>Casier sécurisé</li>
+                        <li>5h Salle réunion</li>
+                    </ul>
+                    <a href="#" class="btn-outline">Choisir</a>
+                </div>
+
+                <!-- Plan 2 (Featured) -->
+                <div class="pricing-card featured">
+                    <div class="plan-name">RESIDENT</div>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount" data-monthly="450" data-yearly="360">450</span>
+                        <span class="duration">/mois</span>
+                    </div>
+                    <ul class="features">
+                        <li>Bureau dédié (Fixe)</li>
+                        <li>Accès 24/7</li>
+                        <li>Adresse commerciale</li>
+                        <li>Crédit impression illimité</li>
+                    </ul>
+                    <a href="#" class="btn-black">Choisir</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="pricing-card">
+                    <div class="plan-name">STUDIO</div>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount" data-monthly="900" data-yearly="720">900</span>
+                        <span class="duration">/mois</span>
+                    </div>
+                    <ul class="features">
+                        <li>Bureau fermé (2-4 pers)</li>
+                        <li>Logo sur porte</li>
+                        <li>Accès réseau privé</li>
+                    </ul>
+                    <a href="#" class="btn-outline">Choisir</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MULTI-STEP FORM -->
+    <section id="book" class="section-padding">
+        <div class="container form-container">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <h3>PLANIFIER UNE VISITE</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress"></div>
+                    </div>
+                </div>
+
+                <form id="visit-form">
+                    <!-- Step 1 -->
+                    <div class="form-step active" data-step="1">
+                        <h4>Qui êtes-vous ?</h4>
+                        <input type="text" placeholder="Nom complet" required>
+                        <input type="email" placeholder="Email professionnel" required>
+                        <button type="button" class="btn-next">Suivant &rarr;</button>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="form-step" data-step="2">
+                        <h4>Quel espace vous intéresse ?</h4>
+                        <div class="radio-group">
+                            <label><input type="radio" name="space" value="nomad"> Nomad</label>
+                            <label><input type="radio" name="space" value="resident"> Resident</label>
+                            <label><input type="radio" name="space" value="studio"> Studio</label>
+                        </div>
+                        <div class="btns-group">
+                            <button type="button" class="btn-prev">&larr; Retour</button>
+                            <button type="button" class="btn-next">Suivant &rarr;</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="form-step" data-step="3">
+                        <h4>Quand souhaitez-vous venir ?</h4>
+                        <input type="date" required>
+                        <div class="btns-group">
+                            <button type="button" class="btn-prev">&larr; Retour</button>
+                            <button type="submit" class="btn-primary">Confirmer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- LIVE STATUS DASHBOARD -->
+    <section class="live-status section-padding">
+        <div class="container">
+            <div class="status-header">
+                <div class="blinking-dot"></div>
+                <h3>STATUS RÉSEAU & SALLES (LIVE)</h3>
+            </div>
+            
+            <div class="status-grid">
+                <!-- Item 1 -->
+                <div class="status-item">
+                    <span class="status-label">WIFI UPLOAD</span>
+                    <span class="status-value highlight">980 Mbps</span>
+                </div>
+                <!-- Item 2 -->
+                <div class="status-item">
+                    <span class="status-label">WIFI DOWNLOAD</span>
+                    <span class="status-value highlight">950 Mbps</span>
+                </div>
+                <!-- Item 3 -->
+                <div class="status-item">
+                    <span class="status-label">SALLE CONF. A</span>
+                    <span class="status-tag busy">OCCUPÉ</span>
+                </div>
+                <!-- Item 4 -->
+                <div class="status-item">
+                    <span class="status-label">PODCAST STUDIO</span>
+                    <span class="status-tag available">DISPONIBLE</span>
+                </div>
+                <!-- Item 5 -->
+                <div class="status-item">
+                    <span class="status-label">OCCUPATION</span>
+                    <div class="progress-mini">
+                        <div class="fill" style="width: 78%"></div>
+                    </div>
+                    <span class="status-small">78%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>NEXUS WORKSPACE &copy; 2024. DESIGNED FOR BUILDERS.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
