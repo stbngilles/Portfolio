@@ -1,9 +1,9 @@
-/* --- 1. Variables & Reset (Base System) --- */
+﻿/* --- 1. Variables & Reset (Base System) --- */
 :root {
     /* Palette - Deep Forest & Cream */
     --bg-dark: #0d1812;       /* Fond principal */
     --bg-section: #14241b;    /* Fond section secondaire */
-    --bg-light: #f4f1ea;      /* Fond clair (crème) */
+    --bg-light: #f4f1ea;      /* Fond clair (crÃ¨me) */
     --bg-card: #1e3326;       /* Fond des cartes */
     
     --text-main: #f4f1ea;     /* Texte principal */
@@ -14,12 +14,12 @@
     --accent-hover: #c4954f;
     
     --border-light: rgba(244, 241, 234, 0.1);
-    
-    /* Espacements fluides (Clamp) */
-    --container-padding: 1.5rem; /* Marge latérale mobile */
-    --container-width: 1280px;
-    
-    --space-xs: 0.5rem;
+        
+        /* Espacements fluides (Clamp) */
+        --container-padding: 1.5rem; /* Marge latÃ©rale mobile */
+        --container-width: 1280px;
+        
+        --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 2rem;
     --space-lg: 4rem;
@@ -35,7 +35,7 @@
     --font-body: 'Manrope', sans-serif;
 }
 
-/* Reset Box-Sizing pour éviter les débordements */
+/* Reset Box-Sizing pour Ã©viter les dÃ©bordements */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -45,8 +45,8 @@
 /* --- Correctif Global pour Sticky --- */
 html {
     scroll-behavior: smooth;
-    /* On enlève overflow-x: hidden ici car il casse le sticky sur mobile */
-    overflow-x: clip; /* 'clip' coupe ce qui dépasse sans casser le scroll */
+    /* On enlÃ¨ve overflow-x: hidden ici car il casse le sticky sur mobile */
+    overflow-x: clip; /* 'clip' coupe ce qui dÃ©passe sans casser le scroll */
 }
 
 body {
@@ -55,7 +55,7 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     font-size: var(--fs-body);
-    /* Idem ici, on utilise clip ou visible pour la sécurité */
+    /* Idem ici, on utilise clip ou visible pour la sÃ©curitÃ© */
     overflow-x: clip; 
     width: 100%;
 }
@@ -298,7 +298,7 @@ h1, h2, h3, h4 {
 .hero__overlay {
     position: absolute;
     inset: 0;
-    /* Dégradé horizontal subtil sur desktop */
+    /* DÃ©gradÃ© horizontal subtil sur desktop */
     background: linear-gradient(90deg, var(--bg-dark) 10%, rgba(13,24,18,0.5) 50%, rgba(13,24,18,0) 100%);
 }
 
@@ -448,7 +448,7 @@ h1, h2, h3, h4 {
     width: 100%; height: 100%;
     transition: transform 0.6s ease;
 }
-/* Dégradés abstraits pour les images */
+/* DÃ©gradÃ©s abstraits pour les images */
 .art-1 { background: radial-gradient(circle at top right, #4a4a4a, #1a1a1a); }
 .art-2 { background: linear-gradient(45deg, #1e3326, #0d1812); }
 .art-3 { background: linear-gradient(to bottom, #3f2e18, #1a120b); }
@@ -480,10 +480,10 @@ h1, h2, h3, h4 {
 }
 
 
-/* --- 7. Process Scrollytelling Section (Corrigé & Optimisé) --- */
+/* --- 7. Process Scrollytelling Section (CorrigÃ© & OptimisÃ©) --- */
 
 .process-wrapper {
-    /* Utilisation de min-height pour la compatibilité */
+    /* Utilisation de min-height pour la compatibilitÃ© */
     min-height: 300vh; 
     position: relative;
     background-color: var(--bg-section);
@@ -517,7 +517,7 @@ h1, h2, h3, h4 {
     position: relative;
     width: 100%;
     max-width: 600px;
-    height: 300px; /* Hauteur fixe pour éviter les sauts de mise en page */
+    height: 300px; /* Hauteur fixe pour Ã©viter les sauts de mise en page */
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -532,7 +532,7 @@ h1, h2, h3, h4 {
     width: 100%;
     text-align: center;
     
-    /* État par défaut : invisible et décalé */
+    /* Ã‰tat par dÃ©faut : invisible et dÃ©calÃ© */
     opacity: 0;
     filter: blur(10px);
     transform: translate(-50%, -40%);
@@ -541,7 +541,7 @@ h1, h2, h3, h4 {
 }
 
 .process-step.active {
-    /* État actif : visible et net */
+    /* Ã‰tat actif : visible et net */
     opacity: 1;
     filter: blur(0);
     transform: translate(-50%, -50%);
@@ -549,12 +549,12 @@ h1, h2, h3, h4 {
     z-index: 10;
 }
 
-/* Le Numéro Géant en arrière-plan */
+/* Le NumÃ©ro GÃ©ant en arriÃ¨re-plan */
 .huge-number {
     font-family: var(--font-display);
-    font-size: clamp(12rem, 30vw, 20rem); /* Augmenté pour être beaucoup plus imposant */
+    font-size: clamp(12rem, 30vw, 20rem); /* AugmentÃ© pour Ãªtre beaucoup plus imposant */
     font-weight: 800;
-    /* Couleur accent dorée avec plus d'opacité pour visibilité */
+    /* Couleur accent dorÃ©e avec plus d'opacitÃ© pour visibilitÃ© */
     color: rgba(220, 174, 102, 0.35); /* Or doux plus visible */
     line-height: 1;
     position: absolute;
@@ -564,7 +564,7 @@ h1, h2, h3, h4 {
     z-index: -1;
     user-select: none;
     transition: opacity 0.3s ease;
-    /* Ajout d'un stroke lumineux pour plus de présence */
+    /* Ajout d'un stroke lumineux pour plus de prÃ©sence */
     text-shadow: 0 0 60px rgba(220, 174, 102, 0.4);
 }
 
@@ -578,7 +578,7 @@ h1, h2, h3, h4 {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     color: var(--text-main);
     line-height: 1.6;
-    background: rgba(20, 36, 27, 0.85); /* Fond plus opaque pour lisibilité */
+    background: rgba(20, 36, 27, 0.85); /* Fond plus opaque pour lisibilitÃ© */
     padding: 1.5rem;
     border-radius: 16px;
     backdrop-filter: blur(8px);
@@ -588,7 +588,7 @@ h1, h2, h3, h4 {
 /* Barre de progression */
 .process-progress {
     position: absolute;
-    bottom: 10vh; /* Positionnée en bas de l'écran */
+    bottom: 10vh; /* PositionnÃ©e en bas de l'Ã©cran */
     left: 50%;
     transform: translateX(-50%);
     width: 200px;
@@ -669,7 +669,7 @@ h1, h2, h3, h4 {
    ========================================= */
 
 @media (max-width: 1024px) {
-    /* Tablette : on réduit les marges */
+    /* Tablette : on rÃ©duit les marges */
     :root {
         --container-padding: 2rem;
         --space-xl: 6rem;
@@ -686,7 +686,7 @@ h1, h2, h3, h4 {
     :root {
         --space-md: 1.5rem;
         --space-lg: 3rem;
-        --space-xl: 4rem; /* Sections plus rapprochées */
+        --space-xl: 4rem; /* Sections plus rapprochÃ©es */
         --container-padding: 1.25rem; /* ~20px de marge sur les bords */
     }
 
@@ -698,42 +698,67 @@ h1, h2, h3, h4 {
     .header__container { width: 100%; }
     
     /* --- Hero Mobile (Refonte Totale) --- */
-    .hero {
-        display: block; /* On sort du Flexbox centré */
-        padding: 0;     /* Pas de padding top classique */
-        height: auto;
+        .hero {
+        position: relative;
         min-height: 100dvh;
+        padding: 0;
+        overflow: hidden;
     }
 
     .hero__bg {
-        /* L'image prend tout l'écran en background fixe */
         position: absolute;
-        width: 100%;
+        inset: 0;
+        width: 100%;      /* écrase le 70% du desktop */
         height: 100%;
-        top: 0;
-        left: 0;
+        right: auto;      /* important sinon ça peut rester collé à droite */
+        overflow: hidden;
     }
 
-    .hero__img {
-        /* Ajustement du cadrage pour mobile avec esteban_mobile.png */
+    /* .hero__img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        object-position: 60% ; /* Décalé vers la gauche */
-        width: 100%;
-        height: 100%;
-    }
-
+        object-position: 54% 20%;
+        transform: none;
+    } 
+    */
+    
+    .hero__img {
+    position: absolute;
+    /* On force l'image à se coller en haut */
+    top: -20%;
+    left: 0;
+    
+    /* Largeur : prend tout l'écran */
+    width: 100%;
+    
+    /* Hauteur : "auto" permet de respecter le ratio de l'image (effet dézoom naturel) */
+    height: auto; 
+    
+    /* SÉCURITÉ : Si l'image est trop petite, on la force à faire au moins la hauteur de l'écran */
+    min-height: 80%;
+    
+    object-fit: cover;
+    
+    /* 0% sur l'axe Y force l'affichage du HAUT de la photo (visage) */
+    object-position: 53% 0%;
+}
     .hero__overlay {
-        /* Dégradé vertical FORT : Transparent en haut -> Vert très sombre en bas */
-        background: linear-gradient(to bottom, 
-            rgba(13, 24, 18, 0.2) 0%, 
-            rgba(13, 24, 18, 0.6) 40%, 
-            var(--bg-dark) 85%
-        );
-        z-index: 1;
-    }
+    background: linear-gradient(
+        to bottom,
+        rgba(13, 24, 18, 0.0) 0%,     /* encore plus transparent en haut */
+        rgba(13, 24, 18, 0.15) 25%,   /* léger foncé, mais plus bas */
+        rgba(13, 24, 18, 0.45) 50%,   /* mi-intensité */
+        var(--bg-dark) 60%            /* sombre complet mais seulement en bas */
+    );
+    z-index: 1;
+}
+
 
     .hero__content {
-        /* Le contenu s'aligne en bas de l'écran */
+        /* Le contenu s'aligne en bas de l'Ã©cran */
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -756,7 +781,7 @@ h1, h2, h3, h4 {
     .hero__desc {
         font-size: 1rem;
         margin-bottom: 1.5rem;
-        color: rgba(244, 241, 234, 0.9); /* Plus clair pour lisibilité sur dégradé */
+        color: rgba(244, 241, 234, 0.9); /* Plus clair pour lisibilitÃ© sur dÃ©gradÃ© */
     }
 
     .hero__btns {
@@ -843,13 +868,13 @@ h1, h2, h3, h4 {
 
 .roi-number {
     display: inline-block;
-    min-width: 120px; /* Empêche le chiffre de bouger quand il change */
-    font-variant-numeric: tabular-nums; /* Empêche les sauts de largeur */
+    min-width: 120px; /* EmpÃªche le chiffre de bouger quand il change */
+    font-variant-numeric: tabular-nums; /* EmpÃªche les sauts de largeur */
     line-height: 1; 
-    /* Si le 0 est toujours écrasé, supprimez width/height fixes s'il y en a */
+    /* Si le 0 est toujours Ã©crasÃ©, supprimez width/height fixes s'il y en a */
 }
 
-/* CORRECTIF POUR ASSURER LA VISIBILITÉ DU GRAPHIQUE */
+/* CORRECTIF POUR ASSURER LA VISIBILITÃ‰ DU GRAPHIQUE */
 .line-growth {
     fill: none;
     stroke: #DCAE66; /* Votre couleur or */
@@ -857,12 +882,12 @@ h1, h2, h3, h4 {
     
     /* Animation setup */
     stroke-dasharray: 1000;
-    stroke-dashoffset: 1000; /* Caché au départ */
+    stroke-dashoffset: 1000; /* CachÃ© au dÃ©part */
 }
 
 /* On s'assure que l'animation CSS force l'affichage */
 .graph-container.animating .line-growth {
-    animation: drawLine 2s ease-out forwards; /* 'forwards' garde la ligne à la fin */
+    animation: drawLine 2s ease-out forwards; /* 'forwards' garde la ligne Ã  la fin */
 }
 
 @keyframes drawLine {
@@ -967,7 +992,7 @@ h1, h2, h3, h4 {
     fill: none;
     stroke: #555;
     stroke-width: 2;
-    stroke-dasharray: 5, 5; /* Pointillés */
+    stroke-dasharray: 5, 5; /* PointillÃ©s */
     opacity: 0.5;
 }
 
@@ -980,10 +1005,10 @@ h1, h2, h3, h4 {
     stroke-linejoin: round;
     filter: url(#glow);
     
-    /* Préparation animation de tracé */
+    /* PrÃ©paration animation de tracÃ© */
     stroke-dasharray: 2000; /* Assez long pour couvrir toute la courbe */
-    stroke-dashoffset: 2000; /* Caché au départ */
-    /* Pas de transition CSS ici, on gère l'état via classe JS pour le reset */
+    stroke-dashoffset: 2000; /* CachÃ© au dÃ©part */
+    /* Pas de transition CSS ici, on gÃ¨re l'Ã©tat via classe JS pour le reset */
 }
 
 .area-growth {
@@ -1002,7 +1027,7 @@ h1, h2, h3, h4 {
 
 /* --- Classes d'Animation (JS Controlled) --- */
 
-/* Quand la classe .animating est ajoutée au container */
+/* Quand la classe .animating est ajoutÃ©e au container */
 .graph-container.animating .line-growth {
     animation: drawLine 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -1016,7 +1041,7 @@ h1, h2, h3, h4 {
 .graph-container.animating .chart-end-dot {
     opacity: 1;
     transition: opacity 0.5s ease;
-    transition-delay: 2.4s; /* Apparaît juste à la fin du tracé */
+    transition-delay: 2.4s; /* ApparaÃ®t juste Ã  la fin du tracÃ© */
 }
 
 @keyframes drawLine {
