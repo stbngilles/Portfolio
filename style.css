@@ -728,7 +728,7 @@ h1, h2, h3, h4 {
     .hero__img {
     position: absolute;
     /* On force l'image à se coller en haut */
-    top: -20%;
+    top: -10%;
     left: 0;
     
     /* Largeur : prend tout l'écran */
@@ -738,12 +738,12 @@ h1, h2, h3, h4 {
     height: auto; 
     
     /* SÉCURITÉ : Si l'image est trop petite, on la force à faire au moins la hauteur de l'écran */
-    min-height: 80%;
+    min-height: 70%;
     
     object-fit: cover;
     
     /* 0% sur l'axe Y force l'affichage du HAUT de la photo (visage) */
-    object-position: 53% 0%;
+    object-position: 58% 0%;
 }
     .hero__overlay {
     background: linear-gradient(
