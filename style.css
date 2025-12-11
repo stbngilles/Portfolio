@@ -1182,8 +1182,9 @@ h1, h2, h3, h4 {
     }
 
     /* Ajout d'une petite fl�che apr�s le texte "Voir le projet" */
+/* Ajout d'une petite flèche après le texte "Voir le projet" */
     .project-card__overlay .ghost-btn::after {
-        content: " ?";
+        content: " →"; /* Ou content: " "; pour juste un espace, ou retirez la ligne */
         display: inline-block;
         margin-left: 5px;
         transition: transform 0.3s;
@@ -1302,7 +1303,7 @@ h1, h2, h3, h4 {
     
     /* 1. La Fl�che flottante (Indicateur de Swipe) */
     .services::before {
-        content: "?"; /* La fl�che */
+        content: "→"; /* La fl�che */
         position: absolute;
         right: 10px; /* Coll� � droite */
         
