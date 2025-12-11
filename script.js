@@ -1,5 +1,8 @@
+﻿// Performance-focused JS cleanup for mobile
+
 document.addEventListener('DOMContentLoaded', () => {
-    
+    const isMobileScreen = window.matchMedia('(max-width: 768px)');
+
     /* --- 1. Mobile Navigation --- */
     const toggleBtn = document.querySelector('.mobile-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
@@ -10,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function toggleMenu() {
             mobileMenu.classList.toggle('active');
             const spans = toggleBtn.querySelectorAll('span');
-            if(mobileMenu.classList.contains('active')) {
+            if (mobileMenu.classList.contains('active')) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
                 spans[1].style.transform = 'rotate(-45deg) translate(1px, -1px)';
                 body.style.overflow = 'hidden';
@@ -48,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 observer.unobserve(entry.target);
             }
         });
-    }, { root: null, threshold: 0.1, rootMargin: "0px 0px -100px 0px" });
+    }, { root: null, threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
 
     revealElements.forEach(el => revealObserver.observe(el));
 
@@ -57,100 +60,102 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
+            if (targetId === '#') return;
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerHeight = header ? header.offsetHeight : 0;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
         });
     });
 
-    /* --- 5. Scrollytelling --- */
+    /* --- 5. Process Scrollytelling --- */
     const processSection = document.querySelector('.process-wrapper');
     const steps = document.querySelectorAll('.process-step');
     const progressBar = document.getElementById('progressBar');
-    
+
     if (processSection && steps.length > 0) {
-        const totalSteps = steps.length;
-        function handleScrollProcess() {
-            const rect = processSection.getBoundingClientRect();
-            const sectionTop = rect.top;
-            const sectionHeight = rect.height;
-            const windowHeight = window.innerHeight;
-            let scrollPercent = -sectionTop / (sectionHeight - windowHeight);
-            scrollPercent = Math.max(0, Math.min(1, scrollPercent));
+        if (isMobileScreen.matches) {
+            steps.forEach(step => step.classList.add('active'));
+            if (progressBar) progressBar.style.display = 'none';
+        } else {
+            const totalSteps = steps.length;
+            function handleScrollProcess() {
+                const rect = processSection.getBoundingClientRect();
+                const sectionTop = rect.top;
+                const sectionHeight = rect.height;
+                const windowHeight = window.innerHeight;
+                let scrollPercent = -sectionTop / (sectionHeight - windowHeight);
+                scrollPercent = Math.max(0, Math.min(1, scrollPercent));
 
-            if (progressBar) progressBar.style.width = `${scrollPercent * 100}%`;
+                if (progressBar) progressBar.style.width = `${scrollPercent * 100}%`;
 
-            const activeIndex = Math.min(totalSteps - 1, Math.floor(scrollPercent * totalSteps));
-            steps.forEach((step, index) => {
-                if (index === activeIndex) step.classList.add('active');
-                else step.classList.remove('active');
-            });
+                const activeIndex = Math.min(totalSteps - 1, Math.floor(scrollPercent * totalSteps));
+                steps.forEach((step, index) => {
+                    if (index === activeIndex) step.classList.add('active');
+                    else step.classList.remove('active');
+                });
+            }
+            window.addEventListener('scroll', () => window.requestAnimationFrame(handleScrollProcess));
+            window.addEventListener('resize', () => window.requestAnimationFrame(handleScrollProcess));
+            handleScrollProcess();
         }
-        window.addEventListener('scroll', () => window.requestAnimationFrame(handleScrollProcess));
-        window.addEventListener('resize', () => window.requestAnimationFrame(handleScrollProcess));
-        handleScrollProcess();
     }
 
-    /* --- 6. ROI / GRAPH CHART ANIMATION (NOUVEAU CODE) --- */
+    /* --- 6. ROI / Graph Animation --- */
     const roiSection = document.querySelector('.roi-section');
     const graphContainer = document.querySelector('.graph-container');
     const numberElement = document.getElementById('roiCounter');
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    
-    // Configuration
-    const targetNumber = 184; 
-    const cycleDuration = 5000; // 5 secondes au total par cycle
-    let roiInterval; // Variable pour stocker l'intervalle
+    const isMobile = isMobileScreen.matches;
+
+    const targetNumber = 184;
+    const cycleDuration = 5000;
+    let roiInterval;
     let mobileStartTimeout = null;
     let firstAnimationDone = false;
 
     function runAnimation() {
         if (!graphContainer || !numberElement) return;
 
-        // 1. RESET
         graphContainer.classList.remove('animating');
-        numberElement.innerText = "0";
+        numberElement.innerText = '0';
 
-        // Petite pause technique
         setTimeout(() => {
-            // 2. START
             graphContainer.classList.add('animating');
-            
-            // 3. Animation du chiffre
-            const duration = 2000; // 2 secondes
+
+            const duration = 2000;
             const startTime = performance.now();
 
             function updateNumber(currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                
-                // Easing
                 const ease = 1 - Math.pow(1 - progress, 3);
-                
                 numberElement.innerText = Math.floor(ease * targetNumber);
-
-                if (progress < 1) {
-                    requestAnimationFrame(updateNumber);
-                }
+                if (progress < 1) requestAnimationFrame(updateNumber);
             }
             requestAnimationFrame(updateNumber);
-
-        }, 100); 
+        }, 100);
     }
 
-    // Observer pour le graphique
-        if (roiSection) {
+    if (roiSection) {
         const roiObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    if (isMobile) {
+                        graphContainer?.classList.add('animating');
+                        if (numberElement) numberElement.innerText = String(targetNumber);
+                        firstAnimationDone = true;
+                        if (roiInterval) {
+                            clearInterval(roiInterval);
+                            roiInterval = null;
+                        }
+                        return;
+                    }
+
                     const startAnimation = () => {
-                        runAnimation(); // Premier lancement
-                        // Relance toutes les 5 secondes si pas dǸj�� lancǸ
+                        runAnimation();
                         if (!roiInterval) {
                             roiInterval = setInterval(runAnimation, cycleDuration);
                         }
@@ -158,7 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         mobileStartTimeout = null;
                     };
 
-                    // Sur mobile, on attend 1s pour laisser le scroll commencer
                     if (isMobile && !firstAnimationDone) {
                         if (!mobileStartTimeout) {
                             mobileStartTimeout = setTimeout(startAnimation, 1000);
@@ -167,21 +171,18 @@ document.addEventListener('DOMContentLoaded', () => {
                         startAnimation();
                     }
                 } else {
-                    // ArrǦt si on ne voit plus l'Ǹcran pour Ǹconomiser la batterie
                     if (mobileStartTimeout) {
                         clearTimeout(mobileStartTimeout);
                         mobileStartTimeout = null;
                     }
-                    if(roiInterval) {
+                    if (roiInterval) {
                         clearInterval(roiInterval);
                         roiInterval = null;
                     }
                 }
             });
         }, { threshold: 0.3 });
-        
+
         roiObserver.observe(roiSection);
     }
 });
-
-

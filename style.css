@@ -640,6 +640,23 @@ h1, h2, h3, h4 {
     .process-content { height: auto; min-height: 300px; }
 }
 
+/* Simplify sticky section on mobile to avoid heavy paints */
+@media (max-width: 768px) {
+    .process-wrapper { min-height: auto; }
+    .process-sticky { position: relative !important; height: auto; }
+    .process-content { height: auto; min-height: 0; display: block; }
+    .process-step {
+        position: relative;
+        opacity: 1;
+        filter: none;
+        transform: none;
+        pointer-events: all;
+        margin-bottom: 1.5rem;
+    }
+    .process-step:last-child { margin-bottom: 0; }
+    .process-progress, .scroll-hint { display: none; }
+}
+
 
 /* --- 8. Testimonials & CTA --- */
 .testimonials {
