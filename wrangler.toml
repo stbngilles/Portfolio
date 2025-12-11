@@ -2,5 +2,7 @@ name = "pixelbrute"
 main = "worker.js"
 compatibility_date = "2024-12-11"
 
-# Sert tous les fichiers statiques du dossier courant.
-assets = { binding = "ASSETS", directory = ".", exclude = ["wrangler.toml", ".git", ".claude", "node_modules"] }
+[assets]
+binding = "ASSETS"
+directory = "."
+exclude = ["wrangler.toml", ".git", ".claude", "node_modules"]
