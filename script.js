@@ -77,31 +77,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBar = document.getElementById('progressBar');
 
     if (processSection && steps.length > 0) {
-        if (isMobileScreen.matches) {
-            steps.forEach(step => step.classList.add('active'));
-            if (progressBar) progressBar.style.display = 'none';
-        } else {
-            const totalSteps = steps.length;
-            function handleScrollProcess() {
-                const rect = processSection.getBoundingClientRect();
-                const sectionTop = rect.top;
-                const sectionHeight = rect.height;
-                const windowHeight = window.innerHeight;
-                let scrollPercent = -sectionTop / (sectionHeight - windowHeight);
-                scrollPercent = Math.max(0, Math.min(1, scrollPercent));
+        const totalSteps = steps.length;
+        function handleScrollProcess() {
+            const rect = processSection.getBoundingClientRect();
+            const sectionTop = rect.top;
+            const sectionHeight = rect.height;
+            const windowHeight = window.innerHeight;
+            let scrollPercent = -sectionTop / (sectionHeight - windowHeight);
+            scrollPercent = Math.max(0, Math.min(1, scrollPercent));
 
-                if (progressBar) progressBar.style.width = `${scrollPercent * 100}%`;
+            if (progressBar) progressBar.style.width = `${scrollPercent * 100}%`;
 
-                const activeIndex = Math.min(totalSteps - 1, Math.floor(scrollPercent * totalSteps));
-                steps.forEach((step, index) => {
-                    if (index === activeIndex) step.classList.add('active');
-                    else step.classList.remove('active');
-                });
-            }
-            window.addEventListener('scroll', () => window.requestAnimationFrame(handleScrollProcess));
-            window.addEventListener('resize', () => window.requestAnimationFrame(handleScrollProcess));
-            handleScrollProcess();
+            const activeIndex = Math.min(totalSteps - 1, Math.floor(scrollPercent * totalSteps));
+            steps.forEach((step, index) => {
+                if (index === activeIndex) step.classList.add('active');
+                else step.classList.remove('active');
+            });
         }
+        window.addEventListener('scroll', () => window.requestAnimationFrame(handleScrollProcess));
+        window.addEventListener('resize', () => window.requestAnimationFrame(handleScrollProcess));
+        handleScrollProcess();
     }
 
     /* --- 6. ROI / Graph Animation --- */
