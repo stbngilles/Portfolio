@@ -299,7 +299,7 @@ h1, h2, h3, h4 {
     position: absolute;
     inset: 0;
     /* Dégradé horizontal subtil sur desktop */
-    background: linear-gradient(90deg, var(--bg-dark) 0%, rgba(229,229,227,0.5) 15%, rgba(229,229,227,0) 60%);
+    background: linear-gradient(90deg, var(--bg-dark) 0%, rgba(229,229,227,0.5) 5%, rgba(229,229,227,0) 10%);
 }
 
 .hero__content {
