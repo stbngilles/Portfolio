@@ -1,22 +1,22 @@
 ﻿/* --- 1. Variables & Reset (Base System) --- */
 :root {
-    /* Palette - Deep Forest & Cream */
-    --bg-dark: #0d1812;       /* Fond principal */
-    --bg-section: #14241b;    /* Fond section secondaire */
-    --bg-light: #f4f1ea;      /* Fond clair (crÃ¨me) */
-    --bg-card: #1e3326;       /* Fond des cartes */
+    /* Palette - Gris Béton, Noir Élégant & Doré Premium */
+    --bg-dark: #E5E5E3;       /* Fond principal (Gris béton clair) */
+    --bg-section: #D8D8D5;    /* Fond section secondaire (Gris béton légèrement plus foncé) */
+    --bg-light: #f4f1ea;      /* Fond clair (crème, gardé pour compatibilité ou usage spécifique si nécessaire) */
+    --bg-card: #C8C8C6;       /* Fond des cartes (Béton froid très léger, utilisé pour les cartes) */
     
-    --text-main: #f4f1ea;     /* Texte principal */
-    --text-muted: #aabcb0;    /* Texte secondaire */
-    --text-dark: #0d1812;     /* Texte sur fond clair */
+    --text-main: #0A0A0A;     /* Texte principal (Noir élégant) */
+    --text-muted: #514f4f;    /* Texte secondaire (Gris foncé luxueux) */
+    --text-dark: #0A0A0A;     /* Texte sur fond clair (Noir élégant) */
     
-    --accent: #dcae66;        /* Or doux */
-    --accent-hover: #c4954f;
+    --accent: #D9A441;        /* Doré premium */
+    --accent-hover: #C28E37;  /* Doré variation plus sombre */
     
-    --border-light: rgba(244, 241, 234, 0.1);
+    --border-light: #C8C8C6; /* Bordures subtiles (Béton froid très léger) */
         
         /* Espacements fluides (Clamp) */
-        --container-padding: 1.5rem; /* Marge latÃ©rale mobile */
+        --container-padding: 1.5rem; /* Marge latérale mobile */
         --container-width: 1280px;
         
         --space-xs: 0.5rem;
@@ -35,7 +35,7 @@
     --font-body: 'Manrope', sans-serif;
 }
 
-/* Reset Box-Sizing pour Ã©viter les dÃ©bordements */
+/* Reset Box-Sizing pour éviter les débordements */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -45,8 +45,8 @@
 /* --- Correctif Global pour Sticky --- */
 html {
     scroll-behavior: smooth;
-    /* On enlÃ¨ve overflow-x: hidden ici car il casse le sticky sur mobile */
-    overflow-x: clip; /* 'clip' coupe ce qui dÃ©passe sans casser le scroll */
+    /* On enlève overflow-x: hidden ici car il casse le sticky sur mobile */
+    overflow-x: clip; /* 'clip' coupe ce qui dépasse sans casser le scroll */
 }
 
 body {
@@ -55,7 +55,7 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     font-size: var(--fs-body);
-    /* Idem ici, on utilise clip ou visible pour la sÃ©curitÃ© */
+    /* Idem ici, on utilise clip ou visible pour la sécurité */
     overflow-x: clip; 
     width: 100%;
 }
@@ -155,7 +155,7 @@ h1, h2, h3, h4 {
 .btn--secondary {
     background: transparent;
     color: var(--text-main);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid var(--border-light); /* Utilisation de la nouvelle couleur de bordure */
 }
 .btn--secondary:hover {
     border-color: var(--accent);
@@ -192,7 +192,7 @@ h1, h2, h3, h4 {
 }
 
 .header.scrolled {
-    background: rgba(13, 24, 18, 0.9);
+    background: rgba(229, 229, 227, 0.9); /* Fond principal avec opacité */
     backdrop-filter: blur(12px);
     padding: 0.8rem 0;
     border-bottom: 1px solid var(--border-light);
@@ -283,7 +283,7 @@ h1, h2, h3, h4 {
     position: absolute;
     top: 0;
     right: 0;
-    width: 70%;
+    width: 55%;
     height: 100%;
     z-index: 0;
 }
@@ -298,8 +298,8 @@ h1, h2, h3, h4 {
 .hero__overlay {
     position: absolute;
     inset: 0;
-    /* DÃ©gradÃ© horizontal subtil sur desktop */
-    background: linear-gradient(90deg, var(--bg-dark) 10%, rgba(13,24,18,0.5) 50%, rgba(13,24,18,0) 100%);
+    /* Dégradé horizontal subtil sur desktop */
+    background: linear-gradient(90deg, var(--bg-dark) 0%, rgba(229,229,227,0.5) 15%, rgba(229,229,227,0) 60%);
 }
 
 .hero__content {
@@ -357,9 +357,9 @@ h1, h2, h3, h4 {
 .trust-indicator {
     width: 8px;
     height: 8px;
-    background: #2ecc71;
+    background: #28D17C; /* Vert accent optionnel */
     border-radius: 50%;
-    box-shadow: 0 0 8px rgba(46,204,113,0.4);
+    box-shadow: 0 0 8px rgba(40,209,124,0.4);
 }
 
 
@@ -423,7 +423,7 @@ h1, h2, h3, h4 {
 .project-card__image {
     height: 320px;
     border-radius: 16px;
-    background: #222;
+    background: #C8C8C6; /* Couleur de bordure subtile pour placeholder */
     overflow: hidden;
     margin-bottom: 1.5rem;
     position: relative;
@@ -452,10 +452,24 @@ h1, h2, h3, h4 {
     width: 100%; height: 100%;
     transition: transform 0.6s ease;
 }
-/* DÃ©gradÃ©s abstraits pour les images */
-.art-1 { background: radial-gradient(circle at top right, #4a4a4a, #1a1a1a); }
-.art-2 { background: linear-gradient(45deg, #1e3326, #0d1812); }
-.art-3 { background: linear-gradient(to bottom, #3f2e18, #1a120b); }
+/* Dégradés abstraits pour les images */
+.art-1 { background: radial-gradient(circle at top right, #9a9a9a, #6a6a6a); }
+.art-2 { background: linear-gradient(
+        to bottom,
+        rgba(229, 229, 227, 0.0) 0%,
+        rgba(229, 229, 227, 0.0) 25%,
+        rgba(229, 229, 227, 0.15) 55%,
+        rgba(229, 229, 227, 0.4) 78%,
+        rgba(229, 229, 227, 0.75) 100%
+    ); }
+.art-3 { background: linear-gradient(
+        to bottom,
+        rgba(229, 229, 227, 0.0) 0%,
+        rgba(229, 229, 227, 0.0) 25%,
+        rgba(229, 229, 227, 0.15) 55%,
+        rgba(229, 229, 227, 0.4) 78%,
+        rgba(229, 229, 227, 0.75) 100%
+    ); }
 
 .project-card:hover .placeholder-art { transform: scale(1.05); }
 
@@ -484,10 +498,10 @@ h1, h2, h3, h4 {
 }
 
 
-/* --- 7. Process Scrollytelling Section (CorrigÃ© & OptimisÃ©) --- */
+/* --- 7. Process Scrollytelling Section (Corrigé & Optimisé) --- */
 
 .process-wrapper {
-    /* Utilisation de min-height pour la compatibilitÃ© */
+    /* Utilisation de min-height pour la compatibilité */
     min-height: 300vh; 
     position: relative;
     background-color: var(--bg-section);
@@ -521,7 +535,7 @@ h1, h2, h3, h4 {
     position: relative;
     width: 100%;
     max-width: 600px;
-    height: 300px; /* Hauteur fixe pour Ã©viter les sauts de mise en page */
+    height: 300px; /* Hauteur fixe pour éviter les sauts de mise en page */
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -536,7 +550,7 @@ h1, h2, h3, h4 {
     width: 100%;
     text-align: center;
     
-    /* Ã‰tat par dÃ©faut : invisible et dÃ©calÃ© */
+    /* État par défaut : invisible et décalé */
     opacity: 0;
     filter: blur(10px);
     transform: translate(-50%, -40%);
@@ -545,7 +559,7 @@ h1, h2, h3, h4 {
 }
 
 .process-step.active {
-    /* Ã‰tat actif : visible et net */
+    /* État actif : visible et net */
     opacity: 1;
     filter: blur(0);
     transform: translate(-50%, -50%);
@@ -553,13 +567,13 @@ h1, h2, h3, h4 {
     z-index: 10;
 }
 
-/* Le NumÃ©ro GÃ©ant en arriÃ¨re-plan */
+/* Le Numéro Géant en arrière-plan */
 .huge-number {
     font-family: var(--font-display);
-    font-size: clamp(12rem, 30vw, 20rem); /* AugmentÃ© pour Ãªtre beaucoup plus imposant */
+    font-size: clamp(12rem, 30vw, 20rem); /* Augmenté pour être beaucoup plus imposant */
     font-weight: 800;
-    /* Couleur accent dorÃ©e avec plus d'opacitÃ© pour visibilitÃ© */
-    color: rgba(220, 174, 102, 0.35); /* Or doux plus visible */
+    /* Couleur accent dorée avec plus d'opacité pour visibilité */
+    color: rgba(217, 164, 65, 0.35); /* Doré premium plus visible */
     line-height: 1;
     position: absolute;
     top: 50%;
@@ -568,8 +582,8 @@ h1, h2, h3, h4 {
     z-index: -1;
     user-select: none;
     transition: opacity 0.3s ease;
-    /* Ajout d'un stroke lumineux pour plus de prÃ©sence */
-    text-shadow: 0 0 60px rgba(220, 174, 102, 0.4);
+    /* Ajout d'un stroke lumineux pour plus de présence */
+    text-shadow: 0 0 60px rgba(217, 164, 65, 0.4);
 }
 
 .step-info h3 {
@@ -582,7 +596,7 @@ h1, h2, h3, h4 {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     color: var(--text-main);
     line-height: 1.6;
-    background: rgba(20, 36, 27, 0.85); /* Fond plus opaque pour lisibilitÃ© */
+    background: rgba(216, 216, 213, 0.85); /* Fond plus opaque pour lisibilité (bg-section) */
     padding: 1.5rem;
     border-radius: 16px;
     backdrop-filter: blur(8px);
@@ -592,12 +606,12 @@ h1, h2, h3, h4 {
 /* Barre de progression */
 .process-progress {
     position: absolute;
-    bottom: 10vh; /* PositionnÃ©e en bas de l'Ã©cran */
+    bottom: 10vh; /* Positionnée en bas de l'écran */
     left: 50%;
     transform: translateX(-50%);
     width: 200px;
     height: 4px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(10,10,10,0.1); /* Utilisation de text-main avec opacité */
     border-radius: 4px;
     overflow: hidden;
     z-index: 20;
@@ -629,7 +643,7 @@ h1, h2, h3, h4 {
 
 /* --- 8. Testimonials & CTA --- */
 .testimonials {
-    background: #112018;
+    background: #e0e0de; /* Une teinte légèrement plus foncée que bg-dark, plus claire que bg-section */
     border-y: 1px solid var(--border-light);
 }
 .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -638,22 +652,22 @@ h1, h2, h3, h4 {
 
 .cta-section { padding: var(--space-xl) 0; }
 .cta-card {
-    background: var(--bg-light);
-    color: var(--text-dark);
+    background: var(--bg-dark); /* CTA sur fond principal */
+    color: var(--text-main); /* Texte principal */
     text-align: center;
     padding: 5rem 2rem;
     border-radius: 24px;
 }
-.cta-title { color: var(--text-dark); font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1rem; }
-.cta-text { color: #444; max-width: 600px; margin: 0 auto 2.5rem; }
+.cta-title { color: var(--text-main); font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1rem; }
+.cta-text { color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem; }
 .cta-buttons { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 
 
 /* --- 9. Footer --- */
-.footer { background: #080f0b; padding: 4rem 0 2rem; border-top: 1px solid #1a2920; }
+.footer { background: #E5E5E3; /* Utilise bg-dark pour le footer */ padding: 4rem 0 2rem; border-top: 1px solid #C8C8C6; }
 .footer__content { display: flex; justify-content: space-between; margin-bottom: 2rem; }
 .footer__links a { margin-right: 1.5rem; color: var(--text-muted); font-size: 0.9rem; }
-.footer__legal { font-size: 0.8rem; color: #3a4b40; display: flex; gap: 1rem; }
+.footer__legal { font-size: 0.8rem; color: #5A5A58; /* Une couleur sombre pour le texte légal */ display: flex; gap: 1rem; }
 .footer__copy { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; }
 
 .footer-logo-text {
@@ -673,7 +687,7 @@ h1, h2, h3, h4 {
    ========================================= */
 
 @media (max-width: 1024px) {
-    /* Tablette : on rÃ©duit les marges */
+    /* Tablette : on réduit les marges */
     :root {
         --container-padding: 2rem;
         --space-xl: 6rem;
@@ -690,7 +704,7 @@ h1, h2, h3, h4 {
     :root {
         --space-md: 1.5rem;
         --space-lg: 3rem;
-        --space-xl: 4rem; /* Sections plus rapprochÃ©es */
+        --space-xl: 4rem; /* Sections plus rapprochées */
         --container-padding: 1.25rem; /* ~20px de marge sur les bords */
     }
 
@@ -712,9 +726,9 @@ h1, h2, h3, h4 {
     .hero__bg {
         position: absolute;
         inset: 0;
-        width: 100%;      /* écrase le 70% du desktop */
+        width: 100%;      /* �crase le 70% du desktop */
         height: 100%;
-        right: auto;      /* important sinon ça peut rester collé à droite */
+        right: auto;      /* important sinon �a peut rester coll� � droite */
         overflow: hidden;
     }
 
@@ -731,38 +745,38 @@ h1, h2, h3, h4 {
     
     .hero__img {
     position: absolute;
-    /* On force l'image à se coller en haut */
-    top: -10%;
+    /* On force l'image � se coller en haut */
+    top: 0%;
     left: 0;
     
-    /* Largeur : prend tout l'écran */
+    /* Largeur : prend tout l'�cran */
     width: 100%;
     
-    /* Hauteur : "auto" permet de respecter le ratio de l'image (effet dézoom naturel) */
-    height: auto; 
+    /* Hauteur : "auto" permet de respecter le ratio de l'image (effet d�zoom naturel) */
+    height: 20%; 
     
-    /* SÉCURITÉ : Si l'image est trop petite, on la force à faire au moins la hauteur de l'écran */
-    min-height: 70%;
+    /* S�CURIT� : Si l'image est trop petite, on la force � faire au moins la hauteur de l'�cran */
+    min-height: 50%;
     
     object-fit: cover;
     
     /* 0% sur l'axe Y force l'affichage du HAUT de la photo (visage) */
-    object-position: 58% 0%;
+    object-position: 47% 0%;
 }
     .hero__overlay {
     background: linear-gradient(
         to bottom,
-        rgba(13, 24, 18, 0.0) 0%,     /* encore plus transparent en haut */
-        rgba(13, 24, 18, 0.15) 25%,   /* léger foncé, mais plus bas */
-        rgba(13, 24, 18, 0.45) 50%,   /* mi-intensité */
-        var(--bg-dark) 60%            /* sombre complet mais seulement en bas */
+        rgba(229, 229, 227, 0.0) 10%,     /* encore plus transparent en haut */
+        rgba(229, 229, 227, 0.18) 30%,   /* l�ger fonc�, mais plus bas */
+        rgba(229, 229, 227, 0.5) 40%,   /* mi-intensit� */
+        var(--bg-dark) 50%            /* sombre complet mais seulement en bas */
     );
     z-index: 1;
 }
 
 
     .hero__content {
-        /* Le contenu s'aligne en bas de l'Ã©cran */
+        /* Le contenu s'aligne en bas de l'écran */
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -785,7 +799,7 @@ h1, h2, h3, h4 {
     .hero__desc {
         font-size: 1rem;
         margin-bottom: 1.5rem;
-        color: rgba(244, 241, 234, 0.9); /* Plus clair pour lisibilitÃ© sur dÃ©gradÃ© */
+        color: var(--text-main); /* Plus clair pour lisibilité sur dégradé */
     }
 
     .hero__btns {
@@ -841,7 +855,7 @@ h1, h2, h3, h4 {
 
 /* --- ROI Section --- */
 .roi-section {
-    background-color: #0b1d16; /* Ajustez selon votre BG sombre */
+    background-color: #0A0A0A; /* Utilisez le noir élégant pour cette section */
     padding: 6rem 0;
     color: white;
 }
@@ -853,7 +867,7 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
-/* --- Texte et Compteur (Style Doré 184%) --- */
+/* --- Texte et Compteur (Style Dor� 184%) --- */
 .roi-stat-box {
     margin-top: 2.5rem;
     padding: 0; /* On retire le padding pour laisser le texte respirer */
@@ -866,25 +880,29 @@ h1, h2, h3, h4 {
     align-items: flex-start; /* Aligne le % en haut du chiffre */
     line-height: 0.85;       /* Resserre la hauteur pour un effet compact */
     position: relative;
-    padding: 10px;           /* Espace pour ne pas couper l'ombre portée (glow) */
+    padding: 10px;           /* Espace pour ne pas couper l'ombre port�e (glow) */
 }
 
 /* Le chiffre (184) */
 .roi-number {
-    font-family: 'Syne', sans-serif; /* Ta police Syne est parfaite pour ça */
+    font-family: 'Syne', sans-serif; /* Ta police Syne est parfaite pour �a */
     font-weight: 800;                /* Extra Gras */
-    /* Taille fluide : énorme sur PC (140px), adapté sur mobile */
+    /* Taille fluide : �norme sur PC (140px), adapt� sur mobile */
     font-size: clamp(6rem, 12vw, 9rem); 
     
-    /* DÉGRADÉ DORÉ MÉTALLIQUE */
-    background: linear-gradient(180deg, #F9E4B7 0%, #DCAE66 100%);
+    /* D�GRAD� DOR� M�TALLIQUE */
+    background: linear-gradient(
+        to bottom,
+        var(--accent) 0%,
+        var(--accent-hover) 100%
+    );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: #DCAE66; /* Fallback pour vieux navigateurs */
+    color: var(--accent); /* Fallback pour vieux navigateurs */
 
     /* EFFET DE LUEUR (GLOW) */
-    filter: drop-shadow(0 0 20px rgba(220, 174, 102, 0.4));
+    filter: drop-shadow(0 0 20px rgba(217, 164, 65, 0.4));
     
     /* Stabilisation pour le compteur JS */
     font-variant-numeric: tabular-nums;
@@ -896,28 +914,32 @@ h1, h2, h3, h4 {
 .roi-symbol, .roi-plus {
     font-family: 'Syne', sans-serif;
     font-weight: 700;
-    /* Taille : environ la moitié du chiffre */
+    /* Taille : environ la moiti� du chiffre */
     font-size: clamp(3rem, 6vw, 4.5rem); 
     
     /* Ajustement de position pour l'aligner joliment */
     margin-left: 5px;
     margin-top: 10px; 
 
-    /* MÊME DÉGRADÉ QUE LE CHIFFRE */
-    background: linear-gradient(180deg, #F9E4B7 0%, #DCAE66 100%);
+    /* M�ME D�GRAD� QUE LE CHIFFRE */
+    background: linear-gradient(
+        to bottom,
+        var(--accent) 0%,
+        var(--accent-hover) 100%
+    );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     
-    /* MÊME EFFET GLOW */
-    filter: drop-shadow(0 0 20px rgba(220, 174, 102, 0.4));
+    /* M�ME EFFET GLOW */
+    filter: drop-shadow(0 0 20px rgba(217, 164, 65, 0.4));
 }
 
 /* Le texte en dessous */
 .roi-label {
     font-family: 'Manrope', sans-serif;
     font-size: 0.9rem;
-    color: #8da399; /* Couleur vert-grisâtre de ton image de ref */
+    color: #5A5A5A; /* Une nuance de gris plus claire que --text-muted */
     margin-top: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -925,20 +947,20 @@ h1, h2, h3, h4 {
     padding-left: 10px; /* Léger alignement avec le texte */
 }
 
-/* CORRECTIF POUR ASSURER LA VISIBILITÃ‰ DU GRAPHIQUE */
+/* CORRECTIF POUR ASSURER LA VISIBILITÉ DU GRAPHIQUE */
 .line-growth {
     fill: none;
-    stroke: #DCAE66; /* Votre couleur or */
+    stroke: var(--accent); /* Votre couleur or */
     stroke-width: 4px;
     
     /* Animation setup */
     stroke-dasharray: 1000;
-    stroke-dashoffset: 1000; /* CachÃ© au dÃ©part */
+    stroke-dashoffset: 1000; /* Caché au départ */
 }
 
 /* On s'assure que l'animation CSS force l'affichage */
 .graph-container.animating .line-growth {
-    animation: drawLine 2s ease-out forwards; /* 'forwards' garde la ligne Ã  la fin */
+    animation: drawLine 2s ease-out forwards; /* 'forwards' garde la ligne à la fin */
 }
 
 @keyframes drawLine {
@@ -953,7 +975,7 @@ h1, h2, h3, h4 {
 
 .roi-label {
     font-size: 1rem;
-    color: #a0a0a0;
+    color: var(--text-muted);
     margin-top: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -983,10 +1005,10 @@ h1, h2, h3, h4 {
 
 .legend-item.stagnant .dot { 
     background-color: #FF5555; /* Rouge */
-    box-shadow: 0 0 5px rgba(255, 85, 85, 0.5); /* Petit éclat rouge */
+    box-shadow: 0 0 5px rgba(255, 85, 85, 0.5); /* Petit �clat rouge */
 }
 .legend-item.stagnant { 
-    color: #ff8888; /* Texte légèrement rouge */
+    color: #ff8888; /* Texte l�g�rement rouge */
 }
 
 
@@ -997,7 +1019,7 @@ h1, h2, h3, h4 {
     position: relative;
     width: 100%;
     height: 350px;
-    background: linear-gradient(180deg, rgba(20,40,30,0.5) 0%, rgba(0,0,0,0.3) 100%);
+    background: linear-gradient(180deg, rgba(42,42,42,0.5) 0%, rgba(10,10,10,0.3) 100%); /* Utilisation des nouvelles couleurs */
     border-radius: 16px;
     border: 1px solid rgba(255,255,255,0.1);
     box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
@@ -1029,7 +1051,7 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: space-between;
     padding: 0 5%;
-    color: #555;
+    color: #999; /* Une couleur plus claire pour les labels */
     font-family: monospace;
     font-size: 0.8rem;
     pointer-events: none;
@@ -1048,17 +1070,17 @@ h1, h2, h3, h4 {
 .line-stagnant {
     fill: none;
     stroke: #FF5555; /* Rouge vif */
-    stroke-width: 3; /* Un peu moins épais que la courbe or pour la hiérarchie */
-    stroke-dasharray: none; /* ENLÈVE LES POINTILLÉS */
+    stroke-width: 3; /* Un peu moins �pais que la courbe or pour la hi�rarchie */
+    stroke-dasharray: none; /* ENL�VE LES POINTILL�S */
     stroke-linecap: round;
     
-    /* Ajout du Glow rouge pour être cohérent avec l'or */
+    /* Ajout du Glow rouge pour �tre coh�rent avec l'or */
     filter: drop-shadow(0 0 5px rgba(255, 85, 85, 0.5)); 
     opacity: 0.8;
 }
 /* --- NOUVEAU : Zone remplie rouge --- */
 .area-stagnant {
-    fill: url(#stagnantGradient); /* Utilise le dégradé défini dans le HTML */
+    fill: url(#stagnantGradient); /* Utilise le d�grad� d�fini dans le HTML */
     opacity: 0.8;
 }
 
@@ -1071,10 +1093,10 @@ h1, h2, h3, h4 {
     stroke-linejoin: round;
     filter: url(#glow);
     
-    /* PrÃ©paration animation de tracÃ© */
+    /* Préparation animation de tracé */
     stroke-dasharray: 2000; /* Assez long pour couvrir toute la courbe */
-    stroke-dashoffset: 2000; /* CachÃ© au dÃ©part */
-    /* Pas de transition CSS ici, on gÃ¨re l'Ã©tat via classe JS pour le reset */
+    stroke-dashoffset: 2000; /* Caché au départ */
+    /* Pas de transition CSS ici, on gère l'état via classe JS pour le reset */
 }
 
 .area-growth {
@@ -1093,7 +1115,7 @@ h1, h2, h3, h4 {
 
 /* --- Classes d'Animation (JS Controlled) --- */
 
-/* Quand la classe .animating est ajoutÃ©e au container */
+/* Quand la classe .animating est ajoutée au container */
 .graph-container.animating .line-growth {
     animation: drawLine 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -1107,7 +1129,7 @@ h1, h2, h3, h4 {
 .graph-container.animating .chart-end-dot {
     opacity: 1;
     transition: opacity 0.5s ease;
-    transition-delay: 2.4s; /* ApparaÃ®t juste Ã  la fin du tracÃ© */
+    transition-delay: 2.4s; /* Apparaît juste à la fin du tracé */
 }
 
 @keyframes drawLine {
@@ -1131,15 +1153,15 @@ h1, h2, h3, h4 {
 }
 
 
-/* --- AMÉLIORATION UX MOBILE POUR LES PROJETS --- */
+/* --- AM�LIORATION UX MOBILE POUR LES PROJETS --- */
 @media (max-width: 768px) {
     
     /* 1. On rend l'overlay toujours visible, mais subtil */
     .project-card__overlay {
         opacity: 1; /* Toujours visible sur mobile */
         
-        /* Au lieu d'un fond noir complet, on met un dégradé en bas pour que le bouton ressorte */
-        background: linear-gradient(to top, rgba(13, 24, 18, 0.8) 0%, transparent 60%);
+        /* Au lieu d'un fond noir complet, on met un d�grad� en bas pour que le bouton ressorte */
+        background: linear-gradient(to top, rgba(10, 10, 10, 0.8) 0%, transparent 60%); /* Utilisation du noir élégant */
         
         /* On place le bouton tout en bas */
         align-items: flex-end; 
@@ -1149,19 +1171,19 @@ h1, h2, h3, h4 {
     /* 2. On transforme le "Ghost Button" (transparent) en bouton plein (Solid) */
     .project-card__overlay .ghost-btn {
         background-color: var(--accent); /* Fond OR */
-        color: var(--bg-dark); /* Texte foncé */
+        color: var(--bg-dark); /* Texte fonc� */
         border: none;
         font-weight: 700;
         font-size: 0.9rem;
         
-        /* On ajoute une icône flèche via CSS pour inciter au clic */
+        /* On ajoute une ic�ne fl�che via CSS pour inciter au clic */
         padding: 0.6rem 1.2rem;
         box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Ombre pour qu'il flotte */
     }
 
-    /* Ajout d'une petite flèche après le texte "Voir le projet" */
+    /* Ajout d'une petite fl�che apr�s le texte "Voir le projet" */
     .project-card__overlay .ghost-btn::after {
-        content: " →";
+        content: " ?";
         display: inline-block;
         margin-left: 5px;
         transition: transform 0.3s;
@@ -1180,7 +1202,7 @@ h1, h2, h3, h4 {
     .project-grid {
         grid-template-columns: 1fr; /* Une seule colonne */
         
-        /* MODIFICATION ICI : On passe de 2rem à 4rem */
+        /* MODIFICATION ICI : On passe de 2rem � 4rem */
         gap: 3rem; 
     }
     
@@ -1233,7 +1255,7 @@ h1, h2, h3, h4 {
 .service-icon {
     width: 56px;
     height: 56px;
-    background: rgba(220, 174, 102, 0.1);
+    background: rgba(217, 164, 65, 0.1); /* Utilisation de l'accent avec opacité */
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -1255,7 +1277,7 @@ h1, h2, h3, h4 {
     line-height: 1.6;
 }
 
-/* --- RESPONSIVE MOBILE : Scroll Horizontal + Flèche Swipe --- */
+/* --- RESPONSIVE MOBILE : Scroll Horizontal + Fl�che Swipe --- */
 @media (max-width: 768px) {
     
     /* Configuration du Scroll (Swipe) */
@@ -1278,27 +1300,27 @@ h1, h2, h3, h4 {
         margin-right: 0;
     }
     
-    /* 1. La Flèche flottante (Indicateur de Swipe) */
+    /* 1. La Fl�che flottante (Indicateur de Swipe) */
     .services::before {
-        content: "→"; /* La flèche */
+        content: "?"; /* La fl�che */
         position: absolute;
-        right: 10px; /* Collé à droite */
+        right: 10px; /* Coll� � droite */
         
-        /* Position verticale : Ajusté pour être au milieu des cartes */
+        /* Position verticale : Ajust� pour �tre au milieu des cartes */
         top: 65%; 
         transform: translateY(-50%);
         
         /* Design de la bulle */
         width: 40px; height: 40px;
         background: var(--accent); /* Fond or */
-        color: var(--bg-dark); /* Flèche sombre */
+        color: var(--text-dark); /* Fl�che sombre */
         border-radius: 50%;
         display: flex; align-items: center; justify-content: center;
         font-weight: 800; font-size: 1.2rem;
         box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         
         z-index: 10;
-        pointer-events: none; /* Permet de cliquer à travers */
+        pointer-events: none; /* Permet de cliquer � travers */
         
         /* Animation de rebond vers la droite */
         animation: swipeHint 1.5s infinite ease-in-out;
@@ -1309,12 +1331,12 @@ h1, h2, h3, h4 {
         50% { transform: translate(10px, -50%); opacity: 0.6; } /* Bouge de 10px */
     }
 
-    /* 2. Le dégradé de fond à droite (pour l'esthétique) */
+    /* 2. Le d�grad� de fond � droite (pour l'esth�tique) */
     .services::after {
         content: '';
         position: absolute;
         right: 0; bottom: 0;
-        top: 50%; /* Commence à mi-hauteur pour ne pas couvrir le titre */
+        top: 50%; /* Commence � mi-hauteur pour ne pas couvrir le titre */
         height: 50%;
         width: 15%;
         background: linear-gradient(to left, var(--bg-section), transparent);
