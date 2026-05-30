@@ -1,26 +1,250 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Klein & Craie — bleu Klein sur papier craie */
+  --color-bg: #F2F1EE;
+  --color-bg-deep: #E8E6E0;
+  --color-ink: #0F0F14;
+  --color-ink-soft: #1B1C24;
+  --color-muted: #65656E;
+  --color-subtle: #94949D;
+  --color-line: #D3D2CC;
+  --color-line-soft: #E2E1DB;
+  --color-paper: #FAF9F5;
+  --color-accent: #1F3FBF;
+  --color-accent-soft: #DBE1F5;
+  --color-accent-ink: #0E1F6E;
+
+  --font-serif: "Instrument Serif", "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-geist, "Söhne"), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: var(--font-mono-jetbrains, "IBM Plex Mono"), ui-monospace, monospace;
+
+  /* Legacy aliases used by secondary pages */
+  --font-sora: var(--font-geist);
+  --font-inter: var(--font-geist);
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
   }
+
+  body {
+    /* Font vars resolved at body scope (Next.js Font injects --font-* here, not on :root).
+       --font-geist = DM Sans (sans-serif body), --font-instrument-serif = Instrument Serif
+       (calligraphie editorial pour les titres). */
+    --font-sans: var(--font-geist, "Söhne"), -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: var(--font-instrument-serif, "Instrument Serif"), "Cormorant Garamond", Georgia, serif;
+    --font-mono: var(--font-mono-jetbrains, "IBM Plex Mono"), ui-monospace, monospace;
+
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection { background: var(--color-accent); color: var(--color-paper); }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Calligraphie Instrument Serif restaurée — utilisée pour les titres principaux
+     et les accents italiques. !important nécessaire car Tailwind v4 preflight
+     peut assigner font-family aux headings via @theme. */
+  .serif,
+  h1.serif,
+  h2.serif,
+  h3.serif,
+  h4.serif {
+    font-family: var(--font-serif) !important;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .serif-i,
+  h1.serif-i,
+  h2.serif-i,
+  h3.serif-i {
+    font-family: var(--font-serif) !important;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  /* Display utility: Instrument Serif italique pour les gros titres éditoriaux. */
+  .display,
+  h1.display,
+  h2.display,
+  h3.display,
+  h4.display {
+    font-family: var(--font-serif) !important;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.018em;
+    line-height: 1.04;
+  }
+
+  /* (Old .ghost utility removed — was the split-contrast grey echo used during the
+     short-lived DM Sans pattern. Calligraphie restored, accents go to var(--color-accent).) */
+
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 640px) { .wrap { padding: 0 20px; } }
+
+  .hairline { height: 1px; background: var(--color-line); width: 100%; }
+
+  /* Overline */
+  .overline {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+  }
+  .overline .dot {
+    display: inline-block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--color-accent);
+    margin-right: 10px;
+    vertical-align: middle;
+    translate: 0 -1px;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 180ms cubic-bezier(.2,.8,.2,1);
+    text-decoration: none;
+    line-height: 1;
+  }
+  .btn-primary { background: var(--color-ink); color: var(--color-paper); }
+  .btn-primary:hover { background: var(--color-accent); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--color-ink); border-color: var(--color-line); }
+  .btn-ghost:hover { border-color: var(--color-accent); color: var(--color-accent); }
+  .btn-accent { background: var(--color-accent); color: var(--color-paper); }
+  .btn-accent:hover { background: var(--color-accent-ink); transform: translateY(-1px); }
+
+  /* Section */
+  .section { padding: 120px 0; position: relative; }
+  .section-alt { background: var(--color-bg-deep); }
+  .section-dark { background: var(--color-ink); color: var(--color-paper); }
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    margin-bottom: 72px;
+    align-items: end;
+  }
+  .section-head .eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); display: flex; align-items: center; gap: 10px; }
+  .section-head h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 5vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin: 0;
+    font-weight: 400;
+  }
+  .section-head h2 em {
+    font-family: var(--font-serif);
+    color: var(--color-accent);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  @media (max-width: 860px) {
+    .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
+    .section { padding: 80px 0; }
+  }
+
+  /* Reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 800ms ease, transform 800ms cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Card legacy support */
+  .card {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    transition: all 300ms;
+  }
+  .card:hover {
+    border-color: var(--color-ink);
+    box-shadow: 0 4px 24px -8px rgba(15, 15, 20, 0.08);
+    transform: translateY(-2px);
+  }
+
+  /* Live pulse */
+  .live-pulse {
+    width: 8px; height: 8px; border-radius: 50%; background: #10b981;
+    display: inline-block; margin-right: 8px; translate: 0 -1px;
+    animation: pulse 1.6s ease-out infinite;
+  }
+  @keyframes pulse {
+    0%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}
+    70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}
+    100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}
+  }
+
+  /* Marquee animation */
+  @keyframes marquee-scroll { to { transform: translateX(-50%); } }
+  .marquee-track {
+    animation: marquee-scroll 42s linear infinite;
+  }
+
+  /* Floating Cursor Preview */
+  .hover-preview-container {
+    position: fixed;
+    pointer-events: none;
+    z-index: 40;
+    width: 320px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--color-line);
+    box-shadow: 0 20px 40px -15px rgba(15, 15, 20, 0.25);
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity;
+    opacity: 0;
+    scale: 0.8;
+    transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1), scale 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-preview-container.active {
+    opacity: 1;
+    scale: 1;
+  }
+
+  /* Animated grid lines and background texture */
+  .noise-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Glass card styling */
+  .glass-card {
+    background: color-mix(in oklab, var(--color-paper) 80%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-line);
+  }
 }
