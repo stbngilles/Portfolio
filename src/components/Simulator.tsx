@@ -10,27 +10,30 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SIM_DATA = {
   type: [
-    { id: "vitrine", label: "Site vitrine", base: 1800 },
-    { id: "refonte", label: "Refonte", base: 2400 },
-    { id: "ecom", label: "E-commerce", base: 3800 },
-    { id: "landing", label: "Landing page", base: 900 },
+    { id: "landing", label: "Landing page", base: 1200 },
+    { id: "vitrine", label: "Site vitrine", base: 2200 },
+    { id: "refonte", label: "Refonte", base: 2800 },
+    { id: "ecom", label: "E-commerce", base: 5500 },
   ],
   pages: [
     { id: "1-5", label: "1–5 pages", mult: 1 },
-    { id: "6-10", label: "6–10 pages", mult: 1.35 },
-    { id: "10+", label: "10+ pages", mult: 1.75 },
+    { id: "6-10", label: "6–10 pages", mult: 1.4 },
+    { id: "11-20", label: "11–20 pages", mult: 1.8 },
+    { id: "20+", label: "20+ pages", mult: 2.2 },
   ],
   features: [
-    { id: "seo", label: "SEO technique +", add: 400 },
-    { id: "blog", label: "Blog / CMS", add: 500 },
-    { id: "multi", label: "Multilingue", add: 600 },
-    { id: "resa", label: "Réservation en ligne", add: 700 },
-    { id: "copy", label: "Rédaction des textes", add: 450 },
-    { id: "photo", label: "Shooting photo", add: 800 },
+    { id: "seo", label: "SEO technique +", add: 500 },
+    { id: "copy", label: "Rédaction des textes", add: 550 },
+    { id: "blog", label: "Blog / CMS", add: 600 },
+    { id: "stripe", label: "Intégration Stripe", add: 600 },
+    { id: "multi", label: "Multilingue", add: 700 },
+    { id: "photo", label: "Shooting photo", add: 900 },
+    { id: "resa", label: "Réservation en ligne", add: 1200 },
+    { id: "admin", label: "Dashboard admin", add: 1500 },
   ],
   delay: [
-    { id: "4w", label: "4 semaines", mult: 1 },
-    { id: "2w", label: "2 semaines (express)", mult: 1.25 },
+    { id: "4w", label: "Standard — 4–6 semaines", mult: 1 },
+    { id: "2w", label: "Express — 2 semaines", mult: 1.3 },
   ],
 };
 

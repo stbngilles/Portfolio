@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# prisma — DB locale de dev (jamais commit)
+/prisma/dev.db
+/prisma/dev.db-journal
+/prisma/migrations/dev/
+/dev.db
+/dev.db-journal
+
+# deploy/ — site statique live (généré par build:static-legacy), pas dans git
+/deploy/
+
+# vue artifact locale (workflow dev historique)
+/.artifact-view/

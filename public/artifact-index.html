@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>Pixelbrute · Création de site web à Liège — Site sur-mesure</title>
+<meta name="description" content="Studio web à Liège. Sites vitrines, e-commerce et refontes sur-mesure pour indépendants, artisans et PME. Sites rapides, soignés, pensés pour convertir. Devis gratuit sous 24 h.">
+<meta name="keywords" content="création site web Liège, agence web Liège, studio web Liège, site internet Liège, développeur web Liège, refonte site web Belgique, site vitrine Wallonie, Next.js Liège, SEO local Liège, site e-commerce Belgique, créateur site indépendant">
+<meta name="author" content="Pixelbrute">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pixelbrute.be/">
+
+<!-- favicon -->
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icon.svg">
+<meta name="theme-color" content="#1F3FBF">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_BE">
+<meta property="og:url" content="https://pixelbrute.be/">
+<meta property="og:site_name" content="Pixelbrute">
+<meta property="og:title" content="Pixelbrute · Studio web à Liège — Sites sur-mesure">
+<meta property="og:description" content="Sites vitrines, e-commerce et refontes sur-mesure pour indépendants et PME. Rapide, soigné, pensé pour convertir. Devis gratuit sous 24 h.">
+<meta property="og:image" content="https://pixelbrute.be/esteban.jpg">
+<meta property="og:image:alt" content="Esteban, fondateur de Pixelbrute">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pixelbrute · Studio web à Liège">
+<meta name="twitter:description" content="Sites sur-mesure pour indépendants et PME à Liège. Rapide, soigné, pensé pour convertir.">
+<meta name="twitter:image" content="https://pixelbrute.be/esteban.jpg">
+
+<!-- Schema.org LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Pixelbrute",
+  "image": "https://pixelbrute.be/esteban.jpg",
+  "@id": "https://pixelbrute.be/#org",
+  "url": "https://pixelbrute.be/",
+  "telephone": "+32492200275",
+  "email": "contact@pixelbrute.be",
+  "priceRange": "€€",
+  "description": "Studio web à Liège : sites vitrines, e-commerce et refontes sur-mesure pour indépendants, artisans et PME.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Liège",
+    "addressRegion": "Wallonie",
+    "addressCountry": "BE"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Liège" },
+    { "@type": "AdministrativeArea", "name": "Province de Liège" },
+    { "@type": "AdministrativeArea", "name": "Wallonie" },
+    { "@type": "Country", "name": "Belgique" }
+  ],
+  "founder": [
+    { "@type": "Person", "name": "Esteban", "jobTitle": "Fondateur · Designer-développeur" },
+    { "@type": "Person", "name": "Amandine", "jobTitle": "Direction de projet · Relation client" }
+  ],
+  "sameAs": [],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "3",
+    "bestRating": "5"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services Pixelbrute",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Création de site vitrine" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Refonte de site web" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Site e-commerce sur-mesure" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Référencement SEO local" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Maintenance et hébergement" } }
+    ]
+  }
+}
+</script>
+
+<!-- Schema.org Website + SearchAction -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://pixelbrute.be/#website",
+  "url": "https://pixelbrute.be/",
+  "name": "Pixelbrute",
+  "publisher": { "@id": "https://pixelbrute.be/#org" },
+  "inLanguage": "fr-BE"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f0.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f2.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/artifact/fonts/f0.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/artifact/fonts/f1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/artifact/fonts/f2.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/artifact/fonts/f3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/artifact/fonts/f0.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/artifact/fonts/f1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/artifact/fonts/f2.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/artifact/fonts/f3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/artifact/fonts/f0.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/artifact/fonts/f1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/artifact/fonts/f2.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/artifact/fonts/f3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/artifact/fonts/f0.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/artifact/fonts/f1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/artifact/fonts/f2.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/artifact/fonts/f3.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f4.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f5.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f6.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f7.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f8.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f9.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f10.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f11.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f12.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/artifact/fonts/f13.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/artifact/fonts/f8.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/artifact/fonts/f9.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/artifact/fonts/f10.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/artifact/fonts/f11.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/artifact/fonts/f12.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/artifact/fonts/f13.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>/* ============================================================
+   PIXELBRUTE — Refonte visuelle "Frais & techno"
+   Klein blue conservé · mesh gradient pastel · mix grotesk + calligraphie
+   ============================================================ */
+
+:root {
+  /* Surfaces — blanc frais légèrement froid */
+  --bg: #F5F7FC;
+  --paper: #FFFFFF;
+  --ink: #0C0F15;
+  --ink-soft: #272B34;
+  --muted: #5C616D;
+  --subtle: #9A9EA9;
+  --line: #E5E7F0;
+  --line-soft: #EFF1F8;
+
+  /* Klein blue — signature conservée */
+  --accent: #1F3FBF;
+  --accent-ink: #0C1A63;
+  --accent-bright: #3D63F5;
+  --accent-soft: #DDE3F8;
+
+  /* Pastels pour le mesh frais (Darwin) */
+  --lav: #ECE9FB;
+  --sky: #E4EDFC;
+  --mint: #E2F4ED;
+  --blush: #FBEDF1;
+
+  --amber: #FFCE3D;
+  --green: #11A36B;
+
+  --font-sans: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --maxw: 1240px;
+  --radius: 18px;
+  --shadow-soft: 0 24px 60px -28px rgba(31, 63, 191, 0.28), 0 8px 24px -16px rgba(12, 15, 21, 0.10);
+  --shadow-card: 0 30px 70px -32px rgba(31, 63, 191, 0.22), 0 6px 18px -12px rgba(12, 15, 21, 0.08);
+}
+
+* { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Mesh gradient + grille technique fixés en fond */
+.bg-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(58% 48% at 12% -4%, var(--lav) 0%, transparent 60%),
+    radial-gradient(52% 42% at 92% 2%, var(--sky) 0%, transparent 58%),
+    radial-gradient(46% 40% at 72% 22%, var(--mint) 0%, transparent 60%),
+    radial-gradient(40% 38% at 8% 38%, var(--blush) 0%, transparent 62%),
+    var(--bg);
+}
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(to right, rgba(31, 63, 191, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(31, 63, 191, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000 35%, transparent 78%);
+  mask-image: radial-gradient(120% 90% at 50% 0%, #000 35%, transparent 78%);
+}
+
+::selection { background: var(--accent); color: #fff; }
+
+a { color: inherit; }
+
+/* ---------- Typographie utilitaires ---------- */
+.serif { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.005em; }
+.serif-i { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 36px; }
+@media (max-width: 640px) { .wrap { padding: 0 20px; } }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow .bar { width: 22px; height: 1.5px; background: var(--accent); display: inline-block; }
+.eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 180ms cubic-bezier(.2,.8,.2,1), background 180ms, color 180ms, border-color 180ms, box-shadow 180ms;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+.btn svg { width: 15px; height: 15px; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 14px 30px -12px rgba(31,63,191,.5); }
+.btn-accent { background: var(--accent); color: #fff; box-shadow: 0 12px 26px -12px rgba(31,63,191,.55); }
+.btn-accent:hover { background: var(--accent-ink); transform: translateY(-2px); }
+.btn-ghost { background: rgba(255,255,255,0.5); color: var(--ink); border-color: var(--line); backdrop-filter: blur(6px); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.btn-light { background: #fff; color: var(--accent-ink); }
+.btn-light:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -16px rgba(0,0,0,.4); }
+
+/* ---------- Sections ---------- */
+.section { padding: 120px 0; position: relative; }
+.section-tight { padding: 96px 0; }
+@media (max-width: 860px) { .section { padding: 80px 0; } .section-tight { padding: 64px 0; } }
+
+.section-head { max-width: 760px; margin-bottom: 64px; }
+.section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+.section-head h2 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 18px 0 0;
+}
+.section-head h2 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+.section-head p { color: var(--muted); font-size: 17px; line-height: 1.6; margin: 20px 0 0; max-width: 560px; }
+.section-head.center p { margin-left: auto; margin-right: auto; }
+
+/* ---------- Cartes flottantes ---------- */
+.float-card {
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.9);
+  box-shadow: var(--shadow-card);
+  border-radius: 14px;
+}
+
+/* Placeholder rayé pour imagerie */
+.ph {
+  position: relative;
+  background:
+    repeating-linear-gradient(135deg, var(--line-soft) 0 11px, #fff 11px 22px);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.ph__label {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted);
+  background: #fff; border: 1px solid var(--line);
+  padding: 7px 12px; border-radius: 999px;
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 760ms ease, transform 760ms cubic-bezier(.2,.8,.2,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal[data-d="1"] { transition-delay: .08s; }
+.reveal[data-d="2"] { transition-delay: .16s; }
+.reveal[data-d="3"] { transition-delay: .24s; }
+.reveal[data-d="4"] { transition-delay: .32s; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.nav {
+  position: fixed; left: 0; right: 0; top: 0; z-index: 100;
+  display: flex; justify-content: center;
+  padding: 18px 20px;
+  transition: padding 300ms ease;
+}
+.nav__inner {
+  width: 100%; max-width: var(--maxw);
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 10px 12px 10px 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: all 300ms cubic-bezier(.2,.8,.2,1);
+}
+.nav.scrolled { padding: 12px 20px; }
+.nav.scrolled .nav__inner {
+  max-width: 1040px;
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-color: var(--line);
+  box-shadow: 0 14px 40px -18px rgba(31,63,191,0.18);
+}
+.brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 700; font-size: 20px; letter-spacing: -0.03em; color: var(--ink); }
+.brand__mark {
+  width: 13px; height: 13px; border-radius: 4px;
+  background: linear-gradient(135deg, var(--accent-bright), var(--accent));
+  box-shadow: 0 2px 8px -2px rgba(31,63,191,.6);
+  transition: transform 500ms cubic-bezier(.2,.8,.2,1);
+}
+.brand:hover .brand__mark { transform: rotate(45deg) scale(1.1); }
+.nav__links { display: flex; align-items: center; gap: 30px; }
+.nav__links a {
+  position: relative; text-decoration: none; font-size: 13.5px; font-weight: 500; color: var(--ink-soft);
+  transition: color 160ms; letter-spacing: -0.01em;
+}
+.nav__links a::after { content: ""; position: absolute; left: 0; bottom: -5px; height: 1.5px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 200ms; }
+.nav__links a:hover { color: var(--accent); }
+.nav__links a:hover::after { transform: scaleX(1); }
+.nav__cta { display: inline-flex; }
+.nav__burger { display: none; background: none; border: none; cursor: pointer; color: var(--ink); padding: 8px; }
+@media (max-width: 980px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__burger { display: inline-flex; }
+}
+.nav__mobile {
+  position: fixed; inset: 0 0 auto 0; top: 0; z-index: 99;
+  background: rgba(245,247,252,0.97);
+  backdrop-filter: blur(20px);
+  padding: 92px 24px 32px;
+  display: none; flex-direction: column; gap: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.nav__mobile.open { display: flex; }
+.nav__mobile a { text-decoration: none; color: var(--ink-soft); font-size: 18px; font-weight: 500; padding: 14px 4px; border-bottom: 1px solid var(--line-soft); }
+.nav__mobile .btn { margin-top: 14px; justify-content: center; }
+
+/* ============================================================
+   HERO — texte à gauche, portrait à droite isolé par un halo
+   ============================================================ */
+.hero { position: relative; padding: 150px 0 96px; overflow: hidden; }
+@media (max-width: 720px){ .hero { padding: 124px 0 64px; } }
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.06fr 0.94fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero__col { position: relative; z-index: 2; }
+
+.hero__intro {
+  font-size: clamp(15px, 1.4vw, 19px);
+  color: var(--muted);
+  margin: 0 0 22px;
+  letter-spacing: -0.01em;
+}
+.hero__intro .wave { color: var(--accent); margin-right: 5px; }
+.hero__intro-avatar { display: none; }
+.hero__intro-txt strong { font-weight: 600; color: var(--ink); }
+
+.hero__headline {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  font-size: clamp(50px, 6.9vw, 104px);
+  margin: 0;
+}
+.hero__line { display: block; }
+.hero__line--top { color: var(--ink); }
+.hero__line--bottom {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink);
+  margin-top: 0.02em;
+}
+.hero__line--bottom em {
+  font-family: var(--font-serif); font-style: italic; font-weight: 400;
+  -webkit-text-stroke: 0; color: var(--accent); letter-spacing: -0.01em;
+}
+
+.hero__sub {
+  font-size: clamp(15px, 1.3vw, 17px);
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 460px;
+  margin: 26px 0 0;
+}
+.hero__sub em { font-family: var(--font-serif); font-style: italic; color: var(--accent); font-size: 1.1em; }
+
+.hero__cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+
+.hero__logos { margin-top: 40px; }
+.hero__logos-lbl { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--subtle); display: block; margin-bottom: 14px; }
+.hero__logos-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 26px; }
+.logo-ph { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; flex-shrink: 0; transition: transform 200ms; font-family: var(--font-sans); font-style: normal; }
+.logo-ph:hover { transform: translateY(-2px); }
+.logo-zen { color: #16A34A; }       /* vert plus clair */
+.logo-detail { color: #1E88E5; }    /* bleu eau */
+.logo-moto { color: #F57C00; }      /* orange */
+.logo-azi { color: #7C3AED; }       /* violet gaming */
+
+/* Colonne portrait — wrapper sans overflow pour que les badges dépassent */
+.hero__media {
+  position: relative;
+  min-height: 540px;
+}
+/* Frame visuel : carte qui ancre le portrait */
+.hero__frame {
+  position: relative;
+  display: flex; justify-content: center; align-items: flex-end;
+  height: 100%; min-height: 540px;
+  background:
+    radial-gradient(60% 55% at 50% 8%, rgba(255,255,255,0.85) 0%, transparent 60%),
+    radial-gradient(70% 70% at 80% 30%, rgba(61,99,245,0.12) 0%, transparent 60%),
+    linear-gradient(180deg, var(--lav) 0%, var(--sky) 100%);
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 28px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.hero__halo { display: none; }
+
+.hero__photo {
+  position: relative; z-index: 1;
+  width: clamp(260px, 30vw, 420px);
+  pointer-events: none;
+  filter: drop-shadow(0 -4px 22px rgba(31,63,191,0.18));
+  /* léger fondu uniquement à droite/gauche pour que les bras ne touchent pas le cadre */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  margin-bottom: -2px; /* coincer parfaitement contre le bas du cadre */
+}
+.hero__photo img { display: block; width: 100%; height: auto; }
+
+/* trame technique subtile à l'intérieur du cadre */
+.hero__frame::before {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(31,63,191,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(31,63,191,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  -webkit-mask-image: radial-gradient(70% 70% at 50% 30%, #000 30%, transparent 80%);
+  mask-image: radial-gradient(70% 70% at 50% 30%, #000 30%, transparent 80%);
+  pointer-events: none; z-index: 0;
+}
+
+/* Badges flottants discrets */
+.hero__badge {
+  position: absolute; z-index: 3;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 10px 15px;
+  font-size: 13px; color: var(--ink-soft);
+  animation: floaty 6s ease-in-out infinite;
+}
+.hero__badge .bl { font-weight: 700; color: var(--ink); }
+.hero__badge .ping { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+.hero__badge .ping::after { content:""; position:absolute; inset:0; border-radius:50%; background: var(--green); animation: ping 1.8s ease-out infinite; }
+.hero__badge .stars { color: var(--accent); font-size: 12px; letter-spacing: 1px; }
+.hero__badge { top: 14%; left: -10%; z-index: 3; }
+.hero__badge--b { top: auto; bottom: 14%; left: auto; right: -10%; animation-delay: 1.4s; }
+@keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes ping { 0%{transform:scale(1);opacity:.6} 80%,100%{transform:scale(3);opacity:0} }
+@media (prefers-reduced-motion: reduce){ .hero__badge { animation: none; } }
+
+@media (max-width: 900px) {
+  .hero { padding: 110px 0 56px; }
+  .hero__grid { grid-template-columns: 1fr; gap: 0; text-align: left; }
+  .hero__col { order: 1; }
+  .hero__media { display: none; } /* gros portrait masqué : remplacé par avatar inline */
+  .hero__sub { margin-left: 0; margin-right: 0; }
+  .hero__cta, .hero__logos-row { justify-content: flex-start; }
+
+  /* Avatar inline : petit portrait rond à côté de "Bonjour, moi c'est Esteban" */
+  .hero__intro {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px; margin-bottom: 22px;
+  }
+  .hero__intro-avatar {
+    display: block;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 14px -4px rgba(31,63,191,0.35);
+    flex-shrink: 0;
+  }
+  .hero__intro-txt { flex: 1; line-height: 1.4; }
+  .hero__intro .wave { display: none; } /* l'avatar remplace le ✦ */
+}
+@media (max-width: 760px) {
+  .hero { padding: 100px 0 40px; }
+  .hero__headline { font-size: clamp(46px, 13vw, 84px); }
+  .hero__line--bottom { -webkit-text-stroke: 1.1px var(--ink); }
+  .hero__badge { display: none; }
+  .hero__sub { font-size: 15px; margin-top: 20px; max-width: none; }
+  .hero__cta { margin-top: 24px; }
+  .hero__logos { margin-top: 32px; }
+  .hero__logos-row { gap: 10px 18px; }
+  .logo-ph { font-size: 14px; }
+  .hero__intro-avatar { width: 40px; height: 40px; }
+}
+
+/* ============================================================
+   CIBLE — "À qui je m'adresse"
+   ============================================================ */
+.cible { position: relative; }
+.cible__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.cible__card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: transform 360ms cubic-bezier(.16,1,.3,1), box-shadow 360ms, border-color 360ms;
+  position: relative; overflow: hidden;
+}
+.cible__card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: var(--shadow-card); }
+.cible__num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--accent); }
+.cible__card h3 { font-family: var(--font-sans); font-weight: 600; font-size: 24px; letter-spacing: -0.02em; margin: 18px 0 6px; }
+.cible__card h3 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--accent); }
+.cible__who { font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+.cible__desc { font-size: 15px; color: var(--ink-soft); line-height: 1.55; margin: 16px 0 18px; }
+.cible__chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 11px; background: var(--bg);
+}
+.cible__crit {
+  margin-top: 18px; padding: 26px 32px; border-radius: var(--radius);
+  background: linear-gradient(120deg, var(--accent) 0%, var(--accent-ink) 100%);
+  color: #fff; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 30px;
+  position: relative; overflow: hidden;
+}
+.cible__crit::before { content:""; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px,transparent 1px); background-size: 30px 30px; }
+.cible__crit > * { position: relative; z-index: 1; }
+.cible__crit .k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+.cible__crit .v { font-size: 15px; font-weight: 500; display: inline-flex; align-items: center; gap: 9px; }
+.cible__crit .v .tick { color: var(--amber); }
+@media (max-width: 760px){ .cible__grid { grid-template-columns: 1fr; } .cible__card { padding: 26px; } }
+
+/* ============================================================
+   RÉALISATIONS
+   ============================================================ */
+.work__layout { display: flex; gap: 70px; align-items: flex-start; }
+.work__left { position: sticky; top: 130px; width: 300px; flex-shrink: 0; }
+.work__left .btn { margin-top: 28px; }
+.work__right { flex: 1; display: flex; flex-direction: column; gap: 52px; min-width: 0; }
+.browser { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--paper); box-shadow: var(--shadow-card); transition: box-shadow 360ms, border-color 360ms, transform 360ms; }
+.work__card { text-decoration: none; color: var(--ink); display: block; }
+.work__card:hover .browser { border-color: var(--accent); transform: translateY(-4px); }
+.browser__bar { height: 38px; background: var(--bg); border-bottom: 1px solid var(--line); display: flex; align-items: center; padding: 0 14px; gap: 6px; position: relative; }
+.browser__dot { width: 10px; height: 10px; border-radius: 50%; }
+.browser__url { position: absolute; left: 50%; transform: translateX(-50%); background: var(--paper); border: 1px solid var(--line); padding: 4px 16px; border-radius: 999px; font-family: var(--font-mono); font-size: 11px; color: var(--muted); max-width: 60%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.browser__screen { aspect-ratio: 16/10; position: relative; }
+.browser__screen .ph { position: absolute; inset: 0; }
+.work__meta { padding: 20px 4px 0; }
+.work__meta h3 { font-family: var(--font-serif); font-size: 26px; margin: 0; letter-spacing: -0.01em; display: inline-block; }
+.work__meta .cat { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-left: 12px; }
+.work__chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+@media (max-width: 900px){ .work__layout { flex-direction: column; gap: 36px; } .work__left { position: static; width: 100%; } }
+
+/* ============================================================
+   STATS — bandeau profond
+   ============================================================ */
+.stats { background: linear-gradient(120deg, #0C0F15 0%, #0C1A63 120%); color: #fff; position: relative; overflow: hidden; }
+.stats::before { content:""; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px,transparent 1px); background-size: 48px 48px; -webkit-mask-image: radial-gradient(80% 120% at 50% 0%, #000, transparent 80%); mask-image: radial-gradient(80% 120% at 50% 0%, #000, transparent 80%); }
+.stats__grid { display: grid; grid-template-columns: repeat(4,1fr); position: relative; z-index: 1; }
+.stats__item { padding: 44px 28px; border-right: 1px solid rgba(255,255,255,.1); }
+.stats__item:last-child { border-right: none; }
+.stats__val { font-family: var(--font-serif); font-size: clamp(44px,5vw,66px); line-height: 1; letter-spacing: -0.03em; }
+.stats__val .sfx { color: var(--accent-bright); margin-left: 3px; }
+.stats__lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: 14px; }
+@media (max-width: 860px){ .stats__grid { grid-template-columns: repeat(2,1fr); } .stats__item { border-bottom: 1px solid rgba(255,255,255,.1); } .stats__item:nth-child(2n){border-right:none;} .stats__item:nth-last-child(-n+2){border-bottom:none;} }
+@media (max-width: 460px){ .stats__grid { grid-template-columns: 1fr; } .stats__item { border-right: none; padding: 28px; } }
+
+/* ============================================================
+   TÉMOIGNAGES
+   ============================================================ */
+.tm__grid { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
+.tm__list { display: flex; flex-direction: column; gap: 10px; }
+.tm__btn { text-align: left; padding: 20px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 14px; cursor: pointer; transition: all 200ms; font-family: inherit; }
+.tm__btn .n { font-family: var(--font-serif); font-size: 21px; }
+.tm__btn .b { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.tm__btn[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.tm__btn[aria-pressed="true"] .b { color: var(--subtle); }
+.tm__card { position: relative; min-height: 340px; padding: 48px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-card); }
+.tm__quote-mark { position: absolute; top: -10px; right: 28px; font-family: var(--font-serif); font-size: 180px; line-height: 1; color: var(--accent-soft); z-index: 0; }
+.tm__body { position: relative; z-index: 1; }
+.tm__stars { color: var(--accent); margin-bottom: 22px; letter-spacing: 2px; }
+.tm__q { font-family: var(--font-serif); font-size: clamp(23px,2.6vw,34px); line-height: 1.28; letter-spacing: -0.01em; color: var(--ink); margin: 0 0 30px; }
+.tm__q em { color: var(--accent); }
+.tm__author { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 22px; border-top: 1px solid var(--line); }
+.tm__avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-ink); display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 22px; }
+.tm__author .meta { flex: 1; min-width: 0; }
+.tm__author .meta .nm { font-family: var(--font-serif); font-size: 18px; }
+.tm__author .meta .rl { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.tm__src { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 860px){ .tm__grid { grid-template-columns: 1fr; gap: 22px; } .tm__card { padding: 30px; } }
+
+/* ============================================================
+   SIMULATEUR
+   ============================================================ */
+.sim { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-soft); background: var(--paper); }
+.sim__grid { display: grid; grid-template-columns: 1.35fr 1fr; min-height: 540px; }
+.sim__left { padding: 46px; border-right: 1px solid var(--line); }
+.sim__step { margin-bottom: 26px; }
+.sim__steplbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.sim__steplbl .n { color: var(--accent); }
+.sim__opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.sim__opt {
+  padding: 10px 17px; border-radius: 999px; font-size: 13px; font-family: inherit; cursor: pointer;
+  background: var(--bg); border: 1px solid var(--line); color: var(--ink-soft); transition: all 200ms;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.sim__opt:hover { border-color: var(--accent); transform: translateY(-1px); }
+.sim__opt[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; font-weight: 500; }
+.sim__opt.multi[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); box-shadow: 0 8px 16px -6px rgba(31,63,191,.4); }
+.sim__right { padding: 46px; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-ink) 100%); color: #fff; position: relative; overflow: hidden; }
+.sim__right::before { content:""; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px,transparent 1px); background-size: 32px 32px; }
+.sim__right > * { position: relative; z-index: 1; }
+.sim__rlbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.65); margin-bottom: 14px; }
+.sim__total { font-family: var(--font-serif); font-size: 88px; line-height: 0.9; letter-spacing: -0.035em; margin: 0; }
+.sim__total em { color: var(--amber); font-style: italic; }
+.sim__range { font-family: var(--font-mono); font-size: 13px; color: rgba(255,255,255,.7); margin-top: 14px; }
+.sim__sum { margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.18); }
+.sim__row { font-family: var(--font-mono); font-size: 13px; display: flex; justify-content: space-between; padding: 7px 0; color: rgba(255,255,255,.65); }
+.sim__row span:last-child { color: #fff; }
+.sim__note { font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,.6); letter-spacing: 0.06em; margin-top: 18px; }
+@media (max-width: 860px){ .sim__grid { grid-template-columns: 1fr; } .sim__left, .sim__right { padding: 30px 24px; } .sim__left { border-right: none; border-bottom: 1px solid var(--line); } .sim__total { font-size: 68px; } }
+
+/* ============================================================
+   OFFRES (Maintenance + Meta Ads) — cartes prix
+   ============================================================ */
+.plans { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.plan {
+  position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 34px 30px; display: flex; flex-direction: column; gap: 6px;
+  transition: transform 400ms cubic-bezier(.16,1,.3,1), box-shadow 400ms;
+}
+.plan:hover { transform: translateY(-6px); box-shadow: var(--shadow-card); }
+.plan__kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.plan h3 { font-family: var(--font-serif); font-size: 34px; letter-spacing: -0.01em; margin: 14px 0 4px; line-height: 1; }
+.plan__tag { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 20px; }
+.plan__price { font-family: var(--font-serif); font-size: 60px; line-height: 0.9; letter-spacing: -0.035em; }
+.plan__price em { color: var(--accent); font-style: italic; }
+.plan__price .per { font-family: var(--font-mono); font-size: 13px; margin-left: 6px; color: var(--muted); letter-spacing: 0.02em; }
+.plan__feat { list-style: none; margin: 22px 0 26px; padding: 22px 0 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 11px; font-size: 13.5px; line-height: 1.45; }
+.plan__feat li { display: flex; gap: 10px; align-items: flex-start; }
+.plan__feat .tick { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+.plan .btn { margin-top: auto; justify-content: center; }
+.plan--featured { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-ink) 100%); border-color: var(--accent); color: #fff; }
+.plan--featured::before { content:""; position:absolute; inset:0; border-radius: var(--radius); background-image: linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px,transparent 1px); background-size: 28px 28px; pointer-events: none; }
+.plan--featured > * { position: relative; z-index: 1; }
+.plan--featured .plan__kicker { color: rgba(255,255,255,.7); }
+.plan--featured h3, .plan--featured .plan__price { color: #fff; }
+.plan--featured .plan__tag { color: rgba(255,255,255,.78); }
+.plan--featured .plan__price em { color: var(--amber); }
+.plan--featured .plan__price .per { color: rgba(255,255,255,.65); }
+.plan--featured .plan__feat { border-top-color: rgba(255,255,255,.18); color: rgba(255,255,255,.88); }
+.plan--featured .plan__feat .tick { color: var(--amber); }
+.plan__badge { position: absolute; top: -11px; left: 26px; background: var(--amber); color: var(--ink); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 11px; border-radius: 999px; z-index: 2; }
+@media (max-width: 980px){ .plans { grid-template-columns: 1fr; } }
+
+.notice { margin-top: 36px; padding: 18px 22px; background: color-mix(in oklab, var(--accent-soft) 40%, var(--paper)); border: 1px solid color-mix(in oklab, var(--accent) 25%, transparent); border-radius: 14px; display: flex; gap: 12px; align-items: flex-start; font-size: 13.5px; line-height: 1.55; color: var(--ink-soft); }
+.notice strong { color: var(--ink); }
+.notice svg { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+
+/* ============================================================
+   MÉTHODE
+   ============================================================ */
+.process { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; }
+.step { background: rgba(255,255,255,0.7); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 14px; padding: 30px 22px; min-height: 250px; display: flex; flex-direction: column; transition: all 380ms cubic-bezier(.16,1,.3,1); }
+.step:hover { transform: translateY(-6px); border-color: var(--accent); background: #fff; box-shadow: var(--shadow-card); }
+.step--hl { border-color: var(--accent); background: linear-gradient(135deg, color-mix(in oklab,var(--accent-soft) 70%, #fff), #fff); }
+.step__n { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.14em; margin-bottom: auto; }
+.step h4 { font-family: var(--font-serif); font-size: 25px; letter-spacing: -0.01em; margin: 22px 0 8px; line-height: 1.02; hyphens: auto; }
+.step h4 em { color: var(--accent); }
+.step p { font-size: 13px; line-height: 1.55; color: var(--muted); margin: 0; }
+.step__time { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle); margin-top: 16px; }
+@media (max-width: 1100px){ .process { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 760px){ .process { grid-template-columns: 1fr; } .step { min-height: 0; } }
+
+/* ============================================================
+   ÉQUIPE
+   ============================================================ */
+.team__grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 44px; align-items: start; }
+.member { text-decoration: none; color: var(--ink); display: block; }
+.member__img { position: relative; aspect-ratio: 4/5; border-radius: var(--radius); overflow: hidden; margin-bottom: 22px; border: 1px solid var(--line); }
+.member__img .ph { position: absolute; inset: 0; }
+.member__tag { position: absolute; bottom: 14px; left: 14px; background: #fff; color: var(--ink); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 11px; border-radius: 999px; }
+.member__idx { position: absolute; top: 14px; left: 16px; font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.1em; }
+.member h3 { font-family: var(--font-serif); font-size: 46px; line-height: 1; letter-spacing: -0.02em; margin: 0 0 4px; }
+.member h3 em { color: var(--accent); }
+.member__role { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.member__q { font-family: var(--font-serif); font-style: italic; font-size: 22px; line-height: 1.35; color: var(--ink-soft); margin: 0 0 20px; }
+.member__stats { display: flex; gap: 28px; padding-top: 18px; border-top: 1px solid var(--line); }
+.member__stats .v { font-family: var(--font-serif); font-size: 26px; }
+.member__stats .l { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 760px){ .team__grid { grid-template-columns: 1fr; gap: 32px; } }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq__wrap { display: grid; grid-template-columns: 1fr 1.7fr; gap: 70px; align-items: start; }
+.faq__filters { display: flex; flex-direction: column; gap: 2px; position: sticky; top: 120px; }
+.faq__filter { text-align: left; background: none; border: none; padding: 14px 0; font-size: 14px; font-family: inherit; color: var(--muted); border-bottom: 1px solid var(--line); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: color 160ms; }
+.faq__filter:hover { color: var(--ink); }
+.faq__filter[aria-pressed="true"] { color: var(--accent); }
+.faq__filter .c { font-family: var(--font-mono); font-size: 11px; }
+.faq__list { display: flex; flex-direction: column; }
+.faq__item { border-bottom: 1px solid var(--line); padding: 26px 0; cursor: pointer; }
+.faq__item:first-child { border-top: 1px solid var(--line); }
+.faq__q { display: flex; justify-content: space-between; gap: 24px; align-items: start; font-family: var(--font-serif); font-size: 25px; line-height: 1.15; letter-spacing: -0.01em; }
+.faq__q em { font-style: italic; color: var(--accent); background: var(--accent-soft); padding: 0 5px; border-radius: 3px; }
+.faq__q .ind { flex-shrink: 0; font-family: var(--font-mono); font-size: 18px; color: var(--muted); transition: transform 260ms; line-height: 1; }
+.faq__item.open .faq__q .ind { transform: rotate(45deg); color: var(--accent); }
+.faq__a { max-height: 0; overflow: hidden; transition: max-height 340ms ease, padding 340ms ease; color: var(--muted); line-height: 1.6; font-size: 15px; }
+.faq__item.open .faq__a { max-height: 460px; padding-top: 16px; }
+@media (max-width: 860px){ .faq__wrap { grid-template-columns: 1fr; gap: 28px; } .faq__filters { position: static; flex-direction: row; flex-wrap: wrap; gap: 16px; } .faq__filter { border: none; padding: 6px 0; } .faq__q { font-size: 20px; } }
+
+/* ============================================================
+   CTA FINAL + CONTACT (sombre)
+   ============================================================ */
+.dark { background: linear-gradient(160deg, #0C0F15 0%, #0C1A63 130%); color: #fff; position: relative; overflow: hidden; }
+.dark::before { content:""; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px,transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(90% 90% at 80% 0%, #000, transparent 75%); mask-image: radial-gradient(90% 90% at 80% 0%, #000, transparent 75%); }
+.dark .wrap { position: relative; z-index: 1; }
+.cta__eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,.6); display: inline-flex; align-items: center; gap: 10px; }
+.cta__eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-bright); }
+.cta h2 { font-family: var(--font-sans); font-weight: 600; font-size: clamp(34px,5vw,64px); line-height: 1.04; letter-spacing: -0.03em; margin: 28px 0 32px; max-width: 14ch; }
+.cta h2 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: rgba(255,255,255,.5); }
+.cta p { font-size: 18px; color: rgba(255,255,255,.72); max-width: 560px; line-height: 1.55; margin: 0 0 36px; }
+.cta__btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.cta__meta { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 80px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,.12); }
+.cta__meta .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 8px; }
+.cta__meta .v { font-size: 15px; line-height: 1.5; }
+.cta__meta .v .soft { color: rgba(255,255,255,.55); }
+@media (max-width: 720px){ .cta__meta { grid-template-columns: 1fr; gap: 24px; } }
+
+.contact__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.contact__left h2 { font-family: var(--font-sans); font-weight: 600; font-size: clamp(30px,4vw,52px); line-height: 1.06; letter-spacing: -0.03em; margin: 18px 0 18px; }
+.contact__left h2 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: rgba(255,255,255,.5); }
+.contact__left p { color: rgba(255,255,255,.68); font-size: 17px; line-height: 1.6; max-width: 420px; }
+.contact__info { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.12); }
+.contact__info .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 7px; }
+.contact__info .v { font-size: 14px; }
+.contact__card { background: var(--paper); color: var(--ink); border-radius: var(--radius); padding: 40px; box-shadow: 0 40px 80px -40px rgba(0,0,0,.5); }
+.field { margin-bottom: 18px; }
+.field label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 8px; }
+.field input, .field textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; font-size: 14px; font-family: var(--font-sans); color: var(--ink); background: var(--bg); transition: border-color 160ms, background 160ms; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); background: #fff; }
+.field textarea { resize: none; }
+.field__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 860px){ .contact__grid { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 480px){ .field__row { grid-template-columns: 1fr; } .contact__info { grid-template-columns: 1fr; } .contact__card { padding: 28px; } }
+
+/* ============================================================
+   MARQUEE + FOOTER
+   ============================================================ */
+.marquee { overflow: hidden; padding: 22px 0; background: var(--ink); color: #fff; }
+.marquee__track { display: flex; align-items: center; gap: 56px; white-space: nowrap; width: max-content; animation: scroll 38s linear infinite; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+.marquee__item { font-family: var(--font-serif); font-style: italic; font-size: 26px; display: inline-flex; align-items: center; gap: 16px; letter-spacing: -0.01em; }
+.marquee__item .star { color: var(--accent-bright); font-style: normal; }
+
+.footer { background: var(--bg); }
+.footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; padding: 72px 0; border-top: 1px solid var(--line); }
+.footer__top p { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 16px 0 0; max-width: 320px; }
+.footer h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--subtle); margin: 0 0 18px; }
+.footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.footer ul a, .footer ul li { color: var(--muted); text-decoration: none; font-size: 14px; }
+.footer ul a:hover { color: var(--accent); }
+.footer__bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 26px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.footer__bottom .cr { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; }
+@media (max-width: 760px){ .footer__top { grid-template-columns: 1fr 1fr; gap: 32px; } }
+@media (max-width: 480px){ .footer__top { grid-template-columns: 1fr; } }
+
+/* ---------- Sticky CTA ---------- */
+.sticky-cta {
+  position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(160%);
+  display: flex; align-items: center; gap: 14px; z-index: 90;
+  background: var(--ink); color: #fff; padding: 10px 10px 10px 20px; border-radius: 999px;
+  box-shadow: 0 24px 60px -20px rgba(12,15,21,.5); font-size: 13px;
+  transition: transform 420ms cubic-bezier(.2,.8,.2,1); max-width: calc(100vw - 32px);
+}
+.sticky-cta.show { transform: translateX(-50%) translateY(0); }
+.sticky-cta .live { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+.sticky-cta a { background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 600; }
+@media (max-width: 540px){ .sticky-cta .lbl { display: none; } }
+
+.green { color: var(--green); }
+
+@keyframes tmIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="#top" class="brand"><span class="brand__mark"></span>Pixelbrute</a>
+    <div class="nav__links">
+      <a href="#cible">Pour qui</a>
+      <a href="#work">Réalisations</a>
+      <a href="#methode">Méthode</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#contact" class="btn btn-accent nav__cta">Démarrer un projet
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+    </a>
+    <button class="nav__burger" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="#cible">Pour qui</a>
+  <a href="#work">Réalisations</a>
+  <a href="#methode">Méthode</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact" class="btn btn-accent">Démarrer un projet</a>
+</div>
+
+<!-- ============ HERO — texte à gauche, portrait à droite ============ -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero__grid">
+      <div class="hero__col">
+        <p class="hero__intro reveal">
+          <img src="/esteban.jpg" alt="Esteban" class="hero__intro-avatar">
+          <span class="hero__intro-txt"><span class="wave">✦</span> Bonjour, moi c'est <strong>Esteban</strong> — créateur web indépendant.</span>
+        </p>
+
+        <h1 class="hero__headline">
+          <span class="hero__line hero__line--top reveal" data-d="1">Votre site</span>
+          <span class="hero__line hero__line--bottom reveal" data-d="2">mérite <em>mieux.</em></span>
+        </h1>
+
+        <p class="hero__sub reveal" data-d="2">Des sites <em>rapides</em>, soignés et pensés pour convertir — sans modèle générique. Pour les indépendants et entreprises de Liège qui veulent enfin une vitrine à la hauteur de leur travail.</p>
+
+        <div class="hero__cta reveal" data-d="3">
+          <a href="#contact" class="btn btn-primary">J'ai besoin d'un site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost">J'ai besoin de clients</a>
+        </div>
+
+        <div class="hero__logos reveal" data-d="3">
+          <span class="hero__logos-lbl">Ils m'ont fait confiance</span>
+          <div class="hero__logos-row">
+            <span class="logo-ph logo-zen">Zen Harmonie</span>
+            <span class="logo-ph logo-detail">Detail Wave</span>
+            <span class="logo-ph logo-moto">Motodistri</span>
+            <span class="logo-ph logo-azi">AzimutsGame</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__media reveal" data-d="2">
+        <div class="hero__frame">
+          <div class="hero__halo"></div>
+          <div class="hero__photo">
+            <img src="/artifact/portrait.png" alt="Esteban, fondateur de Pixelbrute">
+          </div>
+        </div>
+        <span class="hero__badge float-card">
+          <span class="ping"></span>
+          <span><span class="bl">Dispo</span> · Été 2026</span>
+        </span>
+        <span class="hero__badge hero__badge--b float-card">
+          <span class="stars">★★★★★</span>
+          <span><span class="bl">5,0</span> sur Google</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CIBLE — À qui je m'adresse ============ -->
+<section class="section cible" id="cible">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="bar"></span>À qui je m'adresse</span>
+      <h2>Je travaille avec des gens qui <em>vivent</em> de leur métier.</h2>
+      <p>Pas de startup qui cherche un logo gratuit. Des indépendants et des entreprises établies, ancrés à Liège et en Wallonie, qui ont un vrai savoir-faire à mettre en valeur.</p>
+    </div>
+
+    <div class="cible__grid">
+      <article class="cible__card reveal" data-d="1">
+        <div class="cible__num">01</div>
+        <h3>Professions <em>libérales</em> &amp; santé</h3>
+        <div class="cible__who">Kinés, ostéos, psychologues, coachs, avocats, notaires, experts-comptables.</div>
+        <p class="cible__desc">Vous perdez du temps au téléphone à gérer les rendez-vous. Je vous installe une vitrine qui inspire confiance et un système de réservation en ligne avec acompte sécurisé.</p>
+        <div class="cible__chips"><span class="chip">Réservation</span><span class="chip">Agenda synchronisé</span><span class="chip">Paiement Stripe</span></div>
+      </article>
+
+      <article class="cible__card reveal" data-d="2">
+        <div class="cible__num">02</div>
+        <h3>Artisans &amp; <em>commerces</em> locaux</h3>
+        <div class="cible__who">Menuisiers, paysagistes, traiteurs, salons, instituts, fleuristes.</div>
+        <p class="cible__desc">Vous voulez plus de demandes locales, pas des visiteurs lointains. Site clair, beaux visuels de vos réalisations, et des campagnes Meta calibrées pour faire venir le client du coin.</p>
+        <div class="cible__chips"><span class="chip">Leads locaux</span><span class="chip">Shooting photo</span><span class="chip">Meta Ads</span></div>
+      </article>
+
+      <article class="cible__card reveal" data-d="3">
+        <div class="cible__num">03</div>
+        <h3>Marques &amp; <em>e-commerce</em></h3>
+        <div class="cible__who">Créateurs, marques artisanales, boutiques qui passent au pro.</div>
+        <p class="cible__desc">Vous vendez déjà, mais votre boutique vous bride. Un e-commerce développé sur-mesure : vraie performance, vrai référencement, multilingue FR / NL / EN si besoin.</p>
+        <div class="cible__chips"><span class="chip">Paiement Stripe</span><span class="chip">SEO natif</span><span class="chip">Multilingue</span></div>
+      </article>
+
+      <article class="cible__card reveal" data-d="4">
+        <div class="cible__num">04</div>
+        <h3>PME en <em>refonte</em></h3>
+        <div class="cible__who">Entreprises B2B établies avec un site qui date et qui rame.</div>
+        <p class="cible__desc">Votre site a été fait il y a sept ans, n'est plus à jour ni adapté au mobile. On repart sur une base solide, rapide et facile à gérer — avec un interlocuteur joignable.</p>
+        <div class="cible__chips"><span class="chip">Refonte complète</span><span class="chip">Dashboard admin</span><span class="chip">Maintenance</span></div>
+      </article>
+    </div>
+
+    <div class="cible__crit reveal">
+      <span class="k">On est faits pour travailler ensemble si&nbsp;:</span>
+      <span class="v"><span class="tick">✓</span> Vous avez une activité qui tourne</span>
+      <span class="v"><span class="tick">✓</span> Vous vendez à une clientèle réelle</span>
+      <span class="v"><span class="tick">✓</span> Vous décidez vite, sans comité</span>
+      <span class="v"><span class="tick">✓</span> Votre site actuel vous frustre</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RÉALISATIONS ============ -->
+<section class="section work" id="work">
+  <div class="wrap">
+    <div class="work__layout">
+      <div class="work__left reveal">
+        <span class="eyebrow"><span class="bar"></span>Réalisations</span>
+        <h2 class="section-head" style="margin-bottom:0"><span style="font-family:var(--font-sans);font-weight:600;font-size:clamp(30px,3.4vw,46px);letter-spacing:-0.03em;line-height:1.04;display:block;margin-top:16px">Des projets <em class="serif-i" style="color:var(--accent)">livrés</em>, pas des maquettes.</span></h2>
+        <p style="color:var(--muted);font-size:15px;margin-top:18px;line-height:1.6">Chaque site est développé sur-mesure. Voici une sélection de réalisations récentes pour des clients de la région.</p>
+        <a href="#contact" class="btn btn-primary">Lancer le vôtre
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+      </div>
+
+      <div class="work__right">
+        <a href="https://zenharmoniehélécine.be" target="_blank" rel="noopener" class="work__card reveal" data-d="1">
+          <div class="browser">
+            <div class="browser__bar">
+              <span class="browser__dot" style="background:#FF5F57"></span><span class="browser__dot" style="background:#FEBC2E"></span><span class="browser__dot" style="background:#28C840"></span>
+              <span class="browser__url">zenharmoniehélécine.be</span>
+            </div>
+            <div class="browser__screen"><div class="ph" style="background:url(/projects/zen_harmonie.jpg) center/cover"></div></div>
+          </div>
+          <div class="work__meta">
+            <h3>Zen Harmonie</h3><span class="cat">Massothérapie · Hélécine</span>
+            <div class="work__chips"><span class="chip">Next.js</span><span class="chip">Prise de RDV</span><span class="chip">SEO local</span></div>
+          </div>
+        </a>
+
+        <a href="https://detailwave.be" target="_blank" rel="noopener" class="work__card reveal" data-d="2">
+          <div class="browser">
+            <div class="browser__bar">
+              <span class="browser__dot" style="background:#FF5F57"></span><span class="browser__dot" style="background:#FEBC2E"></span><span class="browser__dot" style="background:#28C840"></span>
+              <span class="browser__url">detailwave.be</span>
+            </div>
+            <div class="browser__screen"><div class="ph" style="background:url(/projects/detail_wave.jpg) center/cover"></div></div>
+          </div>
+          <div class="work__meta">
+            <h3>Detail Wave</h3><span class="cat">Detailing automobile · Liège</span>
+            <div class="work__chips"><span class="chip">Vitrine premium</span><span class="chip">Next.js</span><span class="chip">★ 5.0 Google</span></div>
+          </div>
+        </a>
+
+        <a href="https://motodistri.com" target="_blank" rel="noopener" class="work__card reveal" data-d="3">
+          <div class="browser">
+            <div class="browser__bar">
+              <span class="browser__dot" style="background:#FF5F57"></span><span class="browser__dot" style="background:#FEBC2E"></span><span class="browser__dot" style="background:#28C840"></span>
+              <span class="browser__url">motodistri.com</span>
+            </div>
+            <div class="browser__screen"><div class="ph" style="background:url(/projects/motodistri.jpg) center/cover"></div></div>
+          </div>
+          <div class="work__meta">
+            <h3>Motodistri</h3><span class="cat">Distribution moto · Liège</span>
+            <div class="work__chips"><span class="chip">Catalogue</span><span class="chip">Next.js</span><span class="chip">SEO</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="section-tight stats">
+  <div class="wrap">
+    <div class="stats__grid">
+      <div class="stats__item reveal" data-d="1"><div class="stats__val">3<span class="sfx">/3</span></div><div class="stats__lbl">Clients satisfaits</div></div>
+      <div class="stats__item reveal" data-d="2"><div class="stats__val">&lt;4<span class="sfx">sem</span></div><div class="stats__lbl">Délai moyen</div></div>
+      <div class="stats__item reveal" data-d="3"><div class="stats__val">98<span class="sfx">/100</span></div><div class="stats__lbl">Score performance</div></div>
+      <div class="stats__item reveal" data-d="4"><div class="stats__val">5,0<span class="sfx">★</span></div><div class="stats__lbl">Note Google</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TÉMOIGNAGES ============ -->
+<section class="section tm" id="avis">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="bar"></span>Ils m'ont fait confiance</span>
+      <h2>Ce qu'en disent <em>celles et ceux</em> qui ont sauté le pas.</h2>
+    </div>
+    <div class="tm__grid">
+      <div class="tm__list reveal">
+        <button class="tm__btn" aria-pressed="true"><div class="n">Pierre Vanderelst</div><div class="b">Zen Harmonie · Massothérapeute</div></button>
+        <button class="tm__btn"><div class="n">Detail Wave</div><div class="b">Detailing automobile · Liège</div></button>
+      </div>
+      <div class="tm__card reveal" data-d="1" id="tm-card"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section dark contact" id="contact">
+  <div class="wrap">
+    <div class="contact__grid">
+      <div class="contact__left">
+        <span class="cta__eyebrow reveal"><span class="dot"></span>Démarrer un projet</span>
+        <h2 class="reveal" data-d="1">Parlez-moi de <em>votre</em> projet.</h2>
+        <p class="reveal" data-d="2">Quelques lignes suffisent pour démarrer. Je reviens vers vous rapidement avec des premières pistes concrètes et une estimation.</p>
+        <div class="contact__info reveal" data-d="2">
+          <div><div class="k">Email</div><div class="v"><a href="mailto:contact@pixelbrute.be" style="color:inherit;text-decoration:none">contact@pixelbrute.be</a></div></div>
+          <div><div class="k">Téléphone</div><div class="v"><a href="tel:+32492200275" style="color:inherit;text-decoration:none">+32 492 20 02 75</a></div></div>
+          <div><div class="k">Localisation</div><div class="v">Liège, Belgique</div></div>
+          <div><div class="k">Réseaux</div><div class="v">Instagram · LinkedIn</div></div>
+        </div>
+      </div>
+
+      <form class="contact__card reveal" data-d="1" action="https://formspree.io/f/xdaawkyd" method="POST">
+        <input type="hidden" name="_subject" value="Nouvelle demande Pixelbrute">
+        <div class="field__row">
+          <div class="field"><label>Prénom</label><input type="text" name="prenom" placeholder="Marie" required></div>
+          <div class="field"><label>Nom</label><input type="text" name="nom" placeholder="Lambert" required></div>
+        </div>
+        <div class="field"><label>Email</label><input type="email" name="email" placeholder="marie@cabinet.be" required></div>
+        <div class="field"><label>Type de projet</label><input type="text" name="projet" placeholder="Site vitrine + réservation"></div>
+        <div class="field"><label>Votre message</label><textarea name="message" rows="4" placeholder="Je suis kiné à Embourg et mon site actuel ne me ressemble plus…" required></textarea></div>
+        <button class="btn btn-accent" style="width:100%;justify-content:center">Envoyer ma demande
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </button>
+        <p style="font-family:var(--font-mono);font-size:10.5px;color:var(--subtle);text-align:center;margin:16px 0 0;letter-spacing:.04em">// Réponse sous 24 h · Sans engagement</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MÉTHODE ============ -->
+<section class="section methode" id="methode">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="bar"></span>Ma méthode</span>
+      <h2>Cinq étapes, <em>zéro</em> mauvaise surprise.</h2>
+      <p>Un processus clair et cadré, du premier appel jusqu'à la mise en ligne. Vous savez toujours où on en est.</p>
+    </div>
+
+    <div class="process">
+      <div class="step reveal" data-d="1"><div class="step__n">01</div><h4>Échange</h4><p>On discute de votre activité, vos objectifs et vos clients. Sans jargon, sans engagement.</p><div class="step__time">Jour 1</div></div>
+      <div class="step step--hl reveal" data-d="2"><div class="step__n">02</div><h4>Cadrage</h4><p>Devis clair, arborescence et contenu. On valide ensemble avant la moindre ligne de code.</p><div class="step__time">Semaine 1</div></div>
+      <div class="step reveal" data-d="3"><div class="step__n">03</div><h4>Design</h4><p>Je dessine une maquette sur-mesure à votre image. Allers-retours jusqu'au «&nbsp;oui&nbsp;».</p><div class="step__time">Semaine 2</div></div>
+      <div class="step reveal" data-d="4"><div class="step__n">04</div><h4>Développement</h4><p>Intégration en Next.js : rapide, sécurisé, optimisé pour le référencement et le mobile.</p><div class="step__time">Semaine 3</div></div>
+      <div class="step reveal" data-d="4"><div class="step__n">05</div><h4>En ligne</h4><p>Mise en ligne, formation à la prise en main, et je reste joignable ensuite.</p><div class="step__time">Semaine 4</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÉQUIPE ============ -->
+<section class="section team" id="equipe">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="bar"></span>Le studio</span>
+      <h2>Un interlocuteur <em>humain</em>, joignable, qui vous comprend.</h2>
+      <p>Pixelbrute, c'est un studio à taille humaine. Pas de commercial, pas de sous-traitance : vous parlez directement à la personne qui crée votre site.</p>
+    </div>
+
+    <div class="team__grid">
+      <a href="/equipe/esteban/" class="member reveal" data-d="1">
+        <div class="member__img">
+          <div class="ph" style="background:url(/esteban.jpg) center/cover"></div>
+          <span class="member__idx">01</span>
+          <span class="member__tag">Design &amp; Développement</span>
+        </div>
+        <h3>Esteban</h3>
+        <div class="member__role">Fondateur · Designer-développeur</div>
+        <p class="member__q">“Je code chaque site comme si c'était le mien. La perf et le détail, ça ne se négocie pas.”</p>
+        <div class="member__stats">
+          <div><div class="v">Next.js</div><div class="l">Spécialité</div></div>
+          <div><div class="v">3</div><div class="l">Sites livrés</div></div>
+        </div>
+      </a>
+
+      <a href="/equipe/amandine/" class="member reveal" data-d="2">
+        <div class="member__img">
+          <div class="ph" style="background:url(/amandine.jpg) center/cover"></div>
+          <span class="member__idx">02</span>
+          <span class="member__tag">Direction artistique</span>
+        </div>
+        <h3>Amandine</h3>
+        <div class="member__role">Designer · Direction artistique</div>
+        <p class="member__q">“Un beau site qui ne convertit pas n'a aucun intérêt. On dessine pour vos clients, pas pour le concours.”</p>
+        <div class="member__stats">
+          <div><div class="v">UI / UX</div><div class="l">Spécialité</div></div>
+          <div><div class="v">5,0★</div><div class="l">Note clients</div></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="bar"></span>Questions fréquentes</span>
+      <h2>Tout ce que vous <em>vous</em> demandez.</h2>
+    </div>
+    <div class="faq__wrap">
+      <div class="faq__filters reveal">
+        <button class="faq__filter" data-cat="all" aria-pressed="true">Toutes <span class="c">06</span></button>
+        <button class="faq__filter" data-cat="prix">Tarifs &amp; délais <span class="c">02</span></button>
+        <button class="faq__filter" data-cat="tech">Technique <span class="c">02</span></button>
+        <button class="faq__filter" data-cat="suite">Après la livraison <span class="c">02</span></button>
+      </div>
+      <div class="faq__list reveal" data-d="1">
+        <div class="faq__item open" data-cat="prix">
+          <div class="faq__q"><span>Combien coûte un site, <em>vraiment</em>&nbsp;?</span><span class="ind">+</span></div>
+          <div class="faq__a">Une landing débute autour de 1 200 €, une vitrine autour de 2 200 €, un e-commerce à partir de 5 500 €. Le simulateur plus haut vous donne une fourchette réaliste en quelques clics. Vous recevez ensuite un devis détaillé, fixe, sans surprise.</div>
+        </div>
+        <div class="faq__item" data-cat="prix">
+          <div class="faq__q"><span>En combien de temps mon site est-il en ligne&nbsp;?</span><span class="ind">+</span></div>
+          <div class="faq__a">Comptez environ 4 semaines pour une vitrine, à partir de la validation du devis et une fois vos contenus réunis. Les projets plus ambitieux (e-commerce, multilingue) prennent un peu plus de temps — on fixe le planning ensemble dès le départ.</div>
+        </div>
+        <div class="faq__item" data-cat="tech">
+          <div class="faq__q"><span>Pourquoi du sur-mesure et pas un <em>Wix</em>&nbsp;?</span><span class="ind">+</span></div>
+          <div class="faq__a">Les éditeurs grand public sont lents, mal référencés et bridés. Je développe en Next.js : un site rapide, propre, bien positionné sur Google et qui vous appartient vraiment. La différence se voit sur les performances — et sur vos résultats.</div>
+        </div>
+        <div class="faq__item" data-cat="tech">
+          <div class="faq__q"><span>Mon site sera-t-il visible sur Google&nbsp;?</span><span class="ind">+</span></div>
+          <div class="faq__a">Le référencement est pensé dès la conception : structure, vitesse, balises, contenu. Le pack SEO en option pousse encore plus loin avec un travail sur les mots-clés locaux de votre métier et de votre région.</div>
+        </div>
+        <div class="faq__item" data-cat="suite">
+          <div class="faq__q"><span>Et après la mise en ligne&nbsp;?</span><span class="ind">+</span></div>
+          <div class="faq__a">Je ne disparais pas. Vous choisissez une formule de maintenance (ou aucune), et je reste joignable. À la livraison, je vous forme à modifier vos contenus vous-même si vous le souhaitez — c'est inclus.</div>
+        </div>
+        <div class="faq__item" data-cat="suite">
+          <div class="faq__q"><span>Puis-je gérer le site <em>moi-même</em> ensuite&nbsp;?</span><span class="ind">+</span></div>
+          <div class="faq__a">Oui. Selon le projet, je mets en place une interface simple pour modifier vos textes, photos ou actualités sans toucher au code. Vous restez autonome, et je reste disponible en cas de besoin.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="section dark cta">
+  <div class="wrap">
+    <span class="cta__eyebrow reveal"><span class="dot"></span>Prochaine dispo · Été 2026</span>
+    <h2 class="reveal" data-d="1">Donnons à votre métier <em>le site qu'il mérite.</em></h2>
+    <p class="reveal" data-d="2">Un premier échange, sans engagement, pour comprendre votre projet et voir si on est faits pour travailler ensemble.</p>
+    <div class="cta__btns reveal" data-d="2">
+      <a href="#contact" class="btn btn-light">Réserver un appel
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+    <div class="cta__meta">
+      <div class="reveal" data-d="1"><div class="k">Délai de réponse</div><div class="v">Sous 24 h ouvrées <span class="soft">— en direct, pas un robot.</span></div></div>
+      <div class="reveal" data-d="2"><div class="k">Zone</div><div class="v">Liège · Province · Wallonie <span class="soft">— et à distance.</span></div></div>
+      <div class="reveal" data-d="3"><div class="k">Engagement</div><div class="v">Aucun avant le devis <span class="soft">— le premier appel est offert.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span class="marquee__item">Sites livrés en moins de 4 semaines <span class="star">✦</span></span>
+    <span class="marquee__item">Développement Next.js <span class="star">✦</span></span>
+    <span class="marquee__item">100% sur-mesure <span class="star">✦</span></span>
+    <span class="marquee__item">SEO local pensé dès le départ <span class="star">✦</span></span>
+    <span class="marquee__item">Studio liégeois <span class="star">✦</span></span>
+    <span class="marquee__item">Sites livrés en moins de 4 semaines <span class="star">✦</span></span>
+    <span class="marquee__item">Développement Next.js <span class="star">✦</span></span>
+    <span class="marquee__item">100% sur-mesure <span class="star">✦</span></span>
+    <span class="marquee__item">SEO local pensé dès le départ <span class="star">✦</span></span>
+    <span class="marquee__item">Studio liégeois <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <a href="#top" class="brand"><span class="brand__mark"></span>Pixelbrute</a>
+        <p>Studio web à Liège. Des sites sur-mesure, rapides et soignés, pour les indépendants et entreprises qui veulent une vitrine à la hauteur de leur travail.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#cible">Pour qui</a></li>
+          <li><a href="#work">Réalisations</a></li>
+          <li></li>
+          <li><a href="#methode">Méthode</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>contact@pixelbrute.be</li>
+          <li>+32 492 20 02 75</li>
+          <li>Liège, Belgique</li>
+          <li><a href="#contact">Démarrer un projet</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="cr">© <span id="year">2026</span> Pixelbrute — Tous droits réservés</span>
+      <span class="cr">Liège · Belgique · Fait main</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY CTA ============ -->
+<div class="sticky-cta">
+  <span class="live"></span>
+  <span class="lbl">Une idée de projet&nbsp;?</span>
+  <a href="#contact">Démarrer →</a>
+</div>
+
+<script>
+window.__TESTIMONIALS = [
+  { initial: "P", name: "Pierre Vanderelst", role: "Zen Harmonie · Massothérapeute", src: "Avis Google · il y a un mois", quote: "Je recommande à 200&nbsp;% — très pro, <em>à l'écoute</em>, prend le temps de comprendre notre réel besoin et de se mettre à notre place. <em>Vous avez besoin d'un site&nbsp;? Foncez.</em>" },
+  { initial: "D", name: "Detail Wave", role: "Detailing automobile · Liège", src: "Avis Google · il y a un mois", quote: "Super expérience avec Pixelbrute. Je recommande à 100&nbsp;%. Il est <em>très à l'écoute</em>, répond rapidement à mes demandes et mon site web est <em>exactement ce que j'attendais</em>. Merci beaucoup Pixelbrute." }
+];
+</script>
+
+<script src="/artifact/app.js"></script>
+
+
+</body></html>

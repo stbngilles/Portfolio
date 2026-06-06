@@ -1,0 +1,243 @@
+// Pixel Brut — Schéma DB initial
+// Couvre les 4 rôles (admin/commercial/client/dev) et la chaîne de valeur :
+// prospect → devis → projet → facturation → récurrent → commissions.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  // SQLite local pour le développement. Switch vers postgresql quand on
+  // passe en staging/prod. L'URL de connexion est gérée dans prisma.config.ts
+  // (Prisma 7+).
+  provider = "sqlite"
+}
+
+// =====================================================================
+// AUTH (Better-Auth)
+// =====================================================================
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified Boolean   @default(false)
+  name          String?
+  image         String?
+  role          String    @default("CLIENT") // ADMIN | COMMERCIAL | CLIENT | DEV
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  sessions       Session[]
+  accounts       Account[]
+  ownedProjects  Project[]    @relation("ProjectClient")
+  soldProjects   Project[]    @relation("ProjectCommercial")
+  assignedDev    Project[]    @relation("ProjectDev")
+  commissions    Commission[]
+  tickets        Ticket[]     @relation("TicketAuthor")
+  assignedTickets Ticket[]    @relation("TicketAssignee")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  expiresAt DateTime
+  token     String   @unique
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Account {
+  id                String    @id @default(cuid())
+  userId            String
+  accountId         String
+  providerId        String
+  accessToken       String?
+  refreshToken      String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope             String?
+  idToken           String?
+  password          String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// =====================================================================
+// PIPELINE COMMERCIAL : Devis → Projet
+// =====================================================================
+
+model Quote {
+  id            String   @id @default(cuid())
+  number        String   @unique // ex. PB-2026-0001
+  commercialId  String?  // user qui a fait le devis
+  clientId      String?  // user client (créé à la signature)
+  clientName    String   // nom prospect avant signature
+  clientEmail   String
+  clientCompany String?
+
+  status        String   @default("DRAFT") // DRAFT | SENT | SIGNED | LOST
+  totalOneShot  Int      @default(0) // centimes
+  totalRecurring Int     @default(0) // centimes / mois
+  notes         String?
+
+  sentAt        DateTime?
+  signedAt      DateTime?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  lines         QuoteLine[]
+  project       Project?
+}
+
+model QuoteLine {
+  id        String  @id @default(cuid())
+  quoteId   String
+  label     String
+  category  String  // SITE | OPTION | RECURRING | LAUNCH_PACK
+  quantity  Int     @default(1)
+  unitPrice Int     // centimes
+  isRecurring Boolean @default(false)
+
+  quote Quote @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+}
+
+// =====================================================================
+// PROJET (livraison du site)
+// =====================================================================
+
+model Project {
+  id            String   @id @default(cuid())
+  quoteId       String?  @unique
+  name          String
+  clientId      String   // qui paie / qui valide
+  commercialId  String?  // qui touche la commission
+  devId         String?  // freelance assigné
+
+  status        String   @default("BRIEFING") // BRIEFING | DESIGN | DEV | CONTENT | LIVE | CLOSED
+  briefData     String?  // JSON brief de signature
+
+  startedAt     DateTime?
+  liveAt        DateTime?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  quote        Quote?       @relation(fields: [quoteId], references: [id])
+  client       User         @relation("ProjectClient", fields: [clientId], references: [id])
+  commercial   User?        @relation("ProjectCommercial", fields: [commercialId], references: [id])
+  dev          User?        @relation("ProjectDev", fields: [devId], references: [id])
+  stages       ProjectStage[]
+  invoices     Invoice[]
+  subscription Subscription?
+  tickets      Ticket[]
+}
+
+model ProjectStage {
+  id          String   @id @default(cuid())
+  projectId   String
+  key         String   // brief | design | dev | content | review | live
+  label       String
+  order       Int
+  status      String   @default("PENDING") // PENDING | IN_PROGRESS | NEEDS_VALIDATION | VALIDATED
+  validatedAt DateTime?
+  validatedBy String?  // userId du client qui a validé
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+// =====================================================================
+// FACTURATION
+// =====================================================================
+
+model Invoice {
+  id         String   @id @default(cuid())
+  number     String   @unique // PB-INV-2026-0001
+  projectId  String?
+  clientId   String   // dénormalisé pour requêtes rapides
+  amount     Int      // centimes
+  status     String   @default("DRAFT") // DRAFT | SENT | PAID | OVERDUE | CANCELLED
+  dueDate    DateTime?
+  paidAt     DateTime?
+  stripeId   String?  // Stripe Invoice / PaymentIntent id
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  project Project? @relation(fields: [projectId], references: [id])
+}
+
+model Subscription {
+  id         String   @id @default(cuid())
+  projectId  String   @unique
+  clientId   String
+  plan       String   // MAINTENANCE | ADS_MANAGEMENT | MAINTENANCE_PLUS_SEO
+  monthlyAmount Int   // centimes / mois
+  status     String   @default("ACTIVE") // ACTIVE | PAUSED | CANCELLED
+  startedAt  DateTime @default(now())
+  cancelledAt DateTime?
+  stripeId   String?
+
+  project Project @relation(fields: [projectId], references: [id])
+}
+
+// =====================================================================
+// COMMISSIONS (one-shot 20% / récurrent 15%)
+// =====================================================================
+
+model Commission {
+  id           String   @id @default(cuid())
+  commercialId String
+  source       String   // QUOTE | INVOICE | SUBSCRIPTION
+  sourceId     String
+  type         String   // ONE_SHOT | RECURRING | LAUNCH_PACK
+  baseAmount   Int      // base sur laquelle calculée (centimes)
+  rate         Float    // ex. 0.20 ou 0.15
+  amount       Int      // centimes
+  periodMonth  DateTime? // pour le récurrent : le mois auquel ça s'applique
+  status       String   @default("PENDING") // PENDING | PAID
+  paidAt       DateTime?
+
+  createdAt    DateTime @default(now())
+
+  commercial User @relation(fields: [commercialId], references: [id])
+}
+
+// =====================================================================
+// TICKETS (support / demandes de modif)
+// =====================================================================
+
+model Ticket {
+  id         String   @id @default(cuid())
+  projectId  String?
+  authorId   String
+  assigneeId String?
+  title      String
+  body       String
+  status     String   @default("OPEN") // OPEN | IN_PROGRESS | RESOLVED | CLOSED
+  priority   String   @default("NORMAL") // LOW | NORMAL | HIGH | URGENT
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  resolvedAt DateTime?
+
+  project  Project? @relation(fields: [projectId], references: [id])
+  author   User     @relation("TicketAuthor", fields: [authorId], references: [id])
+  assignee User?    @relation("TicketAssignee", fields: [assigneeId], references: [id])
+}

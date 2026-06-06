@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { DM_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ClientShell from "@/components/ClientShell";
+import Script from "next/script";
+
+// NB : la Navbar / Footer / ClientShell ont été déplacés dans
+// `(marketing)/layout.tsx` pour ne s'appliquer qu'aux pages du site public.
+// Le layout racine ne fait plus que poser le shell html / polices / GA / JSON-LD,
+// pour que les routes plateforme `/app/*` puissent avoir leur propre chrome.
 
 const SITE_URL = "https://pixelbrute.be";
 
@@ -137,20 +140,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
-      </head>
+    <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <div className="noise-bg" />
-        <Navbar />
-        <ClientShell>{children}</ClientShell>
-        <Footer />
+        {/* JSON-LD via next/script : injection client, hors zone d'hydratation
+            React. Évite les mismatchs causés par les extensions navigateur. */}
+        <Script
+          id="ld-local-business"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        {children}
       </body>
       <GoogleAnalytics gaId="G-HBC3873LQL" />
     </html>

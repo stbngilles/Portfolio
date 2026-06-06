@@ -109,6 +109,14 @@ export default function Footer() {
             >
               Contact
             </Link>
+            <Link
+              href="/app"
+              className="text-xs no-underline"
+              style={{ color: "var(--color-subtle)" }}
+              title="Espace pro Pixelbrute"
+            >
+              Espace pro
+            </Link>
           </div>
         </div>
       </div>

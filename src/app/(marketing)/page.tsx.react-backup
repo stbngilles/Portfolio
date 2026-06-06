@@ -8,6 +8,8 @@ import Stats from "@/components/Stats";
 import Team from "@/components/Team";
 import Process from "@/components/Process";
 import Simulator from "@/components/Simulator";
+import Maintenance from "@/components/Maintenance";
+import MetaAds from "@/components/MetaAds";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
@@ -40,6 +42,8 @@ export default function Home() {
       <Stats />
       <Testimonials />
       <Simulator />
+      <Maintenance />
+      <MetaAds />
       <Process />
       <Team />
       <FAQ />
