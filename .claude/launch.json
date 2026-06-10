@@ -7,6 +7,20 @@
       "runtimeArgs": ["node_modules/next/dist/bin/next", "dev"],
       "port": 3000,
       "autoPort": true
+    },
+    {
+      "name": "artifact",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", ".artifact-view", "-l", "4321"],
+      "port": 4321,
+      "autoPort": true
+    },
+    {
+      "name": "out",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "out", "-l", "4322"],
+      "port": 4322,
+      "autoPort": true
     }
   ]
 }

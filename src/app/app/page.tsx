@@ -1,38 +1,26 @@
-import Link from "next/link";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { getEffectiveSession } from "@/lib/auth-guard";
 
 /**
  * Point d'entrée /app
- * - Non connecté → redirige vers /app/login
- * - Connecté → redirige vers l'espace correspondant au rôle
+ *  - Non connecté → /app/login
+ *  - Connecté → espace correspondant au rôle (impersonation prise en compte)
  */
 export default async function PlatformHome() {
-  const session = await auth.api.getSession({ headers: await headers() });
+  const session = await getEffectiveSession();
+  if (!session) redirect("/app/login");
 
-  if (!session) {
-    redirect("/app/login");
-  }
-
-  const role = (session.user as { role?: string }).role ?? "CLIENT";
-
-  switch (role) {
+  switch (session.user.role) {
     case "ADMIN":
       redirect("/app/admin");
     case "COMMERCIAL":
       redirect("/app/commercial");
     case "DEV":
       redirect("/app/dev");
+    case "COMPTABLE":
+      redirect("/app/comptable");
     case "CLIENT":
     default:
       redirect("/app/client");
   }
-
-  // Inatteignable, mais TS rassuré
-  return (
-    <div className="wrap py-20">
-      <Link href="/app/login">Se connecter</Link>
-    </div>
-  );
 }

@@ -5,6 +5,7 @@ import {
   DashboardShell,
   SectionTitle,
 } from "@/components/platform/DashboardShell";
+import { ADMIN_NAV } from "@/lib/platform-nav";
 import { createProject } from "./actions";
 
 const STATUS_COLOR: Record<string, string> = {
@@ -40,14 +41,7 @@ export default async function AdminProjectsPage() {
       title="Toute la production,"
       italic="d'un coup d'œil."
       user={{ ...session.user, role }}
-      nav={[
-        { href: "/app/admin", label: "Vue d'ensemble" },
-        { href: "/app/admin/projects", label: "Projets" },
-        { href: "/app/admin/clients", label: "Clients" },
-        { href: "/app/admin/recurring", label: "Récurrent" },
-        { href: "/app/admin/commissions", label: "Commissions" },
-        { href: "/app/admin/users", label: "Utilisateurs" },
-      ]}
+      nav={ADMIN_NAV}
     >
       {/* Formulaire de création */}
       <div

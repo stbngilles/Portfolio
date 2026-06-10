@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { NavTabs } from "./NavTabs";
 
 type NavItem = { href: string; label: string };
 
@@ -7,103 +7,75 @@ export function DashboardShell({
   eyebrow,
   italic,
   nav,
-  user,
   children,
 }: {
   title: string;
   eyebrow: string;
   italic?: string;
   nav: NavItem[];
-  user: { name?: string | null; email: string; role: string };
+  user?: { name?: string | null; email: string; role: string };
   children: React.ReactNode;
 }) {
   return (
     <>
-      {/* En-tête éditorial */}
-      <section
-        className="wrap"
-        style={{ paddingTop: 56, paddingBottom: 24 }}
-      >
-        <div className="flex items-start justify-between gap-8 flex-wrap">
-          <div className="max-w-3xl">
-            <div
-              className="mono uppercase flex items-center gap-3 mb-5"
-              style={{ fontSize: 11, letterSpacing: "0.14em", color: "var(--color-muted)" }}
-            >
-              <span
-                className="inline-block w-2 h-2 rounded-full"
-                style={{ background: "var(--color-accent)" }}
-              />
-              {eyebrow}
-            </div>
-            <h1
-              className="display"
+      {/* En-tête compact */}
+      <section className="wrap" style={{ paddingTop: 36, paddingBottom: 20 }}>
+        <div className="max-w-3xl">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              marginBottom: 10,
+              fontSize: 11,
+              textTransform: "uppercase",
+              letterSpacing: "0.14em",
+              color: "var(--color-muted)",
+              fontFamily: "var(--font-geist)",
+            }}
+          >
+            <span
               style={{
-                fontSize: "clamp(40px, 5vw, 64px)",
-                lineHeight: 1.02,
-                letterSpacing: "-0.03em",
+                display: "inline-block",
+                width: 6,
+                height: 6,
+                borderRadius: "50%",
+                background: "var(--color-accent)",
               }}
-            >
-              {title}
-              {italic && (
-                <>
-                  {" "}
-                  <em className="serif-i" style={{ color: "var(--color-accent)" }}>
-                    {italic}
-                  </em>
-                </>
-              )}
-            </h1>
+            />
+            {eyebrow}
           </div>
-
-          <div className="text-right">
-            <p className="text-sm" style={{ color: "var(--color-ink-soft)", fontWeight: 500 }}>
-              {user.name ?? user.email}
-            </p>
-            <p
-              className="mono uppercase mt-1"
-              style={{ fontSize: 10, letterSpacing: "0.14em", color: "var(--color-subtle)" }}
-            >
-              {user.role}
-            </p>
-            <form action="/api/auth/sign-out" method="POST" className="mt-3">
-              <button
-                type="submit"
-                className="text-xs no-underline transition-colors"
-                style={{ color: "var(--color-muted)" }}
-              >
-                Déconnexion →
-              </button>
-            </form>
-          </div>
+          <h1
+            className="display"
+            style={{
+              fontSize: "clamp(28px, 4vw, 48px)",
+              lineHeight: 1.08,
+              letterSpacing: "-0.025em",
+            }}
+          >
+            {title}
+            {italic && (
+              <>
+                {" "}
+                <em className="serif-i" style={{ color: "var(--color-accent)" }}>
+                  {italic}
+                </em>
+              </>
+            )}
+          </h1>
         </div>
       </section>
 
-      {/* Onglets de navigation interne */}
+      {/* Tabs de navigation */}
       {nav.length > 0 && (
         <div style={{ borderBottom: "1px solid var(--color-line)" }}>
           <div className="wrap">
-            <nav className="flex gap-1 overflow-x-auto" style={{ marginBottom: -1 }}>
-              {nav.map((n, i) => (
-                <Link
-                  key={n.href}
-                  href={n.href}
-                  className="px-4 py-4 text-sm no-underline transition-colors whitespace-nowrap"
-                  style={{
-                    color: i === 0 ? "var(--color-ink)" : "var(--color-muted)",
-                    fontWeight: i === 0 ? 500 : 400,
-                    borderBottom: i === 0 ? "2px solid var(--color-accent)" : "2px solid transparent",
-                  }}
-                >
-                  {n.label}
-                </Link>
-              ))}
-            </nav>
+            <NavTabs items={nav} />
           </div>
         </div>
       )}
 
-      <div className="wrap" style={{ paddingTop: 48, paddingBottom: 80 }}>
+      <div className="wrap" style={{ paddingTop: 40, paddingBottom: 80 }}>
         {children}
       </div>
     </>
@@ -123,35 +95,39 @@ export function StatCard({
 }) {
   return (
     <div
-      className="p-6 transition"
       style={{
         background: accent ? "var(--color-accent-soft)" : "var(--color-paper)",
         border: "1px solid var(--color-line)",
-        borderRadius: 12,
+        borderRadius: 10,
+        padding: "20px 24px",
       }}
     >
       <p
-        className="mono uppercase mb-3"
-        style={{ fontSize: 10, letterSpacing: "0.14em", color: "var(--color-subtle)" }}
+        style={{
+          fontSize: 11,
+          textTransform: "uppercase",
+          letterSpacing: "0.12em",
+          color: "var(--color-subtle)",
+          fontFamily: "var(--font-geist)",
+          marginBottom: 8,
+        }}
       >
         {label}
       </p>
       <p
         className="display"
         style={{
-          fontSize: 32,
+          fontSize: 28,
           lineHeight: 1,
           letterSpacing: "-0.02em",
           color: accent ? "var(--color-accent-ink)" : "var(--color-ink)",
-          marginBottom: 8,
+          marginBottom: hint ? 6 : 0,
         }}
       >
         {value}
       </p>
       {hint && (
-        <p className="text-xs" style={{ color: "var(--color-muted)" }}>
-          {hint}
-        </p>
+        <p style={{ fontSize: 12, color: "var(--color-muted)" }}>{hint}</p>
       )}
     </div>
   );
@@ -168,28 +144,31 @@ export function PlaceholderPanel({
 }) {
   return (
     <div
-      className="p-7 transition group"
       style={{
         background: "var(--color-paper)",
         border: "1px dashed var(--color-line)",
-        borderRadius: 12,
+        borderRadius: 10,
+        padding: "24px 28px",
       }}
     >
-      <div className="flex items-start justify-between mb-3 gap-4">
-        <h3
-          className="display"
-          style={{ fontSize: 18, lineHeight: 1.2, letterSpacing: "-0.01em" }}
-        >
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 10, gap: 12 }}>
+        <h3 className="display" style={{ fontSize: 17, lineHeight: 1.2, letterSpacing: "-0.01em" }}>
           {title}
         </h3>
         <span
-          className="mono uppercase shrink-0"
-          style={{ fontSize: 9, letterSpacing: "0.14em", color: "var(--color-subtle)" }}
+          style={{
+            fontSize: 9,
+            fontFamily: "var(--font-geist)",
+            textTransform: "uppercase",
+            letterSpacing: "0.14em",
+            color: "var(--color-subtle)",
+            flexShrink: 0,
+          }}
         >
           {phase ?? "À venir"}
         </span>
       </div>
-      <p className="text-sm" style={{ color: "var(--color-muted)", lineHeight: 1.55 }}>
+      <p style={{ fontSize: 13, color: "var(--color-muted)", lineHeight: 1.6 }}>
         {description}
       </p>
     </div>
@@ -206,16 +185,22 @@ export function SectionTitle({
   italic?: string;
 }) {
   return (
-    <div className="mb-6">
+    <div style={{ marginBottom: 20, marginTop: 4 }}>
       <p
-        className="mono uppercase mb-2"
-        style={{ fontSize: 10, letterSpacing: "0.14em", color: "var(--color-subtle)" }}
+        style={{
+          fontSize: 11,
+          textTransform: "uppercase",
+          letterSpacing: "0.12em",
+          color: "var(--color-subtle)",
+          fontFamily: "var(--font-geist)",
+          marginBottom: 6,
+        }}
       >
         · {eyebrow}
       </p>
       <h2
         className="display"
-        style={{ fontSize: 26, lineHeight: 1.1, letterSpacing: "-0.02em" }}
+        style={{ fontSize: 22, lineHeight: 1.15, letterSpacing: "-0.015em" }}
       >
         {title}
         {italic && (

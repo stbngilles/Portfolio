@@ -6,11 +6,14 @@ import {
   PlaceholderPanel,
   SectionTitle,
 } from "@/components/platform/DashboardShell";
+import { COMMERCIAL_NAV } from "@/lib/platform-nav";
+import { formatPrice } from "@/lib/pricing";
+import { getCommercialRecurringMRR } from "@/lib/commissions";
 
 export default async function CommercialHome() {
   const { session, role } = await requireRole("COMMERCIAL", "ADMIN");
 
-  const [quotes, signedDeals, commissionAgg] = await Promise.all([
+  const [quotes, signedDeals, commissionAgg, mrr] = await Promise.all([
     prisma.quote.count({ where: { commercialId: session.user.id } }),
     prisma.quote.count({
       where: { commercialId: session.user.id, status: "SIGNED" },
@@ -19,12 +22,11 @@ export default async function CommercialHome() {
       where: { commercialId: session.user.id, status: "PENDING" },
       _sum: { amount: true },
     }),
+    getCommercialRecurringMRR(session.user.id),
   ]);
 
-  const pending = ((commissionAgg._sum.amount ?? 0) / 100).toLocaleString("fr-BE", {
-    style: "currency",
-    currency: "EUR",
-  });
+  const pending = formatPrice(commissionAgg._sum.amount ?? 0);
+  const mrrPerso = formatPrice(mrr.commission);
 
   return (
     <DashboardShell
@@ -32,13 +34,7 @@ export default async function CommercialHome() {
       title="Vendez,"
       italic="comptez ce que vous gagnez."
       user={{ ...session.user, role }}
-      nav={[
-        { href: "/app/commercial", label: "Tableau de bord" },
-        { href: "/app/commercial/pipeline", label: "Pipeline" },
-        { href: "/app/commercial/devis", label: "Calculateur de devis" },
-        { href: "/app/commercial/commissions", label: "Mes commissions" },
-        { href: "/app/commercial/ressources", label: "Ressources" },
-      ]}
+      nav={COMMERCIAL_NAV}
     >
       <SectionTitle eyebrow="Mes chiffres" title="L'état," italic="en temps réel." />
       <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
@@ -48,9 +44,13 @@ export default async function CommercialHome() {
           label="Commissions dues"
           value={pending}
           hint="non encore versées"
+        />
+        <StatCard
+          label="MRR perso"
+          value={mrrPerso}
+          hint={`15 % de ${formatPrice(mrr.mrrBase)}/mois`}
           accent
         />
-        <StatCard label="MRR perso" value="—" hint="récurrent cumulé sur clients actifs" />
       </section>
 
       <SectionTitle eyebrow="Mes outils" title="Tout ce qu'il faut," italic="pour vendre vite." />

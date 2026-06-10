@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "node scripts/patch-kysely.mjs && prisma generate && next build",
     "build:static-legacy": "node scripts/extract-styles.mjs && node scripts/build-team-pages.mjs && next build && node scripts/postbuild.mjs",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "prisma generate",
-    "db:migrate": "prisma migrate dev",
+    "postinstall": "prisma generate && node scripts/patch-kysely.mjs",
+    "db:migrate": "prisma migrate dev && prisma generate",
     "db:studio": "prisma studio"
   },
   "dependencies": {

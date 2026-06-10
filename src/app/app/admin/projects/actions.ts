@@ -51,15 +51,99 @@ export async function setStageStatus(formData: FormData) {
     throw new Error("Données invalides.");
   }
 
+  const note = String(formData.get("validationNote") ?? "").trim() || null;
+  const url  = String(formData.get("validationUrl")  ?? "").trim() || null;
+
   const stage = await prisma.projectStage.update({
     where: { id: stageId },
     data: {
       status,
-      validatedAt: status === "VALIDATED" ? new Date() : null,
+      validatedAt:    status === "VALIDATED" ? new Date() : null,
+      // Contexte de validation — rempli quand on passe en NEEDS_VALIDATION
+      ...(status === "NEEDS_VALIDATION" ? { validationNote: note, validationUrl: url } : {}),
+      // Reset contexte quand validé ou repassé en travail
+      ...(status === "VALIDATED" || status === "IN_PROGRESS" ? { validationNote: null, validationUrl: null } : {}),
     },
   });
 
+  // Auto-LIVE : si l'étape "live" (key "live") est validée,
+  // on marque le projet LIVE et on pré-approuve le paiement dev.
+  if (status === "VALIDATED" && stage.key === "live") {
+    const proj = await prisma.project.findUnique({
+      where: { id: stage.projectId },
+      select: { devPaymentAmount: true, devPaymentStatus: true },
+    });
+    await prisma.project.update({
+      where: { id: stage.projectId },
+      data: {
+        status: "LIVE",
+        liveAt: new Date(),
+        // Si rémunération définie et pas encore approuvée → approuver automatiquement
+        ...(proj &&
+        proj.devPaymentAmount !== null &&
+        proj.devPaymentAmount > 0 &&
+        proj.devPaymentStatus === "PENDING"
+          ? { devPaymentStatus: "APPROVED" }
+          : {}),
+      },
+    });
+  }
+
   revalidatePath(`/app/admin/projects/${stage.projectId}`);
+  revalidatePath(`/app/dev/${stage.projectId}`);
+  revalidatePath("/app/client");
+}
+
+/**
+ * Sauvegarde les notes de kick-off dans le briefData du projet.
+ * Les notes sont stockées sous la clé `kickoffNotes` dans le JSON.
+ */
+export async function saveKickoffNotes(formData: FormData) {
+  await requireRole("ADMIN");
+  const projectId = String(formData.get("projectId") ?? "");
+  const notes = String(formData.get("kickoffNotes") ?? "").trim();
+  if (!projectId) throw new Error("Projet requis.");
+
+  const project = await prisma.project.findUnique({
+    where: { id: projectId },
+    select: { briefData: true },
+  });
+  if (!project) throw new Error("Projet introuvable.");
+
+  let existing: Record<string, unknown> = {};
+  try {
+    existing = JSON.parse(project.briefData ?? "{}");
+  } catch {
+    existing = {};
+  }
+
+  await prisma.project.update({
+    where: { id: projectId },
+    data: {
+      briefData: JSON.stringify({ ...existing, kickoffNotes: notes }),
+    },
+  });
+
+  revalidatePath(`/app/admin/projects/${projectId}`);
+  revalidatePath(`/app/dev/${projectId}`);
+}
+
+/**
+ * L'admin marque un projet comme LIVE (terminé et livré en production).
+ */
+export async function markProjectLive(formData: FormData) {
+  await requireRole("ADMIN");
+  const projectId = String(formData.get("projectId") ?? "");
+  if (!projectId) throw new Error("Projet requis.");
+
+  await prisma.project.update({
+    where: { id: projectId },
+    data: { status: "LIVE", liveAt: new Date() },
+  });
+
+  revalidatePath(`/app/admin/projects/${projectId}`);
+  revalidatePath("/app/admin/projects");
+  revalidatePath(`/app/dev/${projectId}`);
   revalidatePath("/app/client");
 }
 
@@ -101,6 +185,27 @@ export async function clientValidateStage(formData: FormData) {
       await tx.projectStage.update({
         where: { id: next.id },
         data: { status: "IN_PROGRESS" },
+      });
+    }
+
+    // Auto-LIVE si l'étape "live" est validée par le client
+    if (stage.key === "live") {
+      const proj = await tx.project.findUnique({
+        where: { id: stage.projectId },
+        select: { devPaymentAmount: true, devPaymentStatus: true },
+      });
+      await tx.project.update({
+        where: { id: stage.projectId },
+        data: {
+          status: "LIVE",
+          liveAt: new Date(),
+          ...(proj &&
+          proj.devPaymentAmount !== null &&
+          proj.devPaymentAmount > 0 &&
+          proj.devPaymentStatus === "PENDING"
+            ? { devPaymentStatus: "APPROVED" }
+            : {}),
+        },
       });
     }
   });
