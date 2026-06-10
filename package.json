@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/patch-kysely.mjs && prisma generate && next build",
+    "build": "node scripts/patch-kysely.mjs && prisma generate && prisma migrate deploy && next build",
     "build:static-legacy": "node scripts/extract-styles.mjs && node scripts/build-team-pages.mjs && next build && node scripts/postbuild.mjs",
     "start": "next start",
     "lint": "eslint",
