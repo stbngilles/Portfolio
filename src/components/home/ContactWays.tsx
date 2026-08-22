@@ -27,7 +27,7 @@ export default function ContactWays() {
         <a href="#brief" className="pb-way" data-primary="">
           <span className="pb-way-k">Le plus utile</span>
           <span className="pb-way-v">Décrire votre projet</span>
-          <span className="pb-way-m">4 questions · environ 2 minutes</span>
+          <span className="pb-way-m">3 questions · une minute</span>
           <Arrow dir="s" />
         </a>
         <a href="tel:+32492200275" className="pb-way">

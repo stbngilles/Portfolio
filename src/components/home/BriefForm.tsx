@@ -7,32 +7,40 @@ import Arrow from "./Arrow";
 import { QUOTES } from "./data";
 
 /**
- * Formulaire de brief. Les tranches de budget encadrent le catalogue réel
- * (src/lib/pricing.ts : Starter 1 200 €, Essentiel 2 500 €, E-commerce 6 000 €)
- * et gardent une sortie « je ne sais pas encore » : sur cette clientèle,
- * forcer une fourchette fait surtout perdre des demandes légitimes.
+ * Formulaire de brief — trois blocs, deux champs obligatoires.
  *
- * Deux champs obligatoires seulement — nom et e-mail. Le descriptif du projet
- * était `required` : c'était le champ le plus coûteux du formulaire (il demande
- * de rédiger) placé avant même qu'on ait donné son nom. Une demande de trois
- * mots se qualifie au téléphone ; une demande jamais envoyée, non.
+ * Historique des coupes, pour ne pas les refaire à l'envers :
+ * — « Nom de l'entreprise » et « Site actuel » sont partis. Le domaine de
+ *   l'adresse e-mail donne le premier, et le second se demande en une phrase
+ *   au téléphone. Deux champs de plus pour une information qu'on obtient
+ *   autrement, c'est deux raisons d'abandonner.
+ * — Besoin et budget étaient deux listes empilées de cinq lignes en corps 30 :
+ *   610 px de formulaire pour dix clics. Ils tiennent maintenant en pastilles
+ *   sur un même bloc.
+ * — Le descriptif du projet n'est plus `required` : c'est le champ le plus
+ *   coûteux (il demande de rédiger), et il était placé avant même le nom.
+ *
+ * Les tranches de budget encadrent le catalogue réel (src/lib/pricing.ts :
+ * Starter 1 200 €, Essentiel 2 500 €, E-commerce 6 000 €) et gardent une
+ * sortie « je ne sais pas » : sur cette clientèle, forcer une fourchette fait
+ * surtout perdre des demandes légitimes.
  *
  * Envoi via le Formspree déjà utilisé par l'ancien formulaire du site.
  */
 const BESOINS = [
   "Site vitrine",
   "Boutique en ligne",
-  "Refonte d'un site existant",
+  "Refonte de site",
   "Référencement local",
-  "Maintenance & suivi",
+  "Maintenance",
 ];
 
 const BUDGETS = [
   "Moins de 1 500 €",
-  "1 500 € – 3 000 €",
-  "3 000 € – 6 000 €",
+  "1 500 – 3 000 €",
+  "3 000 – 6 000 €",
   "Plus de 6 000 €",
-  "Je ne sais pas encore",
+  "Je ne sais pas",
 ];
 
 const TEL = "+32 492 20 02 75";
@@ -42,10 +50,20 @@ const MAIL = "contact@pixelbrute.be";
 /** Le plus court des avis réels : il doit tenir sous le formulaire, pas le noyer. */
 const PROOF = QUOTES.reduce((a, b) => (b.text.length < a.text.length ? b : a));
 
-const STEPS = 4;
+const STEPS = 3;
+
+/** Une pastille cochable. Le `input` est masqué, la pastille sert de surface. */
+function Chip({ name, value, type }: { name: string; value: string; type: "checkbox" | "radio" }) {
+  return (
+    <label className="pb-chip">
+      <input type={type} name={name} value={value} />
+      <span>{value}</span>
+    </label>
+  );
+}
 
 /**
- * Un bloc du formulaire. Numéroté `01 / 04` : un formulaire dont on voit la
+ * Un bloc du formulaire. Numéroté `01 / 3` : un formulaire dont on voit la
  * fin se remplit, un formulaire qui déroule s'abandonne.
  */
 function Field({
@@ -53,19 +71,15 @@ function Field({
   label,
   hint,
   htmlFor,
-  group,
   children,
 }: {
   n: number;
   label: string;
   hint: string;
-  /** Renseigné pour un champ unique ; sinon `group` prend le relais. */
+  /** Absent quand le bloc contient plusieurs contrôles : le libellé n'est alors pas un `label`. */
   htmlFor?: string;
-  /** Pour les paquets de cases ou de boutons radio, qui n'ont pas de `for`. */
-  group?: "group" | "radiogroup";
   children: ReactNode;
 }) {
-  const id = `pb-lbl-${n}`;
   const head = (
     <>
       <span className="pb-fnum">
@@ -76,22 +90,15 @@ function Field({
     </>
   );
 
-  if (group) {
-    return (
-      <div className="pb-field" role={group} aria-labelledby={id}>
-        <div className="pb-field-lbl pb-label" id={id}>
-          {head}
-        </div>
-        {children}
-      </div>
-    );
-  }
-
   return (
     <div className="pb-field">
-      <label className="pb-field-lbl pb-label" htmlFor={htmlFor}>
-        {head}
-      </label>
+      {htmlFor ? (
+        <label className="pb-field-lbl pb-label" htmlFor={htmlFor}>
+          {head}
+        </label>
+      ) : (
+        <div className="pb-field-lbl pb-label">{head}</div>
+      )}
       {children}
     </div>
   );
@@ -109,7 +116,7 @@ export default function BriefForm() {
         <ol className="pb-next">
           <li>
             <b>01</b>
-            <span>Je lis votre demande et je regarde votre site actuel, s&apos;il existe.</span>
+            <span>Je lis votre demande et je regarde ce que vous faites déjà en ligne.</span>
           </li>
           <li>
             <b>02</b>
@@ -158,56 +165,44 @@ export default function BriefForm() {
 
       <Field
         n={1}
-        group="group"
-        label="Ce dont vous avez besoin"
-        hint="Plusieurs choix possibles. Un clic, et c'est fait."
+        label="Votre besoin"
+        hint="Plusieurs choix possibles. Le budget n'est qu'un ordre de grandeur, HTVA."
       >
-        <div className="pb-choices">
-          {BESOINS.map((b) => (
-            <label key={b} className="pb-choice">
-              <span>{b}</span>
-              <input type="checkbox" name="besoin" value={b} />
-            </label>
-          ))}
+        <div>
+          <div className="pb-chips" role="group" aria-label="Ce dont vous avez besoin">
+            {BESOINS.map((b) => (
+              <Chip key={b} name="besoin" value={b} type="checkbox" />
+            ))}
+          </div>
+          <div className="pb-chips-lbl pb-cap">Budget indicatif</div>
+          <div className="pb-chips" role="radiogroup" aria-label="Budget indicatif">
+            {BUDGETS.map((b) => (
+              <Chip key={b} name="budget" value={b} type="radio" />
+            ))}
+          </div>
         </div>
       </Field>
 
       <Field
         n={2}
-        group="radiogroup"
-        label="Budget indicatif"
-        hint="HTVA. Un ordre de grandeur suffit — ce n'est pas un engagement."
-      >
-        <div className="pb-choices">
-          {BUDGETS.map((b) => (
-            <label key={b} className="pb-choice">
-              <span>{b}</span>
-              <input type="radio" name="budget" value={b} />
-            </label>
-          ))}
-        </div>
-      </Field>
-
-      <Field
-        n={3}
         htmlFor="projet"
         label="Le projet"
-        hint="Deux lignes suffisent. Ce qui coince aujourd'hui, plutôt qu'une liste de fonctionnalités."
+        hint="Facultatif — deux lignes suffisent. Ce qui coince, plutôt qu'une liste de fonctionnalités."
       >
         <div>
           <textarea
             id="projet"
             name="projet"
             className="pb-textarea"
-            placeholder="Ex. : « Je suis électricien à Herstal, je n'ai qu'une page Facebook et je passe mes soirées à répondre aux mêmes questions par message. »"
+            placeholder="Ex. : « Électricien à Herstal, je n'ai qu'une page Facebook et je passe mes soirées à répondre aux mêmes questions. »"
           />
           <ValidationError prefix="Projet" field="projet" errors={state.errors} className="pb-form-err" />
         </div>
       </Field>
 
-      <Field n={4} htmlFor="nom" label="Vous" hint="Nom et e-mail suffisent. Le reste aide, sans plus.">
+      <Field n={3} htmlFor="nom" label="Vous" hint="Le téléphone si vous préférez être rappelé.">
         <div>
-          <div className="pb-inputs">
+          <div className="pb-inputs" data-cols="3">
             <input id="nom" name="nom" className="pb-input" required placeholder="Nom et prénom" autoComplete="name" />
             <input
               id="email"
@@ -218,41 +213,22 @@ export default function BriefForm() {
               placeholder="Adresse e-mail"
               autoComplete="email"
             />
-          </div>
-          <div className="pb-inputs">
             <input
               id="tel"
               name="telephone"
               type="tel"
               inputMode="tel"
               className="pb-input"
-              placeholder="Téléphone — si vous préférez un appel"
+              placeholder="Téléphone (facultatif)"
               autoComplete="tel"
             />
-            <input
-              id="entreprise"
-              name="entreprise"
-              className="pb-input"
-              placeholder="Nom de l'entreprise"
-              autoComplete="organization"
-            />
           </div>
-          <input
-            id="site"
-            name="site"
-            className="pb-input"
-            placeholder="Site actuel, s'il existe"
-            autoComplete="url"
-          />
           <ValidationError prefix="E-mail" field="email" errors={state.errors} className="pb-form-err" />
         </div>
       </Field>
 
       <div className="pb-field pb-proof">
-        <div className="pb-field-lbl pb-label">
-          Avant d&apos;envoyer
-          <div className="pb-field-hint">Avis Google, repris mot pour mot.</div>
-        </div>
+        <div className="pb-field-lbl pb-label">Avant d&apos;envoyer</div>
         <div>
           <blockquote className="pb-proof-q">{PROOF.text}</blockquote>
           <div className="pb-proof-who pb-cap">
@@ -266,8 +242,7 @@ export default function BriefForm() {
       </button>
 
       <p className="pb-form-note">
-        Pas de newsletter, pas de démarchage : vos informations servent uniquement à vous répondre.
-        Vous préférez parler&nbsp;? <a href={TEL_HREF}>{TEL}</a>.
+        Pas de newsletter, pas de démarchage. Vous préférez parler&nbsp;? <a href={TEL_HREF}>{TEL}</a>.
       </p>
 
       <ValidationError errors={state.errors} className="pb-form-err" />

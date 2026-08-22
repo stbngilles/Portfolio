@@ -536,8 +536,13 @@ html.lenis, html.lenis body { height: auto; }
   position: fixed; inset: 0; z-index: 90; background: rgba(17,17,17,0.6);
   display: flex; justify-content: center; padding: 26px 18px; animation: pb-fade 200ms ease both;
 }
+/* `overscroll-behavior: contain` empêche la page de reprendre le scroll une
+   fois le bas du panneau atteint. Le pendant côté JSX est `data-lenis-prevent`
+   sur ce même élément : sans lui le scroll fluide capte la molette et la
+   fiche reste bloquée sur son premier écran. */
 .pb-modal-panel {
-  position: relative; width: 100%; max-width: 1120px; max-height: 100%; overflow: auto;
+  position: relative; width: 100%; max-width: 1120px; max-height: 100%;
+  overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain;
   border-radius: var(--pb-r-l); background: var(--pb-bg); color: var(--pb-ink);
   animation: pb-in 340ms cubic-bezier(0.16,1,0.3,1) both;
 }
@@ -553,9 +558,12 @@ html.lenis, html.lenis body { height: auto; }
   transition: background 180ms, color 180ms, border-color 180ms;
 }
 .pb-modal-close:hover { background: var(--pb-ink); color: var(--pb-bg); border-color: var(--pb-ink); }
-.pb-modal-hero { height: 420px; margin: 14px 14px 0; }
-.pb-modal-hero img { width: 100%; height: 100%; }
-.pb-modal-body { padding: 36px 34px 60px; }
+/* Plus de capture du site en en-tête : elle mangeait le premier écran sans
+   rien apprendre à quelqu'un qui peut cliquer sur le lien. La fiche ouvre
+   désormais sur le nom, la phrase du projet et les chiffres. Seules les
+   captures qui portent une mesure — Analytics, position Google — restent,
+   plus bas, dans `.pb-modal-proof`. */
+.pb-modal-body { padding: 40px 34px 60px; }
 .pb-modal-name { font-size: var(--pb-d-xl); line-height: 0.94; letter-spacing: -0.05em; font-weight: 500; }
 .pb-modal-meta {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px;
@@ -587,6 +595,106 @@ html.lenis, html.lenis body { height: auto; }
 }
 .pb-modal-nav button:hover { color: var(--pb-accent); }
 
+/* Étude de cas longue : lede, chiffres relevés, décisions titrées, inventaire.
+   Tout tient sur la grille `.pb-modal-cols` — libellé mono à gauche, contenu
+   à droite — pour qu'aucun bloc n'invente son propre alignement. */
+.pb-modal-lede {
+  margin: 22px 0 0; max-width: 46ch;
+  font-size: var(--pb-lede); line-height: 1.42; letter-spacing: -0.018em; color: var(--pb-ink-2);
+}
+.pb-modal-facts {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px 24px; margin-top: 40px;
+  border-top: 1px dotted var(--pb-line); padding-top: 22px;
+}
+.pb-modal-fact { display: flex; flex-direction: column; gap: 6px; }
+.pb-modal-fact-v {
+  font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(22px, 2vw, 30px); line-height: 1; letter-spacing: -0.03em; color: var(--pb-accent);
+}
+.pb-modal-prose { display: flex; flex-direction: column; gap: 18px; }
+.pb-modal-prose > .pb-modal-p { margin: 0; }
+.pb-modal-dec-t { margin: 0 0 8px; font-size: 20px; line-height: 1.3; letter-spacing: -0.02em; font-weight: 500; }
+.pb-modal-dec-p { margin: 0; font-size: 17px; line-height: 1.62; letter-spacing: -0.006em; color: var(--pb-ink-2); }
+.pb-modal-built { margin: 0; display: flex; flex-direction: column; }
+.pb-modal-built-row {
+  display: grid; grid-template-columns: 210px 1fr; gap: 10px 28px;
+  border-bottom: 1px dotted var(--pb-line); padding: 15px 0;
+}
+.pb-modal-built-row dt {
+  font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
+  font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 4px;
+}
+.pb-modal-built-row dd { margin: 0; font-size: 16px; line-height: 1.6; color: var(--pb-ink-2); }
+.pb-modal-links { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: 8px; }
+.pb-modal-visit {
+  display: inline-flex; align-items: center; gap: 9px;
+  border: 1px solid var(--pb-line); border-radius: 999px; padding: 9px 16px;
+  transition: background 180ms, color 180ms, border-color 180ms;
+}
+.pb-modal-visit:hover { background: var(--pb-ink); color: var(--pb-bg); border-color: var(--pb-ink); }
+
+/* ---------- Graphiques d'étude de cas ----------
+   Barres, bande hebdomadaire et grille 6×6. Aucune bibliothèque : trois
+   grilles CSS. L'échelle des barres part toujours de zéro — un axe tronqué
+   fabrique un écart qui n'existe pas, et c'est exactement ce que la page
+   reproche aux autres. */
+.pb-chart {
+  margin: 46px 0 0; padding: 26px 26px 22px;
+  border: 1px solid var(--pb-line-soft); border-radius: var(--pb-r-m); background: var(--pb-paper);
+}
+.pb-chart-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
+.pb-chart-title { margin: 0; font-size: 20px; line-height: 1.28; letter-spacing: -0.02em; font-weight: 500; }
+.pb-chart-note {
+  margin: 24px 0 0; padding-top: 16px; border-top: 1px dotted var(--pb-line);
+  font-size: 15px; line-height: 1.6; color: var(--pb-ink-3);
+}
+
+.pb-bars { display: flex; flex-direction: column; gap: 14px; }
+.pb-bar-row { display: grid; grid-template-columns: minmax(0, 15em) 1fr auto; align-items: center; gap: 8px 18px; }
+.pb-bar-lbl { font-size: 14.5px; line-height: 1.4; color: var(--pb-ink-2); }
+.pb-bar-track { height: 12px; border-radius: 999px; background: rgba(15, 15, 20, 0.07); overflow: hidden; }
+.pb-bar-fill { height: 100%; border-radius: 999px; background: var(--pb-ink-4); }
+.pb-bar-val { font-size: 13px; letter-spacing: -0.01em; color: var(--pb-ink-3); white-space: nowrap; }
+/* La ligne qui porte l'argument : elle prend le bleu, les autres restent grises. */
+.pb-bar-row[data-strong] .pb-bar-fill { background: var(--pb-accent); }
+.pb-bar-row[data-strong] .pb-bar-lbl,
+.pb-bar-row[data-strong] .pb-bar-val { color: var(--pb-ink); }
+
+.pb-week { display: flex; flex-direction: column; gap: 9px; }
+.pb-week-row { display: grid; grid-template-columns: 88px 1fr 110px; align-items: center; gap: 16px; }
+.pb-week-day { font-size: 14.5px; color: var(--pb-ink-3); }
+.pb-week-row[data-open] .pb-week-day { color: var(--pb-ink); }
+.pb-week-track { position: relative; height: 14px; border-radius: 999px; background: rgba(15, 15, 20, 0.07); }
+.pb-week-slot { position: absolute; top: 0; bottom: 0; border-radius: 999px; background: var(--pb-accent); }
+.pb-week-val { font-size: 12px; letter-spacing: -0.01em; color: var(--pb-ink-3); text-align: right; }
+.pb-week-scale { margin-top: 6px; }
+.pb-week-scale .pb-week-track { background: none; height: 14px; border-top: 1px dotted var(--pb-line); }
+/* `white-space: nowrap` : la dernière graduation est posée à `left: 100%`,
+   donc sans largeur disponible à sa droite — « 21 h » se cassait en deux. */
+.pb-week-scale span {
+  position: absolute; top: 4px; transform: translateX(-50%); white-space: nowrap;
+  font-size: 10.5px; letter-spacing: 0.08em; color: var(--pb-ink-4);
+}
+.pb-week-scale span:first-child { transform: none; }
+.pb-week-scale span:last-child { transform: translateX(-100%); }
+
+.pb-grid36 { display: flex; flex-direction: column; gap: 6px; max-width: 420px; }
+.pb-grid36-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+.pb-grid36-cell {
+  aspect-ratio: 1; display: grid; place-items: center;
+  border: 1px solid var(--pb-line-soft); border-radius: var(--pb-r-s);
+  font-size: 12px; letter-spacing: 0.02em; color: var(--pb-ink-3);
+}
+
+/* Capture de preuve : jamais recadrée, jamais retouchée — juste posée sur le
+   fond craie avec sa légende datée. */
+.pb-proof-shot {
+  border: 1px solid var(--pb-line-soft); border-radius: var(--pb-r-m); overflow: hidden; background: var(--pb-paper);
+}
+.pb-proof-shot img { display: block; width: 100%; height: auto; }
+.pb-proof-cap { margin-top: 12px; }
+
 /* =========================================================================
    Responsive
    ========================================================================= */
@@ -607,9 +715,17 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 900px) {
   .pb-modal-cols { grid-template-columns: 1fr; gap: 8px 0; }
   .pb-modal-cols > .pb-modal-lbl { padding-top: 26px; }
-  .pb-modal-hero { height: 240px; }
   .pb-modal-body { padding: 28px 20px 48px; }
   .pb-modal-meta { grid-template-columns: 1fr; gap: 14px; }
+  .pb-modal-facts { grid-template-columns: repeat(2, 1fr); }
+  .pb-chart { padding: 20px 18px 18px; }
+  .pb-bar-row { grid-template-columns: 1fr auto; gap: 6px 14px; }
+  .pb-bar-lbl { grid-column: 1 / -1; }
+  .pb-week-row { grid-template-columns: 74px 1fr; gap: 10px; }
+  .pb-week-val { grid-column: 2; text-align: left; }
+  .pb-week-scale { grid-template-columns: 74px 1fr; }
+  .pb-modal-built-row { grid-template-columns: 1fr; gap: 6px; }
+  .pb-modal-lede { max-width: none; }
   .pb-foot-reach { text-align: left; }
 }
 
@@ -697,10 +813,10 @@ html.lenis, html.lenis body { height: auto; }
 .pb-trust li[data-slot] { color: var(--pb-accent); }
 
 /* ---------- Formulaire ---------- */
-.pb-form { margin-top: 68px; scroll-margin-top: 88px; }
+.pb-form { margin-top: 56px; scroll-margin-top: 88px; }
 .pb-field {
   display: grid; grid-template-columns: 240px 1fr; gap: 24px 56px;
-  border-top: 1px dotted var(--pb-line); padding: 36px 0;
+  border-top: 1px dotted var(--pb-line); padding: 28px 0;
   align-items: start;
 }
 .pb-field-lbl { color: var(--pb-accent); padding-top: 14px; }
@@ -714,30 +830,24 @@ html.lenis, html.lenis body { height: auto; }
 /* Piège à robots : hors écran plutôt que `display:none`, sinon rien ne le remplit. */
 .pb-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
-.pb-choices { display: flex; flex-direction: column; }
-.pb-choice {
-  display: flex; align-items: center; justify-content: space-between; gap: 20px;
-  border-bottom: 1px dotted var(--pb-line); padding: 15px 2px;
-  font-size: clamp(19px, 1.9vw, 30px); letter-spacing: -0.03em; line-height: 1.2;
-  cursor: pointer; transition: color 160ms;
+/* Dix choix en pastilles plutôt qu'en deux listes de cinq lignes en corps 30 :
+   même information, un dixième de la hauteur. */
+.pb-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.pb-chip {
+  display: inline-flex; align-items: center; cursor: pointer;
+  border: 1px solid var(--pb-line-soft); border-radius: 999px;
+  background: var(--pb-paper); padding: 11px 18px;
+  font-size: 15px; line-height: 1.2; letter-spacing: -0.012em;
+  transition: background 160ms, color 160ms, border-color 160ms;
 }
-.pb-choice:first-child { border-top: 1px dotted var(--pb-line); }
-.pb-choice:hover { color: var(--pb-accent); }
-.pb-choice:has(input:checked) { color: var(--pb-accent); }
-.pb-choice input {
-  appearance: none; -webkit-appearance: none; flex: none; margin: 0;
-  width: 21px; height: 21px; border-radius: 5px; cursor: pointer;
-  border: 1px solid var(--pb-line); background: transparent;
-  transition: background 160ms, border-color 160ms, box-shadow 160ms;
-}
-.pb-choice input:checked {
-  background: var(--pb-accent); border-color: var(--pb-accent);
-  box-shadow: inset 0 0 0 4px var(--pb-paper);
-}
-.pb-choice input[type="radio"] { border-radius: 50%; }
-.pb-choice input:focus-visible { outline: 2px solid var(--pb-accent); outline-offset: 3px; }
+.pb-chip input { position: absolute; width: 1px; height: 1px; opacity: 0; margin: 0; }
+.pb-chip:hover { border-color: var(--pb-line); }
+.pb-chip:has(input:checked) { background: var(--pb-accent); border-color: var(--pb-accent); color: #fff; }
+.pb-chip:has(input:focus-visible) { outline: 2px solid var(--pb-accent); outline-offset: 2px; }
+.pb-chips-lbl { margin-top: 22px; margin-bottom: 10px; }
 
 .pb-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pb-inputs[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
 .pb-inputs + .pb-inputs, .pb-inputs + .pb-input { margin-top: 12px; }
 .pb-input, .pb-textarea {
   width: 100%; border: 1px solid var(--pb-line-soft); border-radius: var(--pb-r-s);
@@ -746,7 +856,7 @@ html.lenis, html.lenis body { height: auto; }
   font-size: 15px; line-height: 1.6; padding: 15px 16px;
   transition: border-color 160ms;
 }
-.pb-textarea { min-height: 118px; resize: vertical; }
+.pb-textarea { min-height: 92px; resize: vertical; }
 .pb-input::placeholder, .pb-textarea::placeholder { color: var(--pb-ink-4); }
 .pb-input:hover, .pb-textarea:hover { border-color: var(--pb-line); }
 .pb-input:focus-visible, .pb-textarea:focus-visible {
@@ -756,14 +866,13 @@ html.lenis, html.lenis body { height: auto; }
 /* ---------- Preuve, juste avant le bouton ---------- */
 .pb-proof { border-bottom: 1px dotted var(--pb-line); }
 .pb-proof-q {
-  margin: 0; max-width: 62ch;
-  font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; letter-spacing: -0.022em;
-  color: var(--pb-ink);
+  margin: 0; max-width: 68ch;
+  font-size: 16px; line-height: 1.6; letter-spacing: -0.015em; color: var(--pb-ink-2);
 }
-.pb-proof-who { margin-top: 14px; }
+.pb-proof-who { margin-top: 10px; }
 
 .pb-submit {
-  width: 100%; margin-top: 40px; cursor: pointer;
+  width: 100%; margin-top: 32px; cursor: pointer;
   border: none; border-radius: var(--pb-r-s); background: var(--pb-ink); color: var(--pb-paper);
   font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
   font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; padding: 24px;
@@ -826,9 +935,9 @@ html.lenis, html.lenis body { height: auto; }
   .pb-way-k { flex: 1 1 100%; }
 }
 @media (max-width: 900px) {
-  .pb-field { grid-template-columns: 1fr; gap: 18px; padding: 34px 0; }
+  .pb-field { grid-template-columns: 1fr; gap: 16px; padding: 26px 0; }
   .pb-field-lbl { padding-top: 0; }
-  .pb-inputs { grid-template-columns: 1fr; }
+  .pb-inputs, .pb-inputs[data-cols="3"] { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
   .pb-cp { padding-top: 96px; }
