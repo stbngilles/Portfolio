@@ -775,6 +775,6 @@ export const FAQS = [
  * Mention de disponibilité du dernier écran. Texte daté, à mettre à jour à
  * chaque build — ou `null` pour ne rien afficher. Jamais gardée pour l'effet.
  */
-export const AVAILABILITY: string | null = "Prochaine disponibilité · octobre 2026";
+export const AVAILABILITY: string | null = "Une place libre dès maintenant";
 
 export const pad = (n: number) => String(n + 1).padStart(2, "0");

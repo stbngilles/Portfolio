@@ -70,10 +70,27 @@ export default function Hero() {
 
           <div className="pb-search-hit">
             <div className="pb-search-hit-id">
-              <svg viewBox="0 0 32 32" className="pb-search-fav">
-                <rect width="32" height="32" rx="7" fill="var(--pb-accent)" />
-                <text x="16.5" y="24" textAnchor="middle" fontFamily="Georgia, 'Times New Roman', serif" fontStyle="italic" fontSize="24" fill="#FFFFFF">
-                  P
+              {/* Favicon du résultat : la version « PB » du tampon — à 34 px
+                  le grain du bloc ne fait que salir, donc bords vifs et à plat
+                  (mêmes réglages que public/icon.svg). */}
+              <svg viewBox="0 0 32 32" className="pb-search-fav" aria-hidden="true">
+                <rect width="32" height="32" fill="var(--pb-accent)" />
+                <text
+                  x="16"
+                  y="23"
+                  textAnchor="middle"
+                  textLength="23"
+                  lengthAdjust="spacingAndGlyphs"
+                  fontSize="17"
+                  letterSpacing="-0.5"
+                  fill="var(--pb-paper)"
+                  style={{
+                    fontFamily:
+                      "var(--font-archivo), Archivo, 'Helvetica Neue', Arial, sans-serif",
+                    fontWeight: 800,
+                  }}
+                >
+                  PB
                 </text>
               </svg>
               <div className="pb-search-name">Votre site</div>

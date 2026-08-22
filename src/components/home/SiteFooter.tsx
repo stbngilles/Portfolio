@@ -19,7 +19,7 @@ export default function SiteFooter() {
       <div className="pb-foot-top">
         <div>
           <div className="pb-logo" style={{ pointerEvents: "none" }}>
-            <Logo />
+            <Logo idSuffix="foot" />
           </div>
           <div className="pb-foot-place pb-label">Liège, Belgique</div>
         </div>

@@ -139,19 +139,13 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
   padding: 18px var(--pb-pad);
   pointer-events: none;
 }
-.pb-logo { pointer-events: auto; display: inline-flex; align-items: center; gap: 11px; }
-.pb-mark { flex: none; display: block; width: 34px; height: 34px; }
-.pb-mark svg { display: block; width: 100%; height: 100%; }
-.pb-wordmark {
-  font-family: var(--font-archivo), Archivo, system-ui, sans-serif;
-  font-weight: 800; font-size: 19px; line-height: 1;
-  letter-spacing: -0.02em; text-transform: uppercase;
-  color: var(--pb-ink); white-space: nowrap;
-}
-.pb-wordmark b { font-weight: 800; color: var(--pb-accent); }
-.pb-wordmark[data-tone="light"] { color: var(--pb-paper); }
-.pb-wordmark[data-tone="light"] b { color: rgba(250,249,245,0.6); }
-@media (max-width: 560px) { .pb-wordmark { display: none; } }
+.pb-logo { pointer-events: auto; display: inline-flex; align-items: center; }
+/* Le tampon : le mot ENTIER est le logo, il n'y a plus de tuile à côté. Le
+   dévers de -1,4° et le grain des bords appartiennent au dessin — ni l'un ni
+   l'autre ne se règle ici (voir components/home/Logo.tsx). */
+.pb-stamp { flex: none; display: block; width: 146px; height: 39px; }
+.pb-stamp svg { display: block; width: 100%; height: 100%; transform: rotate(-1.4deg); }
+@media (max-width: 560px) { .pb-stamp { width: 118px; height: 32px; } }
 
 .pb-header[data-tone="light"] .pb-contact-pill { border-color: rgba(250,249,245,0.55); color: var(--pb-paper); }
 .pb-header[data-tone="light"] .pb-contact-pill:hover { background: var(--pb-paper); color: var(--pb-accent); border-color: var(--pb-paper); }

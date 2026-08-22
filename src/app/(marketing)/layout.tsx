@@ -76,49 +76,59 @@ export default function MarketingLayout({
             gap: "20px",
           }}
         >
-          {/* Icône logo Pixelbrute */}
-          <div
+          {/* Le tampon. Fond encre : le bloc passe en craie et le mot en bleu
+              — le tampon bleu sur encre ne tient que 2,3:1 de contraste.
+              `textLength` fige la largeur du mot tant qu'Archivo n'est pas
+              chargée : le préchargeur s'affiche avant tout le reste. */}
+          <svg
+            viewBox="0 0 560 150"
+            role="img"
+            aria-label="Pixelbrute"
             style={{
-              width: "66px",
-              height: "66px",
-              borderRadius: "15px",
-              background: "linear-gradient(135deg, #3D63F5, #1F3FBF)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "0 0 0 1px rgba(63,95,255,0.3), 0 8px 32px rgba(31,63,191,0.35)",
-              flexShrink: 0,
+              width: "clamp(280px, 42vw, 460px)",
+              height: "auto",
+              transform: "rotate(-1.4deg)",
             }}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="38" height="38">
+            <defs>
+              <filter id="pb-stamp-loader" x="-6%" y="-18%" width="112%" height="136%">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.055 0.09"
+                  numOctaves="4"
+                  seed="11"
+                  result="n"
+                />
+                <feDisplacementMap
+                  in="SourceGraphic"
+                  in2="n"
+                  scale="7"
+                  xChannelSelector="R"
+                  yChannelSelector="G"
+                />
+              </filter>
+            </defs>
+            <g filter="url(#pb-stamp-loader)">
+              <rect x="8" y="8" width="544" height="134" fill="#F2F1EE" />
               <text
-                x="16.5" y="24"
+                x="280"
+                y="102"
                 textAnchor="middle"
-                fontFamily="Georgia, 'Times New Roman', serif"
-                fontStyle="italic"
-                fontWeight="400"
-                fontSize="24"
-                fill="#FFFFFF"
+                textLength="462"
+                lengthAdjust="spacingAndGlyphs"
+                fontSize="68"
+                letterSpacing="-2"
+                fill="#1F3FBF"
+                style={{
+                  fontFamily:
+                    "var(--font-archivo), Archivo, 'Helvetica Neue', Arial, sans-serif",
+                  fontWeight: 900,
+                }}
               >
-                P
+                PIXELBRUTE
               </text>
-            </svg>
-          </div>
-
-          {/* Titre */}
-          <h1
-            style={{
-              fontSize: "clamp(48px, 8vw, 92px)",
-              fontWeight: 800,
-              letterSpacing: "-0.025em",
-              lineHeight: 1,
-              margin: 0,
-              color: "#FAF9F5",
-              fontFamily: "system-ui, sans-serif",
-            }}
-          >
-            PIXEL<span style={{ color: "#1F3FBF" }}>BRUTE</span>
-          </h1>
+            </g>
+          </svg>
 
           {/* Sous-titre */}
           <p
