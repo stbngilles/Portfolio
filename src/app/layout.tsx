@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Archivo, DM_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
@@ -22,6 +22,12 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
   weight: ["400"],
   style: ["normal", "italic"],
+});
+
+// Police de la homepage refondue (groupe `(home)`) — variable, axes wdth+wght.
+const archivo = Archivo({
+  subsets: ["latin"],
+  variable: "--font-archivo",
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -142,7 +148,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${archivo.variable} antialiased`}
       >
         {/* JSON-LD via next/script : injection client, hors zone d'hydratation
             React. Évite les mismatchs causés par les extensions navigateur. */}

@@ -52,3 +52,6 @@ next-env.d.ts
 
 # vue artifact locale (workflow dev historique)
 /.artifact-view/
+
+# Mockups sources (PNG 12–27 Mo chacun) — les versions compressées sont dans public/home/mockups
+/Mockup/
