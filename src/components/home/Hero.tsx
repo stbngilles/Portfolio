@@ -15,7 +15,7 @@ export default function Hero() {
         <Lines
           as="h1"
           className="pb-d-xl"
-          lines={["Votre site", "trouve les clients.", "Vous, vous décrochez."]}
+          lines={["Votre site", "trouve des clients.", "Vous, vous décrochez."]}
           muteFrom={2}
         />
 
