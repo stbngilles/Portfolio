@@ -42,9 +42,46 @@ Contact : `ContactWays` → `BriefForm` → `Faq`.
 Le mouvement est piloté par `Motion.tsx` (Lenis + ScrollTrigger), monté une fois
 dans `(home)/layout.tsx`. Les composants n'initialisent pas leur propre smooth scroll.
 
-**Le site n'a que deux URLs.** Tout lien de navigation pointe vers une ancre de la home
-ou vers `/contact`. Ne pas réintroduire `/services/*`, `/realisations` ou `/equipe/*` :
-ces pages ont été supprimées, `sitemap.ts` ne les liste plus.
+**Les URLs du site public, et elles seules** : `/`, `/contact`, `/projets`,
+`/projets/[slug]`, `/guides`, `/guides/[slug]`, `/creation-site-internet-hesbaye`,
+`/mentions-legales`, `/confidentialite`, plus `/llms.txt`.
+Ne pas réintroduire `/services/*`, `/realisations` ou `/equipe/*` : supprimées, et
+redirigées en 301 dans `next.config.ts`. Toute page ajoutée doit entrer dans
+`sitemap.ts` — sinon elle n'existe pour aucun moteur.
+
+## Référencement — Google *et* Bing
+
+Bing est un objectif explicite, au même niveau que Google. Il découvre beaucoup plus
+lentement un domaine neuf et peu lié, et sanctionne plus durement les pages minces
+indexées sur le domaine : les leviers qui lui sont propres se traitent à part.
+
+**IndexNow** — le protocole de push de Bing (et Yandex, Seznam, Naver). La clé est
+publique par construction : Bing vérifie la propriété en lisant `<clé>.txt` à la racine.
+
+```bash
+npm run seo:indexnow            # toutes les URLs du sitemap en ligne
+npm run seo:indexnow -- /guides # une page précise
+```
+
+À lancer **après chaque déploiement**, jamais dans `build` : au moment du build, la
+nouvelle version n'est pas encore servie, et Bing viendrait crawler l'ancienne.
+
+**Bing Webmaster Tools** — la variable d'env `BING_MSVALIDATE_01` attend la balise
+`msvalidate.01`, celle de l'écran *Vérification de propriété*. Ce n'est **pas** la clé
+d'API (*Paramètres > Accès API*), qui est un secret : la placer là la publierait dans
+le HTML de chaque page. Si la variable est vide, aucune balise n'est rendue — une
+balise au contenu vide ferait échouer la vérification.
+
+**Hors index** : `/app/*` et `/api/*`, par `robots.ts` *et* par le `noindex` du layout
+plateforme. Le robots seul ne suffit pas — une URL liée depuis l'extérieur peut être
+indexée sans être crawlée.
+
+**L'hôte canonique est l'apex `https://pixelbrute.be`** — `www` redirige vers lui,
+jamais l'inverse. La constante `SITE_URL` est répétée dans `layout.tsx`, `sitemap.ts`,
+`robots.ts`, les `generateMetadata` et `scripts/indexnow.mjs` : les cinq déclarent
+l'apex, et doivent continuer à le faire. Un canonique qui redirige coûte peu à
+Google, mais casse IndexNow, dont le `host` et la `keyLocation` doivent répondre
+200 sans redirection.
 
 ## Plateforme (`src/app/app/`)
 

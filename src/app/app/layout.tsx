@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getEffectiveSession } from "@/lib/auth-guard";
 import { ImpersonationBanner } from "@/components/platform/ImpersonationBanner";
@@ -36,6 +37,16 @@ function workspacesForRole(role: string): Array<"admin" | "commercial" | "client
       return [];
   }
 }
+
+/**
+ * La plateforme reste hors index : `robots.ts` bloque déjà le crawl, mais une
+ * URL peut être indexée sans être crawlée (via un lien externe). Le `noindex`
+ * ferme cette porte-là. Il ne descend que sur `/app/*`, jamais sur le site
+ * public, qui a son propre `robots` dans le layout racine.
+ */
+export const metadata: Metadata = {
+  robots: { index: false, follow: false, nocache: true },
+};
 
 export default async function PlatformLayout({
   children,
