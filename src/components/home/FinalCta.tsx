@@ -32,9 +32,10 @@ export default function FinalCta() {
 
       <div className="pb-final-inner">
         {AVAILABILITY && (
-          <div className="pb-final-slot pb-label" data-reveal="">
-            <i aria-hidden="true" />
-            {AVAILABILITY} · Liège
+          <div className="pb-final-slot" data-reveal="">
+            <span className="pb-label pb-inked" data-tone="light">
+              {AVAILABILITY} · Liège
+            </span>
           </div>
         )}
 

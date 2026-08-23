@@ -48,7 +48,11 @@ export default function ContactWays() {
         {TRUST.map((t) => (
           <li key={t}>{t}</li>
         ))}
-        {AVAILABILITY && <li data-slot="">{AVAILABILITY}</li>}
+        {AVAILABILITY && (
+          <li data-slot="">
+            <span className="pb-label pb-inked">{AVAILABILITY}</span>
+          </li>
+        )}
       </ul>
     </>
   );

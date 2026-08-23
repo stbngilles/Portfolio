@@ -15,7 +15,7 @@ export default function Hero() {
         <Lines
           as="h1"
           className="pb-d-xl"
-          lines={["Votre site", "ramène des clients.", "Vous, vous décrochez."]}
+          lines={["Votre site", "trouve les clients.", "Vous, vous décrochez."]}
           muteFrom={2}
         />
 
@@ -95,7 +95,7 @@ export default function Hero() {
               </svg>
               <div className="pb-search-name">Votre site</div>
             </div>
-            <span className="pb-search-badge pb-mono">1ʳᵉ position</span>
+            <span className="pb-label pb-inked">1ʳᵉ position</span>
 
             <span className="pb-search-cursor">
               <i />
@@ -119,9 +119,7 @@ export default function Hero() {
 
           <div className="pb-search-miss">
             <div className="pb-search-name">Vos concurrents</div>
-            <span className="pb-search-badge pb-mono" data-tone="ghost">
-              17ᵉ position
-            </span>
+            <span className="pb-search-badge pb-mono">17ᵉ position</span>
           </div>
         </div>
 

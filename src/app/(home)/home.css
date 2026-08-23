@@ -147,6 +147,23 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 .pb-stamp svg { display: block; width: 100%; height: 100%; transform: rotate(-1.4deg); }
 @media (max-width: 560px) { .pb-stamp { width: 118px; height: 32px; } }
 
+/* ---------- Le tampon, hors logo ----------
+   Règle, aussi stricte que celle du bleu : le tampon marque ce que le site
+   CERTIFIE — une position tenue, une place encore libre. Jamais un libellé
+   décoratif, jamais un titre. Deux tampons par page au maximum, sinon
+   l'encre ne signifie plus rien et le logo perd son statut de marque.
+   Même dévers que le logo (-1,4°), même encre, grain réglé dans Ink.tsx. */
+.pb-inked {
+  display: inline-flex; align-items: center; flex: none; gap: 8px;
+  background: var(--pb-accent); color: var(--pb-paper);
+  padding: 8px 13px; border-radius: 0;
+  transform: rotate(-1.4deg);
+  filter: url(#pb-ink);
+}
+/* Sur les panneaux bleus, retournement craie/bleu — le tampon bleu sur
+   l'encre ne tient que 2,3:1 (même raison que `tone="light"` du logo). */
+.pb-inked[data-tone="light"] { background: var(--pb-paper); color: var(--pb-accent-ink); }
+
 .pb-header[data-tone="light"] .pb-contact-pill { border-color: rgba(250,249,245,0.55); color: var(--pb-paper); }
 .pb-header[data-tone="light"] .pb-contact-pill:hover { background: var(--pb-paper); color: var(--pb-accent); border-color: var(--pb-paper); }
 .pb-header[data-tone="light"] .pb-burger { background: var(--pb-paper); }
@@ -290,11 +307,13 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 .pb-search-fav { width: 34px; height: 34px; flex: none; }
 .pb-search-name { font-size: clamp(17px, 1.6vw, 22px); font-weight: 500; letter-spacing: -0.02em; }
 .pb-search-hit .pb-search-name { color: var(--pb-accent); }
+/* Le rang du concurrent : une pastille nue. Celui du client est un tampon
+   (`.pb-inked` sur le libellé) — c'est tout l'écart que la scène raconte. */
 .pb-search-badge {
   flex: none; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-  background: var(--pb-accent); color: #fff; border-radius: 999px; padding: 8px 14px;
+  border: 1px solid var(--pb-line); border-radius: 999px; padding: 8px 14px;
+  color: var(--pb-ink-3);
 }
-.pb-search-badge[data-tone="ghost"] { background: none; border: 1px solid var(--pb-line); color: var(--pb-ink-3); }
 
 .pb-search-cursor {
   position: absolute; right: 92px; bottom: -12px; width: 24px; height: 30px;
@@ -502,8 +521,9 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 .pb-final-glow { position: absolute; inset: -10%; z-index: -1; pointer-events: none; }
 .pb-final-glow > div { position: absolute; inset: 0; will-change: transform; }
 .pb-final-inner { padding: var(--pb-sec) var(--pb-pad) clamp(48px, 6vw, 96px); display: flex; flex-direction: column; gap: 40px; }
-.pb-final-slot { display: inline-flex; align-items: center; gap: 10px; color: var(--pb-paper-2); }
-.pb-final-slot i { width: 7px; height: 7px; border-radius: 50%; background: var(--pb-paper); animation: pb-pulse 2.6s ease-in-out infinite; }
+/* Tampon : donc pas de largeur étirée par le `stretch` de la colonne, et
+   plus de point qui clignote — une encre posée ne bat pas. */
+.pb-final-slot { align-self: flex-start; }
 .pb-final-h { max-width: 15ch; }
 .pb-final-acts { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
 .pb-final-p { margin: 0; max-width: 40ch; font-size: var(--pb-body); line-height: 1.5; color: var(--pb-paper-2); }
@@ -804,7 +824,7 @@ html.lenis, html.lenis body { height: auto; }
   content: ""; flex: none; width: 5px; height: 5px; border-radius: 50%;
   background: var(--pb-accent);
 }
-.pb-trust li[data-slot] { color: var(--pb-accent); }
+.pb-trust li[data-slot]::before { display: none; }
 
 /* ---------- Formulaire ---------- */
 .pb-form { margin-top: 56px; scroll-margin-top: 88px; }
