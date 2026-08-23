@@ -12,15 +12,6 @@ const LINKS = [
   { href: "/contact", label: "Contact" },
 ];
 
-/** Pages hors homepage — gardées accessibles depuis le menu pour ne pas les
- *  orpheliner maintenant que la home est une page unique à ancres. */
-const SUB_LINKS = [
-  { href: "/realisations", label: "Réalisations" },
-  { href: "/services/web-design", label: "Web design" },
-  { href: "/services/seo", label: "SEO local" },
-  { href: "/services/maintenance", label: "Maintenance" },
-];
-
 export default function Header({ variant = "home" }: { variant?: "home" | "page" } = {}) {
   const onHome = variant === "home";
   const [open, setOpen] = useState(false);
@@ -117,11 +108,10 @@ export default function Header({ variant = "home" }: { variant?: "home" | "page"
 
           <div className="pb-label pb-menu-sub">
             <span>Aussi</span>
-            {SUB_LINKS.map((l) => (
-              <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>
-                {l.label}
-              </Link>
-            ))}
+            <Link href="/#studio" onClick={() => setOpen(false)}>
+              Le studio
+            </Link>
+            <a href="mailto:contact@pixelbrute.be">contact@pixelbrute.be</a>
           </div>
 
           <button type="button" className="pb-menu-close" onClick={() => setOpen(false)}>

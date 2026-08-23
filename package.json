@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "node scripts/patch-kysely.mjs && prisma generate && prisma db push && next build",
-    "build:static-legacy": "node scripts/extract-styles.mjs && node scripts/build-team-pages.mjs && next build && node scripts/postbuild.mjs",
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate && node scripts/patch-kysely.mjs",
@@ -14,25 +13,20 @@
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
-    "@gsap/react": "^2.1.2",
     "@next/third-parties": "^16.1.6",
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
     "@types/pg": "^8.20.0",
-    "@types/three": "^0.184.1",
     "better-auth": "^1.6.14",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.27.5",
     "gsap": "^3.15.0",
     "lenis": "^1.3.26",
-    "lucide-react": "^0.562.0",
     "next": "16.1.4",
     "pg": "^8.21.0",
     "prisma": "^7.8.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "tailwind-merge": "^3.4.0",
-    "three": "^0.184.0"
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

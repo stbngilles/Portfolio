@@ -135,8 +135,8 @@ export default function BriefForm() {
         </ol>
 
         <div className="pb-done-acts">
-          <Link href="/realisations" className="pb-btn-line">
-            Voir les réalisations <Arrow dir="ne" />
+          <Link href="/#projets" className="pb-btn-line">
+            Voir les projets <Arrow dir="ne" />
           </Link>
           <Link href="/" className="pb-btn-line">
             Retour à l&apos;accueil

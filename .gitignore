@@ -47,11 +47,5 @@ next-env.d.ts
 /dev.db
 /dev.db-journal
 
-# deploy/ — site statique live (généré par build:static-legacy), pas dans git
-/deploy/
-
-# vue artifact locale (workflow dev historique)
-/.artifact-view/
-
 # Mockups sources (PNG 12–27 Mo chacun) — les versions compressées sont dans public/home/mockups
 /Mockup/

@@ -20,6 +20,20 @@ const nextConfig: NextConfig = {
   // Better-Auth bundle un adaptateur kysely qui importe un symbole supprimé
   // dans les dernières versions de kysely. On garde better-auth en externe
   // serveur pour que Node le résolve dynamiquement (et tree-shake correctement).
+  /**
+   * Anciennes URLs du site (supprimées : le site tient en `/` et `/contact`).
+   * 301 plutôt que 404 : elles étaient indexées, la redirection permanente
+   * transfère leur référencement au lieu de le perdre.
+   */
+  async redirects() {
+    return [
+      { source: "/realisations", destination: "/#projets", permanent: true },
+      { source: "/services", destination: "/#expertises", permanent: true },
+      { source: "/services/:slug", destination: "/#expertises", permanent: true },
+      { source: "/equipe", destination: "/#studio", permanent: true },
+      { source: "/equipe/:slug", destination: "/#studio", permanent: true },
+    ];
+  },
   serverExternalPackages: [
     "better-auth",
     "@better-auth/kysely-adapter",

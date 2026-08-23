@@ -2,10 +2,10 @@ import Link from "next/link";
 import Logo from "./Logo";
 
 const PAGES = [
-  { href: "/realisations", label: "Réalisations" },
-  { href: "/services/web-design", label: "Web design" },
-  { href: "/services/seo", label: "SEO local" },
-  { href: "/services/maintenance", label: "Maintenance" },
+  { href: "/#projets", label: "Projets" },
+  { href: "/#expertises", label: "Ce que je fais" },
+  { href: "/#principes", label: "Principes" },
+  { href: "/#studio", label: "Le studio" },
   { href: "/contact", label: "Contact" },
 ];
 

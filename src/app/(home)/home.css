@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------
    Direction artistique de la homepage — « Klein & Craie », version resserrée.
-   Volontairement isolée du thème Tailwind de globals.css : les sous-pages
-   (/services, /realisations) gardent l'ancienne chrome, la home a la sienne.
+   Volontairement isolée du thème Tailwind de globals.css, qui ne sert plus
+   qu'à la plateforme `/app/*`. Le site public tient dans cette feuille.
    Tout est scopé sous `.pb` pour qu'aucune règle ne fuite.
 
    Restructuration août 2026. Règles tenues partout :
