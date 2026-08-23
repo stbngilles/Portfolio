@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Arrow from "./Arrow";
 import { PROJECTS, pad } from "./data";
 import ProjectModal from "./ProjectModal";
@@ -88,7 +89,13 @@ export default function SelectedWork() {
             <div className="pb-tile-foot">
               <div className="pb-tile-id">
                 <span className="pb-mono pb-cap">{pad(i)}</span>
-                <h3 className="pb-d-s pb-tile-name">{p.name}</h3>
+                {/* Le nom mène à la page du dossier. La vignette ouvre toujours
+                    la modale : un lecteur pressé garde l'aperçu, et le moteur
+                    obtient enfin un lien qu'il peut suivre — la modale n'a
+                    aucune URL à indexer. */}
+                <h3 className="pb-d-s pb-tile-name">
+                  <Link href={`/projets/${p.slug}`}>{p.name}</Link>
+                </h3>
                 <span className="pb-cap">{p.sector}</span>
               </div>
               <div className="pb-tile-metric">
@@ -109,6 +116,12 @@ export default function SelectedWork() {
             </div>
           </article>
         ))}
+      </div>
+
+      <div className="pb-work-more">
+        <Link href="/projets" className="pb-btn-line">
+          Les six dossiers en entier <Arrow dir="ne" />
+        </Link>
       </div>
 
       <div className="pb-cursor pb-label" ref={cursor} aria-hidden="true">

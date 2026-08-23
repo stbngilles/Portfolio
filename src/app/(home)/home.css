@@ -959,3 +959,289 @@ html.lenis, html.lenis body { height: auto; }
   .pb-submit { padding: 20px; }
   .pb-trust { gap: 10px 20px; }
 }
+
+/* ---------------------------------------------------------------------------
+   Pages projets — `/projets` et `/projets/[slug]`.
+
+   Les études de cas réutilisent les règles `.pb-modal-*` : ce sont des règles
+   de typographie et de grille, pas du chrome de modale. Ne sont définies ici
+   que l'enveloppe de page, le fil d'Ariane, la liste d'index et la navigation
+   entre dossiers.
+   --------------------------------------------------------------------------- */
+
+.pb-mute { color: var(--pb-ink-4); }
+
+/* --- enveloppe d'une étude de cas ---------------------------------------- */
+.pb-case { padding: 132px var(--pb-pad) var(--pb-sec-sm); max-width: 1060px; margin: 0 auto; }
+.pb-case-head { display: flex; flex-direction: column; }
+
+.pb-case-crumb {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  color: var(--pb-ink-3);
+}
+.pb-case-crumb a { color: var(--pb-ink-3); text-decoration: none; border-bottom: 1px solid var(--pb-line-soft); }
+.pb-case-crumb a:hover { color: var(--pb-accent); border-bottom-color: currentColor; }
+.pb-case-crumb span[aria-current] { color: var(--pb-ink); }
+
+.pb-case-id {
+  display: flex; align-items: center; gap: 12px; margin-top: 30px;
+  font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pb-ink-3);
+}
+.pb-case-num {
+  background: var(--pb-accent); color: var(--pb-paper);
+  border-radius: 999px; padding: 5px 10px;
+}
+
+.pb-case-title {
+  margin: 18px 0 0;
+  font-size: var(--pb-d-xl); line-height: 0.94; letter-spacing: -0.05em; font-weight: 500;
+  text-wrap: balance;
+}
+
+/* Les intertitres passent en `h2` sur la page : on annule la mise en forme
+   par défaut du navigateur, `.pb-modal-lbl` fait le reste. */
+.pb-case-h2 { margin: 0; font-weight: 400; }
+
+/* --- appel à l'action en pied de dossier --------------------------------- */
+.pb-case-cta {
+  margin-top: 76px; padding-top: 34px; border-top: 1px solid var(--pb-line-soft);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+}
+.pb-case-cta h2 { margin: 0; letter-spacing: -0.03em; }
+.pb-case-cta p { margin: 0; max-width: 44ch; color: var(--pb-ink-2); line-height: 1.5; }
+.pb-case-cta .pb-btn-line { margin-top: 6px; }
+
+/* --- navigation entre dossiers ------------------------------------------- */
+.pb-case-nav {
+  margin-top: 56px; padding-top: 22px; border-top: 1px dotted var(--pb-line);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.pb-case-nav-l {
+  display: flex; flex-direction: column; gap: 9px; text-decoration: none; color: inherit;
+  padding: 6px 0;
+}
+.pb-case-nav-l .pb-cap { color: var(--pb-ink-3); display: inline-flex; align-items: center; gap: 7px; }
+.pb-case-nav-l .pb-d-s { letter-spacing: -0.03em; }
+.pb-case-nav-l:hover .pb-d-s { color: var(--pb-accent); }
+.pb-case-nav-r { align-items: flex-end; text-align: right; }
+
+/* --- index /projets ------------------------------------------------------- */
+.pb-idx { padding: 132px var(--pb-pad) var(--pb-sec-sm); max-width: 1060px; margin: 0 auto; }
+.pb-idx-title {
+  margin: 30px 0 0;
+  font-size: var(--pb-d-l); line-height: 0.96; letter-spacing: -0.045em; font-weight: 500;
+  text-wrap: balance;
+}
+.pb-idx-lede {
+  margin: 24px 0 0; max-width: 52ch;
+  font-size: var(--pb-lede); line-height: 1.42; letter-spacing: -0.015em; color: var(--pb-ink-2);
+}
+
+.pb-idx-list { list-style: none; margin: 64px 0 0; padding: 0; display: flex; flex-direction: column; }
+.pb-idx-list > li { border-top: 1px solid var(--pb-line-soft); }
+.pb-idx-list > li:last-child { border-bottom: 1px solid var(--pb-line-soft); }
+
+.pb-idx-row {
+  display: grid; grid-template-columns: 260px 1fr auto; gap: 30px; align-items: center;
+  padding: 26px 0; text-decoration: none; color: inherit;
+}
+.pb-idx-shot {
+  position: relative; display: block; aspect-ratio: 4 / 3; border-radius: var(--pb-r-s);
+  overflow: hidden; background: var(--pb-stone);
+}
+.pb-idx-shot img { object-fit: cover; }
+.pb-idx-missing {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: var(--pb-ink-4); text-align: center; padding: 12px;
+}
+.pb-idx-txt { display: flex; flex-direction: column; gap: 9px; min-width: 0; }
+.pb-idx-top {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pb-ink-3);
+}
+.pb-idx-name { letter-spacing: -0.035em; }
+.pb-idx-brief { color: var(--pb-ink-2); line-height: 1.5; max-width: 52ch; }
+.pb-idx-metric { color: var(--pb-accent); }
+.pb-idx-go {
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; color: var(--pb-ink-3);
+}
+.pb-idx-row:hover .pb-idx-name { color: var(--pb-accent); }
+.pb-idx-row:hover .pb-idx-go { color: var(--pb-accent); }
+
+@media (max-width: 860px) {
+  .pb-case, .pb-idx { padding-top: 108px; }
+  .pb-idx-row { grid-template-columns: 150px 1fr; gap: 20px; align-items: start; }
+  .pb-idx-go { display: none; }
+  .pb-case-nav { grid-template-columns: 1fr; gap: 26px; }
+  .pb-case-nav-r { align-items: flex-start; text-align: left; }
+}
+
+@media (max-width: 560px) {
+  .pb-idx-row { grid-template-columns: 1fr; }
+  .pb-idx-shot { max-width: 100%; }
+}
+
+/* Sortie de la grille de projets vers l'index — le seul lien de la home qui
+   mène aux dossiers complets. */
+.pb-work-more { margin-top: clamp(38px, 4vw, 62px); display: flex; justify-content: center; }
+.pb-tile-name a { color: inherit; text-decoration: none; }
+.pb-tile-name a:hover { color: var(--pb-accent); }
+
+/* La question est un `h3` qui enveloppe son bouton : le titre ne doit rien
+   ajouter visuellement, tout le style reste sur `.pb-faq-q`. */
+.pb-faq-h { margin: 0; font: inherit; }
+
+/* Sous-titre du hero : littéral pour les moteurs, discret à l'écran. Il tient
+   le rôle d'un surtitre, pas d'un second titre — le `h1` reste l'accroche. */
+.pb-hero-sub {
+  margin: 0 0 14px;
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  color: var(--pb-ink-3);
+  max-width: 44ch;
+}
+
+/* Le signe d'ouverture de la FAQ est dessiné par le CSS : dans un `h3`, un
+   « + » posé en texte finit dans le titre lu par les moteurs. */
+.pb-faq-q::after {
+  content: "+";
+  flex: none;
+  font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
+  font-size: 20px;
+  line-height: 1;
+}
+.pb-faq-q[aria-expanded="true"]::after { content: "−"; }
+
+/* ---------------------------------------------------------------------------
+   Guides — `/guides` et `/guides/[slug]`.
+
+   Colonne unique, mesure courte : ce sont des pages qu'on lit en entier, pas
+   des pages qu'on parcourt. Rien à voir avec la grille des études de cas.
+   --------------------------------------------------------------------------- */
+
+.pb-gd { padding: 132px var(--pb-pad) var(--pb-sec-sm); max-width: 780px; margin: 0 auto; }
+.pb-gd-date { display: block; margin-top: 30px; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pb-ink-3); }
+.pb-gd-title {
+  margin: 16px 0 0;
+  font-size: clamp(32px, 4.2vw, 56px); line-height: 1.02; letter-spacing: -0.04em; font-weight: 500;
+  text-wrap: balance;
+}
+.pb-gd-lede {
+  margin: 24px 0 0;
+  font-size: var(--pb-lede); line-height: 1.42; letter-spacing: -0.015em; color: var(--pb-ink-2);
+}
+
+.pb-gd-body { display: flex; flex-direction: column; margin-top: 12px; }
+.pb-gd-h2 {
+  margin: 56px 0 0;
+  font-size: clamp(23px, 2.3vw, 30px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 500;
+  text-wrap: balance;
+}
+.pb-gd-h3 {
+  margin: 34px 0 0;
+  font-size: 18px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 600;
+}
+.pb-gd-p { margin: 18px 0 0; line-height: 1.62; color: var(--pb-ink-2); }
+.pb-gd-p:first-child { margin-top: 34px; }
+
+.pb-gd-ul { margin: 20px 0 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.pb-gd-ul li { position: relative; padding-left: 22px; line-height: 1.55; color: var(--pb-ink-2); }
+.pb-gd-ul li::before {
+  content: ""; position: absolute; left: 2px; top: 11px;
+  width: 8px; height: 1px; background: var(--pb-accent);
+}
+
+.pb-gd-steps { margin: 24px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 22px; }
+.pb-gd-steps li { display: grid; grid-template-columns: 34px 1fr; gap: 0 14px; align-items: start; }
+.pb-gd-step-n { font-size: 11.5px; color: var(--pb-accent); padding-top: 4px; letter-spacing: 0.1em; }
+.pb-gd-step-t { margin: 0; font-size: 16.5px; line-height: 1.35; letter-spacing: -0.012em; font-weight: 600; }
+.pb-gd-step-p { margin: 7px 0 0; line-height: 1.58; color: var(--pb-ink-2); }
+
+.pb-gd-note {
+  margin: 30px 0 0; padding: 20px 22px;
+  background: rgba(31, 63, 191, 0.05); border-left: 2px solid var(--pb-accent);
+  border-radius: 0 var(--pb-r-s) var(--pb-r-s) 0;
+}
+.pb-gd-note-l { display: block; color: var(--pb-accent); margin-bottom: 8px; }
+.pb-gd-note p { margin: 0; line-height: 1.58; }
+
+.pb-gd-proof { margin: 34px 0 0; }
+
+/* --- cas liés et suite de lecture ---------------------------------------- */
+.pb-gd-rel { margin-top: 20px; }
+.pb-gd-rel-list { margin: 22px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+.pb-gd-rel-list li { border-top: 1px solid var(--pb-line-soft); }
+.pb-gd-rel-list li:last-child { border-bottom: 1px solid var(--pb-line-soft); }
+.pb-gd-rel-list a {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px;
+  padding: 16px 0; text-decoration: none; color: inherit;
+}
+.pb-gd-rel-list a:hover .pb-d-s { color: var(--pb-accent); }
+.pb-gd-rel-list .pb-d-s { letter-spacing: -0.03em; }
+.pb-gd-rel-m { margin-left: auto; color: var(--pb-accent); }
+
+.pb-gd-next { margin-top: 48px; padding-top: 22px; border-top: 1px dotted var(--pb-line); }
+.pb-gd-next ul { margin: 14px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.pb-gd-next a {
+  display: inline-flex; align-items: center; gap: 9px;
+  text-decoration: none; color: var(--pb-ink); line-height: 1.35;
+}
+.pb-gd-next a:hover { color: var(--pb-accent); }
+
+/* --- index /guides -------------------------------------------------------- */
+.pb-gd-list { list-style: none; margin: 64px 0 0; padding: 0; display: flex; flex-direction: column; }
+.pb-gd-list > li { border-top: 1px solid var(--pb-line-soft); }
+.pb-gd-list > li:last-child { border-bottom: 1px solid var(--pb-line-soft); }
+.pb-gd-row {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: start;
+  padding: 26px 0; text-decoration: none; color: inherit;
+}
+.pb-gd-row-txt { display: flex; flex-direction: column; gap: 9px; min-width: 0; }
+.pb-gd-row-t { letter-spacing: -0.035em; }
+.pb-gd-row-d { color: var(--pb-ink-2); line-height: 1.5; max-width: 56ch; }
+.pb-gd-row-go { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; color: var(--pb-ink-3); }
+.pb-gd-row:hover .pb-gd-row-t, .pb-gd-row:hover .pb-gd-row-go { color: var(--pb-accent); }
+
+@media (max-width: 860px) {
+  .pb-gd { padding-top: 108px; }
+  .pb-gd-row-go { display: none; }
+  .pb-gd-rel-m { margin-left: 0; }
+}
+
+/* --- pages légales : listes de définitions et tableau des sous-traitants --- */
+.pb-legal-dl { margin: 26px 0 0; display: flex; flex-direction: column; }
+.pb-legal-dl > div {
+  display: grid; grid-template-columns: 220px 1fr; gap: 16px;
+  padding: 13px 0; border-top: 1px solid var(--pb-line-soft);
+}
+.pb-legal-dl > div:last-child { border-bottom: 1px solid var(--pb-line-soft); }
+.pb-legal-dl dt {
+  font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
+  font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--pb-ink-3); padding-top: 3px;
+}
+.pb-legal-dl dd { margin: 0; line-height: 1.5; }
+
+.pb-legal-tw { margin: 22px 0 0; overflow-x: auto; }
+.pb-legal-t { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14px; }
+.pb-legal-t th {
+  text-align: left; padding: 11px 14px 11px 0;
+  border-bottom: 1px solid var(--pb-line);
+  font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--pb-ink-3); font-weight: 400; white-space: nowrap;
+}
+.pb-legal-t td {
+  padding: 13px 14px 13px 0; border-bottom: 1px solid var(--pb-line-soft);
+  vertical-align: top; line-height: 1.5; color: var(--pb-ink-2);
+}
+.pb-legal-t td:first-child { color: var(--pb-ink); }
+
+@media (max-width: 640px) {
+  .pb-legal-dl > div { grid-template-columns: 1fr; gap: 5px; }
+}
+.pb-foot-legal { display: inline-flex; gap: 18px; flex-wrap: wrap; }
+.pb-foot-legal a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--pb-line-soft); }
+.pb-foot-legal a:hover { color: var(--pb-accent); }

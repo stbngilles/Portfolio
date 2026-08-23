@@ -108,10 +108,15 @@ export default function Header({ variant = "home" }: { variant?: "home" | "page"
 
           <div className="pb-label pb-menu-sub">
             <span>Aussi</span>
+            <Link href="/projets" onClick={() => setOpen(false)}>
+              Les dossiers
+            </Link>
+            <Link href="/guides" onClick={() => setOpen(false)}>
+              Guides
+            </Link>
             <Link href="/#studio" onClick={() => setOpen(false)}>
               Le studio
             </Link>
-            <a href="mailto:contact@pixelbrute.be">contact@pixelbrute.be</a>
           </div>
 
           <button type="button" className="pb-menu-close" onClick={() => setOpen(false)}>

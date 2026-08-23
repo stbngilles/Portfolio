@@ -27,7 +27,10 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
-      { source: "/realisations", destination: "/#projets", permanent: true },
+      // `/realisations` retrouve une vraie page équivalente : mieux vaut une
+      // page qu'une ancre, Google ne classe pas un fragment.
+      { source: "/realisations", destination: "/projets", permanent: true },
+      { source: "/realisations/:slug", destination: "/projets/:slug", permanent: true },
       { source: "/services", destination: "/#expertises", permanent: true },
       { source: "/services/:slug", destination: "/#expertises", permanent: true },
       { source: "/equipe", destination: "/#studio", permanent: true },

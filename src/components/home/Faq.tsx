@@ -3,7 +3,16 @@
 import { useState } from "react";
 import { FAQS } from "./data";
 
-/** Accordéon FAQ. Vit sur /contact depuis qu'elle a quitté la homepage. */
+/**
+ * Accordéon FAQ. Vit sur /contact depuis qu'elle a quitté la homepage.
+ *
+ * Deux points tiennent au référencement plutôt qu'à l'affichage :
+ *  — chaque question est un `h3` qui enveloppe son bouton (motif d'accordéon
+ *    de l'APG) ; la page n'avait sinon aucun sous-titre ;
+ *  — les réponses fermées restent dans le DOM, masquées par `hidden`. Elles
+ *    n'étaient auparavant montées qu'à l'ouverture : sept réponses sur huit
+ *    n'existaient nulle part dans le HTML.
+ */
 export default function Faq() {
   const [open, setOpen] = useState<number>(0);
 
@@ -12,8 +21,9 @@ export default function Faq() {
       <div>
         <div className="pb-over">Questions</div>
         <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 14 }}>
-          <div
+          <h2
             style={{
+              margin: 0,
               fontSize: "clamp(40px, 4.6vw, 72px)",
               lineHeight: 0.9,
               letterSpacing: "-0.045em",
@@ -22,7 +32,7 @@ export default function Faq() {
             }}
           >
             FAQ
-          </div>
+          </h2>
           <div
             className="pb-mono"
             style={{ border: "1px solid rgba(15,15,20,0.4)", borderRadius: 10, fontSize: 15, padding: "9px 15px" }}
@@ -38,18 +48,20 @@ export default function Faq() {
       <div style={{ display: "flex", flexDirection: "column" }}>
         {FAQS.map((f, i) => (
           <div key={f.q} style={{ borderTop: "1px solid rgba(15,15,20,0.28)" }}>
-            <button
-              type="button"
-              className="pb-faq-q"
-              aria-expanded={open === i}
-              onClick={() => setOpen((c) => (c === i ? -1 : i))}
-            >
-              <span>{f.q}</span>
-              <span className="pb-mono" style={{ flex: "none", fontSize: 20 }} aria-hidden="true">
-                {open === i ? "−" : "+"}
-              </span>
-            </button>
-            {open === i && <div className="pb-faq-a">{f.a}</div>}
+            <h3 className="pb-faq-h">
+              <button
+                type="button"
+                className="pb-faq-q"
+                aria-expanded={open === i}
+                aria-controls={`faq-a-${i}`}
+                onClick={() => setOpen((c) => (c === i ? -1 : i))}
+              >
+                <span>{f.q}</span>
+              </button>
+            </h3>
+            <div className="pb-faq-a" id={`faq-a-${i}`} hidden={open !== i}>
+              {f.a}
+            </div>
           </div>
         ))}
         <div style={{ borderTop: "1px solid rgba(15,15,20,0.28)" }} />

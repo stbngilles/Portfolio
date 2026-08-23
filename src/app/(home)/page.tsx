@@ -14,10 +14,10 @@ import SiteFooter from "@/components/home/SiteFooter";
 export const metadata: Metadata = {
   // `absolute` : sinon le template du layout racine ajoute « | Pixelbrute — Studio web Liège ».
   title: {
-    absolute: "Pixelbrute — Studio web solo à Liège | Sites pour indépendants et artisans",
+    absolute: "Création de sites internet à Liège — Pixelbrute",
   },
   description:
-    "Studio web solo à Liège. Conception, design et code par la même personne, pour des indépendants et de petites structures. Deux clients en 1ʳᵉ position du pack local Google.",
+    "Studio web solo à Liège. Création de sites internet pour indépendants et artisans — conception, design et code par la même personne.",
   alternates: { canonical: "https://pixelbrute.be" },
 };
 
@@ -32,7 +32,7 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        <Marquee items={["Sites vitrine", "SEO local", "Réservation en ligne", "E-commerce", "Liège & alentours", "Conçu et codé à la main"]} />
+        <Marquee items={["Sites vitrine", "SEO local", "Réservation en ligne", "E-commerce", "Hesbaye & province de Liège", "Conçu et codé à la main"]} />
         <SelectedWork />
         <Manifesto />
         <Expertise />

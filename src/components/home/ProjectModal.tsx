@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Arrow from "./Arrow";
 import { PROJECTS, pad } from "./data";
 import ProjectChart from "./ProjectChart";
@@ -198,6 +199,11 @@ export default function ProjectModal({
                     Ouvrir le site <Arrow dir="ne" />
                   </a>
                 )}
+                {/* La modale est un aperçu ; le dossier a sa propre page,
+                    partageable et indexable. */}
+                <Link className="pb-modal-visit pb-label" href={`/projets/${p.slug}`}>
+                  Page du dossier <Arrow dir="ne" />
+                </Link>
               </div>
             </div>
           </div>

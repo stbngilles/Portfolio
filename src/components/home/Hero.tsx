@@ -20,6 +20,12 @@ export default function Hero() {
         />
 
         <div className="pb-hero-meta">
+          {/* Le `h1` est une accroche : il ne contient aucun terme que les gens
+              tapent. Ce `h2` dit littéralement le métier et la ville — c'est
+              le seul endroit de la page qui a le droit d'être plat. */}
+          <h2 className="pb-hero-sub">
+            Création de sites internet à Hannut, en Hesbaye et en province de Liège — pour indépendants et artisans.
+          </h2>
           <p className="pb-hero-lede">
             Studio web solo à Liège. Conception, design et code par la même personne — pour des
             indépendants et des artisans qui veulent être trouvés, puis appelés.

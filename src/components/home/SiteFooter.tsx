@@ -2,7 +2,9 @@ import Link from "next/link";
 import Logo from "./Logo";
 
 const PAGES = [
-  { href: "/#projets", label: "Projets" },
+  { href: "/projets", label: "Projets" },
+  { href: "/guides", label: "Guides" },
+  { href: "/creation-site-internet-hesbaye", label: "Hesbaye" },
   { href: "/#expertises", label: "Ce que je fais" },
   { href: "/#principes", label: "Principes" },
   { href: "/#studio", label: "Le studio" },
@@ -21,7 +23,7 @@ export default function SiteFooter() {
           <div className="pb-logo" style={{ pointerEvents: "none" }}>
             <Logo idSuffix="foot" />
           </div>
-          <div className="pb-foot-place pb-label">Liège, Belgique</div>
+          <div className="pb-foot-place pb-label">Hannut · Hesbaye, province de Liège</div>
         </div>
 
         <div className="pb-foot-reach">
@@ -40,6 +42,10 @@ export default function SiteFooter() {
 
       <div className="pb-foot-bar pb-cap">
         <span>© 2026 Pixelbrute</span>
+        <span className="pb-foot-legal">
+          <Link href="/mentions-legales">Mentions légales</Link>
+          <Link href="/confidentialite">Confidentialité</Link>
+        </span>
         <span>Studio web solo — conçu et codé à la main</span>
       </div>
     </footer>

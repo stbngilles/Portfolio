@@ -692,9 +692,10 @@ export const STUDIO = {
   body: [
     "Pixelbrute, c'est une personne. Je gère la conception, le design, le code et la mise en ligne — du premier appel jusqu'après la livraison.",
     "C'est une contrainte autant qu'un choix : je prends peu de projets à la fois, et vous parlez toujours à la personne qui construit.",
+    "Je travaille depuis Hannut, en Hesbaye. La plupart de mes clients sont à moins de vingt minutes — Braives, Hélécine, Waremme — et c'est là que le référencement local paie le plus vite : dans une commune, il reste des requêtes que personne ne dispute.",
   ],
   facts: [
-    { lbl: "Basé à", val: "Liège, Belgique" },
+    { lbl: "Basé à", val: "Hannut · Hesbaye liégeoise" },
     { lbl: "Rôle", val: "Conception, design, code" },
     { lbl: "Projets livrés", val: "Six, dont un produit SaaS" },
     { lbl: "Avis Google", val: "5,0 ★ · 3 avis" },
