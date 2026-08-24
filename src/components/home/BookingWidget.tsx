@@ -18,10 +18,19 @@ import { AVAILABILITY, STUDIO } from "./data";
  * ses délais et le nom de la personne au bout du fil. La ligne de rareté ici
  * est `AVAILABILITY`, tenue à la main dans `data.ts`, ou rien.
  *
- * Elle ne s'ouvre pas d'elle-même : la bulle apparaît après un moment de
- * lecture, le panneau attend un clic. Rien n'est stocké, donc rien à consentir
- * côté cookies.
+ * Elle s'ouvre seule à l'arrivée — mais une fois par visite, et non à chaque
+ * page : quelqu'un qui enchaîne trois guides ne doit pas la refermer trois
+ * fois. Le drapeau tient dans `sessionStorage`, effacé à la fermeture de
+ * l'onglet ; c'est un stockage technique, sans traceur ni consentement.
+ *
+ * Le délai d'ouverture n'est pas du théâtre : à zéro, la carte entre en même
+ * temps que le hero et les deux animations se marchent dessus.
  */
+
+const GREETED = "pb-book-greeted";
+
+/** Le temps que la première section se pose. */
+const OPEN_DELAY = 1400;
 
 /** Les cinq prochains jours, libellés en français. Calculés après montage. */
 function nextDays(count = 5) {
@@ -46,22 +55,18 @@ export default function BookingWidget() {
   const [days, setDays] = useState<ReturnType<typeof nextDays>>([]);
 
   useEffect(() => {
-    const reveal = () => {
+    const greeted = sessionStorage.getItem(GREETED);
+
+    const timer = window.setTimeout(() => {
       setDays(nextDays());
       setShown(true);
-      window.removeEventListener("scroll", onScroll);
-    };
-    // Après un écran et demi de lecture, ou huit secondes — le premier des deux.
-    const onScroll = () => {
-      if (window.scrollY > window.innerHeight * 1.5) reveal();
-    };
-    const timer = window.setTimeout(reveal, 8000);
-    window.addEventListener("scroll", onScroll, { passive: true });
+      if (!greeted) {
+        setOpen(true);
+        sessionStorage.setItem(GREETED, "1");
+      }
+    }, OPEN_DELAY);
 
-    return () => {
-      window.clearTimeout(timer);
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => window.clearTimeout(timer);
   }, []);
 
   const book = useCallback((iso?: string) => {
