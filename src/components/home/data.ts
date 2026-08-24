@@ -740,7 +740,7 @@ export const QUOTES: Quote[] = [
 export const FAQS = [
   {
     q: "Par quoi on commence ?",
-    a: "Un appel de quarante-cinq minutes, que vous réservez vous-même en ligne. Vous m'expliquez votre métier et ce qui coince aujourd'hui, et on chiffre le projet ensemble pendant l'appel : vous raccrochez en sachant ce que ça coûte et combien de temps ça prend. Sans engagement — rien à signer, ni pendant, ni après.",
+    a: "Un appel de quinze minutes, que vous réservez vous-même en ligne. Vous m'expliquez votre métier et ce qui coince aujourd'hui, et on chiffre le projet ensemble pendant l'appel : vous raccrochez en sachant ce que ça coûte et combien de temps ça prend. Sans engagement — rien à signer, ni pendant, ni après.",
   },
   {
     q: "Combien de temps prend un projet ?",
@@ -779,7 +779,7 @@ export const FAQS = [
 /**
  * Réservation en ligne (Cal.com). Le nom d'utilisateur du compte fait partie de
  * l'URL : s'il change, cette constante est le seul endroit à modifier.
- * L'événement dure 45 min et propose deux lieux, téléphone ou visio.
+ * L'événement dure 15 min et propose deux lieux, téléphone ou visio.
  */
 /**
  * WhatsApp — même numéro que la ligne, sans indicatif ni « + » dans wa.me.

@@ -19,7 +19,7 @@ import { AVAILABILITY, BOOKING_URL, WHATSAPP_URL } from "./data";
  * suffit de rendre sa carte à `contact@pixelbrute.be`.
  *
  * Les faits affichés sont ceux déjà tenus ailleurs sur le site : 24 h ouvrées
- * (métadonnées de la page), appel de quarante-cinq minutes sans engagement
+ * (métadonnées de la page), appel de quinze minutes sans engagement
  * (FAQ), 5,0 ★ sur trois avis (STUDIO.facts), une seule personne (Studio).
  */
 const TRUST = [
@@ -41,7 +41,7 @@ export default function ContactWays() {
           data-primary=""
         >
           <span className="pb-way-k">Le plus direct</span>
-          <span className="pb-way-v">Réserver 45 min</span>
+          <span className="pb-way-v">Réserver 15 min</span>
           <span className="pb-way-m">Vous choisissez le créneau · devis chiffré pendant l&apos;appel</span>
           <Arrow dir="ne" />
         </a>
