@@ -128,8 +128,8 @@ export default function BriefForm() {
           <li>
             <b>03</b>
             <span>
-              Si ça vous parle, on cale trente minutes au téléphone. Sans engagement — et sans devis
-              envoyé dans la même heure.
+              Si ça vous parle, on cale quarante-cinq minutes : on chiffre le projet ensemble
+              pendant l&apos;appel. Sans engagement — rien à signer, ni pendant, ni après.
             </span>
           </li>
         </ol>

@@ -1,21 +1,25 @@
 import Arrow from "./Arrow";
-import { AVAILABILITY } from "./data";
+import { AVAILABILITY, BOOKING_URL } from "./data";
 
 /**
- * Les trois portes d'entrée, posées au-dessus du formulaire.
+ * Les quatre portes d'entrée, posées au-dessus du formulaire.
  *
  * Le téléphone n'apparaissait qu'après l'envoi du formulaire : le visiteur qui
  * préfère appeler — la moitié de cette clientèle — n'avait aucun chemin depuis
- * la page de contact, et repartait. Les trois voies sont donc données d'entrée,
- * le formulaire restant celui qu'on met en avant (le seul en bleu plein).
+ * la page de contact, et repartait. Les voies sont donc données d'entrée.
+ *
+ * La réservation en ligne est passée devant le formulaire, et prend le bleu
+ * plein : le formulaire promet une réponse sous 24 h, la réservation pose un
+ * créneau daté en dix secondes. Sur la même page, la seconde gagne toujours.
+ * Le bleu ne sert qu'à une porte à la fois — ne pas en peindre deux.
  *
  * Les faits affichés sont ceux déjà tenus ailleurs sur le site : 24 h ouvrées
- * (métadonnées de la page), appel de trente minutes sans engagement (FAQ),
- * 5,0 ★ sur trois avis (STUDIO.facts), une seule personne (Studio).
+ * (métadonnées de la page), appel de quarante-cinq minutes sans engagement
+ * (FAQ), 5,0 ★ sur trois avis (STUDIO.facts), une seule personne (Studio).
  */
 const TRUST = [
   "Réponse sous 24 h ouvrées",
-  "Premier appel de 30 min, sans engagement",
+  "Devis chiffré pendant l'appel, sans engagement",
   "5,0 ★ · 3 avis Google",
   "Vous parlez à la personne qui code",
 ];
@@ -24,7 +28,19 @@ export default function ContactWays() {
   return (
     <>
       <div className="pb-ways">
-        <a href="#brief" className="pb-way" data-primary="">
+        <a
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener"
+          className="pb-way"
+          data-primary=""
+        >
+          <span className="pb-way-k">Le plus direct</span>
+          <span className="pb-way-v">Réserver 45 min</span>
+          <span className="pb-way-m">Vous choisissez le créneau · devis chiffré pendant l&apos;appel</span>
+          <Arrow dir="ne" />
+        </a>
+        <a href="#brief" className="pb-way">
           <span className="pb-way-k">Le plus utile</span>
           <span className="pb-way-v">Décrire votre projet</span>
           <span className="pb-way-m">3 questions · une minute</span>

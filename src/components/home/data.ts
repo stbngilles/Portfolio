@@ -740,7 +740,7 @@ export const QUOTES: Quote[] = [
 export const FAQS = [
   {
     q: "Par quoi on commence ?",
-    a: "Un appel de trente minutes. Vous m'expliquez votre métier et ce qui coince aujourd'hui. Je vous dis si je peux aider et comment. Sans engagement, et sans devis envoyé dans la même heure.",
+    a: "Un appel de quarante-cinq minutes, que vous réservez vous-même en ligne. Vous m'expliquez votre métier et ce qui coince aujourd'hui, et on chiffre le projet ensemble pendant l'appel : vous raccrochez en sachant ce que ça coûte et combien de temps ça prend. Sans engagement — rien à signer, ni pendant, ni après.",
   },
   {
     q: "Combien de temps prend un projet ?",
@@ -776,6 +776,13 @@ export const FAQS = [
  * Mention de disponibilité du dernier écran. Texte daté, à mettre à jour à
  * chaque build — ou `null` pour ne rien afficher. Jamais gardée pour l'effet.
  */
+/**
+ * Réservation en ligne (Cal.com). Le nom d'utilisateur du compte fait partie de
+ * l'URL : s'il change, cette constante est le seul endroit à modifier.
+ * L'événement dure 45 min et propose deux lieux, téléphone ou visio.
+ */
+export const BOOKING_URL = "https://cal.com/estebangilles/appel";
+
 export const AVAILABILITY: string | null = "Une place libre dès maintenant";
 
 export const pad = (n: number) => String(n + 1).padStart(2, "0");
