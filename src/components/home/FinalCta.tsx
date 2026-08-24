@@ -1,12 +1,18 @@
 import Link from "next/link";
 import Arrow from "./Arrow";
+import BookCall from "./BookCall";
 import Marquee from "./Marquee";
 import { AVAILABILITY } from "./data";
 import { Lines } from "./Text";
 
 /**
- * Dernier écran, bleu profond : un titre immense, une seule action, et
- * l'adresse qui défile en bas.
+ * Dernier écran, bleu profond : un titre immense, l'adresse qui défile en bas,
+ * et deux actions — réserver un créneau, ou passer par la page de contact.
+ *
+ * La réservation vient en premier, en papier plein : elle aboutit à une date,
+ * là où « décrire votre projet » aboutit à un formulaire de plus. Elle ouvre le
+ * calendrier en modale (`BookCall`), sans quitter la page. La seconde reste en
+ * ligne simple, pour qui n'est pas prêt à poser un créneau tout de suite.
  */
 export default function FinalCta() {
   return (
@@ -39,14 +45,17 @@ export default function FinalCta() {
           </div>
         )}
 
-        <Lines as="h2" className="pb-d-xl pb-final-h" lines={["On en parle", "une demi-heure\u00a0?"]} />
+        <Lines as="h2" className="pb-d-xl pb-final-h" lines={["On en parle", "quinze minutes\u00a0?"]} />
 
         <div className="pb-final-acts" data-reveal-group="">
-          <Link href="/contact" className="pb-btn-paper">
-            Parler de votre projet <Arrow dir="ne" />
+          <BookCall className="pb-btn-paper">
+            Réserver 15 minutes <Arrow dir="ne" />
+          </BookCall>
+          <Link href="/contact" className="pb-btn-ghost">
+            Ou décrire votre projet <Arrow dir="ne" />
           </Link>
           <p className="pb-final-p">
-            Assez pour savoir si je peux aider — et pour que vous sachiez quoi faire, même si ce n&apos;est pas avec moi.
+            Assez pour cadrer le projet et le chiffrer — et pour que vous sachiez quoi faire, même si ce n&apos;est pas avec moi.
           </p>
         </div>
       </div>

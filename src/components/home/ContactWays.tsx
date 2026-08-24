@@ -1,29 +1,31 @@
 import Arrow from "./Arrow";
-import { AVAILABILITY, BOOKING_URL, WHATSAPP_URL } from "./data";
+import BookCall from "./BookCall";
+import { AVAILABILITY, WHATSAPP_URL } from "./data";
 
 /**
- * Les quatre portes d'entrée, posées au-dessus du formulaire.
+ * Les voies directes — sous le formulaire, pas au-dessus.
  *
- * Le téléphone n'apparaissait qu'après l'envoi du formulaire : le visiteur qui
- * préfère appeler — la moitié de cette clientèle — n'avait aucun chemin depuis
- * la page de contact, et repartait. Les voies sont donc données d'entrée.
+ * Elles ont longtemps ouvert la page : quatre cartes, une ligne de faits et
+ * une pastille de disponibilité repoussaient le formulaire de 300 px, et la
+ * page demandait de choisir un canal avant d'avoir dit un mot. Le formulaire
+ * est l'action principale, il vient donc en premier ; ces cartes sont la
+ * sortie de secours de celui qui ne veut pas écrire.
  *
- * La réservation en ligne est passée devant le formulaire, et prend le bleu
- * plein : le formulaire promet une réponse sous 24 h, la réservation pose un
- * créneau daté en dix secondes. Sur la même page, la seconde gagne toujours.
- * Le bleu ne sert qu'à une porte à la fois — ne pas en peindre deux.
+ * Trois portes, plus quatre : « décrire votre projet » a disparu, elle
+ * pointait vers le formulaire désormais placé juste au-dessus.
  *
- * WhatsApp a pris la place de l'adresse e-mail, qui reste dans le pied de page :
- * quatre portes est un maximum, et sur cette clientèle un `mailto:` ouvre un
- * logiciel que beaucoup n'ont jamais configuré. Pour revenir en arrière, il
- * suffit de rendre sa carte à `contact@pixelbrute.be`.
+ * Le bleu plein ne sert qu'à une porte à la fois — ici la réservation, seule
+ * à poser un créneau daté. Ne pas en peindre deux.
  *
- * Les faits affichés sont ceux déjà tenus ailleurs sur le site : 24 h ouvrées
- * (métadonnées de la page), appel de quinze minutes sans engagement
- * (FAQ), 5,0 ★ sur trois avis (STUDIO.facts), une seule personne (Studio).
+ * Cette carte ouvre le calendrier en modale par-dessus la page (`BookCall`) :
+ * son `href` reste la page Cal.com, qui sert de secours et de ⌘-clic.
+ *
+ * Les faits affichés sont ceux déjà tenus ailleurs sur le site : appel de
+ * quinze minutes sans engagement (FAQ), 5,0 ★ sur trois avis (STUDIO.facts),
+ * une seule personne (Studio). La réponse sous 24 h n'y est plus : elle est
+ * déjà dans l'œil-de-bœuf, sur le bouton d'envoi et sous le formulaire.
  */
 const TRUST = [
-  "Réponse sous 24 h ouvrées",
   "Devis chiffré pendant l'appel, sans engagement",
   "5,0 ★ · 3 avis Google",
   "Vous parlez à la personne qui code",
@@ -31,26 +33,17 @@ const TRUST = [
 
 export default function ContactWays() {
   return (
-    <>
+    <section className="pb-alt">
+      <div className="pb-over">Sinon</div>
+      <h2 className="pb-d-s pb-alt-title">Vous préférez parler&nbsp;?</h2>
+
       <div className="pb-ways">
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noopener"
-          className="pb-way"
-          data-primary=""
-        >
+        <BookCall className="pb-way" data-primary="">
           <span className="pb-way-k">Le plus direct</span>
           <span className="pb-way-v">Réserver 15 min</span>
-          <span className="pb-way-m">Vous choisissez le créneau · devis chiffré pendant l&apos;appel</span>
+          <span className="pb-way-m">Vous choisissez le créneau</span>
           <Arrow dir="ne" />
-        </a>
-        <a href="#brief" className="pb-way">
-          <span className="pb-way-k">Le plus utile</span>
-          <span className="pb-way-v">Décrire votre projet</span>
-          <span className="pb-way-m">3 questions · une minute</span>
-          <Arrow dir="s" />
-        </a>
+        </BookCall>
         <a href="tel:+32492200275" className="pb-way">
           <span className="pb-way-k">Le plus rapide</span>
           <span className="pb-way-v">+32 492 20 02 75</span>
@@ -58,23 +51,19 @@ export default function ContactWays() {
           <Arrow dir="ne" />
         </a>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="pb-way">
-          <span className="pb-way-k">Si vous préférez écrire</span>
+          <span className="pb-way-k">À l&apos;écrit</span>
           <span className="pb-way-v">WhatsApp</span>
-          <span className="pb-way-m">Même numéro, même personne — en écrit</span>
+          <span className="pb-way-m">Même numéro, même personne</span>
           <Arrow dir="ne" />
         </a>
       </div>
 
       <ul className="pb-trust pb-cap">
+        {AVAILABILITY && <li>{AVAILABILITY}</li>}
         {TRUST.map((t) => (
           <li key={t}>{t}</li>
         ))}
-        {AVAILABILITY && (
-          <li data-slot="">
-            <span className="pb-label pb-inked">{AVAILABILITY}</span>
-          </li>
-        )}
       </ul>
-    </>
+    </section>
   );
 }

@@ -782,22 +782,23 @@ html.lenis, html.lenis body { height: auto; }
 /* =========================================================================
    Page /contact — voies de contact, formulaire de brief, FAQ.
 
-   Le formulaire est la page ; tout ce qui l'entoure sert à faire baisser le
-   coût perçu de l'envoi. Trois voies données d'entrée (le téléphone était
-   caché derrière l'envoi du formulaire), une ligne de faits vérifiables,
-   quatre blocs numérotés, deux champs obligatoires.
+   Le formulaire est la page, et il commence donc la page : titre, promesse,
+   trois blocs numérotés, deux champs obligatoires. Tout le reste — voies
+   directes, faits vérifiables, FAQ — vient après, pour celui que le
+   formulaire n'a pas convaincu.
    ========================================================================= */
 .pb-cp { padding: 124px var(--pb-pad) 0; }
 .pb-cp-title { margin-top: 26px; max-width: 16ch; }
 .pb-cp-lede {
   font-size: var(--pb-lede); line-height: 1.6; letter-spacing: -0.012em;
-  color: var(--pb-ink-2); max-width: 52ch; margin: 34px 0 0;
+  color: var(--pb-ink-2); max-width: 50ch; margin: 30px 0 0;
 }
 
-/* ---------- Les trois voies ---------- */
-/* Quatre portes : deux par deux. À trois colonnes, la quatrième reste seule
-   sur sa ligne et se lit comme un oubli. */
-.pb-ways { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 46px; }
+/* ---------- Les voies directes, après le formulaire ---------- */
+.pb-alt { margin-top: var(--pb-sec-sm); }
+.pb-alt-title { margin-top: 16px; }
+/* Trois portes, trois colonnes : plus aucune ne reste seule sur sa ligne. */
+.pb-ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
 .pb .pb-way {
   position: relative; display: flex; flex-direction: column; gap: 9px;
   border: 1px dotted var(--pb-line); border-radius: var(--pb-r-m);
@@ -820,21 +821,22 @@ html.lenis, html.lenis body { height: auto; }
 .pb-way-m { font-size: 12px; line-height: 1.6; opacity: 0.72; }
 .pb-way .pb-arw { position: absolute; top: 22px; right: 22px; }
 
-.pb-trust { display: flex; flex-wrap: wrap; gap: 11px 28px; margin: 24px 0 0; padding: 0; list-style: none; }
+.pb-trust { display: flex; flex-wrap: wrap; gap: 12px 30px; margin: 30px 0 0; padding: 0; list-style: none; }
 .pb-trust li { display: flex; align-items: center; gap: 9px; }
 .pb-trust li::before {
   content: ""; flex: none; width: 5px; height: 5px; border-radius: 50%;
   background: var(--pb-accent);
 }
-.pb-trust li[data-slot]::before { display: none; }
-
 /* ---------- Formulaire ---------- */
-.pb-form { margin-top: 56px; scroll-margin-top: 88px; }
+.pb-form { margin-top: 80px; scroll-margin-top: 88px; }
 .pb-field {
-  display: grid; grid-template-columns: 240px 1fr; gap: 24px 56px;
-  border-top: 1px dotted var(--pb-line); padding: 28px 0;
+  display: grid; grid-template-columns: 220px 1fr; gap: 24px 64px;
+  border-top: 1px dotted var(--pb-line); padding: 36px 0;
   align-items: start;
 }
+/* Le dernier bloc referme le formulaire : sans cette ligne, le bouton noir
+   se collait au dernier champ. */
+.pb-field:last-of-type { border-bottom: 1px dotted var(--pb-line); }
 .pb-field-lbl { color: var(--pb-accent); padding-top: 14px; }
 /* Le compteur : voir la fin du formulaire avant de le commencer. */
 .pb-fnum { display: block; color: var(--pb-ink-4); margin-bottom: 10px; }
@@ -860,7 +862,7 @@ html.lenis, html.lenis body { height: auto; }
 .pb-chip:hover { border-color: var(--pb-line); }
 .pb-chip:has(input:checked) { background: var(--pb-accent); border-color: var(--pb-accent); color: #fff; }
 .pb-chip:has(input:focus-visible) { outline: 2px solid var(--pb-accent); outline-offset: 2px; }
-.pb-chips-lbl { margin-top: 22px; margin-bottom: 10px; }
+.pb-chips-lbl { margin-top: 26px; margin-bottom: 12px; }
 
 .pb-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .pb-inputs[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
@@ -879,16 +881,8 @@ html.lenis, html.lenis body { height: auto; }
   outline: 2px solid var(--pb-accent); outline-offset: 2px; border-color: transparent;
 }
 
-/* ---------- Preuve, juste avant le bouton ---------- */
-.pb-proof { border-bottom: 1px dotted var(--pb-line); }
-.pb-proof-q {
-  margin: 0; max-width: 68ch;
-  font-size: 16px; line-height: 1.6; letter-spacing: -0.015em; color: var(--pb-ink-2);
-}
-.pb-proof-who { margin-top: 10px; }
-
 .pb-submit {
-  width: 100%; margin-top: 32px; cursor: pointer;
+  width: 100%; margin-top: 40px; cursor: pointer;
   border: none; border-radius: var(--pb-r-s); background: var(--pb-ink); color: var(--pb-paper);
   font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
   font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; padding: 24px;
@@ -899,7 +893,7 @@ html.lenis, html.lenis body { height: auto; }
 .pb-form-note {
   font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
   font-size: 12.5px; line-height: 1.8; color: var(--pb-ink-3);
-  text-align: center; max-width: 58ch; margin: 16px auto 0;
+  text-align: center; max-width: 58ch; margin: 22px auto 0;
 }
 .pb .pb-form-note a { color: var(--pb-accent); border-bottom: 1px solid currentColor; }
 .pb-form-err {
@@ -945,21 +939,22 @@ html.lenis, html.lenis body { height: auto; }
 }
 @media (max-width: 980px) {
   /* Empilées, les cartes s'étalent : on remet le nom et la précision sur une
-     même ligne pour que les quatre voies tiennent encore dans un écran. */
+     même ligne pour que les trois voies tiennent encore dans un écran. */
   .pb-ways { grid-template-columns: 1fr; }
   .pb .pb-way { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 7px 18px; }
   .pb-way-k { flex: 1 1 100%; }
 }
 @media (max-width: 900px) {
-  .pb-field { grid-template-columns: 1fr; gap: 16px; padding: 26px 0; }
+  .pb-field { grid-template-columns: 1fr; gap: 18px; padding: 30px 0; }
   .pb-field-lbl { padding-top: 0; }
   .pb-inputs, .pb-inputs[data-cols="3"] { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
   .pb-cp { padding-top: 96px; }
-  .pb-form { margin-top: 50px; }
+  .pb-form { margin-top: 52px; }
   .pb-submit { padding: 20px; }
-  .pb-trust { gap: 10px 20px; }
+  .pb-trust { gap: 12px 22px; }
+  .pb-alt-title { margin-top: 14px; }
 }
 
 /* ---------------------------------------------------------------------------

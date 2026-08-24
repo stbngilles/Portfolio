@@ -777,10 +777,17 @@ export const FAQS = [
  * chaque build — ou `null` pour ne rien afficher. Jamais gardée pour l'effet.
  */
 /**
- * Réservation en ligne (Cal.com). Le nom d'utilisateur du compte fait partie de
- * l'URL : s'il change, cette constante est le seul endroit à modifier.
+ * Réservation en ligne (Cal.com). Le nom d'utilisateur du compte fait partie du
+ * lien : s'il change, ces deux constantes sont le seul endroit à modifier.
  * L'événement dure 15 min et propose deux lieux, téléphone ou visio.
+ *
+ * `BOOKING_CAL_LINK` est la forme attendue par la modale, `BOOKING_URL` la page
+ * publique — celle qui sert de `href`, donc de secours si le script de la modale
+ * ne se charge pas. Les deux doivent désigner le même événement.
  */
+export const BOOKING_CAL_LINK = "estebangilles/appel";
+export const BOOKING_URL = `https://cal.com/${BOOKING_CAL_LINK}`;
+
 /**
  * WhatsApp — même numéro que la ligne, sans indicatif ni « + » dans wa.me.
  * Le texte pré-rempli n'engage à rien : il évite la page blanche, et dit à
@@ -789,8 +796,6 @@ export const FAQS = [
 export const WHATSAPP_URL =
   "https://wa.me/32492200275?text=" +
   encodeURIComponent("Bonjour, je vous écris au sujet d'un projet de site.");
-
-export const BOOKING_URL = "https://cal.com/estebangilles/appel";
 
 export const AVAILABILITY: string | null = "Une place libre dès maintenant";
 

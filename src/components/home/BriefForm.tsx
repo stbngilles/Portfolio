@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import Link from "next/link";
 import Arrow from "./Arrow";
-import { QUOTES } from "./data";
 
 /**
  * Formulaire de brief — trois blocs, deux champs obligatoires.
@@ -19,6 +18,10 @@ import { QUOTES } from "./data";
  *   sur un même bloc.
  * — Le descriptif du projet n'est plus `required` : c'est le champ le plus
  *   coûteux (il demande de rédiger), et il était placé avant même le nom.
+ * — Un avis client était encarté entre le dernier champ et le bouton d'envoi,
+ *   sous le titre « Avant d'envoyer ». Au milieu d'un formulaire, une citation
+ *   se lit comme une consigne de plus : la preuve sociale vit sous les voies
+ *   directes et sur la home, pas ici.
  *
  * Les tranches de budget encadrent le catalogue réel (src/lib/pricing.ts :
  * Starter 1 200 €, Essentiel 2 500 €, E-commerce 6 000 €) et gardent une
@@ -46,9 +49,6 @@ const BUDGETS = [
 const TEL = "+32 492 20 02 75";
 const TEL_HREF = "tel:+32492200275";
 const MAIL = "contact@pixelbrute.be";
-
-/** Le plus court des avis réels : il doit tenir sous le formulaire, pas le noyer. */
-const PROOF = QUOTES.reduce((a, b) => (b.text.length < a.text.length ? b : a));
 
 const STEPS = 3;
 
@@ -166,7 +166,7 @@ export default function BriefForm() {
       <Field
         n={1}
         label="Votre besoin"
-        hint="Plusieurs choix possibles. Le budget n'est qu'un ordre de grandeur, HTVA."
+        hint="Plusieurs réponses possibles."
       >
         <div>
           <div className="pb-chips" role="group" aria-label="Ce dont vous avez besoin">
@@ -174,7 +174,7 @@ export default function BriefForm() {
               <Chip key={b} name="besoin" value={b} type="checkbox" />
             ))}
           </div>
-          <div className="pb-chips-lbl pb-cap">Budget indicatif</div>
+          <div className="pb-chips-lbl pb-cap">Budget indicatif · ordre de grandeur, HTVA</div>
           <div className="pb-chips" role="radiogroup" aria-label="Budget indicatif">
             {BUDGETS.map((b) => (
               <Chip key={b} name="budget" value={b} type="radio" />
@@ -187,7 +187,7 @@ export default function BriefForm() {
         n={2}
         htmlFor="projet"
         label="Le projet"
-        hint="Facultatif — deux lignes suffisent. Ce qui coince, plutôt qu'une liste de fonctionnalités."
+        hint="Facultatif — deux lignes suffisent."
       >
         <div>
           <textarea
@@ -227,23 +227,11 @@ export default function BriefForm() {
         </div>
       </Field>
 
-      <div className="pb-field pb-proof">
-        <div className="pb-field-lbl pb-label">Avant d&apos;envoyer</div>
-        <div>
-          <blockquote className="pb-proof-q">{PROOF.text}</blockquote>
-          <div className="pb-proof-who pb-cap">
-            {PROOF.name} · {PROOF.role}
-          </div>
-        </div>
-      </div>
-
       <button type="submit" className="pb-submit" disabled={state.submitting}>
         {state.submitting ? "Envoi en cours…" : "Envoyer — réponse sous 24 h ouvrées"}
       </button>
 
-      <p className="pb-form-note">
-        Pas de newsletter, pas de démarchage. Vous préférez parler&nbsp;? <a href={TEL_HREF}>{TEL}</a>.
-      </p>
+      <p className="pb-form-note">Pas de newsletter, pas de démarchage.</p>
 
       <ValidationError errors={state.errors} className="pb-form-err" />
       {state.errors && (
