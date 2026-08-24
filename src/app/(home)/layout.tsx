@@ -1,6 +1,7 @@
 import "./home.css";
 import Ink from "@/components/home/Ink";
 import Motion from "@/components/home/Motion";
+import BookingWidget from "@/components/home/BookingWidget";
 
 /**
  * Chrome de la homepage. Séparée de `(marketing)/layout.tsx` : la home a sa
@@ -13,6 +14,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
       <Motion />
       <Ink />
       {children}
+      <BookingWidget />
     </div>
   );
 }

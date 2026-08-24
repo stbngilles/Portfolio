@@ -1242,3 +1242,93 @@ html.lenis, html.lenis body { height: auto; }
 .pb-foot-legal { display: inline-flex; gap: 18px; flex-wrap: wrap; }
 .pb-foot-legal a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--pb-line-soft); }
 .pb-foot-legal a:hover { color: var(--pb-accent); }
+
+/* ---------------------------------------------------------------------------
+   Bulle de réservation — fixe en bas à droite, sur toutes les pages publiques.
+
+   Montée dans `(home)/layout.tsx`, donc toujours sous `.pb` : les variables de
+   couleur sont disponibles. `z-index` au-dessus du header (100) mais sous la
+   modale de Cal.com, qui monte à 99999 et doit recouvrir la bulle.
+
+   Pas d'ombre portée : la maison travaille au trait et à l'aplat. Ce qui
+   détache la carte du fond, c'est le blanc chaud sur la craie et le filet.
+--------------------------------------------------------------------------- */
+.pb-book {
+  position: fixed; right: 22px; bottom: 22px; z-index: 300;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+}
+.pb .pb-book-bubble {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--pb-accent); color: #fff;
+  border: 1px solid var(--pb-accent); border-radius: 999px;
+  font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 16px 24px; cursor: pointer;
+  animation: pb-in 320ms ease both;
+  transition: background 180ms, border-color 180ms;
+}
+.pb .pb-book-bubble:hover { background: var(--pb-ink); border-color: var(--pb-ink); }
+.pb-book[data-open] .pb-book-bubble { padding: 16px 20px; }
+
+.pb-book-card {
+  position: relative; width: min(340px, calc(100vw - 44px));
+  background: var(--pb-paper); color: var(--pb-ink);
+  border: 1px solid var(--pb-line-soft); border-radius: var(--pb-r-l);
+  padding: 22px 22px 20px;
+  animation: pb-in 260ms ease both;
+}
+.pb .pb-book-x {
+  position: absolute; top: 12px; right: 12px;
+  background: none; border: 0; cursor: pointer;
+  font-size: 13px; line-height: 1; color: var(--pb-ink-3); padding: 6px;
+}
+.pb .pb-book-x:hover { color: var(--pb-ink); }
+
+.pb-book-who { display: flex; align-items: center; gap: 12px; }
+.pb-book-who div { display: flex; flex-direction: column; gap: 2px; }
+.pb-book-who b { font-size: 15px; font-weight: 500; letter-spacing: -0.02em; }
+.pb-book-who span { font-size: 11px; letter-spacing: 0.06em; color: var(--pb-ink-3); }
+.pb-book-face { border-radius: 999px; object-fit: cover; background: var(--pb-stone); }
+
+.pb-book-t { margin: 18px 0 0; font-size: 15px; letter-spacing: -0.02em; }
+.pb-book-p { margin: 7px 0 0; font-size: 13px; line-height: 1.6; color: var(--pb-ink-2); }
+.pb-book-slot {
+  margin: 14px 0 0; padding-top: 12px; border-top: 1px dotted var(--pb-line-soft);
+  font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pb-accent);
+}
+
+/* Les jours sont un raccourci, pas une promesse : ils pré-sélectionnent une
+   date dans le calendrier, qui reste seul à dire ce qui est libre. */
+.pb-book-days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 14px; }
+.pb .pb-book-days button {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 9px 0; cursor: pointer;
+  background: none; border: 1px dotted var(--pb-line); border-radius: var(--pb-r-s);
+  color: var(--pb-ink); transition: background 160ms, color 160ms, border-color 160ms;
+}
+.pb .pb-book-days button:hover { background: var(--pb-ink); color: var(--pb-bg); border-color: var(--pb-ink); }
+.pb-book-days span {
+  font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
+  font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.62;
+}
+.pb-book-days b { font-size: 15px; font-weight: 500; }
+
+.pb .pb-book-go {
+  width: 100%; margin-top: 12px; padding: 15px 20px; cursor: pointer;
+  background: var(--pb-accent); color: #fff;
+  border: 1px solid var(--pb-accent); border-radius: 999px;
+  font-family: var(--font-mono-jetbrains), ui-monospace, monospace;
+  font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  transition: background 180ms, border-color 180ms;
+}
+.pb .pb-book-go:hover { background: var(--pb-ink); border-color: var(--pb-ink); }
+
+@media (max-width: 760px) {
+  .pb-book { right: 14px; bottom: 14px; left: 14px; align-items: stretch; }
+  .pb-book-card { width: auto; }
+  .pb .pb-book-bubble { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pb .pb-book-bubble, .pb-book-card { animation: none; }
+}
