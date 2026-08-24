@@ -63,7 +63,15 @@ export default function Motion() {
         );
       });
 
-      gsap.utils.toArray<HTMLElement>("[data-lines]").forEach((el) => {
+      // Le hero a sa propre timeline d'entrée (plus bas) : s'il passait aussi
+      // ici, ses lignes joueraient deux fois — deux tweens concurrents sur le
+      // même yPercent, l'un décalé de 0.15 s. C'est le titre qui semblait
+      // rejouer au chargement.
+      const lineTitles = gsap.utils
+        .toArray<HTMLElement>("[data-lines]")
+        .filter((el) => !el.closest(".pb-hero"));
+
+      lineTitles.forEach((el) => {
         const lines = el.querySelectorAll<HTMLElement>(".pb-line > span");
         gsap.fromTo(
           lines,
