@@ -781,6 +781,15 @@ export const FAQS = [
  * l'URL : s'il change, cette constante est le seul endroit à modifier.
  * L'événement dure 45 min et propose deux lieux, téléphone ou visio.
  */
+/**
+ * WhatsApp — même numéro que la ligne, sans indicatif ni « + » dans wa.me.
+ * Le texte pré-rempli n'engage à rien : il évite la page blanche, et dit à
+ * quel titre on écrit — sinon le premier message reçu est souvent « bonjour ».
+ */
+export const WHATSAPP_URL =
+  "https://wa.me/32492200275?text=" +
+  encodeURIComponent("Bonjour, je vous écris au sujet d'un projet de site.");
+
 export const BOOKING_URL = "https://cal.com/estebangilles/appel";
 
 export const AVAILABILITY: string | null = "Une place libre dès maintenant";

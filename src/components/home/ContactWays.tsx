@@ -1,5 +1,5 @@
 import Arrow from "./Arrow";
-import { AVAILABILITY, BOOKING_URL } from "./data";
+import { AVAILABILITY, BOOKING_URL, WHATSAPP_URL } from "./data";
 
 /**
  * Les quatre portes d'entrée, posées au-dessus du formulaire.
@@ -12,6 +12,11 @@ import { AVAILABILITY, BOOKING_URL } from "./data";
  * plein : le formulaire promet une réponse sous 24 h, la réservation pose un
  * créneau daté en dix secondes. Sur la même page, la seconde gagne toujours.
  * Le bleu ne sert qu'à une porte à la fois — ne pas en peindre deux.
+ *
+ * WhatsApp a pris la place de l'adresse e-mail, qui reste dans le pied de page :
+ * quatre portes est un maximum, et sur cette clientèle un `mailto:` ouvre un
+ * logiciel que beaucoup n'ont jamais configuré. Pour revenir en arrière, il
+ * suffit de rendre sa carte à `contact@pixelbrute.be`.
  *
  * Les faits affichés sont ceux déjà tenus ailleurs sur le site : 24 h ouvrées
  * (métadonnées de la page), appel de quarante-cinq minutes sans engagement
@@ -52,10 +57,10 @@ export default function ContactWays() {
           <span className="pb-way-m">Appel direct — pas de standard</span>
           <Arrow dir="ne" />
         </a>
-        <a href="mailto:contact@pixelbrute.be" className="pb-way">
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="pb-way">
           <span className="pb-way-k">Si vous préférez écrire</span>
-          <span className="pb-way-v">contact@pixelbrute.be</span>
-          <span className="pb-way-m">Même adresse, même personne</span>
+          <span className="pb-way-v">WhatsApp</span>
+          <span className="pb-way-m">Même numéro, même personne — en écrit</span>
           <Arrow dir="ne" />
         </a>
       </div>
