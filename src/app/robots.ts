@@ -41,6 +41,11 @@ const MOTEURS_GENERATIFS = [
   "GPTBot",
   "OAI-SearchBot",
   "ChatGPT-User",
+  // `OAI-AdsBot` relit la page d'atterrissage d'une annonce ChatGPT avant de la
+  // valider. OpenAI demande qu'il soit nommé, pas seulement couvert par `*` :
+  // sans son groupe, l'aperçu d'annonce échoue sur « site inaccessible » alors
+  // que le site répond 200 à tout le monde.
+  "OAI-AdsBot",
   // Anthropic — même découpage en trois.
   "ClaudeBot",
   "Claude-SearchBot",
