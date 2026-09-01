@@ -35,6 +35,8 @@ const nextConfig: NextConfig = {
       { source: "/services/:slug", destination: "/#expertises", permanent: true },
       { source: "/equipe", destination: "/#studio", permanent: true },
       { source: "/equipe/:slug", destination: "/#studio", permanent: true },
+      // Étude de cas retirée à la demande du client.
+      { source: "/projets/azimut-games", destination: "/projets", permanent: true },
     ];
   },
   serverExternalPackages: [

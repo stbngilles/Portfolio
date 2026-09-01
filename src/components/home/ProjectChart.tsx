@@ -73,26 +73,6 @@ function Week({ chart }: { chart: Extract<Chart, { kind: "week" }> }) {
   );
 }
 
-/** La grille d'Azimut XL : 6 lignes, 6 colonnes, chaque case numérotée
- *  ligne-colonne. Le dessin explique la règle plus vite que le paragraphe. */
-function Grid36() {
-  const rows = [1, 2, 3, 4, 5, 6];
-  return (
-    <div className="pb-grid36" role="img" aria-label="Grille de six lignes sur six colonnes, cases numérotées de 11 à 66">
-      {rows.map((r) => (
-        <div key={r} className="pb-grid36-row">
-          {rows.map((c) => (
-            <div key={c} className="pb-grid36-cell pb-mono">
-              {r}
-              {c}
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function ProjectChart({ chart }: { chart: Chart }) {
   return (
     <figure className="pb-chart">
@@ -103,7 +83,6 @@ export default function ProjectChart({ chart }: { chart: Chart }) {
 
       {chart.kind === "bars" && <Bars items={chart.items} />}
       {chart.kind === "week" && <Week chart={chart} />}
-      {chart.kind === "grid36" && <Grid36 />}
 
       <p className="pb-chart-note">{chart.note}</p>
     </figure>

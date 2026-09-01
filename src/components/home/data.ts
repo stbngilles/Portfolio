@@ -7,7 +7,7 @@
  *
  * Les études de cas (août 2026) sont écrites à partir des sites en ligne,
  * relus page par page : les chiffres cités, 60 000 références, 63 communes,
- * 36 balises, acompte de 50 %, sont lisibles sur les sites eux-mêmes ou
+ * acompte de 50 %, sont lisibles sur les sites eux-mêmes ou
  * dans leurs conditions générales. Rien n'est estimé, rien n'est arrondi
  * vers le haut. Quand un chiffre manque, la phrase le dit au lieu de le
  * remplacer par un adjectif.
@@ -45,8 +45,7 @@ export type Chart =
       from: number;
       to: number;
       days: { day: string; from: number | null; to: number | null; label: string }[];
-    }
-  | { kind: "grid36"; title: string; note: string };
+    };
 
 export type Project = {
   slug: string;
@@ -100,93 +99,6 @@ export type Project = {
  *  (grand / petit / petit / grand / moyen / moyen) et les ambiances des
  *  mockups, sombre, clair, chaud, plutôt que de suivre la chronologie. */
 export const PROJECTS: Project[] = [
-  {
-    slug: "azimut-games",
-    name: "Azimut Games",
-    sector: "Éditeur de jeux · Luxembourg",
-    brief:
-      "Deux jeux qui se jouent debout, en équipe, un stand réservé à Essen, et aucun revendeur pour les faire essayer.",
-    answer:
-      "Faire du site la boutique et le démonstrateur à la fois : la règle expliquée avant le prix.",
-    metric: "Boutique et réseau à construire",
-    rating: null,
-    query: null,
-    proof: null,
-    featured: false,
-    role: "Conception, design, développement, boutique connectée au back-office (Odoo, Stripe, Mondial Relay)",
-    stack: "Site, boutique, fiches jeux, formulaires réseau",
-    result: "Boutique en ligne · départ pour Essen 2026",
-    lede:
-      "Un jeu qui se joue debout, en équipe, sur une grille de six mètres de côté : le site devait faire vivre la partie, pas seulement montrer la boîte.",
-    context: [
-      "Azimut Games est né d'une formation de moniteur en course d'orientation à l'ADEPS. Vincent Merveille en a tiré Azimut XL : trente-six balises posées au sol en 6×6, plus de cent quarante cartes, et un terrain de récréation qui devient un plateau de jeu. Azimath, le second titre, applique le même principe aux quatre opérations.",
-      "Derrière la boîte : deux ans de prototypes, des tests en classe menés par des institutrices, une relecture complète des règles, une illustratrice, un fabricant. En octobre 2026, le jeu part à SPIEL Essen, le plus grand salon du secteur, hall 4, stand D425.",
-    ],
-    problem: [
-      "Un jeu qui se vit debout, en équipe, dans la cour, sur un terrain ou en halle de sport. C'est ce qu'un écran peine à transmettre. Le premier travail du site : faire comprendre la partie avant de parler d'achat.",
-      "Deuxième contrainte : il n'y a pas encore de revendeur pour faire la démonstration à la place du site. Le réseau se construit. Le site doit donc tenir trois rôles à la fois : expliquer, vendre, et recruter les lieux qui feront jouer.",
-    ],
-    decisions: [
-      {
-        title: "La règle avant le prix",
-        text: "Trois gestes en haut de la page d'accueil : on pose la grille, on pioche une carte, on rejoint la balise. Le mécanisme complet du jeu tient en trois phrases, et il est lu avant que le tarif n'apparaisse. Un visiteur qui a compris la règle est un visiteur qui peut décider.",
-      },
-      {
-        title: "Montrer le jeu là où il se joue",
-        text: "Une section entière de photos prises sur le terrain, avec deux joueurs au milieu des balises. Le jeu se pratique partout, dans la cour comme en halle de sport : c'est en situation réelle de partie qu'il se montre le mieux, et c'est ce que la page donne à voir.",
-      },
-      {
-        title: "Écrire le contenu exact de la boîte",
-        text: "« Cette liste est le contenu exact de la boîte. Tout autre élément visible sur les photos est une mise en situation. » La phrase est affichée sous le détail du matériel, et répétée sous les visuels où apparaissent des cônes qui ne sont pas livrés. Chaque malentendu évité là, c'est un retour et un avis négatif en moins.",
-      },
-      {
-        title: "Créditer tout le monde, nommément",
-        text: "Auteur, illustratrice, relecteur des règles, responsable de fabrication, testeurs de la FRSO, institutrices, traductrices. Pour un premier jeu d'un éditeur que personne ne connaît, les noms sont la crédibilité : ils prouvent qu'il y a eu un vrai travail d'édition derrière la boîte.",
-      },
-      {
-        title: "Recruter la distribution depuis le site",
-        text: "Deux formulaires structurés plutôt qu'une adresse mail : « référencer un lieu » pour les boutiques, ludothèques, écoles et clubs, et « devenir ambassadeur » pour ceux qui feraient jouer près de chez eux. Même logique pour le dossier pédagogique : une demande qualifiée plutôt qu'un téléchargement libre, pour mesurer l'intérêt et adapter les offres. Le site ne se contente pas de vendre, il construit le réseau qui n'existe pas encore.",
-      },
-      {
-        title: "Un agenda plutôt qu'une carte vide",
-        text: "Tant qu'il n'y a pas de revendeur, la page « Où nous trouver » n'affiche pas une carte sans points : elle affiche les prochaines dates de démonstration. On dit où on sera, pas où on n'est pas.",
-      },
-      {
-        title: "Une page allemande, une seule",
-        text: "Pas de traduction en six langues : hors budget, tranché avec le client. À la place, une page unique écrite à la main en allemand, /de, qui règle les deux besoins d'Essen : être trouvée par un Allemand qui cherche « Orientierungsspiel für Kinder », et servir de cible au QR code du stand. Prix et frais de port y sont lus dans le même code que le panier, jamais recopiés à la main.",
-      },
-      {
-        title: "Des prix qui ne traversent jamais le navigateur",
-        text: "Le panier n'envoie que des identifiants et des quantités : les prix sont résolus côté serveur, depuis le back-office. La page de remerciement vérifie le paiement auprès de Stripe au lieu de croire l'URL. Résultat : le prix affiché ne peut pas être manipulé, et la commande n'existe que si la banque a confirmé.",
-      },
-    ],
-    built: [
-      { label: "Boutique", text: "Panier, paiement sécurisé, expédition sous 6 jours ouvrés, retour sous 14 jours." },
-      { label: "Fiches jeux", text: "Principe, matériel chiffré, âge, nombre d'équipes, niveaux de difficulté, vidéos et consignes de sécurité." },
-      { label: "Pages réseau", text: "« Où nous trouver » avec agenda des salons, référencement de lieux, programme ambassadeur." },
-      { label: "Formulaires protégés", text: "Champs typés, consentement explicite, et un champ leurre invisible pour arrêter les robots sans imposer de captcha. Les demandes arrivent dans le CRM du client, pas dans une boîte mail." },
-      { label: "Univers de marque", text: "Page dédiée à Azi, la mascotte guide, et déclinaison graphique sur l'ensemble du site." },
-      { label: "Pages légales", text: "CGV, mentions, rétractation, confidentialité, obligatoires dès qu'on encaisse un paiement." },
-    ],
-    facts: [
-      { value: "2", label: "jeux au catalogue" },
-      { value: "9", label: "types de déplacements (Azimut XL)" },
-      { value: "36", label: "balises, grille 6×6" },
-      { value: "+140", label: "cartes de jeu" },
-    ],
-    outcome: [
-      "La boutique est en ligne et encaisse, précommandes comprises : les deux jeux sont commandables, dont Azimut XL en fabrication. Les formulaires de réseau tournent avant le salon.",
-      "Aucun chiffre de vente à afficher ici : le premier vrai test grandeur nature, c'est Essen, en octobre 2026. Je préfère une case vide à un chiffre gonflé.",
-    ],
-    chart: {
-      kind: "grid36",
-      title: "La grille du jeu, posée au sol",
-      note: "Trente-six balises en 6×6, numérotées de 11 à 66. Les dizaines donnent la ligne, les unités la colonne, c'est toute la règle de lecture d'Azimut XL, et c'est ce que la page d'accueil doit faire comprendre en trois phrases.",
-    },
-    url: "https://azimuts.vercel.app",
-    shot: "/home/sites/azimut-games.webp",
-    mockup: "/home/mockups/azimut-games.jpg",
-  },
   {
     slug: "motodistri",
     name: "Motodistri",

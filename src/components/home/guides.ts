@@ -296,7 +296,7 @@ export const GUIDES: Guide[] = [
       "Trois familles de solutions, trois logiques différentes. Aucune n'est bonne dans l'absolu, et celui qui vous dit le contraire vend l'une des trois. Voici les critères qui décident réellement.",
     date: "2026-08-23",
     intent: "alternative à Wix / site internet sans abonnement / WordPress ou sur mesure",
-    related: ["azimut-games", "lokigen"],
+    related: ["lokigen"],
     blocks: [
       {
         kind: "p",
