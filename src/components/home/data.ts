@@ -103,7 +103,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "azimut-games",
     name: "Azimut Games",
-    sector: "Éditeur de jeux · Belgique",
+    sector: "Éditeur de jeux · Luxembourg",
     brief:
       "Deux jeux de plein air, un stand réservé à Essen, et aucun revendeur pour les faire essayer.",
     answer:
@@ -113,17 +113,17 @@ export const PROJECTS: Project[] = [
     query: null,
     proof: null,
     featured: false,
-    role: "Conception, design, développement, intégration boutique",
+    role: "Conception, design, développement, boutique connectée au back-office (Odoo, Stripe, Mondial Relay)",
     stack: "Site, boutique, fiches jeux, formulaires réseau",
     result: "Boutique en ligne · départ pour Essen 2026",
     lede:
-      "Un jeu qui se joue debout, dehors, sur une grille de six mètres de côté ne se comprend pas sur une photo de boîte.",
+      "Un jeu qui se joue debout, dehors, sur une grille de six mètres de côté : le site devait faire vivre la partie, pas seulement montrer la boîte.",
     context: [
       "Azimut Games est né d'une formation de moniteur en course d'orientation à l'ADEPS. Vincent Merveille en a tiré Azimut XL : trente-six balises posées au sol en 6×6, plus de cent quarante cartes, et un terrain de récréation qui devient un plateau de jeu. Azimath, le second titre, applique le même principe aux quatre opérations.",
       "Derrière la boîte : deux ans de prototypes, des tests en classe menés par des institutrices, une relecture complète des règles, une illustratrice, un fabricant. En octobre 2026, le jeu part à SPIEL Essen — le plus grand salon du secteur — hall 4, stand D425.",
     ],
     problem: [
-      "Tant que le visiteur n'a pas compris comment on y joue, il n'a aucune raison de payer 58,80 €. Et un jeu de plein air se montre mal : la photo de boîte ne dit rien, le rendu 3D ment, et la vidéo arrive trop tard dans la page.",
+      "Un jeu de plein air se vit debout, dehors, en équipe. C'est ce qu'un écran peine à transmettre. Le premier travail du site : faire comprendre la partie avant de parler d'achat.",
       "Deuxième contrainte : il n'y a pas encore de revendeur pour faire la démonstration à la place du site. Le réseau se construit. Le site doit donc tenir trois rôles à la fois — expliquer, vendre, et recruter les lieux qui feront jouer.",
     ],
     decisions: [
@@ -133,7 +133,7 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "Montrer le jeu là où il se joue",
-        text: "Une section entière de photos prises dans un champ, un jour d'hiver, avec deux joueurs au milieu des balises. Ni studio, ni image de synthèse : sur un jeu qui se pratique dehors, le studio ment et ça se voit.",
+        text: "Une section entière de photos prises sur le terrain, avec deux joueurs au milieu des balises. Le jeu se pratique dehors : c'est en situation réelle de partie qu'il se montre le mieux, et c'est ce que la page donne à voir.",
       },
       {
         title: "Écrire le contenu exact de la boîte",
@@ -145,29 +145,37 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "Recruter la distribution depuis le site",
-        text: "Deux formulaires structurés plutôt qu'une adresse mail : « référencer un lieu » pour les boutiques, ludothèques, écoles et clubs, et « devenir ambassadeur » pour ceux qui feraient jouer près de chez eux. Le site ne se contente pas de vendre, il construit le réseau qui n'existe pas encore.",
+        text: "Deux formulaires structurés plutôt qu'une adresse mail : « référencer un lieu » pour les boutiques, ludothèques, écoles et clubs, et « devenir ambassadeur » pour ceux qui feraient jouer près de chez eux. Même logique pour le dossier pédagogique : une demande qualifiée plutôt qu'un téléchargement libre, pour mesurer l'intérêt et adapter les offres. Le site ne se contente pas de vendre, il construit le réseau qui n'existe pas encore.",
       },
       {
         title: "Un agenda plutôt qu'une carte vide",
         text: "Tant qu'il n'y a pas de revendeur, la page « Où nous trouver » n'affiche pas une carte sans points : elle affiche les prochaines dates de démonstration. On dit où on sera, pas où on n'est pas.",
       },
+      {
+        title: "Une page allemande, une seule",
+        text: "Pas de traduction en six langues : hors budget, tranché avec le client. À la place, une page unique écrite à la main en allemand, /de, qui règle les deux besoins d'Essen : être trouvée par un Allemand qui cherche « Orientierungsspiel für Kinder », et servir de cible au QR code du stand. Prix et frais de port y sont lus dans le même code que le panier, jamais recopiés à la main.",
+      },
+      {
+        title: "Des prix qui ne traversent jamais le navigateur",
+        text: "Le panier n'envoie que des identifiants et des quantités : les prix sont résolus côté serveur, depuis le back-office. La page de remerciement vérifie le paiement auprès de Stripe au lieu de croire l'URL. Résultat : le prix affiché ne peut pas être manipulé, et la commande n'existe que si la banque a confirmé.",
+      },
     ],
     built: [
-      { label: "Boutique", text: "Panier, paiement sécurisé, expédition sous 1 à 3 jours ouvrables, retour sous 14 jours." },
+      { label: "Boutique", text: "Panier, paiement sécurisé, expédition sous 6 jours ouvrés, retour sous 14 jours." },
       { label: "Fiches jeux", text: "Principe, matériel chiffré, âge, nombre d'équipes, niveaux de difficulté, vidéos et consignes de sécurité." },
       { label: "Pages réseau", text: "« Où nous trouver » avec agenda des salons, référencement de lieux, programme ambassadeur." },
-      { label: "Formulaires protégés", text: "Champs typés, consentement explicite, et un champ leurre invisible pour arrêter les robots sans imposer de captcha." },
+      { label: "Formulaires protégés", text: "Champs typés, consentement explicite, et un champ leurre invisible pour arrêter les robots sans imposer de captcha. Les demandes arrivent dans le CRM du client, pas dans une boîte mail." },
       { label: "Univers de marque", text: "Page dédiée à Azi, la mascotte guide, et déclinaison graphique sur l'ensemble du site." },
       { label: "Pages légales", text: "CGV, mentions, rétractation, confidentialité — obligatoires dès qu'on encaisse un paiement." },
     ],
     facts: [
       { value: "2", label: "jeux au catalogue" },
-      { value: "8", label: "langues (Azimut XL)" },
+      { value: "9", label: "types de déplacements (Azimut XL)" },
       { value: "36", label: "balises, grille 6×6" },
       { value: "+140", label: "cartes de jeu" },
     ],
     outcome: [
-      "La boutique est en ligne, les deux jeux sont commandables, et les formulaires de réseau tournent avant le salon.",
+      "La boutique est en ligne et encaisse, précommandes comprises : les deux jeux sont commandables, dont Azimut XL en fabrication. Les formulaires de réseau tournent avant le salon.",
       "Aucun chiffre de vente à afficher ici : le premier vrai test grandeur nature, c'est Essen, en octobre 2026. Je préfère une case vide à un chiffre gonflé.",
     ],
     chart: {
