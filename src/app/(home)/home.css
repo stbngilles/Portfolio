@@ -1,17 +1,17 @@
 /* ---------------------------------------------------------------------------
-   Direction artistique de la homepage — « Klein & Craie », version resserrée.
+   Direction artistique de la homepage, « Klein & Craie », version resserrée.
    Volontairement isolée du thème Tailwind de globals.css, qui ne sert plus
    qu'à la plateforme `/app/*`. Le site public tient dans cette feuille.
    Tout est scopé sous `.pb` pour qu'aucune règle ne fuite.
 
    Restructuration août 2026. Règles tenues partout :
-   — le corps de texte ne descend plus sous 15px ;
-   — le bleu Klein ne couvre que deux panneaux, pour rester un accent ;
-   — UNE échelle de titres (2 crans : L pour tout titre de section ou nom
+  , le corps de texte ne descend plus sous 15px ;
+  , le bleu Klein ne couvre que deux panneaux, pour rester un accent ;
+  , UNE échelle de titres (2 crans : L pour tout titre de section ou nom
      de projet, S pour tout sous-titre), UNE famille de libellés mono, TROIS
      opacités d'encre, UN filet, TROIS rayons. Toute valeur hors tokens est
      une erreur, pas une nuance ;
-   — le texte tient sur UNE colonne de gauche ; le seul élément à droite est
+  , le texte tient sur UNE colonne de gauche ; le seul élément à droite est
      une image (scène du hero, portrait). Jamais de texte en vis-à-vis.
    --------------------------------------------------------------------------- */
 
@@ -141,7 +141,7 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 }
 .pb-logo { pointer-events: auto; display: inline-flex; align-items: center; }
 /* Le tampon : le mot ENTIER est le logo, il n'y a plus de tuile à côté. Le
-   dévers de -1,4° et le grain des bords appartiennent au dessin — ni l'un ni
+   dévers de -1,4° et le grain des bords appartiennent au dessin, ni l'un ni
    l'autre ne se règle ici (voir components/home/Logo.tsx). */
 .pb-stamp { flex: none; display: block; width: 146px; height: 39px; }
 .pb-stamp svg { display: block; width: 100%; height: 100%; transform: rotate(-1.4deg); }
@@ -149,7 +149,7 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 
 /* ---------- Le tampon, hors logo ----------
    Règle, aussi stricte que celle du bleu : le tampon marque ce que le site
-   CERTIFIE — une position tenue, une place encore libre. Jamais un libellé
+   CERTIFIE, une position tenue, une place encore libre. Jamais un libellé
    décoratif, jamais un titre. Deux tampons par page au maximum, sinon
    l'encre ne signifie plus rien et le logo perd son statut de marque.
    Même dévers que le logo (-1,4°), même encre, grain réglé dans Ink.tsx. */
@@ -160,7 +160,7 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
   transform: rotate(-1.4deg);
   filter: url(#pb-ink);
 }
-/* Sur les panneaux bleus, retournement craie/bleu — le tampon bleu sur
+/* Sur les panneaux bleus, retournement craie/bleu, le tampon bleu sur
    l'encre ne tient que 2,3:1 (même raison que `tone="light"` du logo). */
 .pb-inked[data-tone="light"] { background: var(--pb-paper); color: var(--pb-accent-ink); }
 
@@ -220,7 +220,7 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 
 
 /* ===========================================================================
-   Refonte « agency » (août 2026) — inspirations : Komagence, Spring/Summer,
+   Refonte « agency » (août 2026), inspirations : Komagence, Spring/Summer,
    Basic, Humaan. Le travail d'abord et en grand, une typo display qui
    occupe la largeur, du mouvement partout (Lenis + ScrollTrigger), une
    alternance d'écrans craie / encre / Klein.
@@ -246,7 +246,7 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 .pb-line[data-mute] > span { color: var(--pb-ink-4); }
 .pb-dark .pb-line[data-mute] > span { color: var(--pb-paper-3); }
 
-/* Mots du manifeste — l'opacité est pilotée par GSAP. */
+/* Mots du manifeste, l'opacité est pilotée par GSAP. */
 .pb-w { display: inline-block; will-change: opacity; }
 
 /* Panneaux sombres : encre ou Klein. */
@@ -308,7 +308,7 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 .pb-search-name { font-size: clamp(17px, 1.6vw, 22px); font-weight: 500; letter-spacing: -0.02em; }
 .pb-search-hit .pb-search-name { color: var(--pb-accent); }
 /* Le rang du concurrent : une pastille nue. Celui du client est un tampon
-   (`.pb-inked` sur le libellé) — c'est tout l'écart que la scène raconte. */
+   (`.pb-inked` sur le libellé), c'est tout l'écart que la scène raconte. */
 .pb-search-badge {
   flex: none; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
   border: 1px solid var(--pb-line); border-radius: 999px; padding: 8px 14px;
@@ -394,8 +394,8 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 /* Pied de vignette : l'identité à gauche, le fait vérifiable à droite.
    Une grille, pas un flex qui déborde : la métrique de Motodistri
    (« jusqu'à 600 vues/jour · 15 €/jour de pub ») passait à la ligne et se
-   décalait sous le titre du voisin. En dessous de 620px de vignette — les
-   colonnes étroites de la grille — les deux blocs s'empilent. */
+   décalait sous le titre du voisin. En dessous de 620px de vignette, les
+   colonnes étroites de la grille, les deux blocs s'empilent. */
 .pb-tile-foot { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 14px 28px; }
 .pb-tile-metric { justify-self: end; text-align: right; }
 @container (max-width: 620px) {
@@ -522,7 +522,7 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 .pb-final-glow > div { position: absolute; inset: 0; will-change: transform; }
 .pb-final-inner { padding: var(--pb-sec) var(--pb-pad) clamp(48px, 6vw, 96px); display: flex; flex-direction: column; gap: 40px; }
 /* Tampon : donc pas de largeur étirée par le `stretch` de la colonne, et
-   plus de point qui clignote — une encre posée ne bat pas. */
+   plus de point qui clignote, une encre posée ne bat pas. */
 .pb-final-slot { align-self: flex-start; }
 .pb-final-h { max-width: 15ch; }
 .pb-final-acts { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
@@ -575,7 +575,7 @@ html.lenis, html.lenis body { height: auto; }
 /* Plus de capture du site en en-tête : elle mangeait le premier écran sans
    rien apprendre à quelqu'un qui peut cliquer sur le lien. La fiche ouvre
    désormais sur le nom, la phrase du projet et les chiffres. Seules les
-   captures qui portent une mesure — Analytics, position Google — restent,
+   captures qui portent une mesure, Analytics, position Google, restent,
    plus bas, dans `.pb-modal-proof`. */
 .pb-modal-body { padding: 40px 34px 60px; }
 .pb-modal-name { font-size: var(--pb-d-xl); line-height: 0.94; letter-spacing: -0.05em; font-weight: 500; }
@@ -610,8 +610,8 @@ html.lenis, html.lenis body { height: auto; }
 .pb-modal-nav button:hover { color: var(--pb-accent); }
 
 /* Étude de cas longue : lede, chiffres relevés, décisions titrées, inventaire.
-   Tout tient sur la grille `.pb-modal-cols` — libellé mono à gauche, contenu
-   à droite — pour qu'aucun bloc n'invente son propre alignement. */
+   Tout tient sur la grille `.pb-modal-cols`, libellé mono à gauche, contenu
+   à droite, pour qu'aucun bloc n'invente son propre alignement. */
 .pb-modal-lede {
   margin: 22px 0 0; max-width: 46ch;
   font-size: var(--pb-lede); line-height: 1.42; letter-spacing: -0.018em; color: var(--pb-ink-2);
@@ -650,7 +650,7 @@ html.lenis, html.lenis body { height: auto; }
 
 /* ---------- Graphiques d'étude de cas ----------
    Barres, bande hebdomadaire et grille 6×6. Aucune bibliothèque : trois
-   grilles CSS. L'échelle des barres part toujours de zéro — un axe tronqué
+   grilles CSS. L'échelle des barres part toujours de zéro, un axe tronqué
    fabrique un écart qui n'existe pas, et c'est exactement ce que la page
    reproche aux autres. */
 .pb-chart {
@@ -685,7 +685,7 @@ html.lenis, html.lenis body { height: auto; }
 .pb-week-scale { margin-top: 6px; }
 .pb-week-scale .pb-week-track { background: none; height: 14px; border-top: 1px dotted var(--pb-line); }
 /* `white-space: nowrap` : la dernière graduation est posée à `left: 100%`,
-   donc sans largeur disponible à sa droite — « 21 h » se cassait en deux. */
+   donc sans largeur disponible à sa droite, « 21 h » se cassait en deux. */
 .pb-week-scale span {
   position: absolute; top: 4px; transform: translateX(-50%); white-space: nowrap;
   font-size: 10.5px; letter-spacing: 0.08em; color: var(--pb-ink-4);
@@ -701,7 +701,7 @@ html.lenis, html.lenis body { height: auto; }
   font-size: 12px; letter-spacing: 0.02em; color: var(--pb-ink-3);
 }
 
-/* Capture de preuve : jamais recadrée, jamais retouchée — juste posée sur le
+/* Capture de preuve : jamais recadrée, jamais retouchée, juste posée sur le
    fond craie avec sa légende datée. */
 .pb-proof-shot {
   border: 1px solid var(--pb-line-soft); border-radius: var(--pb-r-m); overflow: hidden; background: var(--pb-paper);
@@ -780,11 +780,11 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* =========================================================================
-   Page /contact — voies de contact, formulaire de brief, FAQ.
+   Page /contact, voies de contact, formulaire de brief, FAQ.
 
    Le formulaire est la page, et il commence donc la page : titre, promesse,
-   trois blocs numérotés, deux champs obligatoires. Tout le reste — voies
-   directes, faits vérifiables, FAQ — vient après, pour celui que le
+   trois blocs numérotés, deux champs obligatoires. Tout le reste, voies
+   directes, faits vérifiables, FAQ, vient après, pour celui que le
    formulaire n'a pas convaincu.
    ========================================================================= */
 .pb-cp { padding: 124px var(--pb-pad) 0; }
@@ -958,7 +958,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* ---------------------------------------------------------------------------
-   Pages projets — `/projets` et `/projets/[slug]`.
+   Pages projets, `/projets` et `/projets/[slug]`.
 
    Les études de cas réutilisent les règles `.pb-modal-*` : ce sont des règles
    de typographie et de grille, pas du chrome de modale. Ne sont définies ici
@@ -1078,7 +1078,7 @@ html.lenis, html.lenis body { height: auto; }
   .pb-idx-shot { max-width: 100%; }
 }
 
-/* Sortie de la grille de projets vers l'index — le seul lien de la home qui
+/* Sortie de la grille de projets vers l'index, le seul lien de la home qui
    mène aux dossiers complets. */
 .pb-work-more { margin-top: clamp(38px, 4vw, 62px); display: flex; justify-content: center; }
 .pb-tile-name a { color: inherit; text-decoration: none; }
@@ -1089,7 +1089,7 @@ html.lenis, html.lenis body { height: auto; }
 .pb-faq-h { margin: 0; font: inherit; }
 
 /* Sous-titre du hero : littéral pour les moteurs, discret à l'écran. Il tient
-   le rôle d'un surtitre, pas d'un second titre — le `h1` reste l'accroche. */
+   le rôle d'un surtitre, pas d'un second titre, le `h1` reste l'accroche. */
 .pb-hero-sub {
   margin: 0 0 14px;
   font-size: clamp(13px, 1.1vw, 15px);
@@ -1112,7 +1112,7 @@ html.lenis, html.lenis body { height: auto; }
 .pb-faq-q[aria-expanded="true"]::after { content: "−"; }
 
 /* ---------------------------------------------------------------------------
-   Guides — `/guides` et `/guides/[slug]`.
+   Guides, `/guides` et `/guides/[slug]`.
 
    Colonne unique, mesure courte : ce sont des pages qu'on lit en entier, pas
    des pages qu'on parcourt. Rien à voir avec la grille des études de cas.
@@ -1244,7 +1244,7 @@ html.lenis, html.lenis body { height: auto; }
 .pb-foot-legal a:hover { color: var(--pb-accent); }
 
 /* ---------------------------------------------------------------------------
-   Bulle de réservation — fixe en bas à droite, sur toutes les pages publiques.
+   Bulle de réservation, fixe en bas à droite, sur toutes les pages publiques.
 
    Montée dans `(home)/layout.tsx`, donc toujours sous `.pb` : les variables de
    couleur sont disponibles. `z-index` au-dessus du header (100) mais sous la

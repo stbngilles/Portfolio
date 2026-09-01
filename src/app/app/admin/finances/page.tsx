@@ -119,7 +119,7 @@ export default async function FinancesConsolePage() {
                   {p.name}
                 </Link>
                 <p className="text-sm mt-1" style={{ color: "var(--color-muted)" }}>
-                  Dev : {p.dev?.name ?? p.dev?.email ?? "—"} ·
+                  Dev : {p.dev?.name ?? p.dev?.email ?? "–"} ·
                   Montant : <strong>{formatPrice(p.devPaymentAmount ?? 0)}</strong>
                 </p>
               </div>
@@ -161,7 +161,7 @@ export default async function FinancesConsolePage() {
                   {p.name}
                 </Link>
                 <p className="text-sm mt-1" style={{ color: "var(--color-muted)" }}>
-                  Dev : {p.dev?.name ?? p.dev?.email ?? "—"} ·
+                  Dev : {p.dev?.name ?? p.dev?.email ?? "–"} ·
                   Montant : <strong>{formatPrice(p.devPaymentAmount ?? 0)}</strong>
                 </p>
               </div>

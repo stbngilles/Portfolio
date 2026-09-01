@@ -51,7 +51,7 @@ export default async function LivraisonPage({
           <div className="flex items-start justify-between mb-4 flex-wrap gap-3">
             <div>
               <p className="mono uppercase mb-1" style={{ fontSize: 10, letterSpacing: "0.14em", color: STATUS_VISUAL[latest.status]?.color }}>
-                · Revue #{latest.round} — {STATUS_VISUAL[latest.status]?.label}
+                · Revue #{latest.round}, {STATUS_VISUAL[latest.status]?.label}
               </p>
               <a
                 href={latest.preprodUrl}
@@ -143,7 +143,7 @@ export default async function LivraisonPage({
           style={{ background: "var(--color-paper)", border: "1px solid var(--color-line)", borderRadius: 12 }}
         >
           <p className="mono uppercase mb-4" style={{ fontSize: 10, letterSpacing: "0.14em", color: "var(--color-subtle)" }}>
-            · {latest ? `Revue #${latest.round + 1} — Nouvelle soumission` : "Première soumission"}
+            · {latest ? `Revue #${latest.round + 1}, Nouvelle soumission` : "Première soumission"}
           </p>
           <form action={submitDelivery.bind(null, projectId)} className="space-y-4">
             <label className="block">

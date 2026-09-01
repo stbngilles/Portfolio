@@ -7,12 +7,12 @@ const SITE_URL = "https://pixelbrute.be";
 /**
  * `/app/*` (la plateforme) et `/api/*` restent hors index : ce sont des écrans
  * de connexion et des espaces authentifiés. Indexés, ils n'apporteraient aucun
- * trafic et dilueraient le signal de qualité du domaine — Bing y est plus
+ * trafic et dilueraient le signal de qualité du domaine, Bing y est plus
  * sensible que Google, qui se contente d'ignorer ces pages.
  *
  * Le groupe `bingbot` est explicite et vide de restriction : si une règle
  * `*` devait un jour se durcir, le crawl Bing ne suivrait pas. Aucun
- * `Crawl-delay` — Bing le respecte à la lettre et il ne ferait que ralentir
+ * `Crawl-delay`, Bing le respecte à la lettre et il ne ferait que ralentir
  * la découverte d'un site qui tient en quelques pages.
  */
 
@@ -22,22 +22,22 @@ const SITE_URL = "https://pixelbrute.be";
  * Une règle `*: allow /` les autorise déjà tous. Les écrire quand même tient
  * à trois choses :
  *
- *  — `Google-Extended` et `Applebot-Extended` ne sont pas des robots. Ce sont
+ * , `Google-Extended` et `Applebot-Extended` ne sont pas des robots. Ce sont
  *    des jetons de contrôle : ils ne décident pas de l'exploration (Googlebot
  *    et Applebot s'en chargent) mais du droit de réutiliser la page dans
  *    Gemini et Apple Intelligence. Les nommer, c'est dire oui explicitement,
  *    là où le silence est parfois lu comme un refus.
- *  — les robots « à la demande » (`ChatGPT-User`, `Claude-User`,
+ * , les robots « à la demande » (`ChatGPT-User`, `Claude-User`,
  *    `Perplexity-User`) ne construisent pas un index : ils vont chercher la
  *    page au moment où quelqu'un pose la question. Ce sont eux qui décident,
  *    en direct, si le studio est cité dans une réponse.
- *  — le jour où la règle `*` se durcit — un `Disallow` de plus, un outil qui
- *    réécrit le fichier — ces groupes-là ne suivront pas silencieusement.
+ * , le jour où la règle `*` se durcit, un `Disallow` de plus, un outil qui
+ *    réécrit le fichier, ces groupes-là ne suivront pas silencieusement.
  *
  * La liste vaut donc autant comme documentation que comme configuration.
  */
 const MOTEURS_GENERATIFS = [
-  // OpenAI — entraînement, index de ChatGPT Search, récupération à la demande.
+  // OpenAI, entraînement, index de ChatGPT Search, récupération à la demande.
   "GPTBot",
   "OAI-SearchBot",
   "ChatGPT-User",
@@ -46,11 +46,11 @@ const MOTEURS_GENERATIFS = [
   // sans son groupe, l'aperçu d'annonce échoue sur « site inaccessible » alors
   // que le site répond 200 à tout le monde.
   "OAI-AdsBot",
-  // Anthropic — même découpage en trois.
+  // Anthropic, même découpage en trois.
   "ClaudeBot",
   "Claude-SearchBot",
   "Claude-User",
-  // Perplexity — index et récupération à la demande.
+  // Perplexity, index et récupération à la demande.
   "PerplexityBot",
   "Perplexity-User",
   // Jetons d'autorisation IA (voir plus haut) : ni l'un ni l'autre n'explore.

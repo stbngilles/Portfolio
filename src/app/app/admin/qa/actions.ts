@@ -40,7 +40,7 @@ export async function requestChanges(formData: FormData) {
   });
   if (!sub) throw new Error("Soumission introuvable.");
 
-  // Parse items — un par ligne. Format :
+  // Parse items, un par ligne. Format :
   //   Description | https://loom.com/... | https://drive.google.com/...
   // Tout ce qui suit le premier "|" sont des URLs d'attachements (captures, vidéos).
   const items = itemsRaw

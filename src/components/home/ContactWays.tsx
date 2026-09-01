@@ -3,7 +3,7 @@ import BookCall from "./BookCall";
 import { AVAILABILITY, WHATSAPP_URL } from "./data";
 
 /**
- * Les voies directes — sous le formulaire, pas au-dessus.
+ * Les voies directes, sous le formulaire, pas au-dessus.
  *
  * Elles ont longtemps ouvert la page : quatre cartes, une ligne de faits et
  * une pastille de disponibilité repoussaient le formulaire de 300 px, et la
@@ -14,7 +14,7 @@ import { AVAILABILITY, WHATSAPP_URL } from "./data";
  * Trois portes, plus quatre : « décrire votre projet » a disparu, elle
  * pointait vers le formulaire désormais placé juste au-dessus.
  *
- * Le bleu plein ne sert qu'à une porte à la fois — ici la réservation, seule
+ * Le bleu plein ne sert qu'à une porte à la fois, ici la réservation, seule
  * à poser un créneau daté. Ne pas en peindre deux.
  *
  * Cette carte ouvre le calendrier en modale par-dessus la page (`BookCall`) :
@@ -47,7 +47,7 @@ export default function ContactWays() {
         <a href="tel:+32492200275" className="pb-way">
           <span className="pb-way-k">Le plus rapide</span>
           <span className="pb-way-v">+32 492 20 02 75</span>
-          <span className="pb-way-m">Appel direct — pas de standard</span>
+          <span className="pb-way-m">Appel direct, pas de standard</span>
           <Arrow dir="ne" />
         </a>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="pb-way">

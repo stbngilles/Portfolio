@@ -85,7 +85,7 @@ export default async function ClientProfilePage({
             🔑 Nouveau mot de passe généré
           </p>
           <p style={{ fontSize: 13, color: "#8A6914", marginBottom: 16 }}>
-            ⚠️ N&apos;apparaîtra plus après rafraîchissement — envoyez-le maintenant.
+            ⚠️ N&apos;apparaîtra plus après rafraîchissement, envoyez-le maintenant.
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, background: "var(--color-paper)", border: "1px solid var(--color-line)", borderRadius: 8, padding: "16px 20px" }}>
             <div>
@@ -266,7 +266,7 @@ export default async function ClientProfilePage({
               👁 Voir comme ce client
             </p>
             <p style={{ fontSize: 12, color: "var(--color-accent-ink)", opacity: 0.8, marginBottom: 14, lineHeight: 1.5 }}>
-              Basculez sur son espace pour voir exactement ce qu&apos;il voit — ses étapes, ses factures, ses accès.
+              Basculez sur son espace pour voir exactement ce qu&apos;il voit, ses étapes, ses factures, ses accès.
             </p>
             <form action={viewAsClient}>
               <input type="hidden" name="userId" value={client.id} />

@@ -118,7 +118,7 @@ export default async function AdminClientsPage() {
                   }}
                 >
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    {/* Avatar initiales — lien vers la fiche */}
+                    {/* Avatar initiales, lien vers la fiche */}
                     <Link
                       href={`/app/admin/clients/${client.id}`}
                       className="no-underline"
@@ -144,7 +144,7 @@ export default async function AdminClientsPage() {
                       </div>
                       <div>
                         <p style={{ fontWeight: 600, fontSize: 15, color: "var(--color-ink)", lineHeight: 1.2 }}>
-                          {client.name ?? "—"} <span style={{ fontSize: 12, color: "var(--color-accent)" }}>→</span>
+                          {client.name ?? "–"} <span style={{ fontSize: 12, color: "var(--color-accent)" }}>→</span>
                         </p>
                         <p style={{ fontSize: 12, color: "var(--color-muted)", fontFamily: "var(--font-geist)" }}>
                           {client.email}

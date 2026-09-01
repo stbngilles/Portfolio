@@ -15,13 +15,13 @@ const N = PROJECTS.length;
  *
  * Version longue (août 2026). L'ancienne modale tenait en quatre blocs et
  * quatre puces : on repartait sans savoir ce qui avait été construit. Elle
- * déroule maintenant tout le dossier — contexte, problème, décisions
+ * déroule maintenant tout le dossier, contexte, problème, décisions
  * expliquées une par une, inventaire de ce qui est en ligne, chiffres relevés
  * sur le site, résultat et preuve datée.
  *
  * Le rythme est tenu par une seule grille (`.pb-modal-cols`) : libellé mono à
  * gauche, contenu à droite. Chaque section émet donc une paire d'enfants, pas
- * un conteneur — c'est ce qui garde les libellés alignés d'un bloc à l'autre.
+ * un conteneur, c'est ce qui garde les libellés alignés d'un bloc à l'autre.
  */
 export default function ProjectModal({
   index,
@@ -63,7 +63,7 @@ export default function ProjectModal({
     <div className="pb-modal" role="dialog" aria-modal="true" aria-label={`Étude de cas ${p.name}`}>
       <div style={{ position: "absolute", inset: 0 }} onClick={onClose} aria-hidden="true" />
       {/* `data-lenis-prevent` : sans lui, le scroll fluide de la page capte la
-          molette et le panneau ne défile jamais — on ne voyait que le premier
+          molette et le panneau ne défile jamais, on ne voyait que le premier
           écran de l'étude de cas. */}
       <div className="pb-modal-panel" data-lenis-prevent ref={panel}>
         <div className="pb-modal-bar">
@@ -213,7 +213,7 @@ export default function ProjectModal({
               <div className="pb-proof-shot">
                 <Image
                   src={p.proof.src}
-                  alt={`Capture d'écran — ${p.name}, ${p.metric}`}
+                  alt={`Capture d'écran, ${p.name}, ${p.metric}`}
                   width={p.proof.w}
                   height={p.proof.h}
                   sizes="(max-width: 1120px) 100vw, 1050px"

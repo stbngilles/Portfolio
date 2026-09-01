@@ -46,7 +46,7 @@ export default function SiteFooter() {
           <Link href="/mentions-legales">Mentions légales</Link>
           <Link href="/confidentialite">Confidentialité</Link>
         </span>
-        <span>Studio web solo — conçu et codé à la main</span>
+        <span>Studio web solo, conçu et codé à la main</span>
       </div>
     </footer>
   );

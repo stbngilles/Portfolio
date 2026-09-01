@@ -47,7 +47,7 @@ export async function relanceInvoice(formData: FormData) {
     clientName: client.name ?? client.email,
     invoiceNumber: invoice.number,
     amountEuros: formatPrice(invoice.amount),
-    dueDate: invoice.dueDate?.toLocaleDateString("fr-BE") ?? "—",
+    dueDate: invoice.dueDate?.toLocaleDateString("fr-BE") ?? "–",
   });
 
   revalidatePath("/app/admin/finances");

@@ -23,7 +23,7 @@ const ROLE_COLOR: Record<string, string> = {
   COMPTABLE:  "#D4A857",
 };
 
-// Rôles invitables depuis l'admin (pas CLIENT — eux passent par le devis)
+// Rôles invitables depuis l'admin (pas CLIENT, eux passent par le devis)
 const INVITABLE_ROLES = ["COMMERCIAL", "DEV", "COMPTABLE", "ADMIN"] as const;
 
 export default async function AdminUsersPage({
@@ -89,7 +89,7 @@ export default async function AdminUsersPage({
               marginBottom: 8,
             }}
           >
-            ✓ Compte créé — {ROLE_LABEL[sp.role ?? ""] ?? sp.role}
+            ✓ Compte créé, {ROLE_LABEL[sp.role ?? ""] ?? sp.role}
           </p>
           <h3
             style={{
@@ -125,7 +125,7 @@ export default async function AdminUsersPage({
             }}
           >
             <CredRow label="URL de connexion" value="pixelbrute.be/app/login" />
-            <CredRow label="Rôle" value={ROLE_LABEL[sp.role ?? ""] ?? (sp.role ?? "—")} />
+            <CredRow label="Rôle" value={ROLE_LABEL[sp.role ?? ""] ?? (sp.role ?? "–")} />
             <CredRow label="Email" value={sp.email!} />
             <CredRow label="Mot de passe temporaire" value={sp.tempPwd!} highlight />
           </div>
@@ -207,7 +207,7 @@ export default async function AdminUsersPage({
           }}
         >
           Vous créez le compte, vous copiez les identifiants, vous les envoyez par WhatsApp.
-          La personne se connecte directement — aucune manipulation de sa part.
+          La personne se connecte directement, aucune manipulation de sa part.
         </p>
 
         <form
@@ -288,7 +288,7 @@ export default async function AdminUsersPage({
       >
         {members.length === 0 ? (
           <p style={{ padding: "24px", color: "var(--color-muted)", fontSize: 13, fontStyle: "italic" }}>
-            Aucun membre — utilisez le formulaire ci-dessus pour en inviter.
+            Aucun membre, utilisez le formulaire ci-dessus pour en inviter.
           </p>
         ) : (
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
@@ -324,7 +324,7 @@ export default async function AdminUsersPage({
                   }}
                 >
                   <td style={{ padding: "12px 18px", fontWeight: 500 }}>
-                    {u.name ?? "—"}
+                    {u.name ?? "–"}
                     {u.id === session.user.id && (
                       <span
                         style={{
@@ -427,7 +427,7 @@ export default async function AdminUsersPage({
                       </div>
                     ) : (
                       <span style={{ fontSize: 12, color: "var(--color-subtle)", fontStyle: "italic" }}>
-                        —
+                        –
                       </span>
                     )}
                   </td>
@@ -483,7 +483,7 @@ export default async function AdminUsersPage({
                     key={u.id}
                     style={{ borderTop: i > 0 ? "1px solid var(--color-line)" : "none" }}
                   >
-                    <td style={{ padding: "11px 18px", fontWeight: 500 }}>{u.name ?? "—"}</td>
+                    <td style={{ padding: "11px 18px", fontWeight: 500 }}>{u.name ?? "–"}</td>
                     <td style={{ padding: "11px 18px", color: "var(--color-muted)" }}>{u.email}</td>
                     <td style={{ padding: "11px 18px", fontSize: 12, color: "var(--color-subtle)", fontFamily: "var(--font-geist)" }}>
                       {u.createdAt.toLocaleDateString("fr-BE")}

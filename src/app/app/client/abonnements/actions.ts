@@ -49,7 +49,7 @@ async function loadOwnedSubscription(subId: string) {
   return sub;
 }
 
-/** Étape 1 — Le client déclare vouloir partir + sa raison. */
+/** Étape 1, Le client déclare vouloir partir + sa raison. */
 export async function requestCancellation(formData: FormData) {
   const subId = String(formData.get("subscriptionId") ?? "");
   const reason = String(formData.get("reason") ?? "") as CancelReason;
@@ -83,7 +83,7 @@ export async function requestCancellation(formData: FormData) {
   redirect(`/app/client/abonnements/${subId}/contre-offre`);
 }
 
-/** Étape 2 — Le client accepte une contre-offre. L'abonnement repart. */
+/** Étape 2, Le client accepte une contre-offre. L'abonnement repart. */
 export async function acceptCounterOffer(formData: FormData) {
   const subId = String(formData.get("subscriptionId") ?? "");
   const offerType = String(formData.get("offerType") ?? "") as CounterOfferType;
@@ -110,7 +110,7 @@ export async function acceptCounterOffer(formData: FormData) {
     pausedUntil.setMonth(pausedUntil.getMonth() + 3);
     newStatus = "PAUSED";
   }
-  // DISCOUNT_3M et CALL ne changent pas le statut — c'est traité côté admin
+  // DISCOUNT_3M et CALL ne changent pas le statut, c'est traité côté admin
   // (remise appliquée à la prochaine facture, ou prise de rdv).
 
   await prisma.subscription.update({
@@ -130,7 +130,7 @@ export async function acceptCounterOffer(formData: FormData) {
   redirect(`/app/client/abonnements?offer=${offerType}`);
 }
 
-/** Étape 3 — Confirmation finale. Aucune contre-offre acceptée. */
+/** Étape 3, Confirmation finale. Aucune contre-offre acceptée. */
 export async function confirmCancellation(formData: FormData) {
   const subId = String(formData.get("subscriptionId") ?? "");
 

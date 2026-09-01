@@ -50,7 +50,7 @@ export default async function BloquerPage({
               style={{ background: "#FEE2E2", border: "1px solid #9F1239", borderRadius: 10 }}
             >
               <p className="mono uppercase mb-2" style={{ fontSize: 10, letterSpacing: "0.14em", color: "#9F1239" }}>
-                · BLOQUÉ — {TYPE_LABEL[b.type] ?? b.type}
+                · BLOQUÉ, {TYPE_LABEL[b.type] ?? b.type}
               </p>
               <p className="serif-i" style={{ color: "#7B1024" }}>« {b.description} »</p>
               <p className="mono text-xs mt-2" style={{ color: "#9F1239", opacity: 0.7 }}>
@@ -114,7 +114,7 @@ export default async function BloquerPage({
               className="btn w-full justify-center"
               style={{ background: "#9F1239", color: "white", padding: "12px 16px" }}
             >
-              Signaler le blocage — projet gelé
+              Signaler le blocage, projet gelé
             </button>
           </form>
         </div>
@@ -144,10 +144,10 @@ export default async function BloquerPage({
               >
                 <div className="flex items-center justify-between gap-3 flex-wrap">
                   <p className="text-sm" style={{ color: "#0D6E46" }}>
-                    {TYPE_LABEL[b.type] ?? b.type} — {b.description.slice(0, 80)}{b.description.length > 80 ? "…" : ""}
+                    {TYPE_LABEL[b.type] ?? b.type}, {b.description.slice(0, 80)}{b.description.length > 80 ? "…" : ""}
                   </p>
                   <span className="mono text-xs" style={{ color: "#0D6E46" }}>
-                    Résolu le {b.resolvedAt?.toLocaleDateString("fr-BE") ?? "—"}
+                    Résolu le {b.resolvedAt?.toLocaleDateString("fr-BE") ?? "–"}
                   </span>
                 </div>
               </div>

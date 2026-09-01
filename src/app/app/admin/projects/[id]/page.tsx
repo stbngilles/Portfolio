@@ -187,7 +187,7 @@ export default async function AdminProjectDetail({
           }}
         >
           <p style={{ fontWeight: 600, color: "#8A6914", marginBottom: 3 }}>
-            Brief complet — en attente de l&apos;acompte
+            Brief complet, en attente de l&apos;acompte
           </p>
           <p style={{ fontSize: 13, color: "#8A6914" }}>
             Le brief est fait. Le projet sera automatiquement envoyé dans le pool dès que l&apos;acompte sera encaissé.
@@ -222,12 +222,12 @@ export default async function AdminProjectDetail({
         <MetaCard label="Client" value={project.client.name ?? project.client.email} />
         <MetaCard
           label="Commercial"
-          value={project.commercial?.name ?? "—"}
+          value={project.commercial?.name ?? "–"}
           subtle={!project.commercial}
         />
         <MetaCard
           label="Développeur"
-          value={project.dev?.name ?? "—"}
+          value={project.dev?.name ?? "–"}
           subtle={!project.dev}
         />
       </div>
@@ -248,19 +248,19 @@ export default async function AdminProjectDetail({
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "8px 24px" }}>
             {(project.client.phone || project.quote?.clientPhone) && (
-              <BillingRow label="Téléphone" value={project.client.phone ?? project.quote?.clientPhone ?? "—"} />
+              <BillingRow label="Téléphone" value={project.client.phone ?? project.quote?.clientPhone ?? "–"} />
             )}
             {(project.client.vatNumber || project.quote?.clientVat) && (
-              <BillingRow label="TVA" value={project.client.vatNumber ?? project.quote?.clientVat ?? "—"} />
+              <BillingRow label="TVA" value={project.client.vatNumber ?? project.quote?.clientVat ?? "–"} />
             )}
             {(project.client.address || project.quote?.clientAddress) && (
-              <BillingRow label="Adresse" value={project.client.address ?? project.quote?.clientAddress ?? "—"} />
+              <BillingRow label="Adresse" value={project.client.address ?? project.quote?.clientAddress ?? "–"} />
             )}
             {(project.client.postalCode || project.quote?.clientPostalCode) && (
-              <BillingRow label="Code postal" value={project.client.postalCode ?? project.quote?.clientPostalCode ?? "—"} />
+              <BillingRow label="Code postal" value={project.client.postalCode ?? project.quote?.clientPostalCode ?? "–"} />
             )}
             {(project.client.city || project.quote?.clientCity) && (
-              <BillingRow label="Ville" value={project.client.city ?? project.quote?.clientCity ?? "—"} />
+              <BillingRow label="Ville" value={project.client.city ?? project.quote?.clientCity ?? "–"} />
             )}
             {project.client.email && (
               <BillingRow label="Email" value={project.client.email} />
@@ -282,7 +282,7 @@ export default async function AdminProjectDetail({
             color: "#8A6914",
           }}
         >
-          ⚠️ Numéro de TVA manquant — à récupérer avant d&apos;émettre la facture finale.
+          ⚠️ Numéro de TVA manquant, à récupérer avant d&apos;émettre la facture finale.
         </div>
       )}
 
@@ -385,7 +385,7 @@ export default async function AdminProjectDetail({
                     Appliquer
                   </button>
                 </div>
-                {/* Champs contexte — pour les étapes que le client doit valider */}
+                {/* Champs contexte, pour les étapes que le client doit valider */}
                 {(s.key === "design" || s.key === "review" || s.key === "live") && (
                   <div style={{ display: "flex", flexDirection: "column", gap: 6, width: "100%", maxWidth: 320 }}>
                     <input
@@ -486,7 +486,7 @@ export default async function AdminProjectDetail({
         </div>
       )}
 
-      {/* Notes de kick-off — visibles aussi du dev */}
+      {/* Notes de kick-off, visibles aussi du dev */}
       <div className="mt-16">
         <SectionTitle
           eyebrow="Brief & kick-off"
@@ -848,7 +848,7 @@ function ProjectFinances({
               opacity: 0.7,
             }}
           >
-            {revenue > 0 ? `${marginPct} % de marge` : "—"}
+            {revenue > 0 ? `${marginPct} % de marge` : "–"}
           </p>
         </div>
       </div>

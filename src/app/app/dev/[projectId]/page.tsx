@@ -136,7 +136,7 @@ export default async function DevProjectHub({
   const totalStages = project.stages.length;
   const progressPct = totalStages > 0 ? Math.round((doneStages / totalStages) * 100) : 0;
 
-  // Le brief est toujours affiché — vide ou pas. Le dev doit toujours savoir
+  // Le brief est toujours affiché, vide ou pas. Le dev doit toujours savoir
   // ce qu'on attend de lui, même si l'admin n'a pas encore rempli les notes.
   const hasBriefContent =
     brief.callNotes.length > 0 ||
@@ -167,7 +167,7 @@ export default async function DevProjectHub({
           <span style={{ fontSize: 20 }}>🎉</span>
           <p style={{ color: "#0D6E46", fontWeight: 500 }}>
             Ce projet est en ligne depuis le{" "}
-            {project.liveAt?.toLocaleDateString("fr-BE") ?? "—"}. Beau travail !
+            {project.liveAt?.toLocaleDateString("fr-BE") ?? "–"}. Beau travail !
           </p>
         </div>
       )}
@@ -437,7 +437,7 @@ export default async function DevProjectHub({
             </div>
           </Section>
 
-          {/* ── Brief — toujours affiché ──────────────────────── */}
+          {/* ── Brief, toujours affiché ──────────────────────── */}
           <Section label="Brief du projet" style={{ marginTop: 24 }}>
 
             {!hasBriefContent ? (
@@ -590,7 +590,7 @@ export default async function DevProjectHub({
             )}
           </Section>
 
-          {/* Maintenance — supprimé : le dev ne fait pas la maintenance */}
+          {/* Maintenance, supprimé : le dev ne fait pas la maintenance */}
           {false && pendingMaintenance > 0 && (
             <div />
           )}
@@ -627,7 +627,7 @@ export default async function DevProjectHub({
               {project.devPaymentStatus === "PAID"
                 ? "✓ Versé"
                 : project.devPaymentStatus === "APPROVED"
-                ? "Approuvé — virement en cours"
+                ? "Approuvé, virement en cours"
                 : "En attente d'approbation"}
             </p>
           </SideCard>

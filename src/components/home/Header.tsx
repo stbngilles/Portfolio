@@ -71,7 +71,7 @@ export default function Header({ variant = "home" }: { variant?: "home" | "page"
         <a
           href={onHome ? "#top" : "/"}
           className="pb-logo"
-          aria-label={onHome ? "Pixelbrute — haut de page" : "Pixelbrute — retour à l'accueil"}
+          aria-label={onHome ? "Pixelbrute, haut de page" : "Pixelbrute, retour à l'accueil"}
         >
           <Logo tone={tone} />
         </a>

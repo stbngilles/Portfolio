@@ -56,7 +56,7 @@ export default function LoginPage() {
             </em>
           </h1>
           <p style={{ color: "var(--color-muted)", fontSize: 17, lineHeight: 1.6, maxWidth: 460 }}>
-            Votre projet, vos factures, vos demandes et la performance de vos campagnes —
+            Votre projet, vos factures, vos demandes et la performance de vos campagnes,
             tout vit ici. Plus de mails perdus, plus d'angoisse de « où ça en est ».
           </p>
 
@@ -71,9 +71,9 @@ export default function LoginPage() {
               Pour qui
             </p>
             <ul className="space-y-2 text-sm" style={{ color: "var(--color-muted)" }}>
-              <li>· Clients Pixelbrute — suivi de projet, factures, demandes</li>
-              <li>· Commerciaux — pipeline, devis, commissions</li>
-              <li>· Équipe — administration, production</li>
+              <li>· Clients Pixelbrute, suivi de projet, factures, demandes</li>
+              <li>· Commerciaux, pipeline, devis, commissions</li>
+              <li>· Équipe, administration, production</li>
             </ul>
           </div>
         </div>

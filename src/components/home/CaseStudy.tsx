@@ -7,7 +7,7 @@ import { pad } from "./data";
 
 /**
  * Étude de cas en page. Même contenu que la modale (`ProjectModal`), même
- * source dans `data.ts` — mais une hiérarchie de titres de page : `h1` sur le
+ * source dans `data.ts`, mais une hiérarchie de titres de page : `h1` sur le
  * nom du projet, `h2` sur les sections, `h3` sur les décisions.
  *
  * C'est cette hiérarchie qui justifie un composant distinct plutôt qu'un
@@ -168,7 +168,7 @@ export default function CaseStudy({
           <div className="pb-proof-shot">
             <Image
               src={p.proof.src}
-              alt={`Capture d'écran — ${p.name}, ${p.metric}`}
+              alt={`Capture d'écran, ${p.name}, ${p.metric}`}
               width={p.proof.w}
               height={p.proof.h}
               sizes="(max-width: 1120px) 100vw, 1050px"

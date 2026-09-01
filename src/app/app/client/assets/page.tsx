@@ -53,7 +53,7 @@ export default async function ClientAssetsPage() {
           <p className="serif-i mb-6 text-sm" style={{ color: "var(--color-muted)" }}>
             Déposez le matériel dans le dossier partagé qu'on vous a envoyé, puis
             cochez ici. Tant qu'une case n'est pas cochée, votre projet ne peut
-            pas être affecté à un développeur — pas par mauvaise volonté, juste
+            pas être affecté à un développeur, pas par mauvaise volonté, juste
             pour éviter qu'il bloque à mi-parcours.
           </p>
 

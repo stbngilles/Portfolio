@@ -160,7 +160,7 @@ export default async function BriefPage({
             <span>✓</span>
             <p style={{ color: "#0D6E46", fontSize: 14 }}>
               Brief marqué comme complet le{" "}
-              {project.kickoffAt?.toLocaleDateString("fr-BE") ?? "—"}.
+              {project.kickoffAt?.toLocaleDateString("fr-BE") ?? "–"}.
               Le projet est visible dans le pool si l&apos;acompte est payé.
               Vous pouvez encore modifier les notes ci-dessous.
             </p>
@@ -190,7 +190,7 @@ export default async function BriefPage({
           <form action={saveBriefNotes} id="brief-form">
             <input type="hidden" name="projectId" value={projectId} />
 
-            {/* Notes brutes — priorité absolue */}
+            {/* Notes brutes, priorité absolue */}
             <div style={{ marginBottom: 20 }}>
               <label style={{ display: "block" }}>
                 <p
@@ -203,13 +203,13 @@ export default async function BriefPage({
                     marginBottom: 8,
                   }}
                 >
-                  📝 Notes de l'appel — tout noter ici en temps réel
+                  📝 Notes de l'appel, tout noter ici en temps réel
                 </p>
                 <textarea
                   name="callNotes"
                   defaultValue={brief.callNotes}
                   rows={14}
-                  placeholder={`Ce que le client veut, ce qu'il ne veut pas, ses angoisses, ses références…\n\nEx. : Il veut absolument un site sombre (dark mode). Sa concurrente directe s'appelle "LuminaWeb" et il déteste leur approche trop froide. Il a 3 prestataires en parallèle — attention au délai. Sa femme s'appelle Marie et elle valide aussi. Ouvert le WE. Parle beaucoup — synthétiser ses demandes…`}
+                  placeholder={`Ce que le client veut, ce qu'il ne veut pas, ses angoisses, ses références…\n\nEx. : Il veut absolument un site sombre (dark mode). Sa concurrente directe s'appelle "LuminaWeb" et il déteste leur approche trop froide. Il a 3 prestataires en parallèle, attention au délai. Sa femme s'appelle Marie et elle valide aussi. Ouvert le WE. Parle beaucoup, synthétiser ses demandes…`}
                   style={{
                     width: "100%",
                     padding: "14px 16px",

@@ -143,7 +143,7 @@ export default async function TrousseauPage({
           {credentials.map((c) => (
             <div key={c.id} style={{ position: "relative" }}>
               <CredentialCard credential={c} />
-              {/* Bouton supprimer — form server séparé, positionné en overlay */}
+              {/* Bouton supprimer, form server séparé, positionné en overlay */}
               {role === "ADMIN" && (
                 <form
                   action={deleteCredential.bind(null, c.id)}

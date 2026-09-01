@@ -72,7 +72,7 @@ export default async function CancelStep3Page({
             s'arrêteront ce jour-là.
           </li>
           <li>
-            • Votre site reste en ligne — l'hébergement n'est pas affecté.
+            • Votre site reste en ligne, l'hébergement n'est pas affecté.
           </li>
           <li>
             • Vous pouvez reprendre un abonnement à tout moment depuis votre

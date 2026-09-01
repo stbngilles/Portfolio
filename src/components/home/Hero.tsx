@@ -3,7 +3,7 @@ import Arrow from "./Arrow";
 import { Lines } from "./Text";
 
 /**
- * Premier écran — le titre occupe la largeur, puis la scène « recherche
+ * Premier écran, le titre occupe la largeur, puis la scène « recherche
  * Google » : votre métier + votre ville, votre site en première position,
  * les concurrents bien plus bas. Ça se comprend sans avoir ouvert un outil
  * de design. La scène est décorative pour les lecteurs d'écran.
@@ -21,13 +21,13 @@ export default function Hero() {
 
         <div className="pb-hero-meta">
           {/* Le `h1` est une accroche : il ne contient aucun terme que les gens
-              tapent. Ce `h2` dit littéralement le métier et la ville — c'est
+              tapent. Ce `h2` dit littéralement le métier et la ville, c'est
               le seul endroit de la page qui a le droit d'être plat. */}
           <h2 className="pb-hero-sub">
-            Création de sites internet à Hannut, en Hesbaye et en province de Liège — pour indépendants et artisans.
+            Création de sites internet à Hannut, en Hesbaye et en province de Liège, pour indépendants et artisans.
           </h2>
           <p className="pb-hero-lede">
-            Studio web solo à Liège. Conception, design et code par la même personne — pour des
+            Studio web solo à Liège. Conception, design et code par la même personne, pour des
             indépendants et des artisans qui veulent être trouvés, puis appelés.
           </p>
           <div className="pb-hero-acts">
@@ -76,7 +76,7 @@ export default function Hero() {
 
           <div className="pb-search-hit">
             <div className="pb-search-hit-id">
-              {/* Favicon du résultat : la version « PB » du tampon — à 34 px
+              {/* Favicon du résultat : la version « PB » du tampon, à 34 px
                   le grain du bloc ne fait que salir, donc bords vifs et à plat
                   (mêmes réglages que public/icon.svg). */}
               <svg viewBox="0 0 32 32" className="pb-search-fav" aria-hidden="true">

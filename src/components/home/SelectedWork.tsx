@@ -12,14 +12,14 @@ const N = PROJECTS.length;
 
 const ORDER = PROJECTS;
 
-/** Largeur de chaque vignette sur la grille 12 colonnes — le rythme de la page. */
+/** Largeur de chaque vignette sur la grille 12 colonnes, le rythme de la page. */
 const SPAN = ["7", "5", "5", "7", "6", "6"];
 
 /**
  * Le travail, en grand. Cinq projets sur une grille irrégulière : chaque
  * capture est un cadre sans bordure, l'image scale au survol, un curseur
  * « Voir » suit la souris. Le nom et la preuve viennent sous l'image, rien
- * d'autre — l'étude de cas s'ouvre en modale.
+ * d'autre, l'étude de cas s'ouvre en modale.
  */
 export default function SelectedWork() {
   const [open, setOpen] = useState<number | null>(null);
@@ -66,7 +66,7 @@ export default function SelectedWork() {
     <section id="projets" className="pb-work-sec">
       <div className="pb-work-head">
         <div className="pb-over" data-reveal="">
-          Projets · 2025 — 2026
+          Projets · 2025, 2026
         </div>
         <Lines className="pb-d-l" lines={["Six projets,", "et la preuve datée."]} muteFrom={1} />
       </div>
@@ -77,9 +77,9 @@ export default function SelectedWork() {
             <button type="button" className="pb-tile-img" onClick={() => setOpen(PROJECTS.indexOf(p))} aria-label={`Ouvrir l'étude de cas ${p.name}`}>
               <div className="pb-tile-frame">
                 {p.mockup ? (
-                  <Image src={p.mockup} alt={`${p.name} — site livré, présenté sur ordinateur portable`} fill sizes="(max-width: 900px) 100vw, 60vw" />
+                  <Image src={p.mockup} alt={`${p.name}, site livré, présenté sur ordinateur portable`} fill sizes="(max-width: 900px) 100vw, 60vw" />
                 ) : p.shot ? (
-                  <Image src={p.shot} alt={`Page d'accueil de ${p.name} — capture du site livré`} fill sizes="(max-width: 900px) 100vw, 60vw" />
+                  <Image src={p.shot} alt={`Page d'accueil de ${p.name}, capture du site livré`} fill sizes="(max-width: 900px) 100vw, 60vw" />
                 ) : (
                   <div className="pb-tile-missing pb-label">{p.name} · capture à venir</div>
                 )}
@@ -91,7 +91,7 @@ export default function SelectedWork() {
                 <span className="pb-mono pb-cap">{pad(i)}</span>
                 {/* Le nom mène à la page du dossier. La vignette ouvre toujours
                     la modale : un lecteur pressé garde l'aperçu, et le moteur
-                    obtient enfin un lien qu'il peut suivre — la modale n'a
+                    obtient enfin un lien qu'il peut suivre, la modale n'a
                     aucune URL à indexer. */}
                 <h3 className="pb-d-s pb-tile-name">
                   <Link href={`/projets/${p.slug}`}>{p.name}</Link>

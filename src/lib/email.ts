@@ -1,7 +1,7 @@
 /**
- * Couche email transactionnel — Brevo (ex-Sendinblue).
+ * Couche email transactionnel, Brevo (ex-Sendinblue).
  *
- * Active si BREVO_API_KEY est défini. Sinon, no-op qui logge — utile en dev.
+ * Active si BREVO_API_KEY est défini. Sinon, no-op qui logge, utile en dev.
  * Toutes les fonctions retournent `{ ok: boolean }` pour ne jamais casser
  * l'enchaînement métier si l'envoi mail échoue (un mail raté ne doit pas
  * bloquer la création d'un projet).
@@ -63,7 +63,7 @@ function wrap(title: string, body: string, ctaText?: string, ctaUrl?: string) {
     <h1 style="font-size:24px;line-height:1.2;letter-spacing:-.02em;margin:0 0 16px">${title}</h1>
     <div style="font-size:15px;line-height:1.6;color:#2A2A36">${body}</div>
     ${ctaText && ctaUrl ? `<p style="margin:24px 0 0"><a href="${ctaUrl}" style="display:inline-block;background:#1F3FBF;color:#FAF9F5;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:500">${ctaText} →</a></p>` : ""}
-    <p style="margin:32px 0 0;font-size:12px;color:#6B6B7A">Pixelbrute — studio web · Liège</p>
+    <p style="margin:32px 0 0;font-size:12px;color:#6B6B7A">Pixelbrute, studio web · Liège</p>
   </div>
 </body></html>`;
 }
@@ -103,13 +103,13 @@ export async function sendDepositReceived(args: {
 }) {
   const body = `
     <p>Bonjour ${args.clientName},</p>
-    <p>Votre acompte vient d'être encaissé pour <strong>${args.projectName}</strong> — merci !</p>
+    <p>Votre acompte vient d'être encaissé pour <strong>${args.projectName}</strong>, merci !</p>
     <p>Pour qu'on démarre rapidement, complétez le formulaire d'onboarding (10 minutes). Vos réponses verrouillent les choix techniques et nous évitent les allers-retours.</p>
   `;
   return sendBrevo({
     to: args.clientEmail,
     toName: args.clientName,
-    subject: "Acompte reçu — il nous manque vos infos d'onboarding",
+    subject: "Acompte reçu, il nous manque vos infos d'onboarding",
     html: wrap("Acompte reçu. À vous.", body, "Compléter l'onboarding", `${APP_URL}/app/client/onboarding`),
   });
 }
@@ -127,7 +127,7 @@ export async function sendOnboardingComplete(args: {
   return sendBrevo({
     to: args.clientEmail,
     toName: args.clientName,
-    subject: "Onboarding reçu — on prend la suite",
+    subject: "Onboarding reçu, on prend la suite",
     html: wrap("On prend la suite.", body, "Suivre l'avancement", `${APP_URL}/app/client`),
   });
 }
@@ -147,7 +147,7 @@ export async function sendInvoiceReminder(args: {
   return sendBrevo({
     to: args.clientEmail,
     toName: args.clientName,
-    subject: `Rappel facture ${args.invoiceNumber} — ${args.amountEuros}`,
+    subject: `Rappel facture ${args.invoiceNumber}, ${args.amountEuros}`,
     html: wrap("Rappel facture.", body, "Régler en ligne", `${APP_URL}/app/client/factures`),
   });
 }
@@ -161,7 +161,7 @@ export async function sendDevTicketReady(args: {
   if (!adminEmail) return { ok: true };
   return sendBrevo({
     to: adminEmail,
-    subject: `Ticket dev prêt — ${args.projectName}`,
+    subject: `Ticket dev prêt, ${args.projectName}`,
     html: wrap(
       "Un brief est prêt pour le pool dev.",
       `<p>Projet <strong>${args.projectName}</strong> · stack ${args.techStack || "à préciser"}.</p>`,

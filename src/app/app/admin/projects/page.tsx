@@ -60,7 +60,7 @@ export default async function AdminProjectsPage() {
               type="text"
               name="name"
               required
-              placeholder="Boulangerie Demoulin — site vitrine"
+              placeholder="Boulangerie Demoulin, site vitrine"
               className="w-full px-4 py-3 outline-none"
               style={{
                 background: "var(--color-bg)",

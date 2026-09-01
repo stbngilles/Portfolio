@@ -77,7 +77,7 @@ export default async function ReleaseRequestsPage() {
             className="text-sm mt-2"
             style={{ color: "var(--color-subtle)" }}
           >
-            Les devs ne peuvent pas relâcher un projet seuls — ils doivent
+            Les devs ne peuvent pas relâcher un projet seuls, ils doivent
             d'abord soumettre un rapport ici.
           </p>
         </div>

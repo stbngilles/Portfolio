@@ -9,7 +9,7 @@ const SITE_URL = "https://pixelbrute.be";
 /**
  * Le site public : la home, le contact, l'index des projets et une page par
  * étude de cas. Les anciennes pages (/services/*, /realisations, /equipe/*)
- * ont été retirées — les laisser ici enverrait Google sur des redirections.
+ * ont été retirées, les laisser ici enverrait Google sur des redirections.
  *
  * Les dates sont figées, pas dérivées de `new Date()` : un sitemap qui
  * annonce « tout a changé » à chaque déploiement finit par n'être plus cru.

@@ -235,7 +235,7 @@ export default async function DevHome() {
                       type="submit"
                       className="btn btn-ghost"
                       style={{ padding: "8px 16px", fontSize: 13 }}
-                      title="Vous êtes admin — pas besoin de rapport."
+                      title="Vous êtes admin, pas besoin de rapport."
                     >
                       Libérer ce projet
                     </button>

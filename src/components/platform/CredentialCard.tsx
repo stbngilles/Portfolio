@@ -144,7 +144,7 @@ function PlainField({ label, value }: { label: string; value: string }) {
   );
 }
 
-/** Carte des credentials — Client Component pour reveal/copy.
+/** Carte des credentials, Client Component pour reveal/copy.
  *  Le bouton supprimer est géré côté serveur (form action) séparément.
  */
 export function CredentialCard({
@@ -205,7 +205,7 @@ export function CredentialCard({
             📝 {credential.notes}
           </p>
         )}
-        {/* Audit trail — traçabilité de la dernière modification */}
+        {/* Audit trail, traçabilité de la dernière modification */}
         {credential.updatedAt && (
           <p style={{ fontSize: 10, color: "var(--color-subtle)", marginTop: 10, fontFamily: "var(--font-geist)", letterSpacing: "0.06em" }}>
             Modifié le{" "}

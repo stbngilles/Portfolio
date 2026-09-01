@@ -11,7 +11,7 @@ export const QUOTE_TRANSITIONS: Record<string, string[]> = {
 export const QUOTE_STATUS_LABEL: Record<string, string> = {
   DRAFT: "Brouillon",
   SENT: "Devis envoyé",
-  SIGNED_AWAITING_DEPOSIT: "Signé — Acompte",
+  SIGNED_AWAITING_DEPOSIT: "Signé, Acompte",
   COLLECTING_ASSETS: "Collecte contenu",
   READY_FOR_DEV: "Prêt pour le dev",
   LOST: "Perdu",

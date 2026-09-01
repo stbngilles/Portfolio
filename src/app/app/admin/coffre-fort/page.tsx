@@ -73,7 +73,7 @@ export default async function MasterVaultPage({
           value={
             Object.entries(byService).sort((a, b) => b[1] - a[1])[0]?.[0]
               ? SERVICE_LABEL[Object.entries(byService).sort((a, b) => b[1] - a[1])[0][0]]
-              : "—"
+              : "–"
           }
           hint="par fréquence"
         />
@@ -230,7 +230,7 @@ export default async function MasterVaultPage({
       )}
 
       <p className="text-xs mt-8 serif-i" style={{ color: "var(--color-subtle)" }}>
-        Les mots de passe sont stockés en clair en dev — à chiffrer (libsodium) en production.
+        Les mots de passe sont stockés en clair en dev, à chiffrer (libsodium) en production.
       </p>
     </DashboardShell>
   );

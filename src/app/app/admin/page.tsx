@@ -190,7 +190,7 @@ export default async function AdminHome() {
         <StatCard
           label="Marge brute"
           value={formatPrice(grossMargin)}
-          hint={totalRevenue > 0 ? `${grossMarginPct} % du revenu` : "—"}
+          hint={totalRevenue > 0 ? `${grossMarginPct} % du revenu` : "–"}
           accent
         />
       </section>

@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
   }
   if (!STRIPE_ENABLED) {
     return NextResponse.json(
-      { error: "Paiement en ligne indisponible — contactez l'agence." },
+      { error: "Paiement en ligne indisponible, contactez l'agence." },
       { status: 503 },
     );
   }
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
     amountCents: invoice.amount,
     customerEmail: client.email,
     description: invoice.project
-      ? `Facture ${invoice.number} — ${invoice.project.name}`
+      ? `Facture ${invoice.number}, ${invoice.project.name}`
       : `Facture ${invoice.number}`,
   });
 

@@ -6,7 +6,7 @@ import { BOOKING_CAL_LINK, BOOKING_URL } from "./data";
  * Trois contraintes, dans cet ordre :
  *
  * 1. Rien au chargement de la page. Le script de Cal.com pèse plus lourd que
- *    le site ; il n'est injecté qu'au premier clic, et une seule fois — la
+ *    le site ; il n'est injecté qu'au premier clic, et une seule fois, la
  *    promesse est gardée au niveau du module, pas du composant.
  * 2. Ça marche sans JavaScript. Les composants qui appellent `openCal` gardent
  *    un `href` vers `BOOKING_URL` : sans script, sans hydratation, ou si leur

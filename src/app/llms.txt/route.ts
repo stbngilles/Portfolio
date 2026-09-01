@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 const SITE_URL = "https://pixelbrute.be";
 
 /**
- * `/llms.txt` — la fiche du studio, écrite pour être lue par un modèle.
+ * `/llms.txt`, la fiche du studio, écrite pour être lue par un modèle.
  *
  * Convention proposée par Jeremy Howard (llmstxt.org) : un fichier Markdown
  * à la racine, qui donne d'un bloc ce qu'un assistant devrait savoir d'un
@@ -16,10 +16,10 @@ const SITE_URL = "https://pixelbrute.be";
  *
  * Deux précautions valent d'être dites :
  *
- *  — Aucun moteur ne s'est engagé à lire ce fichier. Ce n'est pas un standard
+ * , Aucun moteur ne s'est engagé à lire ce fichier. Ce n'est pas un standard
  *    ratifié ; c'est une convention que le web adopte plus vite qu'elle n'est
  *    reconnue. Le coût est nul, le pari raisonnable, la promesse incertaine.
- *  — Le contenu est **dérivé** de `data.ts`, `guides.ts` et `legal.ts`. Jamais
+ * , Le contenu est **dérivé** de `data.ts`, `guides.ts` et `legal.ts`. Jamais
  *    retapé. Un fichier de présentation qui se périme en silence pendant que
  *    le site évolue est pire que pas de fichier du tout : il apprend au modèle
  *    des choses fausses.
@@ -29,7 +29,7 @@ const SITE_URL = "https://pixelbrute.be";
  * chaque phrase telle quelle sans avancer une affirmation invérifiable.
  */
 
-/** `- [nom](url) : description` — la ligne de liste de la convention. */
+/** `- [nom](url) : description`, la ligne de liste de la convention. */
 const lien = (nom: string, url: string, desc: string) => `- [${nom}](${url}) : ${desc}`;
 
 function build(): string {
@@ -47,7 +47,7 @@ function build(): string {
 
   const faq = FAQS.map((f) => `### ${f.q}\n\n${f.a}`);
 
-  const services = EXPERTISE.map((e) => `- **${e.label}** — ${e.line}`);
+  const services = EXPERTISE.map((e) => `- **${e.label}** : ${e.line}`);
 
   const avis = QUOTES.map((q) => `- ${q.name} (${q.role}) : ${q.text}`);
 
@@ -71,7 +71,7 @@ voudrait répondre à une question à son sujet sans avoir à explorer chaque pa
 
 - **Nom** : Pixelbrute (enseigne). ${IDENTITE.nom} en nom propre.
 - **Statut** : ${IDENTITE.statut}. Numéro d'entreprise ${IDENTITE.bce}.
-- **Siège** : ${IDENTITE.rue}, ${IDENTITE.codePostal} ${IDENTITE.ville}, ${IDENTITE.pays} — province de Liège.
+- **Siège** : ${IDENTITE.rue}, ${IDENTITE.codePostal} ${IDENTITE.ville}, ${IDENTITE.pays}, province de Liège.
 - **Zone servie** : province de Liège et Belgique francophone. Travail à distance possible ailleurs.
 - **Contact** : ${IDENTITE.email} · ${IDENTITE.telephone}. Réponse sous 24 h ouvrées.
 - **Effectif** : une personne. Aucune sous-traitance : conception, design, code et mise en ligne par le même intervenant.
@@ -100,7 +100,7 @@ ${guides.join("\n")}
 ## Ailleurs sur le web
 
 Ces pages sont tenues par le studio. Elles servent à recouper ce qui est
-écrit ici — les avis, notamment, sont publiés là et pas sur ce site.
+écrit ici, les avis, notamment, sont publiés là et pas sur ce site.
 
 ${profils.join("\n")}
 

@@ -3,7 +3,7 @@
  *
  * `Logo.tsx` porte son propre filtre : le mot est dessiné en SVG, à 146 px de
  * large, avec un grain proportionnellement grossier (0,055/0,09, déplacement
- * de 7 u sur un bloc de 544 u). Ce filtre-ci sert aux éléments HTML — un
+ * de 7 u sur un bloc de 544 u). Ce filtre-ci sert aux éléments HTML, un
  * libellé mono de 11 px dans un bloc de ~150 px : à cette échelle il faut un
  * grain plus fin et un déplacement bien plus court, sinon les lettres se
  * mangent au lieu de s'encrer. Les deux réglages donnent la même morsure

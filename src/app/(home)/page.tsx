@@ -12,12 +12,12 @@ import FinalCta from "@/components/home/FinalCta";
 import SiteFooter from "@/components/home/SiteFooter";
 
 export const metadata: Metadata = {
-  // `absolute` : sinon le template du layout racine ajoute « | Pixelbrute — Studio web Liège ».
+  // `absolute` : sinon le template du layout racine ajoute « | Pixelbrute, Studio web Liège ».
   title: {
-    absolute: "Création de sites internet à Liège — Pixelbrute",
+    absolute: "Création de sites internet à Liège, Pixelbrute",
   },
   description:
-    "Studio web solo à Liège. Création de sites internet pour indépendants et artisans — conception, design et code par la même personne.",
+    "Studio web solo à Liège. Création de sites internet pour indépendants et artisans, conception, design et code par la même personne.",
   alternates: { canonical: "https://pixelbrute.be" },
 };
 

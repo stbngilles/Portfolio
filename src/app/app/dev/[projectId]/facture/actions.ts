@@ -20,7 +20,7 @@ export async function uploadDevInvoice(projectId: string, formData: FormData) {
   const filename = String(formData.get("invoiceFilename") ?? "").trim();
 
   if (!/^https?:\/\//.test(url))
-    throw new Error("URL invalide — collez un lien public (Drive, Dropbox…).");
+    throw new Error("URL invalide, collez un lien public (Drive, Dropbox…).");
   if (filename.length < 3)
     throw new Error("Donnez un nom de fichier reconnaissable (ex. PB-2026-0042.pdf).");
 

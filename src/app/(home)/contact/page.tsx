@@ -7,7 +7,7 @@ import SiteFooter from "@/components/home/SiteFooter";
 import { FAQS } from "@/components/home/data";
 
 export const metadata: Metadata = {
-  title: { absolute: "Contact — décrire votre projet | Pixelbrute, studio web à Liège" },
+  title: { absolute: "Contact, décrire votre projet | Pixelbrute, studio web à Liège" },
   description:
     "Décrivez votre projet en trois questions, ou appelez le +32 492 20 02 75. Réponse sous 24 h ouvrées par la personne qui codera le site.",
   alternates: { canonical: "https://pixelbrute.be/contact" },
@@ -19,13 +19,13 @@ const SITE_URL = "https://pixelbrute.be";
  * Les huit questions de la page, en `FAQPage`.
  *
  * Google n'affiche plus les résultats enrichis FAQ depuis 2023, sauf pour une
- * poignée de sites institutionnels — donc aucune promesse de ce côté-là. Le
+ * poignée de sites institutionnels, donc aucune promesse de ce côté-là. Le
  * balisage reste posé pour l'autre lecteur : une paire question/réponse
  * explicitement marquée est la forme la plus directement reprenable qui
  * existe pour un modèle qui doit répondre « est-ce qu'ils sous-traitent ? »
  * ou « qu'est-ce qui fait varier le prix ? ».
  *
- * Les réponses sont celles de `data.ts`, à l'identique — le texte à l'écran
+ * Les réponses sont celles de `data.ts`, à l'identique, le texte à l'écran
  * et le texte balisé ne peuvent pas diverger, sous peine d'être traités comme
  * du contenu masqué.
  */

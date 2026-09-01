@@ -64,7 +64,7 @@ export default function Motion() {
       });
 
       // Le hero a sa propre timeline d'entrée (plus bas) : s'il passait aussi
-      // ici, ses lignes joueraient deux fois — deux tweens concurrents sur le
+      // ici, ses lignes joueraient deux fois, deux tweens concurrents sur le
       // même yPercent, l'un décalé de 0.15 s. C'est le titre qui semblait
       // rejouer au chargement.
       const lineTitles = gsap.utils
@@ -90,7 +90,7 @@ export default function Motion() {
             stagger: 0.04,
             ease: "none",
             // Le scrub long (1.2) faisait traîner l'éclairage loin derrière le
-            // scroll — et ce retard s'ajoutait au lissage de Lenis. Ici le
+            // scroll, et ce retard s'ajoutait au lissage de Lenis. Ici le
             // scrub est quasi immédiat (Lenis fournit déjà la douceur), et la
             // phrase finit de s'allumer quand elle arrive au centre de l'écran,
             // pas quand elle en sort.

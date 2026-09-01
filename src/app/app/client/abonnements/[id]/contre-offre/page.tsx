@@ -21,7 +21,7 @@ const PAUSE_1M: Offer = {
   key: "PAUSE_1M",
   label: "Mettre en pause 1 mois",
   description:
-    "Zéro prélèvement pendant un mois. Tout reprend automatiquement après — vous pouvez prolonger ou résilier à tout moment.",
+    "Zéro prélèvement pendant un mois. Tout reprend automatiquement après, vous pouvez prolonger ou résilier à tout moment.",
   cta: "Je mets en pause 1 mois",
 };
 const PAUSE_3M: Offer = {
@@ -42,7 +42,7 @@ const CALL: Offer = {
   key: "CALL",
   label: "Parler à Gilles directement",
   description:
-    "15 minutes en visio, sans engagement. Si quelque chose ne va pas dans la livraison ou le service, on veut comprendre — et corriger.",
+    "15 minutes en visio, sans engagement. Si quelque chose ne va pas dans la livraison ou le service, on veut comprendre, et corriger.",
   cta: "Je veux qu'on me rappelle",
 };
 
@@ -75,7 +75,7 @@ export default async function CancelStep2Page({
     notFound();
   }
   if (sub.status !== "PENDING_CANCEL") {
-    // L'utilisateur arrive ici sans avoir validé l'étape 1 — on redirige.
+    // L'utilisateur arrive ici sans avoir validé l'étape 1, on redirige.
     redirect(`/app/client/abonnements/${id}/annuler`);
   }
 
@@ -94,12 +94,12 @@ export default async function CancelStep2Page({
         style={{ color: "var(--color-muted)", fontSize: 16, lineHeight: 1.6 }}
       >
         Ce sont de vraies options, pas un piège pour vous garder. Choisissez ce
-        qui vous arrange — ou continuez vers l'annulation si rien ne colle.
+        qui vous arrange, ou continuez vers l'annulation si rien ne colle.
       </p>
 
       <SectionTitle
         eyebrow={`Étape 2 sur 3 · raison : ${
-          sub.cancelReason ?? "—"
+          sub.cancelReason ?? "–"
         }`}
         title="Trois alternatives"
         italic="possibles."

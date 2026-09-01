@@ -8,19 +8,19 @@ import { GUIDES } from "@/components/home/guides";
 const SITE_URL = "https://pixelbrute.be";
 
 export const metadata: Metadata = {
-  title: { absolute: "Guides — sites web, référencement local et budgets | Pixelbrute" },
+  title: { absolute: "Guides, sites web, référencement local et budgets | Pixelbrute" },
   description:
     "Ce qu'il faut savoir avant de faire faire un site : comment fonctionne le pack local Google, combien coûte un site en Belgique, et comment choisir entre Wix, WordPress et le sur mesure.",
   alternates: { canonical: `${SITE_URL}/guides` },
   openGraph: {
-    title: "Guides — sites web et référencement local",
+    title: "Guides, sites web et référencement local",
     description:
       "Le pack local Google, les prix réels du marché belge, et comment choisir sa technologie. Sans discours de vendeur.",
     type: "website",
     locale: "fr_BE",
     url: `${SITE_URL}/guides`,
     siteName: "Pixelbrute",
-    images: [{ url: "/home/preuves/zenharmonie-google.png", width: 1500, height: 970, alt: "Résultat Google — pack local" }],
+    images: [{ url: "/home/preuves/zenharmonie-google.png", width: 1500, height: 970, alt: "Résultat Google, pack local" }],
   },
 };
 

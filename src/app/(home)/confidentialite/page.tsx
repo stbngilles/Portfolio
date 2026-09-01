@@ -8,10 +8,10 @@ const SITE_URL = "https://pixelbrute.be";
 
 /**
  * Politique de confidentialité. Obligatoire dès qu'une donnée personnelle est
- * traitée — ici le formulaire de contact et la mesure d'audience.
+ * traitée, ici le formulaire de contact et la mesure d'audience.
  *
  * Écrite pour être lue : un visiteur doit pouvoir répondre en une minute aux
- * trois questions qu'il se pose vraiment — qu'est-ce que vous savez de moi,
+ * trois questions qu'il se pose vraiment, qu'est-ce que vous savez de moi,
  * à qui ça part, comment je le fais effacer.
  */
 
@@ -58,7 +58,7 @@ export default function ConfidentialitePage() {
               uniquement à vous répondre et à préparer un éventuel devis.
             </p>
             <p className="pb-gd-p">
-              Base légale&nbsp;: votre demande elle-même — des mesures précontractuelles prises à votre
+              Base légale&nbsp;: votre demande elle-même, des mesures précontractuelles prises à votre
               initiative (article 6.1.b du RGPD). Sans ces données, il n&apos;est pas possible de vous
               répondre.
             </p>
@@ -78,13 +78,13 @@ export default function ConfidentialitePage() {
             <p className="pb-gd-p">
               Base légale&nbsp;: l&apos;intérêt légitime à connaître l&apos;audience de son propre site
               (article 6.1.f du RGPD). Comme aucune donnée personnelle n&apos;est traitée et
-              qu&apos;aucun cookie n&apos;est déposé, votre consentement n&apos;est pas requis — et
+              qu&apos;aucun cookie n&apos;est déposé, votre consentement n&apos;est pas requis, et
               aucune bannière ne vous est imposée.
             </p>
 
             <h3 className="pb-gd-h3">Les journaux techniques</h3>
             <p className="pb-gd-p">
-              L&apos;hébergeur enregistre automatiquement les connexions au serveur — adresse IP,
+              L&apos;hébergeur enregistre automatiquement les connexions au serveur, adresse IP,
               date, page demandée, navigateur. C&apos;est nécessaire au fonctionnement et à la
               sécurité du site. Ces journaux sont conservés au maximum trente jours.
             </p>
@@ -148,7 +148,7 @@ export default function ConfidentialitePage() {
             </p>
             <p className="pb-gd-p">
               Si la réponse ne vous satisfait pas, vous pouvez introduire une réclamation auprès de
-              l&apos;{APD.nom}, {APD.adresse} —{" "}
+              l&apos;{APD.nom}, {APD.adresse},{" "}
               <a href={`mailto:${APD.email}`}>{APD.email}</a>,{" "}
               <a href={APD.site} target="_blank" rel="noopener noreferrer">
                 autoriteprotectiondonnees.be

@@ -1,5 +1,5 @@
 /**
- * Catalogue tarifaire Pixelbrute — source unique de vérité.
+ * Catalogue tarifaire Pixelbrute, source unique de vérité.
  * Les montants sont en CENTIMES (entier) pour éviter les pièges des floats.
  * Modifie ici, ça impacte le calculateur, les devis et les commissions.
  *
@@ -19,7 +19,7 @@ export interface SiteOffer {
   key: SiteKey;
   label: string;
   description: string;
-  basePrice: number; // centimes — 0 pour sur-mesure
+  basePrice: number; // centimes, 0 pour sur-mesure
   pagesIncluded: number;
   // Prix langue supplémentaire qui dépend du type de site
   extraLanguagePrice: number;
@@ -30,7 +30,7 @@ export const SITES: SiteOffer[] = [
     key: "starter",
     label: "Starter",
     description:
-      "Une seule page qui présente l'activité du client. Design soigné, adapté mobile. Idéal pour lancer vite ou tester. Sans SEO inclus — peut être ajouté en option.",
+      "Une seule page qui présente l'activité du client. Design soigné, adapté mobile. Idéal pour lancer vite ou tester. Sans SEO inclus, peut être ajouté en option.",
     basePrice: 120000,
     pagesIncluded: 1,
     extraLanguagePrice: 15000,
@@ -39,7 +39,7 @@ export const SITES: SiteOffer[] = [
     key: "essentiel",
     label: "Essentiel",
     description:
-      "Site vitrine 5 pages (ex. Accueil, Services, À propos, Galerie, Contact). Design propre, adapté mobile et tablette. SEO non inclus — à ajouter en option si le client veut être visible sur Google.",
+      "Site vitrine 5 pages (ex. Accueil, Services, À propos, Galerie, Contact). Design propre, adapté mobile et tablette. SEO non inclus, à ajouter en option si le client veut être visible sur Google.",
     basePrice: 250000,
     pagesIncluded: 5,
     extraLanguagePrice: 25000,
@@ -48,7 +48,7 @@ export const SITES: SiteOffer[] = [
     key: "ecommerce",
     label: "E-commerce",
     description:
-      "Boutique en ligne complète — vente de produits ou services, catalogue, paiement intégré. À partir de 30 pages. Inclut la configuration technique du système de vente.",
+      "Boutique en ligne complète, vente de produits ou services, catalogue, paiement intégré. À partir de 30 pages. Inclut la configuration technique du système de vente.",
     basePrice: 600000,
     pagesIncluded: 30,
     extraLanguagePrice: 60000,
@@ -152,7 +152,7 @@ export const OPTIONS: OptionOffer[] = [
     key: "reservation_synced",
     label: "Prise de rendez-vous (agenda en ligne)",
     description:
-      "Agenda connecté à Google Calendar ou outil tiers (Cal.com, Outlook…). Le client réserve directement un créneau disponible — le propriétaire n'a rien à faire. Équivalent 1 à 2 pages de travail.",
+      "Agenda connecté à Google Calendar ou outil tiers (Cal.com, Outlook…). Le client réserve directement un créneau disponible, le propriétaire n'a rien à faire. Équivalent 1 à 2 pages de travail.",
     unitPrice: 90000,
     quantifiable: false,
     defaultQty: 1,
@@ -170,7 +170,7 @@ export const OPTIONS: OptionOffer[] = [
     key: "logo_simple",
     label: "Logo simple",
     description:
-      "Logotype texte + icône basique (picto issu d'une bibliothèque libre + mise en forme). Suffit pour lancer. Attention : si le client veut un logo vraiment unique et personnalisé, il faut un designer — cela fait l'objet d'un devis séparé.",
+      "Logotype texte + icône basique (picto issu d'une bibliothèque libre + mise en forme). Suffit pour lancer. Attention : si le client veut un logo vraiment unique et personnalisé, il faut un designer, cela fait l'objet d'un devis séparé.",
     unitPrice: 75000,
     quantifiable: false,
     defaultQty: 1,
@@ -188,7 +188,7 @@ export const OPTIONS: OptionOffer[] = [
     key: "photo_session",
     label: "Séance photo professionnelle",
     description:
-      "Photos des locaux, de l'équipe ou des produits pour le site. Prix défini selon la distance et l'ampleur de la séance — à préciser en notes.",
+      "Photos des locaux, de l'équipe ou des produits pour le site. Prix défini selon la distance et l'ampleur de la séance, à préciser en notes.",
     unitPrice: 0,
     quantifiable: false,
     defaultQty: 1,
@@ -229,7 +229,7 @@ export interface RecurringOffer {
   label: string;
   description: string;
   monthlyPrice: number; // centimes / mois
-  pitch: string; // argument commercial — affiché dans le calculateur
+  pitch: string; // argument commercial, affiché dans le calculateur
   // Si > 0 : ce service est exécuté par un producteur (ex. Amandine pour les réseaux).
   // Quand le commercial EST le producteur → il touche 100 %.
   // Quand quelqu'un d'autre vend → commercial 15 %, producteur producerRate.
@@ -248,9 +248,9 @@ export const RECURRING: RecurringOffer[] = [
   },
   {
     key: "social_posts",
-    label: "Réseaux sociaux — posts",
+    label: "Réseaux sociaux, posts",
     description:
-      "2-3 posts par semaine sur Facebook et Instagram. Visuels créés par Pixelbrute, textes rédigés, publication planifiée. Le client envoie ses photos — on s'occupe du reste.",
+      "2-3 posts par semaine sur Facebook et Instagram. Visuels créés par Pixelbrute, textes rédigés, publication planifiée. Le client envoie ses photos, on s'occupe du reste.",
     monthlyPrice: 29000,
     producerRate: 0.85,
     pitch:
@@ -258,7 +258,7 @@ export const RECURRING: RecurringOffer[] = [
   },
   {
     key: "social_video_edited",
-    label: "Réseaux sociaux — montage vidéo",
+    label: "Réseaux sociaux, montage vidéo",
     description:
       "2-3 posts par semaine + montage de 4 reels/vidéos courtes par mois. Le client filme lui-même et nous envoie le footage brut. Sous-titres, musique, format Instagram/Facebook inclus. Attention : la qualité du résultat dépend de la qualité du footage envoyé.",
     monthlyPrice: 42000,
@@ -268,7 +268,7 @@ export const RECURRING: RecurringOffer[] = [
   },
   {
     key: "social_video_onsite",
-    label: "Réseaux sociaux — tournage sur place",
+    label: "Réseaux sociaux, tournage sur place",
     description:
       "1 session de tournage chez le client par mois (~2-3h sur place). Pixelbrute filme, monte et publie : 4 reels + 8-10 posts statiques. Tout le contenu du mois produit en une seule session. Frais de déplacement inclus dans un rayon raisonnable.",
     monthlyPrice: 69000,
@@ -280,11 +280,11 @@ export const RECURRING: RecurringOffer[] = [
     key: "ads_management",
     label: "Gestion publicité (Facebook & Instagram)",
     description:
-      "On crée vos publicités Facebook et Instagram, on teste ce qui marche, on coupe ce qui ne rapporte pas, et on vous envoie un rapport chaque semaine. Budget publicitaire non inclus — prévoir entre 10 et 20€/jour en plus.",
+      "On crée vos publicités Facebook et Instagram, on teste ce qui marche, on coupe ce qui ne rapporte pas, et on vous envoie un rapport chaque semaine. Budget publicitaire non inclus, prévoir entre 10 et 20€/jour en plus.",
     monthlyPrice: 40000,
     producerRate: 0,
     pitch:
-      "Sans gestion : le client dépense son budget pub sans savoir si ça marche, et sans pouvoir l'arrêter à temps. Avec Pixelbrute : on gère tout, on stoppe ce qui ne convertit pas, on pousse ce qui rapporte. À noter : les 400€/mois couvrent uniquement notre travail — le client paie son propre budget pub en plus (généralement 10 à 20€/jour, soit 300 à 600€/mois).",
+      "Sans gestion : le client dépense son budget pub sans savoir si ça marche, et sans pouvoir l'arrêter à temps. Avec Pixelbrute : on gère tout, on stoppe ce qui ne convertit pas, on pousse ce qui rapporte. À noter : les 400€/mois couvrent uniquement notre travail, le client paie son propre budget pub en plus (généralement 10 à 20€/jour, soit 300 à 600€/mois).",
   },
 ];
 
@@ -369,7 +369,7 @@ export const COMMISSION_RATES = {
 };
 
 // =====================================================================
-// MARGE DE SÉCURITÉ (back-office) — invisible côté commercial
+// MARGE DE SÉCURITÉ (back-office), invisible côté commercial
 // =====================================================================
 //
 // Pourcentage à appliquer sur l'estimation du COÛT DEV interne pour absorber
@@ -402,6 +402,6 @@ export function formatPrice(cents: number): string {
 }
 
 export function formatPriceMonthly(cents: number): string {
-  if (cents === 0) return "—";
+  if (cents === 0) return "–";
   return `${formatPrice(cents)} / mois`;
 }

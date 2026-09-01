@@ -6,8 +6,8 @@
  * → principes → témoignages → studio → CTA.
  *
  * Les études de cas (août 2026) sont écrites à partir des sites en ligne,
- * relus page par page : les chiffres cités — 60 000 références, 63 communes,
- * 36 balises, acompte de 50 % — sont lisibles sur les sites eux-mêmes ou
+ * relus page par page : les chiffres cités, 60 000 références, 63 communes,
+ * 36 balises, acompte de 50 %, sont lisibles sur les sites eux-mêmes ou
  * dans leurs conditions générales. Rien n'est estimé, rien n'est arrondi
  * vers le haut. Quand un chiffre manque, la phrase le dit au lieu de le
  * remplacer par un adjectif.
@@ -18,7 +18,7 @@ export type Proof = { src: string; w: number; h: number; caption: string };
 /** Une décision de conception : ce qui a été tranché, et pourquoi. */
 export type Decision = { title: string; text: string };
 
-/** Un élément réellement livré — vérifiable en ouvrant le site. */
+/** Un élément réellement livré, vérifiable en ouvrant le site. */
 export type Built = { label: string; text: string };
 
 /** Un chiffre lisible sur le site livré. Jamais une estimation. */
@@ -26,7 +26,7 @@ export type Fact = { value: string; label: string };
 
 /**
  * Visuel de lecture d'une étude de cas. Trois formes seulement, toutes
- * dessinées à partir de chiffres relevés sur le site du client — jamais une
+ * dessinées à partir de chiffres relevés sur le site du client, jamais une
  * illustration décorative. Une capture du site livré n'apprend rien à qui
  * peut cliquer sur le lien ; un graphique, si.
  */
@@ -58,9 +58,9 @@ export type Project = {
   answer: string;
   /** Le fait vérifiable, en quelques mots. */
   metric: string;
-  /** Note Google ou source du relevé — `null` quand il n'y en a pas. */
+  /** Note Google ou source du relevé, `null` quand il n'y en a pas. */
   rating: string | null;
-  /** Requête exacte à retaper pour vérifier — `null` si la preuve n'en est pas une. */
+  /** Requête exacte à retaper pour vérifier, `null` si la preuve n'en est pas une. */
   query: string | null;
   /** Capture datée. `null` tant que le fichier n'est pas déposé. */
   proof: Proof | null;
@@ -69,7 +69,7 @@ export type Project = {
   role: string;
   stack: string;
   result: string;
-  /** Phrase d'ouverture de l'étude de cas — le projet en une respiration. */
+  /** Phrase d'ouverture de l'étude de cas, le projet en une respiration. */
   lede: string;
   /** Le client et sa situation, en paragraphes. */
   context: string[];
@@ -81,24 +81,24 @@ export type Project = {
   built: Built[];
   /** Les chiffres lisibles sur le site livré. */
   facts: Fact[];
-  /** Ce que ça a produit — et ce qu'on ne peut pas prouver. */
+  /** Ce que ça a produit, et ce qu'on ne peut pas prouver. */
   outcome: string[];
-  /** Graphique de lecture — `null` quand aucun chiffre ne mérite un dessin. */
+  /** Graphique de lecture, `null` quand aucun chiffre ne mérite un dessin. */
   chart: Chart | null;
-  /** Site en ligne — `null` si le projet n'est pas (ou plus) public. */
+  /** Site en ligne, `null` si le projet n'est pas (ou plus) public. */
   url: string | null;
   /** Capture de la page d'accueil du site livré (1440×900, WebP). `null` tant
    *  qu'elle n'est pas déposée : on affiche alors un emplacement vide, jamais
    *  une photo de banque. */
   shot: string | null;
-  /** Mockup (laptop en situation, 4:3) — utilisé dans la grille de la home
+  /** Mockup (laptop en situation, 4:3), utilisé dans la grille de la home
    *  quand il existe ; sinon la capture plate. */
   mockup: string | null;
 };
 
 /** L'ordre du tableau est l'ordre de la grille : il alterne les formats
  *  (grand / petit / petit / grand / moyen / moyen) et les ambiances des
- *  mockups — sombre, clair, chaud — plutôt que de suivre la chronologie. */
+ *  mockups, sombre, clair, chaud, plutôt que de suivre la chronologie. */
 export const PROJECTS: Project[] = [
   {
     slug: "azimut-games",
@@ -107,7 +107,7 @@ export const PROJECTS: Project[] = [
     brief:
       "Deux jeux qui se jouent debout, en équipe, un stand réservé à Essen, et aucun revendeur pour les faire essayer.",
     answer:
-      "Faire du site la boutique et le démonstrateur à la fois — la règle expliquée avant le prix.",
+      "Faire du site la boutique et le démonstrateur à la fois : la règle expliquée avant le prix.",
     metric: "Boutique et réseau à construire",
     rating: null,
     query: null,
@@ -120,11 +120,11 @@ export const PROJECTS: Project[] = [
       "Un jeu qui se joue debout, en équipe, sur une grille de six mètres de côté : le site devait faire vivre la partie, pas seulement montrer la boîte.",
     context: [
       "Azimut Games est né d'une formation de moniteur en course d'orientation à l'ADEPS. Vincent Merveille en a tiré Azimut XL : trente-six balises posées au sol en 6×6, plus de cent quarante cartes, et un terrain de récréation qui devient un plateau de jeu. Azimath, le second titre, applique le même principe aux quatre opérations.",
-      "Derrière la boîte : deux ans de prototypes, des tests en classe menés par des institutrices, une relecture complète des règles, une illustratrice, un fabricant. En octobre 2026, le jeu part à SPIEL Essen — le plus grand salon du secteur — hall 4, stand D425.",
+      "Derrière la boîte : deux ans de prototypes, des tests en classe menés par des institutrices, une relecture complète des règles, une illustratrice, un fabricant. En octobre 2026, le jeu part à SPIEL Essen, le plus grand salon du secteur, hall 4, stand D425.",
     ],
     problem: [
       "Un jeu qui se vit debout, en équipe, dans la cour, sur un terrain ou en halle de sport. C'est ce qu'un écran peine à transmettre. Le premier travail du site : faire comprendre la partie avant de parler d'achat.",
-      "Deuxième contrainte : il n'y a pas encore de revendeur pour faire la démonstration à la place du site. Le réseau se construit. Le site doit donc tenir trois rôles à la fois — expliquer, vendre, et recruter les lieux qui feront jouer.",
+      "Deuxième contrainte : il n'y a pas encore de revendeur pour faire la démonstration à la place du site. Le réseau se construit. Le site doit donc tenir trois rôles à la fois : expliquer, vendre, et recruter les lieux qui feront jouer.",
     ],
     decisions: [
       {
@@ -166,7 +166,7 @@ export const PROJECTS: Project[] = [
       { label: "Pages réseau", text: "« Où nous trouver » avec agenda des salons, référencement de lieux, programme ambassadeur." },
       { label: "Formulaires protégés", text: "Champs typés, consentement explicite, et un champ leurre invisible pour arrêter les robots sans imposer de captcha. Les demandes arrivent dans le CRM du client, pas dans une boîte mail." },
       { label: "Univers de marque", text: "Page dédiée à Azi, la mascotte guide, et déclinaison graphique sur l'ensemble du site." },
-      { label: "Pages légales", text: "CGV, mentions, rétractation, confidentialité — obligatoires dès qu'on encaisse un paiement." },
+      { label: "Pages légales", text: "CGV, mentions, rétractation, confidentialité, obligatoires dès qu'on encaisse un paiement." },
     ],
     facts: [
       { value: "2", label: "jeux au catalogue" },
@@ -181,7 +181,7 @@ export const PROJECTS: Project[] = [
     chart: {
       kind: "grid36",
       title: "La grille du jeu, posée au sol",
-      note: "Trente-six balises en 6×6, numérotées de 11 à 66. Les dizaines donnent la ligne, les unités la colonne — c'est toute la règle de lecture d'Azimut XL, et c'est ce que la page d'accueil doit faire comprendre en trois phrases.",
+      note: "Trente-six balises en 6×6, numérotées de 11 à 66. Les dizaines donnent la ligne, les unités la colonne, c'est toute la règle de lecture d'Azimut XL, et c'est ce que la page d'accueil doit faire comprendre en trois phrases.",
     },
     url: "https://azimuts.vercel.app",
     shot: "/home/sites/azimut-games.webp",
@@ -211,12 +211,12 @@ export const PROJECTS: Project[] = [
     lede:
       "Sur un catalogue de soixante mille références, une recherche approximative ne sert à rien : le motard veut la pièce qui va sur sa moto, et il veut en être sûr avant de payer.",
     context: [
-      "Hugo Fizaine vend des pièces et des équipements moto depuis la province de Liège — atelier à Braives, siège à Berloz. Le stock est réel, les colis partent tous les jours, l'activité existait avant le site. C'est l'outil qui ne suivait pas.",
-      "Le catalogue couvre toutes les marques, tous les modèles et toutes les années de production : plus de soixante mille références, et pour chacune une liste de motos compatibles. Cette liste, c'est toute la valeur du site — et c'est aussi ce qui rend sa mise en ligne difficile.",
+      "Hugo Fizaine vend des pièces et des équipements moto depuis la province de Liège, atelier à Braives, siège à Berloz. Le stock est réel, les colis partent tous les jours, l'activité existait avant le site. C'est l'outil qui ne suivait pas.",
+      "Le catalogue couvre toutes les marques, tous les modèles et toutes les années de production : plus de soixante mille références, et pour chacune une liste de motos compatibles. Cette liste, c'est toute la valeur du site, et c'est aussi ce qui rend sa mise en ligne difficile.",
     ],
     problem: [
       "Un motard qui cherche un kit chaîne pour une KTM GS 125 de 1994 ne veut pas quinze résultats plausibles. Il en veut un, le bon, et une phrase qui lui dit qu'il va sur sa moto. Tant que cette certitude n'est pas écrite dans la page, elle passe par le téléphone.",
-      "Chaque appel de vérification coûte du temps qui n'est facturé nulle part. Chaque doute non levé finit en panier abandonné — ou pire, en retour, avec les frais et l'avis qui vont avec.",
+      "Chaque appel de vérification coûte du temps qui n'est facturé nulle part. Chaque doute non levé finit en panier abandonné, ou pire, en retour, avec les frais et l'avis qui vont avec.",
       "Troisième contrainte : le budget publicitaire est de 15 € par jour. À ce niveau-là, la publicité n'a pas les moyens de compenser un site introuvable ou lent. Tout doit venir de la structure.",
     ],
     decisions: [
@@ -238,7 +238,7 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "Séparer le site public de la gestion",
-        text: "Le catalogue et la gestion de stock vivent derrière une API ; la boutique ne fait que lire. Les imports peuvent tourner, le catalogue peut doubler, la boutique reste rapide — et une panne d'un côté ne ferme pas l'autre.",
+        text: "Le catalogue et la gestion de stock vivent derrière une API ; la boutique ne fait que lire. Les imports peuvent tourner, le catalogue peut doubler, la boutique reste rapide, et une panne d'un côté ne ferme pas l'autre.",
       },
       {
         title: "Écrire sur les vraies requêtes",
@@ -251,12 +251,12 @@ export const PROJECTS: Project[] = [
     ],
     built: [
       { label: "Catalogue et boutique", text: "Plus de 60 000 références, marques, catégories et sous-catégories, promotions et ventes flash." },
-      { label: "Sélecteur de véhicule", text: "Marque, cylindrée, année, modèle — et « Mon garage » qui retient la moto entre deux visites." },
+      { label: "Sélecteur de véhicule", text: "Marque, cylindrée, année, modèle, et « Mon garage » qui retient la moto entre deux visites." },
       { label: "Recherche par cotes", text: "Onze familles de pièces attaquables par dimension, sans passer par le modèle de moto." },
       { label: "Paiement et logistique", text: "Paiement sécurisé, échelonnement en trois fois, expédition sous 24 h avant 15 h, suivi de colis, retour sous 14 jours." },
       { label: "Click & collect", text: "Retrait chez les concessionnaires partenaires, avec adresse et horaires affichés par point." },
       { label: "Espace client et Club Pro", text: "Compte, historique de commandes, et un tarif professionnel pour les ateliers et les revendeurs." },
-      { label: "Trois langues", text: "Français, anglais, italien — chaque langue a ses routes, ce n'est pas une traduction posée par-dessus." },
+      { label: "Trois langues", text: "Français, anglais, italien, chaque langue a ses routes, ce n'est pas une traduction posée par-dessus." },
       { label: "Contenu éditorial", text: "Blog, FAQ et pages de marques, écrits sur les requêtes réelles des motards." },
     ],
     facts: [
@@ -269,8 +269,8 @@ export const PROJECTS: Project[] = [
       "Sur la période relevée du 15 au 29 mai 2026, le site monte jusqu'à 600 vues par jour, avec 15 € de publicité quotidienne. La capture Google Analytics est ci-dessous, non recadrée, avec ses dates.",
       "Ce que cette courbe ne dit pas : le chiffre d'affaires. Il appartient au client, et je ne publie que ce que je peux montrer.",
     ],
-    /* Pas de graphique ici : les chiffres disponibles — références, familles de
-       pièces, motos compatibles — n'ont pas la même unité et ne peuvent pas
+    /* Pas de graphique ici : les chiffres disponibles, références, familles de
+       pièces, motos compatibles, n'ont pas la même unité et ne peuvent pas
        partager un axe sans mentir. La courbe Analytics plus bas est la vraie
        mesure du projet. */
     chart: null,
@@ -302,12 +302,12 @@ export const PROJECTS: Project[] = [
     lede:
       "Ses horaires disent tout du problème : lundi et mardi de 18 h à 20 h 30, vendredi à partir de 14 h 30, samedi la matinée. Le reste du temps, personne ne décroche.",
     context: [
-      "Pierre Vanderelst pratique la massothérapie à Hélécine, en Brabant wallon. Il est seul : c'est lui qui reçoit, lui qui masse, lui qui répond au téléphone — et il ne peut pas faire les trois en même temps.",
+      "Pierre Vanderelst pratique la massothérapie à Hélécine, en Brabant wallon. Il est seul : c'est lui qui reçoit, lui qui masse, lui qui répond au téléphone, et il ne peut pas faire les trois en même temps.",
       "Trois familles de soins : sportif et récupération, relaxant et anti-stress, thérapie manuelle. De trente minutes à une heure, de 40 à 70 €, avec un tarif étudiant. Un métier de contact, jugé sur l'atmosphère avant d'être jugé sur le parcours.",
     ],
     problem: [
       "Sur ces plages horaires, le téléphone est le pire canal de réservation possible. Le client appelle en journée : le praticien est en séance ou ailleurs. Le praticien rappelle le soir : le client est à table. Deux personnes qui se manquent, et un créneau qui reste vide.",
-      "L'autre perte du métier, c'est le rendez-vous non honoré. Une heure réservée et non venue ne se rattrape pas — elle est simplement perdue, et sur un agenda de quelques heures par semaine, elle pèse.",
+      "L'autre perte du métier, c'est le rendez-vous non honoré. Une heure réservée et non venue ne se rattrape pas, elle est simplement perdue, et sur un agenda de quelques heures par semaine, elle pèse.",
       "Enfin, tout cela devait tenir dans une page qui respire. Un site de bien-être surchargé se contredit lui-même : l'atmosphère est le premier argument commercial.",
     ],
     decisions: [
@@ -325,7 +325,7 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "Le prix affiché avant l'appel",
-        text: "Chaque soin porte ses durées et ses tarifs, et le tarif étudiant est annoncé dès la première étape de la réservation. Personne n'a besoin de téléphoner pour demander un prix — et le praticien ne perd pas d'appel à répondre à cette question-là.",
+        text: "Chaque soin porte ses durées et ses tarifs, et le tarif étudiant est annoncé dès la première étape de la réservation. Personne n'a besoin de téléphoner pour demander un prix, et le praticien ne perd pas d'appel à répondre à cette question-là.",
       },
       {
         title: "Dire ce que ce n'est pas",
@@ -333,14 +333,14 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "Le référencement sur la commune, pas sur le métier",
-        text: "« Massage hélécine » plutôt que « massothérapie bien-être ». Sur une commune de cette taille, la requête locale est la seule qui décide quelqu'un à monter dans sa voiture — et c'est celle où il est encore possible d'être premier.",
+        text: "« Massage hélécine » plutôt que « massothérapie bien-être ». Sur une commune de cette taille, la requête locale est la seule qui décide quelqu'un à monter dans sa voiture, et c'est celle où il est encore possible d'être premier.",
       },
     ],
     built: [
-      { label: "Réservation en ligne", text: "Parcours en étapes — soin, durée et prix, créneau, coordonnées — sans création de compte." },
+      { label: "Réservation en ligne", text: "Parcours en étapes (soin, durée et prix, créneau, coordonnées), sans création de compte." },
       { label: "Acompte et paiement", text: "50 % réglés en ligne par carte via une plateforme sécurisée, solde sur place le jour de la séance." },
       { label: "Report autonome", text: "Lien de déplacement du rendez-vous dans le mail de confirmation, actif jusqu'à 48 h avant." },
-      { label: "Fiches de soins", text: "Bienfaits détaillés, indications, durées et tarifs — de quoi choisir sans appeler." },
+      { label: "Fiches de soins", text: "Bienfaits détaillés, indications, durées et tarifs, de quoi choisir sans appeler." },
       { label: "Bons cadeaux", text: "Prise de commande par contact direct, sans complexifier le tunnel de réservation." },
       { label: "Présence locale", text: "Fiche Google, adresse, itinéraire, horaires réels et référencement sur la commune et ses voisines." },
       { label: "Cadre légal", text: "CGV explicites sur l'acompte, l'annulation, le retard et la nature exacte des soins." },
@@ -358,7 +358,7 @@ export const PROJECTS: Project[] = [
     chart: {
       kind: "week",
       title: "Les heures où le cabinet est ouvert",
-      note: "Seize heures d'ouverture par semaine, dont l'essentiel après 18 h. C'est le graphique qui explique tout le projet : aux heures où un client pense à réserver, le praticien est en séance — et aux heures où il pourrait rappeler, le client ne répond plus.",
+      note: "Seize heures d'ouverture par semaine, dont l'essentiel après 18 h. C'est le graphique qui explique tout le projet : aux heures où un client pense à réserver, le praticien est en séance, et aux heures où il pourrait rappeler, le client ne répond plus.",
       from: 8,
       to: 21,
       days: [
@@ -395,7 +395,7 @@ export const PROJECTS: Project[] = [
       "Le visiteur a une odeur de brûlé près du tableau et deux questions : est-ce que vous venez chez moi, et dans combien de temps.",
     context: [
       "Volt-Pro dépanne, met aux normes RGIE, installe des bornes de recharge et du photovoltaïque. L'entreprise est basée à Waremme et couvre trois territoires : Bruxelles-Capitale, le Brabant wallon et la province de Liège.",
-      "Son argument n'est pas le portfolio — personne ne choisit un électricien sur ses plus belles installations. Son argument, c'est la proximité et la vitesse de réaction, avec une ligne d'urgence ouverte 24 h sur 24.",
+      "Son argument n'est pas le portfolio : personne ne choisit un électricien sur ses plus belles installations. Son argument, c'est la proximité et la vitesse de réaction, avec une ligne d'urgence ouverte 24 h sur 24.",
     ],
     problem: [
       "Un site d'électricien parle d'habitude de son expertise, de ses années de métier et de ses certifications. Le visiteur en urgence ne lit rien de tout ça : il cherche un délai et un numéro, et il les cherche en dix secondes.",
@@ -404,11 +404,11 @@ export const PROJECTS: Project[] = [
     decisions: [
       {
         title: "Le délai avant l'entreprise",
-        text: "En haut de page : dépannage urgent, moins de deux heures, certifié RGIE, le numéro en clair et cliquable. La présentation du métier vient après, pour ceux qui lisent encore — c'est-à-dire ceux qui ne sont pas en urgence.",
+        text: "En haut de page : dépannage urgent, moins de deux heures, certifié RGIE, le numéro en clair et cliquable. La présentation du métier vient après, pour ceux qui lisent encore, c'est-à-dire ceux qui ne sont pas en urgence.",
       },
       {
         title: "Une page par commune, réellement écrite",
-        text: "Soixante-trois communes, chacune avec son code postal, sa distance, son délai d'intervention annoncé — une heure à une heure trente à Waremme — une description de son tissu local, et les communes voisines en lien. Générer soixante-trois pages est facile ; les rendre réellement différentes est le travail. Une page dupliquée soixante-trois fois ne se classe pas.",
+        text: "Soixante-trois communes, chacune avec son code postal, sa distance, son délai d'intervention annoncé (une heure à une heure trente à Waremme), une description de son tissu local, et les communes voisines en lien. Générer soixante-trois pages est facile ; les rendre réellement différentes est le travail. Une page dupliquée soixante-trois fois ne se classe pas.",
       },
       {
         title: "Découper par intention, pas par technique",
@@ -423,17 +423,17 @@ export const PROJECTS: Project[] = [
         text: "Appel et fourchette de prix annoncée avant déplacement, devis ferme par écrit, intervention, puis conformité et garantie. Sur un métier où le prix inquiète autant que la panne, annoncer l'ordre des étapes vaut mieux que n'importe quelle promesse de sérieux.",
       },
       {
-        title: "Sans sous-traitant — et le dire",
+        title: "Sans sous-traitant, et le dire",
         text: "« Vous parlez directement au technicien qui viendra. » C'est la seule différence lisible face aux plateformes de mise en relation qui occupent exactement les mêmes requêtes, avec un call center et un artisan tiré au sort.",
       },
     ],
     built: [
       { label: "63 pages communes", text: "Code postal, délai d'intervention local, contexte de la commune, services et communes voisines en maillage." },
-      { label: "3 pages territoires", text: "Bruxelles-Capitale, Brabant wallon, province de Liège — chacune regroupant ses communes." },
+      { label: "3 pages territoires", text: "Bruxelles-Capitale, Brabant wallon, province de Liège, chacune regroupant ses communes." },
       { label: "6 pages services", text: "Dépannage 24/7, tableau et conformité RGIE, borne de recharge, photovoltaïque, rénovation, domotique." },
       { label: "Demande de devis typée", text: "Formulaire réduit à l'essentiel, avec le type de demande en liste : on sait quoi préparer avant de rappeler." },
       { label: "Appel en un geste", text: "Numéro d'urgence cliquable, présent en permanence, sans jamais recouvrir le contenu." },
-      { label: "Blog", text: "Contenu de fond sur les questions récurrentes — conformité, primes, sécurité." },
+      { label: "Blog", text: "Contenu de fond sur les questions récurrentes, conformité, primes, sécurité." },
     ],
     facts: [
       { value: "63", label: "communes couvertes" },
@@ -448,7 +448,7 @@ export const PROJECTS: Project[] = [
     chart: {
       kind: "bars",
       title: "Les 63 communes, par territoire",
-      note: "Chaque commune a sa page, son code postal, son délai d'intervention et ses communes voisines en lien. Soixante-trois pages générées, soixante-trois pages réellement différentes — une page dupliquée ne se classe pas.",
+      note: "Chaque commune a sa page, son code postal, son délai d'intervention et ses communes voisines en lien. Soixante-trois pages générées, soixante-trois pages réellement différentes, une page dupliquée ne se classe pas.",
       items: [
         { label: "Province de Liège", value: 28, display: "28 communes" },
         { label: "Bruxelles-Capitale", value: 19, display: "19 communes" },
@@ -484,7 +484,7 @@ export const PROJECTS: Project[] = [
       "Un nettoyage de canapé se vend sur une seule image : l'avant et l'après. Tout le reste du site est là pour ne pas la gêner.",
     context: [
       "DetailWave nettoie à domicile, en injection-extraction : canapés, matelas, tapis, intérieurs de voiture, bureaux, fins de chantier. La zone est Liège et sa périphérie, le service tourne sept jours sur sept, les produits sont biodégradables.",
-      "Sur ce marché, le concurrent d'à côté propose la même prestation au même tarif. Ce qui se compare vraiment, c'est le résultat visible — et la confiance qu'on accorde à quelqu'un qui va entrer chez soi.",
+      "Sur ce marché, le concurrent d'à côté propose la même prestation au même tarif. Ce qui se compare vraiment, c'est le résultat visible, et la confiance qu'on accorde à quelqu'un qui va entrer chez soi.",
     ],
     problem: [
       "Un site de nettoyage s'écrit d'habitude comme un catalogue : liste de prestations, logos de produits, « devis sur demande ». Le visiteur repart sans savoir à quoi ressemble le travail, ni ce qu'il va payer.",
@@ -493,7 +493,7 @@ export const PROJECTS: Project[] = [
     decisions: [
       {
         title: "L'avant/après en curseur, pas en vignettes",
-        text: "Chaque prestation s'ouvre sur une photo unique, coupée en deux par une poignée que l'on fait glisser. Le visiteur produit lui-même le résultat en tirant le curseur — c'est la démonstration la plus courte qui existe, et elle ne demande aucune lecture.",
+        text: "Chaque prestation s'ouvre sur une photo unique, coupée en deux par une poignée que l'on fait glisser. Le visiteur produit lui-même le résultat en tirant le curseur : c'est la démonstration la plus courte qui existe, et elle ne demande aucune lecture.",
       },
       {
         title: "Le prix affiché, prestation par prestation",
@@ -517,13 +517,13 @@ export const PROJECTS: Project[] = [
       },
     ],
     built: [
-      { label: "Configurateur de prestation", text: "Options tarifées — nombre de places, type de véhicule — avec le total qui se recalcule à chaque choix." },
+      { label: "Configurateur de prestation", text: "Options tarifées (nombre de places, type de véhicule), avec le total qui se recalcule à chaque choix." },
       { label: "Panier de devis", text: "Plusieurs prestations empilées, total estimé, envoi de la demande. Gratuit, sans engagement, réglé après intervention." },
       { label: "Comparateurs avant/après", text: "Curseur glissant sur photo unique, une par prestation." },
       { label: "Grille tarifaire", text: "Six prestations, prix affichés, contenu détaillé de chaque intervention." },
       { label: "Zone d'intervention", text: "Dix communes nommées, plus la mention de la périphérie." },
       { label: "Preuve sociale", text: "Avis Google affichés en clair, avec lien vers la fiche pour les lire à la source." },
-      { label: "Guides d'expert", text: "Articles sur l'entretien des textiles et le traitement des taches — utiles, et bons pour le référencement." },
+      { label: "Guides d'expert", text: "Articles sur l'entretien des textiles et le traitement des taches, utiles, et bons pour le référencement." },
     ],
     facts: [
       { value: "5,0 ★", label: "11 avis Google" },
@@ -576,7 +576,7 @@ export const PROJECTS: Project[] = [
     ],
     problem: [
       "Le vrai blocage n'est pas le prix, c'est la matière. Un plombier n'écrira jamais les textes de son site, ne triera pas ses photos de chantier et ne remplira pas un éditeur en glisser-déposer un dimanche soir. Or c'est exactement ce que lui demande un constructeur de sites classique.",
-      "Il faut donc produire un site complet — structure, textes, photos, avis, zone, formulaire — sans que l'utilisateur ait une seule ligne à rédiger ni une seule image à téléverser.",
+      "Il faut donc produire un site complet (structure, textes, photos, avis, zone, formulaire) sans que l'utilisateur ait une seule ligne à rédiger ni une seule image à téléverser.",
     ],
     decisions: [
       {
@@ -585,7 +585,7 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "L'aperçu complet avant le paiement",
-        text: "Le site fini, entier, visible gratuitement et sans carte bancaire. C'est la seule façon de vendre à quelqu'un qui s'est déjà fait avoir une fois — et c'est aussi ce qui permet de ne pas argumenter : il regarde et il décide.",
+        text: "Le site fini, entier, visible gratuitement et sans carte bancaire. C'est la seule façon de vendre à quelqu'un qui s'est déjà fait avoir une fois, et c'est aussi ce qui permet de ne pas argumenter : il regarde et il décide.",
       },
       {
         title: "Des modules activables, pas un éditeur libre",
@@ -597,7 +597,7 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "Ne jamais toucher aux avis",
-        text: "Aucun avis supprimé, aucun tri arrangeant. Ce sont les vrais clients de l'artisan qui parlent, tels quels. C'est un engagement écrit — et le seul qui compte vraiment, parce qu'un outil qui filtre les avis finit par les fabriquer.",
+        text: "Aucun avis supprimé, aucun tri arrangeant. Ce sont les vrais clients de l'artisan qui parlent, tels quels. C'est un engagement écrit, et le seul qui compte vraiment, parce qu'un outil qui filtre les avis finit par les fabriquer.",
       },
       {
         title: "Le domaine géré dans le produit",
@@ -625,12 +625,12 @@ export const PROJECTS: Project[] = [
     chart: {
       kind: "bars",
       title: "Ce que coûte un site, sur trois ans",
-      note: "Le devis d'agence est un versement unique, l'abonnement est mensuel : à trois ans, l'abonnement passe encore sous le bas de la fourchette d'agence — et il inclut le domaine, l'hébergement et les mises à jour. C'est l'argument de la page de tarif, remis à plat.",
+      note: "Le devis d'agence est un versement unique, l'abonnement est mensuel : à trois ans, l'abonnement passe encore sous le bas de la fourchette d'agence, et il inclut le domaine, l'hébergement et les mises à jour. C'est l'argument de la page de tarif, remis à plat.",
       items: [
-        { label: "Agence — haut de fourchette", value: 5000, display: "5 000 €" },
-        { label: "Agence — bas de fourchette", value: 2000, display: "2 000 €" },
-        { label: "Lokigen — 3 ans", value: 1404, display: "1 404 €", strong: true },
-        { label: "Lokigen — 1 an", value: 468, display: "468 €" },
+        { label: "Agence · haut de fourchette", value: 5000, display: "5 000 €" },
+        { label: "Agence · bas de fourchette", value: 2000, display: "2 000 €" },
+        { label: "Lokigen · 3 ans", value: 1404, display: "1 404 €", strong: true },
+        { label: "Lokigen · 1 an", value: 468, display: "468 €" },
       ],
     },
     url: "https://lokigen.be",
@@ -672,11 +672,11 @@ export const EXPERTISE = [
   },
   {
     label: "Visibilité locale",
-    line: "Exister sur les recherches de votre zone, commune par commune — et y rester une fois le site en ligne. Campagnes Google Ads quand le projet le demande.",
+    line: "Exister sur les recherches de votre zone, commune par commune, et y rester une fois le site en ligne. Campagnes Google Ads quand le projet le demande.",
   },
 ];
 
-/** Principes de collaboration — ce qui remplace la « méthode en cinq étapes ». */
+/** Principes de collaboration, ce qui remplace la « méthode en cinq étapes ». */
 export const PRINCIPLES = [
   {
     title: "Le problème avant la maquette",
@@ -692,15 +692,15 @@ export const PRINCIPLES = [
   },
 ];
 
-/** Présentation humaine — faits vérifiables uniquement, pas de biographie. */
+/** Présentation humaine, faits vérifiables uniquement, pas de biographie. */
 export const STUDIO = {
   name: "Esteban",
   role: "Design & développement",
   img: "/esteban.jpg",
   body: [
-    "Pixelbrute, c'est une personne. Je gère la conception, le design, le code et la mise en ligne — du premier appel jusqu'après la livraison.",
+    "Pixelbrute, c'est une personne. Je gère la conception, le design, le code et la mise en ligne, du premier appel jusqu'après la livraison.",
     "C'est une contrainte autant qu'un choix : je prends peu de projets à la fois, et vous parlez toujours à la personne qui construit.",
-    "Je travaille depuis Hannut, en Hesbaye. La plupart de mes clients sont à moins de vingt minutes — Braives, Hélécine, Waremme — et c'est là que le référencement local paie le plus vite : dans une commune, il reste des requêtes que personne ne dispute.",
+    "Je travaille depuis Hannut, en Hesbaye. La plupart de mes clients sont à moins de vingt minutes, Braives, Hélécine, Waremme, et c'est là que le référencement local paie le plus vite : dans une commune, il reste des requêtes que personne ne dispute.",
   ],
   facts: [
     { lbl: "Basé à", val: "Hannut · Hesbaye liégeoise" },
@@ -714,7 +714,7 @@ export type Quote = {
   text: string;
   name: string;
   role: string;
-  /** Photo du projet ; `null` quand on n'en a pas — on affiche alors les initiales. */
+  /** Photo du projet ; `null` quand on n'en a pas, on affiche alors les initiales. */
   img: string | null;
 };
 
@@ -722,7 +722,7 @@ export type Quote = {
  * Avis clients réels, repris mot pour mot (fautes de frappe et emoji compris :
  * on ne réécrit pas un avis). Les deux premiers sont publiés sur Google ;
  * celui de Moto Distri était encore en attente de publication au moment de
- * l'intégration — à revérifier avant mise en ligne.
+ * l'intégration, à revérifier avant mise en ligne.
  */
 export const QUOTES: Quote[] = [
   {
@@ -748,7 +748,7 @@ export const QUOTES: Quote[] = [
 export const FAQS = [
   {
     q: "Par quoi on commence ?",
-    a: "Un appel de quinze minutes, que vous réservez vous-même en ligne. Vous m'expliquez votre métier et ce qui coince aujourd'hui, et on chiffre le projet ensemble pendant l'appel : vous raccrochez en sachant ce que ça coûte et combien de temps ça prend. Sans engagement — rien à signer, ni pendant, ni après.",
+    a: "Un appel de quinze minutes, que vous réservez vous-même en ligne. Vous m'expliquez votre métier et ce qui coince aujourd'hui, et on chiffre le projet ensemble pendant l'appel : vous raccrochez en sachant ce que ça coûte et combien de temps ça prend. Sans engagement : rien à signer, ni pendant, ni après.",
   },
   {
     q: "Combien de temps prend un projet ?",
@@ -776,13 +776,13 @@ export const FAQS = [
   },
   {
     q: "Vous garantissez des résultats ?",
-    a: "Non, et je me méfie de ceux qui le font. Je montre ce qui a été construit chez d'autres clients, les décisions prises et ce que ça a produit — les premières places Google se vérifient en dix secondes. Vous jugez sur pièces.",
+    a: "Non, et je me méfie de ceux qui le font. Je montre ce qui a été construit chez d'autres clients, les décisions prises et ce que ça a produit, les premières places Google se vérifient en dix secondes. Vous jugez sur pièces.",
   },
 ];
 
 /**
  * Mention de disponibilité du dernier écran. Texte daté, à mettre à jour à
- * chaque build — ou `null` pour ne rien afficher. Jamais gardée pour l'effet.
+ * chaque build, ou `null` pour ne rien afficher. Jamais gardée pour l'effet.
  */
 /**
  * Réservation en ligne (Cal.com). Le nom d'utilisateur du compte fait partie du
@@ -790,16 +790,16 @@ export const FAQS = [
  * L'événement dure 15 min et propose deux lieux, téléphone ou visio.
  *
  * `BOOKING_CAL_LINK` est la forme attendue par la modale, `BOOKING_URL` la page
- * publique — celle qui sert de `href`, donc de secours si le script de la modale
+ * publique, celle qui sert de `href`, donc de secours si le script de la modale
  * ne se charge pas. Les deux doivent désigner le même événement.
  */
 export const BOOKING_CAL_LINK = "estebangilles/appel";
 export const BOOKING_URL = `https://cal.com/${BOOKING_CAL_LINK}`;
 
 /**
- * WhatsApp — même numéro que la ligne, sans indicatif ni « + » dans wa.me.
+ * WhatsApp, même numéro que la ligne, sans indicatif ni « + » dans wa.me.
  * Le texte pré-rempli n'engage à rien : il évite la page blanche, et dit à
- * quel titre on écrit — sinon le premier message reçu est souvent « bonjour ».
+ * quel titre on écrit, sinon le premier message reçu est souvent « bonjour ».
  */
 export const WHATSAPP_URL =
   "https://wa.me/32492200275?text=" +

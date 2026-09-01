@@ -58,7 +58,7 @@ export default async function AdminQAPage() {
               <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
                 <div>
                   <p className="mono uppercase mb-1" style={{ fontSize: 10, letterSpacing: "0.14em", color: "#8A6914" }}>
-                    · Revue #{sub.round} — {sub.createdAt.toLocaleDateString("fr-BE")}
+                    · Revue #{sub.round}, {sub.createdAt.toLocaleDateString("fr-BE")}
                   </p>
                   <Link href={`/app/admin/projects/${sub.project.id}`} className="display no-underline" style={{ fontSize: 22, letterSpacing: "-0.02em", color: "var(--color-ink)" }}>
                     {sub.project.name}
@@ -119,7 +119,7 @@ export default async function AdminQAPage() {
                     </label>
                     <label className="block">
                       <span className="mono uppercase block mb-2" style={{ fontSize: 10, letterSpacing: "0.14em", color: "var(--color-muted)" }}>
-                        Points à corriger (1 par ligne · `Description | URL_capture | URL_vidéo` — préfixe [BLOQUANT] possible)
+                        Points à corriger (1 par ligne · `Description | URL_capture | URL_vidéo`, préfixe [BLOQUANT] possible)
                       </span>
                       <textarea
                         name="qaItems"

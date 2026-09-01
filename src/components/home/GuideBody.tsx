@@ -4,7 +4,7 @@ import type { GuideBlock } from "./guides";
 /**
  * Rendu d'un guide. Les blocs sont typés dans `guides.ts` : la rédaction ne
  * touche jamais au balisage, et le balisage ne peut pas produire une
- * hiérarchie de titres incohérente — un `h3` ne peut apparaître que là où
+ * hiérarchie de titres incohérente, un `h3` ne peut apparaître que là où
  * l'auteur a écrit `kind: "h3"`.
  *
  * Le `key` est l'index : les blocs d'un guide ne sont ni réordonnés ni

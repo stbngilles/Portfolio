@@ -103,7 +103,7 @@ export default async function QuotesReviewPage() {
                     style={{ color: "var(--color-ink-soft)" }}
                   >
                     · {l.label}
-                    {l.quantity > 1 && ` × ${l.quantity}`} —{" "}
+                    {l.quantity > 1 && ` × ${l.quantity}`} :{" "}
                     {formatPrice(l.unitPrice * l.quantity)}
                     {l.isRecurring && " /mois"}
                   </li>
@@ -131,7 +131,7 @@ export default async function QuotesReviewPage() {
                     className="mono uppercase block mb-2"
                     style={{ fontSize: 10, letterSpacing: "0.14em", color: "var(--color-muted)" }}
                   >
-                    Note interne (optionnel) — coût dev suggéré, contraintes…
+                    Note interne (optionnel), coût dev suggéré, contraintes…
                   </span>
                   <textarea
                     name="note"
@@ -149,7 +149,7 @@ export default async function QuotesReviewPage() {
                   />
                 </label>
                 <button type="submit" className="btn btn-primary justify-self-start">
-                  Valider — le commercial peut l'envoyer ✓
+                  Valider, le commercial peut l'envoyer ✓
                 </button>
               </form>
             </article>

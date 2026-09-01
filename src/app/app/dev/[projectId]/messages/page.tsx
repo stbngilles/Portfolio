@@ -28,7 +28,7 @@ export default async function DevMessagesPage({
         className="serif-i mb-6 text-sm"
         style={{ color: "var(--color-muted)" }}
       >
-        Canal interne — uniquement visible par vous et l'administrateur. Le client n'y a pas accès.
+        Canal interne, uniquement visible par vous et l'administrateur. Le client n'y a pas accès.
       </p>
 
       <div className="space-y-3 mb-8 min-h-[200px]">

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Klein & Craie — bleu Klein sur papier craie */
+  /* Klein & Craie, bleu Klein sur papier craie */
   --color-bg: #F2F1EE;
   --color-bg-deep: #E8E6E0;
   --color-ink: #0F0F14;
@@ -55,7 +55,7 @@
 }
 
 @layer utilities {
-  /* Calligraphie Instrument Serif restaurée — utilisée pour les titres principaux
+  /* Calligraphie Instrument Serif restaurée, utilisée pour les titres principaux
      et les accents italiques. !important nécessaire car Tailwind v4 preflight
      peut assigner font-family aux headings via @theme. */
   .serif,
@@ -92,7 +92,7 @@
     line-height: 1.04;
   }
 
-  /* (Old .ghost utility removed — was the split-contrast grey echo used during the
+  /* (Old .ghost utility removed, was the split-contrast grey echo used during the
      short-lived DM Sans pattern. Calligraphie restored, accents go to var(--color-accent).) */
 
   .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }

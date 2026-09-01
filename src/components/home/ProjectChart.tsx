@@ -5,7 +5,7 @@ import type { Chart } from "./data";
  * `div` et une grille CSS suffisent, et ça reste lisible sans JavaScript.
  *
  * La règle est la même que pour le texte : on ne dessine que des chiffres
- * relevés sur le site du client. Un graphique décoratif ment deux fois — sur
+ * relevés sur le site du client. Un graphique décoratif ment deux fois, sur
  * le fond et sur le sérieux du reste de la page.
  */
 
@@ -28,7 +28,7 @@ function Bars({ items }: { items: Extract<Chart, { kind: "bars" }>["items"] }) {
 }
 
 /** Bande hebdomadaire : une ligne par jour, la plage d'ouverture posée sur
- *  une échelle horaire commune. Les jours fermés gardent leur ligne — c'est
+ *  une échelle horaire commune. Les jours fermés gardent leur ligne, c'est
  *  le vide qui porte l'information. */
 function Week({ chart }: { chart: Extract<Chart, { kind: "week" }> }) {
   const span = chart.to - chart.from;

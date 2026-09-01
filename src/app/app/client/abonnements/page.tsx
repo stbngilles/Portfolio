@@ -171,7 +171,7 @@ export default async function ClientSubscriptionsPage({
                         style={{ color: "#9F1239" }}
                       >
                         Sera résilié le{" "}
-                        {s.cancelEffectiveAt.toLocaleDateString("fr-BE")} — vous
+                        {s.cancelEffectiveAt.toLocaleDateString("fr-BE")}, vous
                         pouvez encore changer d'avis.
                       </p>
                     )}

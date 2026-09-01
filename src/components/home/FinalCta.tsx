@@ -7,7 +7,7 @@ import { Lines } from "./Text";
 
 /**
  * Dernier écran, bleu profond : un titre immense, l'adresse qui défile en bas,
- * et deux actions — réserver un créneau, ou passer par la page de contact.
+ * et deux actions, réserver un créneau, ou passer par la page de contact.
  *
  * La réservation vient en premier, en papier plein : elle aboutit à une date,
  * là où « décrire votre projet » aboutit à un formulaire de plus. Elle ouvre le
@@ -55,7 +55,7 @@ export default function FinalCta() {
             Ou décrire votre projet <Arrow dir="ne" />
           </Link>
           <p className="pb-final-p">
-            Assez pour cadrer le projet et le chiffrer — et pour que vous sachiez quoi faire, même si ce n&apos;est pas avec moi.
+            Assez pour cadrer le projet et le chiffrer, et pour que vous sachiez quoi faire, même si ce n&apos;est pas avec moi.
           </p>
         </div>
       </div>

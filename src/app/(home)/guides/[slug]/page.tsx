@@ -12,7 +12,7 @@ const SITE_URL = "https://pixelbrute.be";
 
 /**
  * Un guide. Ces pages visent les questions que se posent les gens avant de
- * chercher un prestataire — ce que les études de cas ne peuvent pas faire :
+ * chercher un prestataire, ce que les études de cas ne peuvent pas faire :
  * un dossier client se positionne sur le nom du client.
  */
 
@@ -76,12 +76,12 @@ export default async function GuidePage({
   };
 
   /* L'auteur est une personne nommée, pas « l'équipe éditoriale ». C'est ce
-     que cherche un moteur — et un assistant — pour décider si un texte a une
+     que cherche un moteur, et un assistant, pour décider si un texte a une
      autorité derrière lui : un `@id` qui renvoie à quelqu'un dont on sait le
      métier, la localisation et les compétences (voir le graphe du layout
      racine), plutôt qu'un nom d'organisation répété deux fois.
      `about` dit de quoi parle la page ; `mentions` cite les entités
-     réellement évoquées — ici les études de cas mises en regard. */
+     réellement évoquées, ici les études de cas mises en regard. */
   const article = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -154,7 +154,7 @@ export default async function GuidePage({
           <div className="pb-case-cta">
             <h2 className="pb-d-s">Une question que cette page ne règle pas&nbsp;?</h2>
             <p>
-              Décrivez votre situation en trois questions. Je réponds sous 24&nbsp;h ouvrées — et si
+              Décrivez votre situation en trois questions. Je réponds sous 24&nbsp;h ouvrées, et si
               votre besoin ne demande pas de sur mesure, je vous le dirai aussi.
             </p>
             <Link href="/contact" className="pb-btn-line">

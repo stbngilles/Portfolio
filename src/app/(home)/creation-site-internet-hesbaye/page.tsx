@@ -11,13 +11,13 @@ const SITE_URL = "https://pixelbrute.be";
 const URL = `${SITE_URL}/creation-site-internet-hesbaye`;
 
 /**
- * Page de zone — Hesbaye.
+ * Page de zone, Hesbaye.
  *
  * Ce n'est pas une page-passerelle : elle ne se décline pas commune par
  * commune avec le nom échangé. Elle n'existe qu'une fois, elle porte des
  * clients réels situés dans la zone, et deux captures datées de résultats
  * obtenus là. Décliner ce contenu pour dix communes en changeant le toponyme
- * serait exactement ce que Google sanctionne — et ce qu'on déconseille dans
+ * serait exactement ce que Google sanctionne, et ce qu'on déconseille dans
  * le guide sur le pack local.
  *
  * L'angle : un indépendant de Hesbaye n'a pas besoin de sortir sur « Liège ».
@@ -39,20 +39,20 @@ const COMMUNES = [
 ];
 
 export const metadata: Metadata = {
-  title: { absolute: "Création de site internet en Hesbaye — Hannut, Waremme, Braives" },
+  title: { absolute: "Création de site internet en Hesbaye, Hannut, Waremme, Braives" },
   description:
     "Studio web installé à Hannut. Sites internet et référencement local pour indépendants et artisans de Hesbaye. Deux clients de la zone en 1ʳᵉ position du pack local Google.",
   alternates: { canonical: URL },
   openGraph: {
     title: "Création de site internet en Hesbaye | Pixelbrute",
     description:
-      "Installé à Hannut. Deux clients de la zone en 1ʳᵉ position du pack local — captures datées à l'appui.",
+      "Installé à Hannut. Deux clients de la zone en 1ʳᵉ position du pack local, captures datées à l'appui.",
     type: "website",
     locale: "fr_BE",
     url: URL,
     siteName: "Pixelbrute",
     images: [
-      { url: "/home/preuves/zenharmonie-google.png", width: 1500, height: 970, alt: "Résultat Google — pack local, Hélécine" },
+      { url: "/home/preuves/zenharmonie-google.png", width: 1500, height: 970, alt: "Résultat Google, pack local, Hélécine" },
     ],
   },
 };
@@ -102,7 +102,7 @@ export default function HesbayePage() {
           <h1 className="pb-gd-title">Création de site internet en Hesbaye</h1>
           <p className="pb-gd-lede">
             Je travaille depuis {IDENTITE.ville}. Mes trois clients les plus proches sont à Braives,
-            Hélécine et dans la région de Waremme — deux d&apos;entre eux sont aujourd&apos;hui en
+            Hélécine et dans la région de Waremme, deux d&apos;entre eux sont aujourd&apos;hui en
             première position du pack local Google. Cette page explique pourquoi c&apos;est plus
             facile ici qu&apos;en ville, et ce que ça demande.
           </p>
@@ -137,7 +137,7 @@ export default function HesbayePage() {
               <div className="pb-proof-shot">
                 <Image
                   src="/home/preuves/zenharmonie-google.png"
-                  alt="Résultat Google pour « massage hélécine » — Zen Harmonie en première position du pack local"
+                  alt="Résultat Google pour « massage hélécine », Zen Harmonie en première position du pack local"
                   width={1500}
                   height={970}
                   sizes="(max-width: 900px) 100vw, 760px"
@@ -156,7 +156,7 @@ export default function HesbayePage() {
               <div className="pb-proof-shot">
                 <Image
                   src="/home/preuves/detailwave-google.png"
-                  alt="Résultat Google pour « nettoyage canapé waremme » — Detail Wave en tête"
+                  alt="Résultat Google pour « nettoyage canapé waremme », Detail Wave en tête"
                   width={1500}
                   height={935}
                   sizes="(max-width: 900px) 100vw, 760px"
@@ -184,7 +184,7 @@ export default function HesbayePage() {
               ))}
             </ul>
             <p className="pb-gd-p">
-              Au-delà, je travaille aussi — simplement, on se voit en visio plutôt qu&apos;autour
+              Au-delà, je travaille aussi, simplement, on se voit en visio plutôt qu&apos;autour
               d&apos;une table. Trois de mes six projets sont hors de ce rayon.
             </p>
 
@@ -220,7 +220,7 @@ export default function HesbayePage() {
             <h2 className="pb-d-s">Vous êtes de la région&nbsp;?</h2>
             <p>
               Dites-moi votre métier et votre commune. Je regarde ce que donne la recherche
-              aujourd&apos;hui et je vous dis franchement s&apos;il y a quelque chose à prendre —
+              aujourd&apos;hui et je vous dis franchement s&apos;il y a quelque chose à prendre :
               parfois la réponse est non.
             </p>
             <Link href="/contact" className="pb-btn-line">

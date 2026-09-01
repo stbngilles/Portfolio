@@ -233,7 +233,7 @@ export async function markQuoteSigned(formData: FormData) {
   revalidatePath(`/app/commercial/devis/${id}`);
   revalidatePath(`/app/commercial/devis`);
 
-  // Auto-conversion en projet si pas déjà fait — c'est le pivot de tout le pipeline.
+  // Auto-conversion en projet si pas déjà fait, c'est le pivot de tout le pipeline.
   if (!existing?.project) {
     const fd = new FormData();
     fd.set("id", id);
@@ -289,7 +289,7 @@ export async function convertQuoteToProject(formData: FormData) {
     throw new Error("Le devis doit être marqué comme signé avant conversion.");
   }
   if (quote.project) {
-    // Déjà converti — on redirige simplement.
+    // Déjà converti, on redirige simplement.
     redirect(`/app/admin/projects/${quote.project.id}`);
   }
 
@@ -340,7 +340,7 @@ export async function convertQuoteToProject(formData: FormData) {
   // 2) Crée le projet + étapes par défaut.
   const projectName =
     quote.clientCompany?.trim() ||
-    `Projet ${quote.clientName} — ${quote.number}`;
+    `Projet ${quote.clientName}, ${quote.number}`;
 
   const project = await prisma.project.create({
     data: {
@@ -444,7 +444,7 @@ export async function convertQuoteToProject(formData: FormData) {
       });
     }
 
-    // Récurrent — une commission par service pour gérer le split producteur.
+    // Récurrent, une commission par service pour gérer le split producteur.
     if (recurringTotal > 0) {
       const firstOfMonth = new Date();
       firstOfMonth.setDate(1);
@@ -486,7 +486,7 @@ export async function convertQuoteToProject(formData: FormData) {
             periodMonth: firstOfMonth,
           });
           commissions.push({
-            commercialId: quote.commercialId, // placeholder — admin réassigne
+            commercialId: quote.commercialId, // placeholder, admin réassigne
             source: "QUOTE",
             sourceId: quote.id,
             type: "PRODUCER_PENDING",

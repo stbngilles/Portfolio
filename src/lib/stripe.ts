@@ -1,5 +1,5 @@
 /**
- * Intégration Stripe — Checkout pour factures one-shot, webhook pour
+ * Intégration Stripe, Checkout pour factures one-shot, webhook pour
  * marquer payé. No-op si STRIPE_SECRET_KEY est absent.
  *
  * On garde Stripe en HTTP direct (pas de SDK) pour éviter d'ajouter une
@@ -76,7 +76,7 @@ export function verifyWebhookSignature(
 ): boolean {
   if (!STRIPE_WEBHOOK_SECRET) {
     // En dev sans secret, on accepte. À durcir en prod.
-    console.warn("[stripe] STRIPE_WEBHOOK_SECRET manquant — webhook non vérifié.");
+    console.warn("[stripe] STRIPE_WEBHOOK_SECRET manquant, webhook non vérifié.");
     return true;
   }
   if (!signatureHeader) return false;

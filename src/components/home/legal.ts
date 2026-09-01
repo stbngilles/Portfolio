@@ -1,7 +1,7 @@
 /**
  * Identité légale et sous-traitants. Une seule source pour les deux pages
  * légales, le JSON-LD et le pied de page : ces informations doivent être
- * strictement identiques partout, sinon elles ne valent rien — ni juridiquement,
+ * strictement identiques partout, sinon elles ne valent rien, ni juridiquement,
  * ni pour la cohérence des signaux locaux que lit Google (nom, adresse,
  * téléphone à l'identique).
  */
@@ -13,8 +13,8 @@ export const IDENTITE = {
    */
   nom: "Esteban Gilles",
   enseigne: "Pixelbrute",
-  /** Étudiant indépendant jusqu'au 30 septembre 2026 — à revoir à cette date. */
-  statut: "Entreprise personne physique — étudiant indépendant",
+  /** Étudiant indépendant jusqu'au 30 septembre 2026, à revoir à cette date. */
+  statut: "Entreprise personne physique, étudiant indépendant",
   rue: "Rue Victor Gilles 3A",
   codePostal: "4280",
   ville: "Hannut",
@@ -25,32 +25,32 @@ export const IDENTITE = {
   /** Le numéro d'entreprise BCE et le numéro de TVA sont identiques en Belgique. */
   bce: "BE 1029.035782",
   tva: "BE 1029.035782",
-  /** Assujetti ordinaire — pas de régime de franchise. La TVA belge s'applique. */
-  regimeTva: "Assujetti à la TVA — régime normal, TVA belge de 21 % applicable",
+  /** Assujetti ordinaire, pas de régime de franchise. La TVA belge s'applique. */
+  regimeTva: "Assujetti à la TVA, régime normal, TVA belge de 21 % applicable",
 } as const;
 
 /**
  * Profils publics, ailleurs que sur ce site.
  *
- * Alimente le `sameAs` du JSON-LD. C'est ce champ qui permet à un moteur — et
- * à un assistant — de relier « Pixelbrute » sur ce domaine à « Pixelbrute »
+ * Alimente le `sameAs` du JSON-LD. C'est ce champ qui permet à un moteur, et
+ * à un assistant, de relier « Pixelbrute » sur ce domaine à « Pixelbrute »
  * sur une fiche Google ou un Instagram, et donc de considérer que les avis
  * publiés là-bas parlent bien de cette entreprise-ci.
  *
  * Un modèle ne recommande pas une entreprise sur la foi de son seul site :
  * il recoupe. Chaque URL ajoutée ici est un point de recoupement de plus.
  * Ne mettre que des pages réellement en ligne et réellement contrôlées par
- * le studio — une URL morte dans `sameAs` dévalue les autres.
+ * le studio, une URL morte dans `sameAs` dévalue les autres.
  *
  * La séparation studio / personne n'est pas cosmétique. Un profil LinkedIn
  * personnel déclaré comme profil d'entreprise brouille les deux entités au
  * lieu de les renforcer : il faut que chaque URL soit rattachée à celle
  * qu'elle décrit vraiment. Sur un studio solo, les deux se confondent dans
- * les faits — pas dans une base de connaissances.
+ * les faits, pas dans une base de connaissances.
  *
  * Note pour plus tard : Google a déjà une entité pour Pixelbrute dans son
  * Knowledge Graph, identifiant `/g/11yzdtjtv1`. C'est ce qui rend le studio
- * « résolvable » — relevé sur les résultats Google, à ne pas perdre. On ne le
+ * « résolvable », relevé sur les résultats Google, à ne pas perdre. On ne le
  * publie pas dans le balisage : `sameAs` attend des pages, pas des
  * identifiants internes.
  */
@@ -79,7 +79,7 @@ export const NACEBEL = [
 
 /**
  * Sous-traitants au sens du RGPD. Tout service qui voit passer une donnée
- * personnelle doit figurer ici — c'est la partie de la politique de
+ * personnelle doit figurer ici, c'est la partie de la politique de
  * confidentialité qui se périme le plus vite, et celle qu'on oublie de
  * mettre à jour quand on change d'outil.
  */

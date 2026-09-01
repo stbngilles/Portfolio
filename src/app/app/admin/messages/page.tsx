@@ -58,7 +58,7 @@ export default async function AdminMessagesPage() {
             Aucun message pour le moment.
           </p>
           <p className="text-sm mt-2" style={{ color: "var(--color-subtle)" }}>
-            Les devs vous écrivent depuis leur espace projet — coupé du client.
+            Les devs vous écrivent depuis leur espace projet, coupé du client.
           </p>
         </div>
       ) : (
@@ -111,7 +111,7 @@ export default async function AdminMessagesPage() {
                   >
                     {last
                       ? `${last.senderRole === "DEV" ? "← " : "→ "}${last.createdAt.toLocaleDateString("fr-BE")}`
-                      : "—"}
+                      : "–"}
                   </span>
                 </div>
                 <p className="text-sm mb-1" style={{ color: "var(--color-muted)" }}>

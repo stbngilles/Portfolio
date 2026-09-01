@@ -57,7 +57,7 @@ export async function claimProject(formData: FormData) {
 }
 
 /**
- * Le dev DEMANDE à relâcher son projet — il ne peut pas le faire seul.
+ * Le dev DEMANDE à relâcher son projet, il ne peut pas le faire seul.
  * Crée une ReleaseRequest en statut PENDING. L'admin l'examine ensuite.
  *
  * L'admin peut, lui, relâcher directement sans passer par ce flux (raccourci

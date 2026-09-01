@@ -55,7 +55,7 @@ export default async function AdminBlockersPage() {
                 <div className="flex items-start justify-between mb-3 flex-wrap gap-2">
                   <div>
                     <p className="mono uppercase mb-1" style={{ fontSize: 10, letterSpacing: "0.14em", color: "#9F1239" }}>
-                      · BLOQUÉ — {TYPE_LABEL[b.type] ?? b.type} — {b.createdAt.toLocaleDateString("fr-BE")}
+                      · BLOQUÉ, {TYPE_LABEL[b.type] ?? b.type}, {b.createdAt.toLocaleDateString("fr-BE")}
                     </p>
                     <Link href={`/app/admin/projects/${b.project.id}`} className="display no-underline" style={{ fontSize: 22, letterSpacing: "-0.02em", color: "#7B1024" }}>
                       {b.project.name}
@@ -119,7 +119,7 @@ export default async function AdminBlockersPage() {
                 <div>
                   <p style={{ fontWeight: 500, fontSize: 14 }}>{b.project.name}</p>
                   <p className="text-xs" style={{ color: "var(--color-muted)" }}>
-                    {TYPE_LABEL[b.type] ?? b.type} — {b.dev.name}
+                    {TYPE_LABEL[b.type] ?? b.type}, {b.dev.name}
                   </p>
                 </div>
                 <span className="mono text-xs" style={{ color: "#13A66A" }}>

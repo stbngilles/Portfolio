@@ -49,13 +49,13 @@ export function QuoteCalculator() {
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
 
-  // Client — coordonnées de base
+  // Client, coordonnées de base
   const [clientName, setClientName] = useState("");
   const [clientEmail, setClientEmail] = useState("");
   const [clientCompany, setClientCompany] = useState("");
   const [notes, setNotes] = useState("");
 
-  // Client — coordonnées de facturation
+  // Client, coordonnées de facturation
   const [clientPhone, setClientPhone] = useState("");
   const [clientVat, setClientVat] = useState("");
   const [clientAddress, setClientAddress] = useState("");
@@ -74,7 +74,7 @@ export function QuoteCalculator() {
     return init;
   });
 
-  // Récurrent — maintenance_basic est obligatoire et toujours activée
+  // Récurrent, maintenance_basic est obligatoire et toujours activée
   const [recurring, setRecurring] = useState<Record<RecurringKey, boolean>>(
     () => {
       const init = {} as Record<RecurringKey, boolean>;
@@ -96,7 +96,7 @@ export function QuoteCalculator() {
     return init;
   });
 
-  // Verrouillages conditionnels — chaque option à risque génère une question
+  // Verrouillages conditionnels, chaque option à risque génère une question
   // obligatoire pour éviter les fausses promesses au client.
   const [stripeProductType, setStripeProductType] = useState("");
   const [reservationBuffer, setReservationBuffer] = useState("");
@@ -216,23 +216,23 @@ export function QuoteCalculator() {
       return;
     }
     if (stripeOn && stripeProductType.trim().length < 5) {
-      setError("Paiement en ligne coché — précisez le type de produit vendu.");
+      setError("Paiement en ligne coché, précisez le type de produit vendu.");
       return;
     }
     if (reservationOn && !reservationBuffer) {
-      setError("Réservation activée — choisissez la pause minimum entre deux créneaux.");
+      setError("Réservation activée, choisissez la pause minimum entre deux créneaux.");
       return;
     }
     if (reservationSyncedOn && reservationTool.trim().length < 3) {
-      setError("Réservation synchronisée — précisez l'outil tiers (Google Calendar, Cal.com, etc.).");
+      setError("Réservation synchronisée, précisez l'outil tiers (Google Calendar, Cal.com, etc.).");
       return;
     }
     if (migrationOn && migrationFrom.trim().length < 3) {
-      setError("Migration cochée — précisez la techno actuelle du site à migrer.");
+      setError("Migration cochée, précisez la techno actuelle du site à migrer.");
       return;
     }
 
-    // On enrichit les notes internes avec les verrouillages conditionnels —
+    // On enrichit les notes internes avec les verrouillages conditionnels :
     // ils deviennent traçables pour le brief technique.
     const verrouillages: string[] = [];
     if (stripeOn) verrouillages.push(`[Stripe] Produit : ${stripeProductType}`);
@@ -242,7 +242,7 @@ export function QuoteCalculator() {
       );
     if (migrationOn) verrouillages.push(`[Migration] Techno actuelle : ${migrationFrom}`);
 
-    const enrichedNotes = [notes, ...(verrouillages.length ? ["", "— Verrouillages :", ...verrouillages] : [])]
+    const enrichedNotes = [notes, ...(verrouillages.length ? ["", "Verrouillages :", ...verrouillages] : [])]
       .filter(Boolean)
       .join("\n");
 
@@ -569,7 +569,7 @@ export function QuoteCalculator() {
                       </div>
                     ) : (
                       <p className="mono text-right" style={{ minWidth: 90, color: "var(--color-ink)" }}>
-                        {unit > 0 ? formatPrice(unit) : "—"}
+                        {unit > 0 ? formatPrice(unit) : "–"}
                       </p>
                     )}
                   </div>
@@ -579,7 +579,7 @@ export function QuoteCalculator() {
           </div>
         </Card>
 
-        {/* Verrouillages conditionnels — n'apparaissent que si pertinent */}
+        {/* Verrouillages conditionnels, n'apparaissent que si pertinent */}
         {(stripeOn || reservationOn || migrationOn) && (
           <Card title="Verrouillages" italic="à confirmer avant de signer.">
             <div className="space-y-4">
@@ -618,12 +618,12 @@ export function QuoteCalculator() {
                         fontSize: 14,
                       }}
                     >
-                      <option value="">— choisir —</option>
+                      <option value="">Choisir…</option>
                       <option>0 minute</option>
                       <option>15 minutes (standard)</option>
                       <option>30 minutes</option>
                       <option>1 heure</option>
-                      <option>Personnalisé — voir notes</option>
+                      <option>Personnalisé, voir notes</option>
                     </select>
                   </Field>
                   {reservationSyncedOn && (
@@ -705,7 +705,7 @@ export function QuoteCalculator() {
                         style={{ accentColor: "var(--color-accent)" }}
                       />
                       <span>
-                        J&apos;exécute ce service moi-même —{" "}
+                        J&apos;exécute ce service moi-même,{" "}
                         <strong style={{ color: isSelf ? "var(--color-accent)" : "inherit" }}>
                           {isSelf ? "commission 100 %" : "commission 15 % (+ 85 % producteur)"}
                         </strong>

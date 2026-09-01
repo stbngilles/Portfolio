@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 
 /**
- * Impersonation — seuls ADMIN et DEV peuvent prendre la vue d'un autre user.
+ * Impersonation, seuls ADMIN et DEV peuvent prendre la vue d'un autre user.
  * On stocke l'id de la cible dans un cookie httpOnly. Le user réel
  * reste dans la session Better-Auth ; on superpose juste l'identité effective.
  */
@@ -19,7 +19,7 @@ export async function setImpersonatedUserId(userId: string | null) {
       httpOnly: true,
       sameSite: "lax",
       path: "/",
-      maxAge: 60 * 60 * 8, // 8h max — sécurité
+      maxAge: 60 * 60 * 8, // 8h max, sécurité
     });
   } else {
     c.delete(IMPERSONATE_COOKIE);

@@ -51,7 +51,7 @@ export default async function ClientInvoicesPage({
             color: "#0D6E46",
           }}
         >
-          Paiement reçu — merci ! Votre facture est marquée comme payée.
+          Paiement reçu, merci ! Votre facture est marquée comme payée.
         </div>
       )}
       {sp.cancelled && (

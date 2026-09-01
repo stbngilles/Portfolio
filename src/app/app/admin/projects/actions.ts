@@ -59,7 +59,7 @@ export async function setStageStatus(formData: FormData) {
     data: {
       status,
       validatedAt:    status === "VALIDATED" ? new Date() : null,
-      // Contexte de validation — rempli quand on passe en NEEDS_VALIDATION
+      // Contexte de validation, rempli quand on passe en NEEDS_VALIDATION
       ...(status === "NEEDS_VALIDATION" ? { validationNote: note, validationUrl: url } : {}),
       // Reset contexte quand validé ou repassé en travail
       ...(status === "VALIDATED" || status === "IN_PROGRESS" ? { validationNote: null, validationUrl: null } : {}),

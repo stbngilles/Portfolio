@@ -3,7 +3,7 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma } from "./db";
 
 /**
- * Better-Auth — config plateforme Pixel Brut.
+ * Better-Auth, config plateforme Pixel Brut.
  *
  * 4 rôles : ADMIN | COMMERCIAL | CLIENT | DEV
  * Le rôle est stocké sur User.role (default CLIENT) et lu côté serveur

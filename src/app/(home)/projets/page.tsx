@@ -12,7 +12,7 @@ const SITE_URL = "https://pixelbrute.be";
  * Index des études de cas. Reprend le rôle de l'ancienne `/realisations`,
  * mais chaque projet mène désormais à sa propre page plutôt qu'à une modale.
  *
- * La grille de la home reste la vitrine ; celle-ci est la liste — un titre,
+ * La grille de la home reste la vitrine ; celle-ci est la liste, un titre,
  * un secteur, un fait vérifiable, et un lien. Elle sert autant au visiteur
  * qu'au maillage interne, que la réduction du site à deux pages avait
  * entièrement supprimé.
@@ -20,13 +20,13 @@ const SITE_URL = "https://pixelbrute.be";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Projets — six sites livrés à Liège et en Belgique | Pixelbrute",
+    absolute: "Projets, six sites livrés à Liège et en Belgique | Pixelbrute",
   },
   description:
     "Six études de cas détaillées : le problème du client, les arbitrages, ce qui a été construit, et le résultat vérifiable. Sites livrés pour des indépendants et artisans.",
   alternates: { canonical: `${SITE_URL}/projets` },
   openGraph: {
-    title: "Projets — six sites livrés | Pixelbrute",
+    title: "Projets, six sites livrés | Pixelbrute",
     description:
       "Le problème, les arbitrages, ce qui a été construit, le résultat vérifiable. Six dossiers complets.",
     type: "website",
@@ -84,7 +84,7 @@ export default function ProjectsIndexPage() {
           <p className="pb-idx-lede">
             Chaque étude de cas dit la même chose dans le même ordre : ce qui coinçait chez le
             client, ce que j&apos;ai tranché et pourquoi, ce qui est en ligne aujourd&apos;hui, et ce
-            que ça a produit. Les chiffres sont relevés sur les sites eux-mêmes — ils sont là pour
+            que ça a produit. Les chiffres sont relevés sur les sites eux-mêmes, ils sont là pour
             être recomptés.
           </p>
 
@@ -96,14 +96,14 @@ export default function ProjectsIndexPage() {
                     {p.mockup ? (
                       <Image
                         src={p.mockup}
-                        alt={`${p.name} — site livré, présenté sur ordinateur portable`}
+                        alt={`${p.name}, site livré, présenté sur ordinateur portable`}
                         fill
                         sizes="(max-width: 560px) 100vw, (max-width: 860px) 150px, 260px"
                       />
                     ) : p.shot ? (
                       <Image
                         src={p.shot}
-                        alt={`Page d'accueil de ${p.name} — capture du site livré`}
+                        alt={`Page d'accueil de ${p.name}, capture du site livré`}
                         fill
                         sizes="(max-width: 560px) 100vw, (max-width: 860px) 150px, 260px"
                       />

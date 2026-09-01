@@ -4,11 +4,11 @@ import { ImageResponse } from "next/og";
  * Carte de partage par défaut du site. Sans elle, `twitter:card` valait
  * `summary_large_image` sans image : tout partage rendait un cadre vide.
  *
- * Générée à la volée plutôt que déposée en PNG — le texte reste modifiable
+ * Générée à la volée plutôt que déposée en PNG, le texte reste modifiable
  * sans repasser par un outil de design, et la DA (tampon Klein sur craie)
  * suit celle du site.
  */
-export const alt = "Pixelbrute — création de sites internet à Liège";
+export const alt = "Pixelbrute · création de sites internet à Liège";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

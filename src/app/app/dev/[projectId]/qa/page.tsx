@@ -30,7 +30,7 @@ export default async function DevQAPage({
     return (
       <div className="wrap py-12 text-center">
         <p className="serif-i" style={{ fontSize: 20, color: "var(--color-muted)" }}>
-          Aucune soumission encore — soumettez d'abord votre livraison.
+          Aucune soumission encore, soumettez d'abord votre livraison.
         </p>
       </div>
     );
@@ -45,7 +45,7 @@ export default async function DevQAPage({
       <div className="flex items-baseline justify-between mb-6 flex-wrap gap-2">
         <div>
           <p className="mono uppercase mb-1" style={{ fontSize: 10, letterSpacing: "0.14em", color: "var(--color-subtle)" }}>
-            Checklist QA — Revue #{latest.round}
+            Checklist QA, Revue #{latest.round}
           </p>
           <a
             href={latest.preprodUrl}
@@ -132,7 +132,7 @@ export default async function DevQAPage({
                   )}
                   {isBlocking && (
                     <span className="mono uppercase block mt-1" style={{ fontSize: 9, letterSpacing: "0.14em", color: "#9F1239" }}>
-                      BLOQUANT — à corriger en priorité
+                      BLOQUANT, à corriger en priorité
                     </span>
                   )}
                 </div>

@@ -7,7 +7,7 @@ import { IDENTITE, PROFILS } from "@/components/home/legal";
 // Layout racine : uniquement le shell html, les polices, la mesure
 // d'audience et le JSON-LD.
 // Le chrome du site public vit dans `(home)/layout.tsx`, celui de la
-// plateforme dans `app/layout.tsx` — les deux ne partagent que ce fichier.
+// plateforme dans `app/layout.tsx`, les deux ne partagent que ce fichier.
 
 const SITE_URL = "https://pixelbrute.be";
 
@@ -24,7 +24,7 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
 });
 
-// Police de la homepage refondue (groupe `(home)`) — variable, axes wdth+wght.
+// Police de la homepage refondue (groupe `(home)`), variable, axes wdth+wght.
 const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-archivo",
@@ -48,8 +48,8 @@ const BING_MSVALIDATE_01 = process.env.BING_MSVALIDATE_01;
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Pixelbrute — Création de sites internet à Liège",
-    template: "%s | Pixelbrute — Studio web Liège",
+    default: "Pixelbrute · Création de sites internet à Liège",
+    template: "%s | Pixelbrute · Studio web Liège",
   },
   description:
     "Studio web solo à Liège. Création de sites internet sur mesure pour indépendants, artisans et petites structures. Conception, design et code par la même personne.",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: "Pixelbrute — Création de sites internet à Liège",
+    title: "Pixelbrute · Création de sites internet à Liège",
     description:
       "Studio web solo à Liège. Conception, design et code par la même personne, pour des indépendants et de petites structures.",
     type: "website",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pixelbrute — Création de sites internet à Liège",
+    title: "Pixelbrute · Création de sites internet à Liège",
     description:
       "Studio web solo à Liège. Conception, design et code par la même personne.",
   },
@@ -88,15 +88,15 @@ export const metadata: Metadata = {
 
 /* Ancres du graphe. Un `@id` stable est ce qui distingue « trois fiches qui
    se ressemblent » de « une entreprise, une personne, un site, et les liens
-   entre eux ». C'est cette différence qu'un moteur — et un assistant qui
-   s'appuie dessus — sait exploiter. Ne jamais les renommer : ils servent
+   entre eux ». C'est cette différence qu'un moteur, et un assistant qui
+   s'appuie dessus, sait exploiter. Ne jamais les renommer : ils servent
    d'identifiant de l'entité, pas d'URL à visiter. */
 const ORG_ID = `${SITE_URL}/#studio`;
 const PERSON_ID = `${SITE_URL}/#esteban`;
 const WEBSITE_ID = `${SITE_URL}/#site`;
 
 /** Une phrase qui tient seule, hors de tout contexte. C'est la forme qu'un
- *  modèle peut reprendre sans rien inventer autour — et donc celle qu'il
+ *  modèle peut reprendre sans rien inventer autour, et donc celle qu'il
  *  reprend. Écrite au présent, sans superlatif, avec les faits vérifiables :
  *  un nom, un métier, un lieu, une clientèle. */
 const DEFINITION =
@@ -141,7 +141,7 @@ const knowledgeGraph = {
       numberOfEmployees: { "@type": "QuantitativeValue", value: 1 },
       // Fiche Google Business (par son CID permanent) et Instagram du studio.
       // C'est par ce champ qu'un moteur relie ce domaine aux avis publiés
-      // ailleurs — et qu'un assistant peut les citer comme parlant bien de
+      // ailleurs, et qu'un assistant peut les citer comme parlant bien de
       // cette entreprise-ci. Le LinkedIn personnel est sur la `Person`.
       sameAs: [...PROFILS.studio],
       /* La zone déclarée doit refléter ce qui est réellement desservi, et
@@ -178,7 +178,7 @@ const knowledgeGraph = {
       priceRange: "€€",
       currenciesAccepted: "EUR",
       paymentAccepted: "Virement bancaire, PayPal",
-      // Pas d'`aggregateRating` ici. Google interdit les avis « auto-servis » —
+      // Pas d'`aggregateRating` ici. Google interdit les avis « auto-servis »,
       // ceux qu'une entreprise déclare sur son propre site à propos d'elle-même :
       // inéligibles aux résultats enrichis, et passibles d'une action manuelle.
       // Les avis Google restent visibles là où ils comptent : la fiche Business.
@@ -221,7 +221,7 @@ const knowledgeGraph = {
     },
     {
       // La personne, décrite séparément de l'entreprise. Sur un studio solo
-      // les deux se confondent dans les faits — mais pas dans une base de
+      // les deux se confondent dans les faits, mais pas dans une base de
       // connaissances : la question « qui a fait ce site » et la question
       // « quelle agence choisir » n'appellent pas la même réponse.
       "@type": "Person",
@@ -242,7 +242,7 @@ const knowledgeGraph = {
       sameAs: [...PROFILS.personne],
       // `knowsAbout` est le champ que lisent les moteurs pour savoir sur quoi
       // une personne fait autorité. Uniquement ce qui est démontré par un
-      // projet en ligne ou un guide publié — pas une liste de mots-clés.
+      // projet en ligne ou un guide publié, pas une liste de mots-clés.
       knowsAbout: [
         "Création de sites internet",
         "Référencement local",
@@ -293,7 +293,7 @@ export default function RootLayout({
             Il passait auparavant par `next/script` en `afterInteractive` :
             le balisage n'existait qu'après hydratation React, donc invisible
             pour tout robot qui n'exécute pas le JavaScript. Une balise script
-            n'est pas concernée par les mismatchs d'hydratation — le risque
+            n'est pas concernée par les mismatchs d'hydratation, le risque
             invoqué à l'époque portait sur le contenu du body, pas sur elle. */}
         <script
           type="application/ld+json"
@@ -302,7 +302,7 @@ export default function RootLayout({
         {children}
         {/* Mesure d'audience sans cookie ni donnée personnelle : aucune bannière
             de consentement n'est requise. Remplace Google Analytics, qui se
-            chargeait sans consentement — donc en infraction avec l'ePrivacy. */}
+            chargeait sans consentement, donc en infraction avec l'ePrivacy. */}
         <Analytics />
       </body>
     </html>

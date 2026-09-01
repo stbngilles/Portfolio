@@ -58,7 +58,7 @@ export default async function CommercialHome() {
         <PlaceholderPanel
           title="Calculateur de devis"
           description="Configurez l'offre (site + options + récurrent), générez un PDF propre, envoyez au prospect en un clic. Le prototype existant servira de base."
-          phase="Phase 1 — priorité"
+          phase="Phase 1, priorité"
         />
         <PlaceholderPanel
           title="Pipeline visuel"

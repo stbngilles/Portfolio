@@ -1,5 +1,5 @@
 /**
- * Tracker d'assets — état du dépôt par le client, lu par le pool dev pour
+ * Tracker d'assets, état du dépôt par le client, lu par le pool dev pour
  * décider quand la mission peut partir en production.
  */
 import { prisma } from "@/lib/db";

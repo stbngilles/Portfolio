@@ -14,7 +14,7 @@ const REASONS: { key: string; label: string; hint: string }[] = [
   {
     key: "PRICE",
     label: "C'est trop cher pour moi en ce moment",
-    hint: "On peut en parler — on a souvent une solution.",
+    hint: "On peut en parler, on a souvent une solution.",
   },
   {
     key: "NO_NEED",
@@ -90,7 +90,7 @@ export default async function CancelStep1Page({
           className="display mt-1"
           style={{ fontSize: 20, letterSpacing: "-0.01em" }}
         >
-          {sub.plan} — {formatPrice(sub.monthlyAmount)} / mois
+          {sub.plan}, {formatPrice(sub.monthlyAmount)} / mois
         </p>
         <p
           className="text-sm mt-1"

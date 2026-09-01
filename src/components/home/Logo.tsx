@@ -1,7 +1,7 @@
 /**
  * Logo Pixelbrute : le tampon.
  *
- * Le mot entier, encré d'un coup — bloc plein légèrement de travers, bords
+ * Le mot entier, encré d'un coup, bloc plein légèrement de travers, bords
  * rongés par un déplacement de turbulence. Il n'y a plus de tuile « P » à
  * côté du mot : la marque EST le mot, donc plus rien à aligner avec lui.
  *
@@ -10,7 +10,7 @@
  *
  * `tone="light"` sert quand la barre flotte au-dessus d'un panneau bleu ou
  * encre : le bloc passe alors en craie et le mot en bleu. Le tampon bleu posé
- * sur l'encre ne tient que 2,3:1 de contraste — d'où le retournement.
+ * sur l'encre ne tient que 2,3:1 de contraste, d'où le retournement.
  *
  * `textLength` est figé à la largeur réelle d'Archivo 900 à 68 px (461,9 u) :
  * tant que la police n'est pas chargée, le mot garde la largeur du bloc au

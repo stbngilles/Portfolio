@@ -81,7 +81,7 @@ export default async function AdminRecurringPage() {
         />
         <StatCard
           label="Taux d'attache"
-          value={attachRate !== null ? `${attachRate} %` : "—"}
+          value={attachRate !== null ? `${attachRate} %` : "–"}
           hint="abos actifs / projets livrés"
         />
         <StatCard

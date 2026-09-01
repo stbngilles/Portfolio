@@ -11,7 +11,7 @@ import { type Buffer } from "node:buffer";
 const VALID_ROLES = ["ADMIN", "COMMERCIAL", "CLIENT", "DEV", "COMPTABLE"] as const;
 
 /**
- * Server Action — changement de rôle d'un user par un admin.
+ * Server Action, changement de rôle d'un user par un admin.
  * Le `userId` est passé via .bind() côté page (fermeture serveur),
  * la nouvelle valeur de rôle vient du form (champ select name="role").
  */

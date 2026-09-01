@@ -428,7 +428,7 @@ export default async function DispoPage() {
                         cursor: disabled ? "not-allowed" : "pointer",
                       }}
                     >
-                      {disabled ? "Projet en cours — indisponible" : "Je prends cette mission →"}
+                      {disabled ? "Projet en cours, indisponible" : "Je prends cette mission →"}
                     </button>
                   </form>
                 </div>

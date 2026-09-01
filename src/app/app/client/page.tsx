@@ -72,7 +72,7 @@ export default async function ClientHome() {
           }}
         >
           <p style={{ fontWeight: 700, color: "#8A6914", fontSize: 15, marginBottom: 6 }}>
-            ⚡ Votre accord est requis — {needsClientValidation.label}
+            ⚡ Votre accord est requis, {needsClientValidation.label}
           </p>
 
           {/* Message de l'équipe */}
@@ -149,7 +149,7 @@ export default async function ClientHome() {
           }}
         >
           <p style={{ fontWeight: 600, color: "#7B1024", fontSize: 14 }}>
-            💳 {unpaidInvoices.length} facture{unpaidInvoices.length > 1 ? "s" : ""} en attente —{" "}
+            💳 {unpaidInvoices.length} facture{unpaidInvoices.length > 1 ? "s" : ""} en attente :{" "}
             {formatPrice(unpaidInvoices.reduce((s, i) => s + i.amount, 0))}
           </p>
           <Link
@@ -197,7 +197,7 @@ export default async function ClientHome() {
             </div>
           </div>
 
-          {/* Étapes — avec logique de validation intelligente */}
+          {/* Étapes, avec logique de validation intelligente */}
           <ol style={{ display: "flex", flexDirection: "column", gap: 5 }}>
             {project.stages.map((s) => {
               const v = STATUS_VISUAL[s.status as StageStatus];

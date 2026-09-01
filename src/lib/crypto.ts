@@ -3,7 +3,7 @@
  *
  * AES-256-GCM, clé dérivée par scrypt depuis CREDENTIALS_KEY.
  * En dev, si CREDENTIALS_KEY manque, on bascule sur un mode "clair" préfixé
- * `plain:` — visible en clair en base, mais on garde l'API unifiée.
+ * `plain:`, visible en clair en base, mais on garde l'API unifiée.
  *
  * Le format stocké : `enc:v1:<iv_b64>:<tag_b64>:<cipher_b64>`
  * ou `plain:<contenu>` en dev.
@@ -52,7 +52,7 @@ export function decryptSecret(stored: string | null | undefined): string | null 
   const key = getKey();
   if (!key) {
     // Chiffré mais on a perdu la clé : impossible à restituer.
-    return "[déchiffrement impossible — clé manquante]";
+    return "[déchiffrement impossible, clé manquante]";
   }
 
   const [, , ivB64, tagB64, ctB64] = stored.split(":");
@@ -71,7 +71,7 @@ export function decryptSecret(stored: string | null | undefined): string | null 
 }
 
 export function maskSecret(s: string | null): string {
-  if (!s) return "—";
+  if (!s) return "–";
   if (s.length <= 4) return "•".repeat(s.length);
   return `${s.slice(0, 2)}${"•".repeat(Math.min(8, s.length - 4))}${s.slice(-2)}`;
 }

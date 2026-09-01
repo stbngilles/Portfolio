@@ -1,8 +1,8 @@
 /**
- * Guides — le contenu éditorial du site, hors études de cas.
+ * Guides, le contenu éditorial du site, hors études de cas.
  *
  * Même règle que `data.ts` : le texte vit ici, le rendu ailleurs. Et même
- * discipline sur les chiffres — tout nombre cité est soit relevé sur un site
+ * discipline sur les chiffres, tout nombre cité est soit relevé sur un site
  * livré, soit tiré d'une source datée et nommée dans le texte. Rien n'est
  * arrondi vers le haut, rien n'est inventé pour faire poids.
  *
@@ -22,7 +22,7 @@ export type GuideBlock =
 
 export type Guide = {
   slug: string;
-  /** Titre de la balise `<title>` — la requête, écrite comme elle se tape. */
+  /** Titre de la balise `<title>`, la requête, écrite comme elle se tape. */
   title: string;
   /** Titre affiché. Peut être plus vivant que le `title`. */
   h1: string;
@@ -30,7 +30,7 @@ export type Guide = {
   lede: string;
   /** Date de publication, ISO. */
   date: string;
-  /** La question à laquelle la page répond — sert de repère à la rédaction. */
+  /** La question à laquelle la page répond, sert de repère à la rédaction. */
   intent: string;
   blocks: GuideBlock[];
   /** Études de cas à mettre en regard, par slug. */
@@ -46,7 +46,7 @@ export const GUIDES: Guide[] = [
     description:
       "Comment fonctionne le bloc de trois établissements en haut des résultats Google, et ce qui décide vraiment qui s'y trouve. Avec deux cas liégeois en première position.",
     lede:
-      "Le bloc de trois établissements avec la carte, en haut des résultats Google, s'appelle le pack local. Pour un artisan ou un indépendant, il compte souvent plus que tout le reste de la page — et il ne se gagne pas du tout comme le référencement classique.",
+      "Le bloc de trois établissements avec la carte, en haut des résultats Google, s'appelle le pack local. Pour un artisan ou un indépendant, il compte souvent plus que tout le reste de la page, et il ne se gagne pas du tout comme le référencement classique.",
     date: "2026-08-23",
     intent: "être premier sur Google Maps / fiche Google Business artisan / référencement local",
     related: ["zen-harmonie", "detail-wave"],
@@ -59,7 +59,7 @@ export const GUIDES: Guide[] = [
       {
         kind: "p",
         text:
-          "C'est une bonne nouvelle pour qui débute. Le pack local ne se joue pas sur l'ancienneté du domaine ni sur le nombre de pages du site. Il se joue sur des signaux qu'on peut réunir en quelques semaines — et que la plupart des concurrents négligent parce qu'ils regardent ailleurs.",
+          "C'est une bonne nouvelle pour qui débute. Le pack local ne se joue pas sur l'ancienneté du domaine ni sur le nombre de pages du site. Il se joue sur des signaux qu'on peut réunir en quelques semaines, et que la plupart des concurrents négligent parce qu'ils regardent ailleurs.",
       },
 
       { kind: "h2", text: "Les trois critères, et rien d'autre" },
@@ -72,24 +72,24 @@ export const GUIDES: Guide[] = [
         kind: "steps",
         items: [
           {
-            title: "La pertinence — est-ce que votre fiche correspond à ce qui est cherché",
+            title: "La pertinence, est-ce que votre fiche correspond à ce qui est cherché",
             text:
               "C'est la catégorie principale de votre fiche qui pèse le plus lourd : c'est le premier facteur de classement du pack local. Un institut qui se déclare « salon de beauté » ne sortira pas sur « massage », même à cent mètres du chercheur. Viennent ensuite les catégories secondaires, la liste des services, les attributs et la description.",
           },
           {
-            title: "La distance — où se trouve la personne qui cherche",
+            title: "La distance, où se trouve la personne qui cherche",
             text:
               "Vous n'avez aucune prise dessus, et c'est le critère le plus mal compris. La proximité ne se contourne pas, mais elle ne décide pas seule : un établissement plus proche avec une fiche vide passe derrière un concurrent un peu plus loin mais complet et bien noté. C'est exactement l'espace où on peut gagner.",
           },
           {
-            title: "La notoriété — ce que le reste du web dit de vous",
+            title: "La notoriété, ce que le reste du web dit de vous",
             text:
               "Les avis, les mentions ailleurs, la qualité du site, les liens locaux. C'est la partie longue à construire, et celle qui fait la différence entre deux fiches par ailleurs identiques.",
           },
         ],
       },
 
-      { kind: "h2", text: "Les avis pèsent plus lourd qu'on ne croit — et leur fraîcheur encore plus" },
+      { kind: "h2", text: "Les avis pèsent plus lourd qu'on ne croit, et leur fraîcheur encore plus" },
       {
         kind: "p",
         text:
@@ -113,7 +113,7 @@ export const GUIDES: Guide[] = [
           {
             title: "Choisir la bonne catégorie principale",
             text:
-              "C'est gratuit, ça prend deux minutes, et c'est le premier facteur. Cherchez la catégorie que Google propose pour le mot que vos clients tapent — pas celle qui décrit le mieux votre métier à vos yeux. « Réparateur de smartphones » et « Magasin de téléphonie » ne sortent pas sur les mêmes requêtes.",
+              "C'est gratuit, ça prend deux minutes, et c'est le premier facteur. Cherchez la catégorie que Google propose pour le mot que vos clients tapent, pas celle qui décrit le mieux votre métier à vos yeux. « Réparateur de smartphones » et « Magasin de téléphonie » ne sortent pas sur les mêmes requêtes.",
           },
           {
             title: "Remplir tout le reste",
@@ -199,7 +199,7 @@ export const GUIDES: Guide[] = [
       {
         kind: "p",
         text:
-          "Un site vitrine en Belgique se situe généralement entre 800 et 5 000 € HTVA en 2026. C'est une fourchette du simple au sextuple, ce qui n'aide personne — mais elle est honnête, et l'écart s'explique. Le reste de cette page sert à comprendre où vous tombez dedans.",
+          "Un site vitrine en Belgique se situe généralement entre 800 et 5 000 € HTVA en 2026. C'est une fourchette du simple au sextuple, ce qui n'aide personne, mais elle est honnête, et l'écart s'explique. Le reste de cette page sert à comprendre où vous tombez dedans.",
       },
 
       { kind: "h2", text: "Les fourchettes du marché" },
@@ -216,21 +216,21 @@ export const GUIDES: Guide[] = [
       {
         kind: "note",
         text:
-          "Sur l'abonnement, une question à poser avant de signer : à qui appartient le site si vous arrêtez de payer ? Dans beaucoup de formules, la réponse est « pas à vous ». Quatre ans à 69 €/mois font 3 312 € — le prix d'un site qu'on possède — sauf qu'au bout des quatre ans, vous n'avez rien à emporter. Ce n'est pas une arnaque, c'est une location : elle a du sens si vous voulez zéro souci et aucun engagement, beaucoup moins si vous comptez rester.",
+          "Sur l'abonnement, une question à poser avant de signer : à qui appartient le site si vous arrêtez de payer ? Dans beaucoup de formules, la réponse est « pas à vous ». Quatre ans à 69 €/mois font 3 312 €, le prix d'un site qu'on possède, sauf qu'au bout des quatre ans, vous n'avez rien à emporter. Ce n'est pas une arnaque, c'est une location : elle a du sens si vous voulez zéro souci et aucun engagement, beaucoup moins si vous comptez rester.",
       },
 
       { kind: "h2", text: "Ce qui fait vraiment varier le prix" },
       {
         kind: "p",
         text:
-          "Le nombre de pages est un mauvais indicateur — c'est pourtant celui sur lequel la plupart des devis sont construits. Quatre choses pèsent bien plus lourd.",
+          "Le nombre de pages est un mauvais indicateur, c'est pourtant celui sur lequel la plupart des devis sont construits. Quatre choses pèsent bien plus lourd.",
       },
 
       { kind: "h3", text: "1. Est-ce qu'il faut gérer des données" },
       {
         kind: "p",
         text:
-          "Un site qui présente cinq services est un travail de mise en forme. Un site qui doit afficher un catalogue, dire ce qui est en stock et savoir quelle pièce va sur quel modèle est un travail de structure — et l'écart n'est pas de 20 %, il est d'un ordre de grandeur. Pour Motodistri, le catalogue compte plus de soixante mille références, chacune avec sa liste de motos compatibles. Ce n'est pas « plus de pages », c'est un autre métier.",
+          "Un site qui présente cinq services est un travail de mise en forme. Un site qui doit afficher un catalogue, dire ce qui est en stock et savoir quelle pièce va sur quel modèle est un travail de structure, et l'écart n'est pas de 20 %, il est d'un ordre de grandeur. Pour Motodistri, le catalogue compte plus de soixante mille références, chacune avec sa liste de motos compatibles. Ce n'est pas « plus de pages », c'est un autre métier.",
       },
 
       { kind: "h3", text: "2. Est-ce que quelqu'un doit pouvoir se connecter" },
@@ -259,7 +259,7 @@ export const GUIDES: Guide[] = [
         kind: "ul",
         items: [
           "Le nom de domaine : environ 15 à 20 € HTVA par an. Petit, mais annuel, et c'est à votre nom qu'il doit être enregistré.",
-          "L'hébergement : à partir d'environ 96 € HTVA par an. Vérifiez ce qui est inclus — les sauvegardes, notamment.",
+          "L'hébergement : à partir d'environ 96 € HTVA par an. Vérifiez ce qui est inclus, les sauvegardes, notamment.",
           "Les mises à jour de sécurité, si le site tourne sur un système à extensions. Un site laissé sans mise à jour finit par être compromis, ce n'est pas une hypothèse.",
           "Les modifications de contenu après la mise en ligne : incluses, facturées à l'heure, ou impossibles sans le développeur ?",
           "Les licences de thèmes ou d'extensions payantes, souvent annuelles elles aussi.",
@@ -301,7 +301,7 @@ export const GUIDES: Guide[] = [
       {
         kind: "p",
         text:
-          "Je construis des sites sur mesure. Autant le dire tout de suite : je ne suis pas neutre. Mais je décline régulièrement des projets qui n'en ont pas besoin, et cette page explique comment je fais la différence — vous pourrez l'appliquer sans moi.",
+          "Je construis des sites sur mesure. Autant le dire tout de suite : je ne suis pas neutre. Mais je décline régulièrement des projets qui n'en ont pas besoin, et cette page explique comment je fais la différence, vous pourrez l'appliquer sans moi.",
       },
 
       { kind: "h2", text: "Les constructeurs en ligne : Wix, Squarespace, Webflow" },
@@ -314,14 +314,14 @@ export const GUIDES: Guide[] = [
         kind: "ul",
         items: [
           "Pour : en ligne en quelques jours, coût de départ faible, rien à maintenir.",
-          "Contre : abonnement à vie, personnalisation limitée par ce que l'outil prévoit, et surtout — le site n'est pas exportable. Vous ne pouvez pas le déménager.",
+          "Contre : abonnement à vie, personnalisation limitée par ce que l'outil prévoit, et surtout, le site n'est pas exportable. Vous ne pouvez pas le déménager.",
           "Le bon cas : valider une activité qui démarre, ou une présence simple qui n'évoluera pas.",
         ],
       },
       {
         kind: "note",
         text:
-          "Le calcul que peu de gens font : un abonnement à 30 €/mois représente 1 440 € sur quatre ans, sans rien qui vous appartienne au bout. Ce n'est pas un argument contre — c'est un argument pour faire le calcul avant, pas après.",
+          "Le calcul que peu de gens font : un abonnement à 30 €/mois représente 1 440 € sur quatre ans, sans rien qui vous appartienne au bout. Ce n'est pas un argument contre, c'est un argument pour faire le calcul avant, pas après.",
       },
 
       { kind: "h2", text: "WordPress" },
@@ -334,8 +334,8 @@ export const GUIDES: Guide[] = [
         kind: "ul",
         items: [
           "Pour : vous possédez le site, vous pouvez changer de prestataire, et il existe une extension pour à peu près tout.",
-          "Contre : les mises à jour sont votre responsabilité. Un site laissé six mois sans mise à jour finit par être compromis — c'est une question de délai, pas de chance. Et les extensions s'accumulent, se contredisent et alourdissent la page.",
-          "Le bon cas : un besoin standard, un budget mesuré, et quelqu'un — vous ou un prestataire — qui assure l'entretien.",
+          "Contre : les mises à jour sont votre responsabilité. Un site laissé six mois sans mise à jour finit par être compromis, c'est une question de délai, pas de chance. Et les extensions s'accumulent, se contredisent et alourdissent la page.",
+          "Le bon cas : un besoin standard, un budget mesuré, et quelqu'un, vous ou un prestataire, qui assure l'entretien.",
         ],
       },
 
@@ -349,7 +349,7 @@ export const GUIDES: Guide[] = [
         kind: "ul",
         items: [
           "Pour : rapide parce qu'il ne transporte rien d'inutile, sans surface d'attaque liée aux extensions, et sans limite fonctionnelle a priori.",
-          "Contre : plus cher au départ, plus long, et vous dépendez de quelqu'un qui sait lire le code — vous, ou celui qui l'a écrit.",
+          "Contre : plus cher au départ, plus long, et vous dépendez de quelqu'un qui sait lire le code, vous, ou celui qui l'a écrit.",
           "Le bon cas : une logique métier qui n'existe pas en extension, un catalogue ou un volume que les solutions standards gèrent mal, ou une exigence de performance réelle.",
         ],
       },
@@ -390,7 +390,7 @@ export const GUIDES: Guide[] = [
       {
         kind: "p",
         text:
-          "Le sur mesure se justifie quand quelque chose dans votre activité ne rentre pas dans les cases : un catalogue particulier, une manière de vendre qui vous est propre, une exigence de vitesse qui a des conséquences commerciales. Là, le surcoût de départ s'amortit — et pas en confort, en résultat.",
+          "Le sur mesure se justifie quand quelque chose dans votre activité ne rentre pas dans les cases : un catalogue particulier, une manière de vendre qui vous est propre, une exigence de vitesse qui a des conséquences commerciales. Là, le surcoût de départ s'amortit, et pas en confort, en résultat.",
       },
     ],
   },

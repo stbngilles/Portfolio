@@ -7,9 +7,9 @@ import { FAQS } from "./data";
  * Accordéon FAQ. Vit sur /contact depuis qu'elle a quitté la homepage.
  *
  * Deux points tiennent au référencement plutôt qu'à l'affichage :
- *  — chaque question est un `h3` qui enveloppe son bouton (motif d'accordéon
+ * , chaque question est un `h3` qui enveloppe son bouton (motif d'accordéon
  *    de l'APG) ; la page n'avait sinon aucun sous-titre ;
- *  — les réponses fermées restent dans le DOM, masquées par `hidden`. Elles
+ * , les réponses fermées restent dans le DOM, masquées par `hidden`. Elles
  *    n'étaient auparavant montées qu'à l'ouverture : sept réponses sur huit
  *    n'existaient nulle part dans le HTML.
  */

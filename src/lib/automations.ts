@@ -1,5 +1,5 @@
 /**
- * Hooks d'automatisation côté serveur — déclenchés depuis les actions métier.
+ * Hooks d'automatisation côté serveur, déclenchés depuis les actions métier.
  *
  * Chaque fonction est idempotente et défensive : un mail échoué ne bloque pas
  * la suite, et une transition déjà faite ne refait pas le travail.
@@ -99,7 +99,7 @@ export async function onOnboardingSubmitted(projectId: string) {
  *  1. Brief complété (kickoffDone = true)
  *  2. Acompte payé (status !== "SIGNED_DEPOSIT")
  *
- * L'onboarding client et les assets peuvent arriver après —
+ * L'onboarding client et les assets peuvent arriver après :
  * le dev a accès au projet dès que le brief est fait et l'acompte encaissé.
  */
 export async function maybePublishToDevPool(projectId: string) {

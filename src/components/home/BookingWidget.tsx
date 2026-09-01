@@ -18,7 +18,7 @@ import { AVAILABILITY, STUDIO } from "./data";
  * ses délais et le nom de la personne au bout du fil. La ligne de rareté ici
  * est `AVAILABILITY`, tenue à la main dans `data.ts`, ou rien.
  *
- * Elle s'ouvre seule à l'arrivée — mais une fois par visite, et non à chaque
+ * Elle s'ouvre seule à l'arrivée, mais une fois par visite, et non à chaque
  * page : quelqu'un qui enchaîne trois guides ne doit pas la refermer trois
  * fois. Le drapeau tient dans `sessionStorage`, effacé à la fermeture de
  * l'onglet ; c'est un stockage technique, sans traceur ni consentement.
@@ -99,7 +99,7 @@ export default function BookingWidget() {
             </div>
           </div>
 
-          <p className="pb-book-t">Cadrage et devis — 15 min</p>
+          <p className="pb-book-t">Cadrage et devis, 15 min</p>
           <p className="pb-book-p">
             Vous décrivez ce qui coince, on chiffre le projet pendant l&apos;appel. Par téléphone ou
             en visio, sans engagement.

@@ -10,8 +10,8 @@ const SITE_URL = "https://pixelbrute.be";
 /**
  * Étude de cas, une page par projet.
  *
- * Ces dossiers existaient déjà dans `data.ts` — contexte, problème, décisions,
- * inventaire, chiffres relevés — mais ils n'étaient lisibles que dans une
+ * Ces dossiers existaient déjà dans `data.ts`, contexte, problème, décisions,
+ * inventaire, chiffres relevés, mais ils n'étaient lisibles que dans une
  * modale, sans URL. Personne ne pouvait les partager, et aucun moteur ne
  * pouvait les indexer. Ils ont désormais une adresse.
  */
@@ -37,21 +37,21 @@ export async function generateMetadata({
   const description = `${p.brief} ${p.answer}`.slice(0, 158);
 
   return {
-    title: `${p.name} — ${p.sector.split(" · ")[0]}`,
+    title: `${p.name}, ${p.sector.split(" · ")[0]}`,
     description,
     alternates: { canonical: url },
     openGraph: {
-      title: `${p.name} — étude de cas | Pixelbrute`,
+      title: `${p.name}, étude de cas | Pixelbrute`,
       description,
       type: "article",
       locale: "fr_BE",
       url,
       siteName: "Pixelbrute",
-      images: p.shot ? [{ url: p.shot, width: 1440, height: 900, alt: `${p.name} — site livré` }] : undefined,
+      images: p.shot ? [{ url: p.shot, width: 1440, height: 900, alt: `${p.name}, site livré` }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${p.name} — étude de cas`,
+      title: `${p.name}, étude de cas`,
       description,
     },
   };
@@ -72,7 +72,7 @@ export default async function ProjectPage({
   const url = `${SITE_URL}/projets/${p.slug}`;
 
   /* Deux blocs : le fil d'Ariane, que Google affiche sous le titre dans les
-     résultats, et l'étude de cas elle-même. Rendus côté serveur — le balisage
+     résultats, et l'étude de cas elle-même. Rendus côté serveur, le balisage
      doit exister dans le HTML source, pas après hydratation. */
   const breadcrumb = {
     "@context": "https://schema.org",
@@ -87,7 +87,7 @@ export default async function ProjectPage({
   const article = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `${p.name} — ${p.sector}`,
+    headline: `${p.name}, ${p.sector}`,
     description: p.brief,
     about: p.name,
     url,

@@ -136,7 +136,7 @@ export default async function DevInvoicePage({
           }}
         >
           <p className="serif-i mb-5" style={{ color: "var(--color-muted)" }}>
-            Mission validée — vous pouvez maintenant déposer votre facture.
+            Mission validée, vous pouvez maintenant déposer votre facture.
           </p>
           <UploadForm projectId={projectId} />
           <p className="text-xs mt-4" style={{ color: "var(--color-subtle)" }}>

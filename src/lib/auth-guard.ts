@@ -83,7 +83,7 @@ export async function requireRole(...allowed: Role[]) {
   };
 }
 
-/** Alias historique — utilisé ailleurs. */
+/** Alias historique, utilisé ailleurs. */
 export async function getCurrentSession() {
   return getEffectiveSession();
 }

@@ -83,7 +83,7 @@ export default async function ComptablePage() {
       <TableSection
         title="À virer maintenant"
         count={devApproved.length + commPending.length}
-        empty="Rien à virer — vous êtes à jour."
+        empty="Rien à virer, vous êtes à jour."
       >
         {devApproved.map((p) => (
           <Row
@@ -185,7 +185,7 @@ export default async function ComptablePage() {
             type="Développeur"
             label={p.name}
             amount={p.devPaymentAmount ?? 0}
-            status={`Versé le ${p.devPaymentPaidAt?.toLocaleDateString("fr-BE") ?? "—"}`}
+            status={`Versé le ${p.devPaymentPaidAt?.toLocaleDateString("fr-BE") ?? "–"}`}
             statusColor="#13A66A"
           />
         ))}
@@ -196,7 +196,7 @@ export default async function ComptablePage() {
             type="Commercial"
             label={`Commission ${c.type}`}
             amount={c.amount}
-            status={`Versée le ${c.paidAt?.toLocaleDateString("fr-BE") ?? "—"}`}
+            status={`Versée le ${c.paidAt?.toLocaleDateString("fr-BE") ?? "–"}`}
             statusColor="#13A66A"
           />
         ))}

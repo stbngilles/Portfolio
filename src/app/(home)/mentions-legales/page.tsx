@@ -15,7 +15,7 @@ const SITE_URL = "https://pixelbrute.be";
  * Volontairement sans le lien vers la plateforme européenne de règlement des
  * litiges (RLL/ODR) : elle a fermé le 20 juillet 2025 et le règlement (UE)
  * 2024/3228 a supprimé l'obligation de l'afficher. La plupart des modèles de
- * mentions légales en circulation la mentionnent encore — c'est un lien mort.
+ * mentions légales en circulation la mentionnent encore, c'est un lien mort.
  */
 
 export const metadata: Metadata = {
@@ -100,7 +100,7 @@ export default function MentionsLegalesPage() {
             <ul className="pb-gd-ul">
               {NACEBEL.map((n) => (
                 <li key={n.code}>
-                  <span className="pb-mono">{n.code}</span> — {n.label}
+                  <span className="pb-mono">{n.code}</span>, {n.label}
                 </li>
               ))}
             </ul>

@@ -11,8 +11,8 @@ const CHECKLIST = [
     title: "Pause de 15 minutes,",
     italic: "par défaut.",
     body: [
-      "Aucun créneau ne peut s'enchaîner sans pause — sinon le client se retrouve avec deux rendez-vous chevauchés à la première minute de retard.",
-      "Si le client demande 0 min, repassez par moi — il y a presque toujours un cas métier (kiné, photographe) qui justifie le tampon.",
+      "Aucun créneau ne peut s'enchaîner sans pause, sinon le client se retrouve avec deux rendez-vous chevauchés à la première minute de retard.",
+      "Si le client demande 0 min, repassez par moi, il y a presque toujours un cas métier (kiné, photographe) qui justifie le tampon.",
     ],
   },
   {
@@ -39,7 +39,7 @@ const CHECKLIST = [
     italic: "la techno + l'URL.",
     body: [
       "WordPress, Wix, Shopify, site statique : la difficulté varie de 1 à 10. Le devis sans cette info est faux.",
-      "Pensez aux redirections 301 — si vous n'en parlez pas, on perd le référencement existant.",
+      "Pensez aux redirections 301, si vous n'en parlez pas, on perd le référencement existant.",
     ],
   },
   {
@@ -56,7 +56,7 @@ const CHECKLIST = [
     title: "Minimum 4 semaines,",
     italic: "à partir du dépôt complet.",
     body: [
-      "Ne jamais promettre « la semaine prochaine ». Le compteur démarre quand tout le contenu est là — pas à la signature.",
+      "Ne jamais promettre « la semaine prochaine ». Le compteur démarre quand tout le contenu est là, pas à la signature.",
       "Si le client a une deadline absolue (salon, lancement), demandez une marge d'une semaine avant la date butoir.",
     ],
   },
@@ -75,7 +75,7 @@ const CHECKLIST = [
     italic: "même si refusé.",
     body: [
       "Le récurrent est la santé du studio. Si le client refuse au début, repassez à la livraison.",
-      "Sans maintenance, on n'est pas responsables des bugs après 30 jours — précisez-le dès la signature.",
+      "Sans maintenance, on n'est pas responsables des bugs après 30 jours, précisez-le dès la signature.",
     ],
   },
 ];
@@ -85,7 +85,7 @@ const ANTI_PATTERNS = [
   "Cocher Stripe sans demander le type de produit.",
   "Vendre du multilingue sans vérifier la disponibilité des traductions.",
   "Accepter « on verra » comme réponse sur les fonctionnalités floues.",
-  "Pousser le pack pub de lancement sur un client qui n'a pas de marge — ça brûle la relation.",
+  "Pousser le pack pub de lancement sur un client qui n'a pas de marge, ça brûle la relation.",
 ];
 
 export default async function CommercialResourcesPage() {

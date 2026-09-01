@@ -39,7 +39,7 @@ function projectColumn(status: string): ColKey {
 const COLUMNS: { key: ColKey; label: string; hint: string; nextLabel?: string }[] = [
   { key: "DRAFT",                    label: "Brouillon",       hint: "à finaliser",         nextLabel: "Envoyer →" },
   { key: "SENT",                     label: "Devis envoyé",    hint: "en attente client",   nextLabel: "Signé ?" },
-  { key: "SIGNED_AWAITING_DEPOSIT",  label: "Signé — Acompte", hint: "en attente paiement", nextLabel: "Acompte reçu →" },
+  { key: "SIGNED_AWAITING_DEPOSIT",  label: "Signé, Acompte", hint: "en attente paiement", nextLabel: "Acompte reçu →" },
   { key: "COLLECTING_ASSETS",        label: "Collecte contenu",hint: "le client envoie",    nextLabel: "Contenu reçu →" },
   { key: "READY_FOR_DEV",            label: "Prêt pour le dev",hint: "dans le pool" },
   { key: "SIGNED",                   label: "En production",   hint: "le dev bosse" },
@@ -113,7 +113,7 @@ export default async function CommercialPipelinePage() {
       id: `p-${p.id}`,
       href: isAdmin ? `/app/admin/projects/${p.id}` : `/app/commercial/devis`,
       title: p.name,
-      subtitle: `${p.quote?.number ?? "—"} · ${p.client.name ?? p.client.email}`,
+      subtitle: `${p.quote?.number ?? "–"} · ${p.client.name ?? p.client.email}`,
       amount: p.quote?.totalOneShot ?? 0,
       col: projectColumn(p.status),
     })),

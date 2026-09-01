@@ -5,7 +5,7 @@ import { openCal, wantsNewTab } from "./cal";
 import { BOOKING_URL } from "./data";
 
 /**
- * Un lien qui ouvre le calendrier en modale — voir `cal.ts` pour le pourquoi
+ * Un lien qui ouvre le calendrier en modale, voir `cal.ts` pour le pourquoi
  * du chargement différé et du repli sur la page publique.
  */
 type Props = Omit<React.ComponentPropsWithoutRef<"a">, "href" | "onClick"> & {

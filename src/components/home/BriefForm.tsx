@@ -6,19 +6,19 @@ import Link from "next/link";
 import Arrow from "./Arrow";
 
 /**
- * Formulaire de brief — trois blocs, deux champs obligatoires.
+ * Formulaire de brief, trois blocs, deux champs obligatoires.
  *
  * Historique des coupes, pour ne pas les refaire à l'envers :
- * — « Nom de l'entreprise » et « Site actuel » sont partis. Le domaine de
+ *, « Nom de l'entreprise » et « Site actuel » sont partis. Le domaine de
  *   l'adresse e-mail donne le premier, et le second se demande en une phrase
  *   au téléphone. Deux champs de plus pour une information qu'on obtient
  *   autrement, c'est deux raisons d'abandonner.
- * — Besoin et budget étaient deux listes empilées de cinq lignes en corps 30 :
+ *, Besoin et budget étaient deux listes empilées de cinq lignes en corps 30 :
  *   610 px de formulaire pour dix clics. Ils tiennent maintenant en pastilles
  *   sur un même bloc.
- * — Le descriptif du projet n'est plus `required` : c'est le champ le plus
+ *, Le descriptif du projet n'est plus `required` : c'est le champ le plus
  *   coûteux (il demande de rédiger), et il était placé avant même le nom.
- * — Un avis client était encarté entre le dernier champ et le bouton d'envoi,
+ *, Un avis client était encarté entre le dernier champ et le bouton d'envoi,
  *   sous le titre « Avant d'envoyer ». Au milieu d'un formulaire, une citation
  *   se lit comme une consigne de plus : la preuve sociale vit sous les voies
  *   directes et sur la home, pas ici.
@@ -111,7 +111,7 @@ export default function BriefForm() {
     return (
       <div className="pb-form-done">
         <div className="pb-over">Demande envoyée</div>
-        <h2 className="pb-d-s">Merci — je vous réponds sous 24 h ouvrées.</h2>
+        <h2 className="pb-d-s">Merci, je vous réponds sous 24 h ouvrées.</h2>
 
         <ol className="pb-next">
           <li>
@@ -129,7 +129,7 @@ export default function BriefForm() {
             <b>03</b>
             <span>
               Si ça vous parle, on cale quinze minutes : on chiffre le projet ensemble
-              pendant l&apos;appel. Sans engagement — rien à signer, ni pendant, ni après.
+              pendant l&apos;appel. Sans engagement, rien à signer, ni pendant, ni après.
             </span>
           </li>
         </ol>
@@ -153,7 +153,7 @@ export default function BriefForm() {
   return (
     <form id="brief" className="pb-form" onSubmit={handleSubmit}>
       {/* Objet lisible dans la boîte de réception, et piège à robots (Formspree). */}
-      <input type="hidden" name="_subject" value="Nouvelle demande — pixelbrute.be/contact" />
+      <input type="hidden" name="_subject" value="Nouvelle demande, pixelbrute.be/contact" />
       <input
         type="text"
         name="_gotcha"
@@ -187,7 +187,7 @@ export default function BriefForm() {
         n={2}
         htmlFor="projet"
         label="Le projet"
-        hint="Facultatif — deux lignes suffisent."
+        hint="Facultatif, deux lignes suffisent."
       >
         <div>
           <textarea
@@ -228,7 +228,7 @@ export default function BriefForm() {
       </Field>
 
       <button type="submit" className="pb-submit" disabled={state.submitting}>
-        {state.submitting ? "Envoi en cours…" : "Envoyer — réponse sous 24 h ouvrées"}
+        {state.submitting ? "Envoi en cours…" : "Envoyer, réponse sous 24 h ouvrées"}
       </button>
 
       <p className="pb-form-note">Pas de newsletter, pas de démarchage.</p>
@@ -237,7 +237,7 @@ export default function BriefForm() {
       {state.errors && (
         <p className="pb-form-note">
           L&apos;envoi n&apos;est pas passé&nbsp;? Écrivez-moi directement à{" "}
-          <a href={`mailto:${MAIL}`}>{MAIL}</a> — ça arrive au même endroit.
+          <a href={`mailto:${MAIL}`}>{MAIL}</a>, ça arrive au même endroit.
         </p>
       )}
     </form>
