@@ -105,7 +105,7 @@ export const PROJECTS: Project[] = [
     name: "Azimut Games",
     sector: "Éditeur de jeux · Luxembourg",
     brief:
-      "Deux jeux de plein air, un stand réservé à Essen, et aucun revendeur pour les faire essayer.",
+      "Deux jeux qui se jouent debout, en équipe, un stand réservé à Essen, et aucun revendeur pour les faire essayer.",
     answer:
       "Faire du site la boutique et le démonstrateur à la fois — la règle expliquée avant le prix.",
     metric: "Boutique et réseau à construire",
@@ -117,13 +117,13 @@ export const PROJECTS: Project[] = [
     stack: "Site, boutique, fiches jeux, formulaires réseau",
     result: "Boutique en ligne · départ pour Essen 2026",
     lede:
-      "Un jeu qui se joue debout, dehors, sur une grille de six mètres de côté : le site devait faire vivre la partie, pas seulement montrer la boîte.",
+      "Un jeu qui se joue debout, en équipe, sur une grille de six mètres de côté : le site devait faire vivre la partie, pas seulement montrer la boîte.",
     context: [
       "Azimut Games est né d'une formation de moniteur en course d'orientation à l'ADEPS. Vincent Merveille en a tiré Azimut XL : trente-six balises posées au sol en 6×6, plus de cent quarante cartes, et un terrain de récréation qui devient un plateau de jeu. Azimath, le second titre, applique le même principe aux quatre opérations.",
       "Derrière la boîte : deux ans de prototypes, des tests en classe menés par des institutrices, une relecture complète des règles, une illustratrice, un fabricant. En octobre 2026, le jeu part à SPIEL Essen — le plus grand salon du secteur — hall 4, stand D425.",
     ],
     problem: [
-      "Un jeu de plein air se vit debout, dehors, en équipe. C'est ce qu'un écran peine à transmettre. Le premier travail du site : faire comprendre la partie avant de parler d'achat.",
+      "Un jeu qui se vit debout, en équipe, dans la cour, sur un terrain ou en halle de sport. C'est ce qu'un écran peine à transmettre. Le premier travail du site : faire comprendre la partie avant de parler d'achat.",
       "Deuxième contrainte : il n'y a pas encore de revendeur pour faire la démonstration à la place du site. Le réseau se construit. Le site doit donc tenir trois rôles à la fois — expliquer, vendre, et recruter les lieux qui feront jouer.",
     ],
     decisions: [
@@ -133,7 +133,7 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "Montrer le jeu là où il se joue",
-        text: "Une section entière de photos prises sur le terrain, avec deux joueurs au milieu des balises. Le jeu se pratique dehors : c'est en situation réelle de partie qu'il se montre le mieux, et c'est ce que la page donne à voir.",
+        text: "Une section entière de photos prises sur le terrain, avec deux joueurs au milieu des balises. Le jeu se pratique partout, dans la cour comme en halle de sport : c'est en situation réelle de partie qu'il se montre le mieux, et c'est ce que la page donne à voir.",
       },
       {
         title: "Écrire le contenu exact de la boîte",
