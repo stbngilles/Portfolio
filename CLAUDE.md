@@ -56,9 +56,14 @@ Aucune balise Google n'est posée : elle demanderait un consentement. Le jour
 des annonces, l'ajouter en mode consentement, les événements sont déjà nommés.
 
 Positionnement (septembre 2026) : PME, agences immobilières et indépendants de la
-province de Liège. Plus « indépendants et artisans » seuls. Les prix publics de
-`/tarifs` viennent de `src/lib/pricing.ts` via `PRICING` dans `data.ts` : c'est la
-seule dépendance du site public vers `src/lib/`, des constantes sans base ni session.
+province de Liège. Plus « indépendants et artisans » seuls.
+
+Tarifs publics : trois offres, jamais plus (Essentiel 2 500 € + 90 €/mois,
+Signature 5 500 € + 150 €/mois, sur mesure dès 9 000 € + 250 €/mois), socle
+mensuel compris dans chacune, « à partir de » affiché, 50 % à la commande, 50 % à
+la livraison. La grille vit dans `PRICING` (`data.ts`). Le catalogue de la
+plateforme, `src/lib/pricing.ts`, est lu par vingt-sept écrans de `/app/*` et n'est
+pas importé par le site public : les deux grilles se tiennent alignées à la main.
 Ne pas réintroduire `/services/*`, `/realisations` ou `/equipe/*` : supprimées, et
 redirigées en 301 dans `next.config.ts`. Toute page ajoutée doit entrer dans
 `sitemap.ts` — sinon elle n'existe pour aucun moteur.

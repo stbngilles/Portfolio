@@ -9,6 +9,6 @@ export default function Image() {
   return ogCard({
     over: "Tarifs",
     title: ["Ce que ça coûte,", "écrit avant l'appel."],
-    sub: `Une page dès ${euro(SITE_FROM.starter)}, un site vitrine dès ${euro(SITE_FROM.essentiel)}, une boutique dès ${euro(SITE_FROM.ecommerce)}. Hors TVA, sans devis surprise.`,
+    sub: `Trois offres : Essentiel dès ${euro(SITE_FROM.essentiel)}, Signature dès ${euro(SITE_FROM.signature)}, sur mesure dès ${euro(SITE_FROM.surMesure)}. Hors TVA, hébergement et maintenance compris.`,
   });
 }

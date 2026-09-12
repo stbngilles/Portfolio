@@ -468,7 +468,7 @@ export const GUIDES: Guide[] = [
       {
         kind: "p",
         text:
-          "Un site d'agence sans flux de biens, avec la demande d'estimation, les pages de commune et la présentation de l'équipe, entre dans la fourchette d'un site vitrine. Dès que les biens arrivent du logiciel, avec filtres et fiches indexables, on passe dans celle d'un site avec données, et le prix suit ce qu'il faut brancher, plus que le nombre de pages. Les fourchettes sont publiées sur la page tarifs de ce site.",
+          "Un site d'agence sans flux de biens, avec la demande d'estimation, les pages de commune et la présentation de l'équipe, entre dans la première offre du studio, Essentiel. Dès que les biens arrivent du logiciel, avec filtres et fiches indexables, c'est une fonctionnalité métier, et on passe dans l'offre Signature. Un espace client ou un configurateur de lots relève du sur mesure. Dans les trois cas, l'hébergement et la maintenance sont compris chaque mois, et les prix de départ sont publiés sur la page tarifs de ce site.",
       },
 
       { kind: "h2", text: "Ce que j'ai construit qui s'en rapproche" },

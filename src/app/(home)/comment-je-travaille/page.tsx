@@ -29,7 +29,7 @@ const STEPS = [
   },
   {
     title: "Le devis, poste par poste",
-    text: "Il reprend les lignes de la page tarifs, avec le périmètre écrit en clair : les pages, les fonctions, ce que vous fournissez, ce que je fournis, et l'échéancier. Rien n'est signé avant d'avoir été lu. Un poste qui ne sert à rien est retiré, pas facturé.",
+    text: "Le prix vient en premier, pas noyé en dernière page. Le devis reprend une des trois offres avec le périmètre écrit en clair : les pages, la fonction métier, le socle mensuel, ce que vous fournissez, ce que je fournis. Moitié à la commande, moitié à la livraison. Un poste qui ne sert à rien est retiré, pas facturé.",
   },
   {
     title: "La conception, écrite avant la maquette",
@@ -49,7 +49,7 @@ const STEPS = [
   },
   {
     title: "Après",
-    text: "Vous gardez le même interlocuteur. Les corrections liées au travail livré sont comprises. Le suivi mensuel est facultatif, et s'il s'arrête, le site reste à vous, lisible par un autre développeur.",
+    text: "Vous gardez le même interlocuteur. Le socle mensuel, annoncé dès le devis, prend le relais : hébergement, sécurité, petites modifications, et un rapport chaque mois sur les visites et les demandes. Les corrections liées au travail livré sont comprises. Le domaine reste à votre nom, le code reste lisible par un autre développeur.",
   },
 ];
 
@@ -63,7 +63,8 @@ const YOU = [
 const NOT = [
   "Pas de garantie de position Google, ni de résultat chiffré à l'avance.",
   "Pas de sous-traitance : conception, design et code par la même personne.",
-  "Pas de forfait de maintenance automatique, ni de site loué.",
+  "Pas de site loué : le domaine est à votre nom et le code vous appartient. Le socle mensuel paie l'hébergement et la maintenance, pas le droit d'exister.",
+  "Pas de remise sans retrait : un prix qui baisse, c'est un poste en moins, pas un prix qui était faux.",
   "Pas de projet accepté quand le sur mesure ne se justifie pas. Je le dis pendant l'appel.",
 ];
 
@@ -178,9 +179,9 @@ export default function MethodePage() {
             <p className="pb-gd-p">
               Une durée se donne après avoir compris le projet, pas avant : une page avec un
               contenu prêt et un site branché sur un logiciel métier ne se comparent pas. Le prix,
-              lui, est écrit avant l&apos;appel : une page dès {euro(SITE_FROM.starter)}, un site
-              vitrine dès {euro(SITE_FROM.essentiel)}, une boutique ou une réservation dès{" "}
-              {euro(SITE_FROM.ecommerce)}, hors TVA.
+              lui, est écrit avant l&apos;appel : Essentiel dès {euro(SITE_FROM.essentiel)},
+              Signature dès {euro(SITE_FROM.signature)}, sur mesure dès {euro(SITE_FROM.surMesure)},
+              hors TVA, socle mensuel compris. Moitié à la commande, moitié à la livraison.
             </p>
           </div>
 

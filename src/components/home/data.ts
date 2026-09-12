@@ -13,8 +13,6 @@
  * remplacer par un adjectif.
  */
 
-import { SITES, OPTIONS, RECURRING } from "@/lib/pricing";
-
 export type Proof = { src: string; w: number; h: number; caption: string };
 
 /** Une décision de conception : ce qui a été tranché, et pourquoi. */
@@ -674,165 +672,131 @@ export const QUOTES: Quote[] = [
 /**
  * Tarifs publiés, `/tarifs`.
  *
- * Les montants viennent du catalogue de la plateforme (`src/lib/pricing.ts`),
- * qui sert aux devis : un prix qui diffère entre la page publique et le devis
- * ferait passer l'un des deux pour un mensonge. Ce bloc ne fait que choisir
- * lesquels montrer, et comment les dire. Si une clé change de nom là-bas, le
- * build casse ici, ce qui est le comportement voulu.
+ * Trois offres, jamais plus : devant trois choix, on prend celle du milieu,
+ * et la grille est construite pour que le milieu soit celle à vendre,
+ * Signature. Chaque offre embarque son socle mensuel, hébergement, sécurité,
+ * petites modifications, rapport : pas de site livré sans, et c'est annoncé
+ * dès le devis, pas après. Le site affiche « à partir de », jamais la grille
+ * complète : ça filtre les demandes froides sans bloquer sur un chiffre.
  *
- * Tout est hors TVA, la page le dit en tête et au pied.
+ * On vend un résultat, pas des heures : un promoteur ne paie pas quarante
+ * heures de code, il paie un site qui vend ses programmes. Rien ici n'est
+ * exprimé en temps.
+ *
+ * Ces montants sont ceux du site public. Le catalogue de la plateforme
+ * (`src/lib/pricing.ts`), lu par les devis et les commissions, a sa propre
+ * grille : le site public ne l'importe plus, une refonte tarifaire ne doit
+ * pas casser vingt-sept écrans de la plateforme. Les deux sont à tenir
+ * alignés à la main, et le catalogue est en retard sur cette grille.
+ *
+ * Montants en centimes, hors TVA. Paiement : moitié à la commande, moitié à
+ * la livraison, toujours.
  */
-const cents = (c: number) => Math.round(c / 100);
 
 /** « 2 500 € », espace fine insécable entre les milliers, insécable avant le signe. */
 export const euro = (c: number) =>
-  String(cents(c)).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f") + "\u00a0€";
-
-const siteFrom = (key: string) => {
-  const s = SITES.find((x) => x.key === key);
-  if (!s) throw new Error(`Offre inconnue dans le catalogue : ${key}`);
-  return s.basePrice;
-};
-const optionPrice = (key: string) => {
-  const o = OPTIONS.find((x) => x.key === key);
-  if (!o) throw new Error(`Option inconnue dans le catalogue : ${key}`);
-  return o.unitPrice;
-};
-const monthlyPrice = (key: string) => {
-  const r = RECURRING.find((x) => x.key === key);
-  if (!r) throw new Error(`Récurrent inconnu dans le catalogue : ${key}`);
-  return r.monthlyPrice;
-};
+  String(Math.round(c / 100)).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f") + "\u00a0€";
 
 export const SITE_FROM = {
-  starter: siteFrom("starter"),
-  essentiel: siteFrom("essentiel"),
-  ecommerce: siteFrom("ecommerce"),
+  essentiel: 250000,
+  signature: 550000,
+  surMesure: 900000,
 } as const;
 
 export type PriceTier = {
+  key: string;
   name: string;
-  /** Prix de départ en centimes, `null` pour « sur devis ». */
-  from: number | null;
+  /** Prix de départ, en centimes. */
+  from: number;
+  /** Socle mensuel compris, en centimes par mois. */
+  monthly: number;
   /** À qui ça s'adresse, en une phrase. */
   who: string;
   includes: string[];
+  /** L'offre du milieu, celle à vendre. Une seule. */
+  featured?: boolean;
 };
 
-export type PriceLine = {
-  name: string;
-  price: number;
-  /** « dès » quand le prix dépend du site. */
-  prefix?: string;
-  note: string;
-};
+export type PriceLine = { name: string; price: number; note: string };
 
-export const PRICING: { sites: PriceTier[]; options: PriceLine[]; monthly: PriceLine[] } = {
+export const PRICING: {
+  sites: PriceTier[];
+  socle: { name: string; items: string[] };
+  monthly: PriceLine[];
+  options: string[];
+  payment: string;
+} = {
   sites: [
     {
-      name: "Une page",
-      from: SITE_FROM.starter,
-      who: "Lancer une activité ou tester une offre, avec une seule page qui dit le métier, la zone et comment vous joindre.",
-      includes: [
-        "Une page dessinée et codée sur mesure",
-        "Lisible au téléphone, chargée en moins d'une seconde",
-        "Formulaire, ou lien de réservation",
-        "Nom de domaine enregistré à votre nom",
-      ],
-    },
-    {
-      name: "Site vitrine",
+      key: "essentiel",
+      name: "Essentiel",
       from: SITE_FROM.essentiel,
-      who: "Une entreprise qui doit être trouvée, comprise, puis appelée. Le format de la plupart des projets du studio.",
+      monthly: 9000,
+      who: "Une entreprise qui doit être trouvée, comprise, puis appelée.",
       includes: [
-        "Cinq pages : accueil, services, à propos, réalisations, contact",
-        "Vos textes structurés, réécrits là où ça bloque à l'écran",
-        "Fiche Google mise en cohérence avec le site",
-        "Corrections après mise en ligne comprises",
+        "Site vitrine, cinq à sept pages",
+        "Design sur mesure, lisible au téléphone",
+        "Formulaire de contact",
+        "Mise en ligne, domaine à votre nom",
       ],
     },
     {
-      name: "Boutique, réservation, espace client",
-      from: SITE_FROM.ecommerce,
-      who: "Le site fait tourner une partie de l'activité : vente en ligne, créneaux réservés, comptes clients, catalogue.",
+      key: "signature",
+      name: "Signature",
+      featured: true,
+      from: SITE_FROM.signature,
+      monthly: 15000,
+      who: "Un site qui fait un travail précis : rentrer des mandats, vendre un programme, remplir un agenda.",
       includes: [
-        "Catalogue et paiement en ligne",
-        "Stocks ou créneaux gérés par le site",
-        "Comptes clients quand il en faut",
-        "Trente pages et plus, produits compris",
+        "Dix à quinze pages",
+        "Une fonctionnalité métier : recherche de biens, page programme, prise de rendez-vous",
+        "Contenu structuré pour les recherches de votre zone",
+        "Suivi des conversions : appels, formulaires, réservations",
       ],
     },
     {
+      key: "sur-mesure",
       name: "Sur mesure",
-      from: null,
-      who: "Un outil métier, un site immobilier branché sur vos biens, une plateforme. Le prix suit le périmètre, il se donne une fois le périmètre compris.",
+      from: SITE_FROM.surMesure,
+      monthly: 25000,
+      who: "Le site fait tourner une partie de l'activité, et se branche sur vos outils.",
       includes: [
-        "Conception écrite avant la maquette",
-        "Devis chiffré poste par poste",
-        "Livraison par étapes, chacune vérifiable",
+        "Espace client, tableau de bord",
+        "Configurateur, boutique en ligne",
+        "Intégrations avec vos logiciels",
+        "Conception écrite, devis poste par poste, livraison par étapes",
       ],
+    },
+  ],
+  socle: {
+    name: "Le socle mensuel, compris dans chaque offre",
+    items: [
+      "Hébergement",
+      "Sécurité et mises à jour",
+      "Petites modifications de contenu",
+      "Rapport mensuel : visites, demandes, positions",
+    ],
+  },
+  monthly: [
+    {
+      name: "Contenu",
+      price: 25000,
+      note: "Articles rédigés et publiés chaque mois, sur les questions que vos clients tapent.",
+    },
+    {
+      name: "Campagnes Meta et Google Ads",
+      price: 75000,
+      note: "Création, tests, arrêt de ce qui ne rapporte pas, rapport chaque semaine. Budget média en plus.",
     },
   ],
   options: [
-    {
-      name: "Page supplémentaire",
-      price: optionPrice("extra_page"),
-      note: "Une section complète, avec son design et son contenu intégré.",
-    },
-    {
-      name: "Rédaction d'une page",
-      price: optionPrice("writing_per_page"),
-      note: "J'écris à votre place, à partir d'un entretien. Un texte structuré se lit mieux, par les gens et par Google.",
-    },
-    {
-      name: "Référencement, base",
-      price: optionPrice("seo_basic"),
-      note: "Titres, descriptions, fiche de partage, plan du site envoyé à Google et à Bing.",
-    },
-    {
-      name: "Référencement, avancé",
-      price: optionPrice("seo_advanced"),
-      note: "La base, plus un audit complet, les données structurées, la vitesse, et les redirections de l'ancien site.",
-    },
-    {
-      name: "Prise de rendez-vous, par demande",
-      price: optionPrice("reservation_manual"),
-      note: "Le visiteur propose un créneau, vous confirmez. Sans abonnement à un outil.",
-    },
-    {
-      name: "Prise de rendez-vous, agenda en ligne",
-      price: optionPrice("reservation_synced"),
-      note: "Le visiteur réserve un créneau libre de votre agenda, sans vous.",
-    },
-    {
-      name: "Paiement en ligne",
-      price: optionPrice("stripe_payment"),
-      note: "Acompte, séance ou produit, payé par carte sur le site.",
-    },
-    {
-      name: "Reprise de l'ancien site",
-      price: optionPrice("migration"),
-      note: "Contenu transféré, anciennes adresses redirigées : ce que Google connaissait reste valide.",
-    },
-    {
-      name: "Langue supplémentaire",
-      price: SITES.find((s) => s.key === "starter")?.extraLanguagePrice ?? 0,
-      prefix: "dès",
-      note: "Textes, menus, formulaires, boutons. Le prix dépend de la taille du site.",
-    },
+    "Page supplémentaire",
+    "Langue supplémentaire",
+    "Refonte de contenu",
+    "Séance photo",
+    "Formation à l'administration du site",
   ],
-  monthly: [
-    {
-      name: "Suivi technique",
-      price: monthlyPrice("maintenance_basic"),
-      note: "Hébergement compris, sauvegardes, mises à jour, surveillance. Une panne est traitée sous 48 h.",
-    },
-    {
-      name: "Campagnes publicitaires",
-      price: monthlyPrice("ads_management"),
-      note: "Meta ou Google Ads : création, tests, arrêt de ce qui ne rapporte pas, rapport chaque semaine. Budget publicitaire en plus, comptez 10 à 20 € par jour.",
-    },
-  ],
+  payment: "Moitié à la commande, moitié à la livraison.",
 };
 
 export const FAQS = [
@@ -846,7 +810,7 @@ export const FAQS = [
   },
   {
     q: "Qu'est-ce qui fait varier le prix ?",
-    a: `Le nombre de pages réellement différentes, la présence d'une boutique ou d'un système de réservation, l'intégration avec un outil de gestion existant, et l'état du contenu que vous fournissez. Les fourchettes sont publiées sur la page tarifs : une page dès ${euro(SITE_FROM.starter)}, un site vitrine dès ${euro(SITE_FROM.essentiel)}, une boutique ou une réservation dès ${euro(SITE_FROM.ecommerce)}, hors TVA.`,
+    a: `Le nombre de pages réellement différentes, la présence d'une boutique ou d'un système de réservation, l'intégration avec un outil de gestion existant, et l'état du contenu que vous fournissez. Trois offres, publiées sur la page tarifs : Essentiel dès ${euro(SITE_FROM.essentiel)}, Signature dès ${euro(SITE_FROM.signature)}, sur mesure dès ${euro(SITE_FROM.surMesure)}, hors TVA, socle mensuel compris.`,
   },
   {
     q: "Qui écrit les textes et fournit les photos ?",
@@ -858,7 +822,7 @@ export const FAQS = [
   },
   {
     q: "Que se passe-t-il après la mise en ligne ?",
-    a: "Vous gardez le même interlocuteur. Les corrections liées au travail livré sont normales et incluses. Pour les évolutions, on convient de ce qui est utile plutôt que d'un forfait automatique.",
+    a: "Vous gardez le même interlocuteur. Chaque site livré tourne sur un socle mensuel, hébergement, sécurité, petites modifications et rapport, annoncé dès le devis, jamais après. Les corrections liées au travail livré sont comprises. Pour les évolutions, on convient de ce qui est utile.",
   },
   {
     q: "Vous travaillez avec quels types d'entreprises ?",

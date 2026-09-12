@@ -30,7 +30,7 @@ export default function SiteAgenceImmobilierePage() {
         },
         {
           title: "Le prix avant l'appel",
-          text: `Site d'agence dès ${euro(SITE_FROM.essentiel)} hors TVA. Avec les biens synchronisés, les filtres et les fiches indexables, dès ${euro(SITE_FROM.ecommerce)}. Les programmes neufs sur devis.`,
+          text: `Un site d'agence, c'est l'offre Signature : dès ${euro(SITE_FROM.signature)} hors TVA, hébergement et maintenance compris, avec la recherche de biens ou la page programme. Espace client ou configurateur : sur mesure dès ${euro(SITE_FROM.surMesure)}.`,
         },
       ]}
       bullets={{
@@ -43,7 +43,7 @@ export default function SiteAgenceImmobilierePage() {
           "L'alerte acheteur : ses critères, vos nouveaux biens avant le portail.",
         ],
       }}
-      price={`Site d'agence dès ${euro(SITE_FROM.essentiel)}, avec biens synchronisés dès ${euro(SITE_FROM.ecommerce)}. Hors TVA, suivi mensuel facultatif.`}
+      price={`Signature dès ${euro(SITE_FROM.signature)}, sur mesure dès ${euro(SITE_FROM.surMesure)}. Hors TVA, socle mensuel compris. Moitié à la commande, moitié à la livraison.`}
       faq={[
         {
           q: "Est-ce que je garde Immoweb ?",

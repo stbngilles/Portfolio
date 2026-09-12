@@ -14,22 +14,21 @@ const URL = `${SITE_URL}/tarifs`;
  *
  * La page existe pour une raison : « combien ça coûte » est la première
  * question de tout le monde, et un site qui la cache renvoie vers un
- * concurrent qui y répond. Les montants ne sont pas retapés ici, ils viennent
- * du catalogue qui sert aux devis (voir `PRICING` dans `data.ts`), donc le
- * chiffre lu avant l'appel est celui du devis après.
+ * concurrent qui y répond. Elle affiche des prix de départ, jamais la grille
+ * complète : ça filtre les demandes froides sans bloquer sur un chiffre.
  *
- * Elle filtre aussi : quelqu'un qui cherche un site à 300 € le voit avant de
- * réserver un appel, et quelqu'un qui pilote une PME ou une agence y trouve
- * une fourchette claire au lieu d'une promesse de devis.
+ * Trois offres, et l'offre du milieu est celle à vendre : voir `PRICING`
+ * dans `data.ts` pour les règles, et pourquoi le socle mensuel n'est pas une
+ * option.
  */
 
 export const metadata: Metadata = {
   title: { absolute: "Tarifs, le prix d'un site internet chez Pixelbrute, Liège" },
-  description: `Les prix avant l'appel : une page dès ${euro(SITE_FROM.starter)}, un site vitrine dès ${euro(SITE_FROM.essentiel)}, une boutique ou une réservation dès ${euro(SITE_FROM.ecommerce)}, hors TVA. Suppléments et suivi mensuel affichés.`,
+  description: `Trois offres, hors TVA, écrites avant l'appel : Essentiel dès ${euro(SITE_FROM.essentiel)}, Signature dès ${euro(SITE_FROM.signature)}, sur mesure dès ${euro(SITE_FROM.surMesure)}. Hébergement et maintenance compris chaque mois.`,
   alternates: { canonical: URL },
   openGraph: {
     title: "Tarifs | Pixelbrute, studio web à Liège",
-    description: `Une page dès ${euro(SITE_FROM.starter)}, un site vitrine dès ${euro(SITE_FROM.essentiel)}, une boutique dès ${euro(SITE_FROM.ecommerce)}, hors TVA. Tout est écrit avant l'appel.`,
+    description: `Essentiel dès ${euro(SITE_FROM.essentiel)}, Signature dès ${euro(SITE_FROM.signature)}, sur mesure dès ${euro(SITE_FROM.surMesure)}, hors TVA. Socle mensuel compris. Tout est écrit avant l'appel.`,
     type: "website",
     locale: "fr_BE",
     url: URL,
@@ -42,19 +41,23 @@ export const metadata: Metadata = {
 const QUESTIONS = [
   {
     q: "Pourquoi publier les prix ?",
-    a: "Parce que c'est la première question, et que la cacher fait perdre du temps aux deux côtés. Les fourchettes ci-dessus sont celles du devis. Elles servent à savoir si on parle du même ordre de grandeur avant de réserver un appel.",
+    a: "Parce que c'est la première question, et que la cacher fait perdre du temps aux deux côtés. Les prix de départ ci-dessus sont ceux du devis. Ils servent à savoir si on parle du même ordre de grandeur avant de réserver un appel.",
+  },
+  {
+    q: "Le socle mensuel est-il obligatoire ?",
+    a: "Oui. Aucun site n'est livré sans son hébergement, sa sécurité, ses petites modifications et son rapport mensuel : un site laissé seul finit hors ligne ou compromis, et c'est toujours le client qui le découvre. Le socle est dans chaque offre et annoncé dès le devis, jamais après.",
   },
   {
     q: "Le prix de départ est-il le prix final ?",
-    a: "Le prix de départ couvre le périmètre décrit dans la case. Ce qui s'ajoute est listé au-dessus, avec son prix. Le devis reprend ces lignes poste par poste, et il est chiffré pendant l'appel de quinze minutes, pas envoyé trois jours plus tard.",
+    a: "Le prix de départ couvre le périmètre décrit dans la case. Les options listées plus bas se chiffrent au devis, poste par poste. Le prix vient en premier sur le devis, pas en dernière page, et il est fixé pendant l'appel de quinze minutes.",
   },
   {
-    q: "Et la TVA ?",
-    a: `Tous les montants de cette page sont hors TVA. ${IDENTITE.regimeTva}.`,
+    q: "Comment se passe le paiement ?",
+    a: `${PRICING.payment} Sur toutes les offres, sans exception. ${IDENTITE.regimeTva}.`,
   },
   {
     q: "Que se passe-t-il si je pars ?",
-    a: "Vous emportez tout. Le nom de domaine est enregistré à votre nom, le code est lisible par un autre développeur, et rien n'est loué. Le suivi mensuel s'arrête quand vous le décidez, le site reste.",
+    a: "Vous emportez le domaine, enregistré à votre nom, et le code, lisible par un autre développeur. Rien n'est loué. Le socle mensuel s'arrête avec l'hébergement, et le site se réinstalle ailleurs : il est construit pour ça.",
   },
 ];
 
@@ -68,10 +71,10 @@ export default function TarifsPage() {
     ],
   };
 
-  /* Les offres, en `Offer` avec un prix de départ. `valueAddedTaxIncluded:
-     false` dit noir sur blanc ce que la page dit en tête : hors TVA. Les
-     suppléments ne sont pas balisés un par un, un moteur n'en ferait rien
-     sans le site auquel ils s'ajoutent. */
+  /* Chaque offre porte deux prix : le départ, et le socle par mois. Les deux
+     en `priceSpecification`, `valueAddedTaxIncluded: false` dit noir sur
+     blanc ce que la page dit en tête. Les options ne sont pas balisées : sans
+     prix affiché, un moteur n'en ferait rien. */
   const offres = {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
@@ -79,23 +82,33 @@ export default function TarifsPage() {
     name: "Tarifs Pixelbrute",
     url: URL,
     itemListElement: [
-      ...PRICING.sites
-        .filter((t): t is typeof t & { from: number } => t.from !== null)
-        .map((t) => ({
-          "@type": "Offer",
-          name: t.name,
-          description: t.who,
-          url: URL,
-          priceCurrency: "EUR",
-          priceSpecification: {
+      ...PRICING.sites.map((t) => ({
+        "@type": "Offer",
+        name: t.name,
+        description: `${t.who} ${t.includes.join(", ")}.`,
+        url: URL,
+        priceCurrency: "EUR",
+        priceSpecification: [
+          {
             "@type": "PriceSpecification",
+            name: "Prix de départ",
             minPrice: t.from / 100,
             priceCurrency: "EUR",
             valueAddedTaxIncluded: false,
           },
-          seller: { "@id": `${SITE_URL}/#studio` },
-          itemOffered: { "@type": "Service", name: t.name, provider: { "@id": `${SITE_URL}/#studio` } },
-        })),
+          {
+            "@type": "UnitPriceSpecification",
+            name: "Socle mensuel compris",
+            price: t.monthly / 100,
+            priceCurrency: "EUR",
+            valueAddedTaxIncluded: false,
+            unitText: "mois",
+            billingIncrement: 1,
+          },
+        ],
+        seller: { "@id": `${SITE_URL}/#studio` },
+        itemOffered: { "@type": "Service", name: t.name, provider: { "@id": `${SITE_URL}/#studio` } },
+      })),
       ...PRICING.monthly.map((m) => ({
         "@type": "Offer",
         name: m.name,
@@ -151,28 +164,25 @@ export default function TarifsPage() {
           </h1>
 
           <p className="pb-idx-lede">
-            Les prix ci-dessous sont ceux du devis, pas des prix d&apos;appel. Un chiffre précis se
-            donne pendant l&apos;appel de quinze minutes, une fois le périmètre compris. Tout est
-            hors TVA.
+            Trois offres, pas plus. Chacune comprend son socle mensuel, hébergement, sécurité,
+            petites modifications, rapport : aucun site n&apos;est livré sans. Les prix sont des
+            prix de départ, hors TVA. Le chiffre exact se donne pendant l&apos;appel de quinze
+            minutes, une fois le périmètre compris.
           </p>
 
-          <div className="pb-price-grid">
+          <div className="pb-price-grid" data-cols="3">
             {PRICING.sites.map((t) => (
-              <article key={t.name} className="pb-price-card">
+              <article key={t.key} className="pb-price-card" data-featured={t.featured ? "" : undefined}>
+                {t.featured && <span className="pb-price-tag pb-label">L&apos;offre du milieu</span>}
                 <h2 className="pb-d-s">{t.name}</h2>
                 <div className="pb-price-from">
-                  {t.from === null ? (
-                    <>
-                      Sur devis
-                    </>
-                  ) : (
-                    <>
-                      <small>dès</small>
-                      {euro(t.from)}
-                      <small>HTVA</small>
-                    </>
-                  )}
+                  <small>dès</small>
+                  {euro(t.from)}
+                  <small>HTVA</small>
                 </div>
+                <p className="pb-price-month">
+                  + <b>{euro(t.monthly)} / mois</b>, socle compris
+                </p>
                 <p className="pb-price-who">{t.who}</p>
                 <ul className="pb-price-list">
                   {t.includes.map((it) => (
@@ -182,26 +192,19 @@ export default function TarifsPage() {
               </article>
             ))}
           </div>
-          <p className="pb-price-note">
-            Un site immobilier branché sur vos biens, un outil métier ou une plateforme entrent dans la
-            dernière case : le prix suit ce qu&apos;il faut brancher, plus que le nombre de pages.
-          </p>
 
-          <h2 className="pb-price-h2">Ce qui s&apos;ajoute, quand il en faut</h2>
-          <ul className="pb-price-rows">
-            {PRICING.options.map((o) => (
-              <li key={o.name} className="pb-price-row">
-                <span className="pb-price-row-n">{o.name}</span>
-                <span className="pb-price-row-p">
-                  {o.prefix ? <small>{o.prefix}</small> : null}
-                  {euro(o.price)}
-                </span>
-                <p>{o.note}</p>
-              </li>
+          <ul className="pb-price-socle">
+            <li className="pb-label" style={{ gridColumn: "1 / -1", color: "var(--pb-accent)" }}>
+              {PRICING.socle.name}
+            </li>
+            {PRICING.socle.items.map((it) => (
+              <li key={it}>{it}</li>
             ))}
           </ul>
 
-          <h2 className="pb-price-h2">Chaque mois, si vous le voulez</h2>
+          <p className="pb-price-pay">{PRICING.payment} Toujours.</p>
+
+          <h2 className="pb-price-h2">En plus, chaque mois, si vous le voulez</h2>
           <ul className="pb-price-rows">
             {PRICING.monthly.map((m) => (
               <li key={m.name} className="pb-price-row">
@@ -211,14 +214,21 @@ export default function TarifsPage() {
               </li>
             ))}
           </ul>
+
+          <h2 className="pb-price-h2">Chiffré à part, au devis</h2>
+          <ul className="pb-gd-ul" style={{ marginTop: 22 }}>
+            {PRICING.options.map((o) => (
+              <li key={o}>{o}</li>
+            ))}
+          </ul>
           <p className="pb-price-note">
-            Aucun des deux n&apos;est obligatoire, et aucun n&apos;est automatique : on convient de ce
-            qui est utile. Sans suivi, le site reste à vous, hébergé où vous voulez.
+            Un prix ne descend jamais sans qu&apos;un poste soit retiré. Si le budget est plus
+            serré que l&apos;offre visée, on enlève une fonction, pas un zéro.
           </p>
 
           <h2 className="pb-price-h2">Ce qui fait bouger le prix</h2>
           <ul className="pb-gd-ul" style={{ marginTop: 22 }}>
-            <li>Le nombre de pages réellement différentes, pas le nombre de pages.</li>
+            <li>La fonction métier : recherche de biens, page programme, agenda, espace client.</li>
             <li>Des données à gérer : un catalogue, des biens, des créneaux, des stocks.</li>
             <li>Quelqu&apos;un qui doit se connecter, ou payer, sur le site.</li>
             <li>L&apos;état du contenu que vous fournissez : textes, photos, traductions.</li>
@@ -259,13 +269,8 @@ export default function TarifsPage() {
                 </Link>
               </li>
               <li>
-                <Link href="/guides/wix-wordpress-ou-sur-mesure">
-                  Wix, WordPress ou sur mesure : comment choisir <Arrow dir="e" />
-                </Link>
-              </li>
-              <li>
                 <Link href="/projets">
-                  Les cinq dossiers, avec ce qui a été construit pour ce prix <Arrow dir="e" />
+                  Les cinq dossiers, avec ce qui a été construit <Arrow dir="e" />
                 </Link>
               </li>
             </ul>

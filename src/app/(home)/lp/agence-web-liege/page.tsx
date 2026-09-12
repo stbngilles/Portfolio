@@ -30,7 +30,7 @@ export default function AgenceWebLiegePage() {
         },
         {
           title: "Le prix avant l'appel",
-          text: `Site vitrine dès ${euro(SITE_FROM.essentiel)} hors TVA, boutique ou réservation dès ${euro(SITE_FROM.ecommerce)}. Le devis est chiffré pendant l'appel, poste par poste.`,
+          text: `Essentiel dès ${euro(SITE_FROM.essentiel)}, Signature dès ${euro(SITE_FROM.signature)}, hors TVA, hébergement et maintenance compris chaque mois. Le devis est chiffré pendant l'appel, poste par poste.`,
         },
       ]}
       proofs={[
@@ -49,7 +49,7 @@ export default function AgenceWebLiegePage() {
           caption: "Google · « nettoyage canapé waremme » · août 2026",
         },
       ]}
-      price={`Une page dès ${euro(SITE_FROM.starter)}, un site vitrine dès ${euro(SITE_FROM.essentiel)}, une boutique dès ${euro(SITE_FROM.ecommerce)}. Hors TVA, suivi mensuel facultatif.`}
+      price={`Trois offres : Essentiel dès ${euro(SITE_FROM.essentiel)}, Signature dès ${euro(SITE_FROM.signature)}, sur mesure dès ${euro(SITE_FROM.surMesure)}. Hors TVA, socle mensuel compris. Moitié à la commande, moitié à la livraison.`}
       faq={[
         {
           q: "Que se passe-t-il pendant l'appel ?",

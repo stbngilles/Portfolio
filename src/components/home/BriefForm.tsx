@@ -27,7 +27,7 @@ import { SITE_FROM, euro } from "./data";
  *   directes et sur la home, pas ici.
  *
  * Les tranches de budget sont celles de la page tarifs, calculées depuis le
- * même catalogue (`SITE_FROM`, voir `data.ts`) : un formulaire qui propose
+ * même grille (`SITE_FROM`, voir `data.ts`) : un formulaire qui propose
  * « moins de 1 500 € » sous un site qui affiche 2 500 € comme prix de départ
  * contredit le positionnement au moment précis où le visiteur s'engage. La
  * sortie « je ne sais pas » reste : forcer une fourchette fait surtout perdre
@@ -48,9 +48,9 @@ const BESOINS = [
 
 const BUDGETS = [
   `Moins de ${euro(SITE_FROM.essentiel)}`,
-  `${euro(SITE_FROM.essentiel)} à ${euro(SITE_FROM.ecommerce)}`,
-  `${euro(SITE_FROM.ecommerce)} à 12\u202f000\u00a0€`,
-  "Plus de 12\u202f000\u00a0€",
+  `${euro(SITE_FROM.essentiel)} à ${euro(SITE_FROM.signature)}`,
+  `${euro(SITE_FROM.signature)} à ${euro(SITE_FROM.surMesure)}`,
+  `Plus de ${euro(SITE_FROM.surMesure)}`,
   "Je ne sais pas",
 ];
 

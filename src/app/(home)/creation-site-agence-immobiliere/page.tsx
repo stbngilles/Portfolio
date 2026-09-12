@@ -67,7 +67,7 @@ const QUESTIONS = [
   },
   {
     q: "Combien ça coûte ?",
-    a: `Un site d'agence sans flux de biens, avec la demande d'estimation, les pages de commune et l'équipe, entre dans la fourchette d'un site vitrine, dès ${euro(SITE_FROM.essentiel)} hors TVA. Avec les biens synchronisés, les filtres et les fiches indexables, on passe dans celle d'un site avec données, dès ${euro(SITE_FROM.ecommerce)}. Les pages programmes d'un promoteur se chiffrent sur devis. Les fourchettes complètes sont sur la page tarifs.`,
+    a: `Un site d'agence, c'est l'offre Signature : dès ${euro(SITE_FROM.signature)} hors TVA, avec la recherche de biens ou la page programme, le contenu par commune et le suivi des conversions. Sans fonctionnalité métier, l'Essentiel dès ${euro(SITE_FROM.essentiel)}. Espace client, configurateur, intégrations lourdes : sur mesure dès ${euro(SITE_FROM.surMesure)}. Chaque offre comprend son socle mensuel, hébergement et maintenance, annoncé dès le devis. Les trois sont sur la page tarifs.`,
   },
   {
     q: "Avez-vous déjà fait un site d'agence ?",
@@ -140,7 +140,7 @@ export default function ImmobilierPage() {
       priceCurrency: "EUR",
       priceSpecification: {
         "@type": "PriceSpecification",
-        minPrice: SITE_FROM.essentiel / 100,
+        minPrice: SITE_FROM.signature / 100,
         priceCurrency: "EUR",
         valueAddedTaxIncluded: false,
       },
