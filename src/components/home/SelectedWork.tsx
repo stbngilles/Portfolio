@@ -13,7 +13,7 @@ const N = PROJECTS.length;
 const ORDER = PROJECTS;
 
 /** Largeur de chaque vignette sur la grille 12 colonnes, le rythme de la page. */
-const SPAN = ["7", "5", "5", "7", "6", "6"];
+const SPAN = ["8", "5", "5", "8", "8", "5"];
 
 /**
  * Le travail, en grand. Cinq projets sur une grille irrégulière : chaque

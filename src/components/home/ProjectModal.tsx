@@ -69,7 +69,7 @@ export default function ProjectModal({
         <div className="pb-modal-bar">
           <div
             className="pb-mono"
-            style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 11.5, letterSpacing: "0.14em", textTransform: "uppercase" }}
+            style={{ display: "flex", alignItems: "center", gap: 13, fontSize: "var(--pb-t-label)", letterSpacing: "0.14em", textTransform: "uppercase" }}
           >
             <span style={{ background: "var(--pb-accent)", color: "#fff", borderRadius: 999, padding: "5px 10px" }}>
               {pad(index)}
@@ -90,15 +90,15 @@ export default function ProjectModal({
 
           <div className="pb-modal-meta">
             <div>
-              <div style={{ color: "var(--pb-accent)", marginBottom: 7 }}>Rôle</div>
+              <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Rôle</div>
               {p.role}
             </div>
             <div>
-              <div style={{ color: "var(--pb-accent)", marginBottom: 7 }}>Livré</div>
+              <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Livré</div>
               {p.stack}
             </div>
             <div>
-              <div style={{ color: "var(--pb-accent)", marginBottom: 7 }}>Résultat</div>
+              <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Résultat</div>
               {p.result}
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function ProjectModal({
             <div className="pb-modal-lbl pb-rule" style={{ paddingTop: 34 }}>
               Le problème
             </div>
-            <div className="pb-modal-prose pb-rule" style={{ paddingTop: 26 }}>
+            <div className="pb-modal-prose pb-rule" style={{ paddingTop: 27 }}>
               {p.problem.map((t) => (
                 <p key={t} className="pb-modal-p">
                   {t}
@@ -145,7 +145,7 @@ export default function ProjectModal({
             <div className="pb-rule" style={{ paddingTop: 8, display: "flex", flexDirection: "column" }}>
               {p.decisions.map((d, i) => (
                 <div key={d.title} className="pb-modal-dec">
-                  <span className="pb-mono" style={{ fontSize: 11.5, color: "var(--pb-accent)", paddingTop: 7 }}>
+                  <span className="pb-mono" style={{ fontSize: "var(--pb-t-label)", color: "var(--pb-accent)", paddingTop: 8 }}>
                     {pad(i)}
                   </span>
                   <div>
@@ -173,7 +173,7 @@ export default function ProjectModal({
             <div className="pb-modal-lbl pb-rule" style={{ paddingTop: 34 }}>
               Résultat
             </div>
-            <div className="pb-modal-prose pb-rule" style={{ paddingTop: 26 }}>
+            <div className="pb-modal-prose pb-rule" style={{ paddingTop: 27 }}>
               {p.outcome.map((t) => (
                 <p key={t} className="pb-modal-p">
                   {t}

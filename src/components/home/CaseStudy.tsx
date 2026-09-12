@@ -49,15 +49,15 @@ export default function CaseStudy({
 
         <div className="pb-modal-meta">
           <div>
-            <div style={{ color: "var(--pb-accent)", marginBottom: 7 }}>Rôle</div>
+            <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Rôle</div>
             {p.role}
           </div>
           <div>
-            <div style={{ color: "var(--pb-accent)", marginBottom: 7 }}>Livré</div>
+            <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Livré</div>
             {p.stack}
           </div>
           <div>
-            <div style={{ color: "var(--pb-accent)", marginBottom: 7 }}>Résultat</div>
+            <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Résultat</div>
             {p.result}
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function CaseStudy({
         <h2 className="pb-modal-lbl pb-case-h2 pb-rule" style={{ paddingTop: 34 }}>
           Le problème
         </h2>
-        <div className="pb-modal-prose pb-rule" style={{ paddingTop: 26 }}>
+        <div className="pb-modal-prose pb-rule" style={{ paddingTop: 27 }}>
           {p.problem.map((t) => (
             <p key={t} className="pb-modal-p">
               {t}
@@ -105,7 +105,7 @@ export default function CaseStudy({
         <div className="pb-rule" style={{ paddingTop: 8, display: "flex", flexDirection: "column" }}>
           {p.decisions.map((d, i) => (
             <div key={d.title} className="pb-modal-dec">
-              <span className="pb-mono" style={{ fontSize: 11.5, color: "var(--pb-accent)", paddingTop: 7 }}>
+              <span className="pb-mono" style={{ fontSize: "var(--pb-t-label)", color: "var(--pb-accent)", paddingTop: 8 }}>
                 {pad(i)}
               </span>
               <div>
@@ -133,7 +133,7 @@ export default function CaseStudy({
         <h2 className="pb-modal-lbl pb-case-h2 pb-rule" style={{ paddingTop: 34 }}>
           Résultat
         </h2>
-        <div className="pb-modal-prose pb-rule" style={{ paddingTop: 26 }}>
+        <div className="pb-modal-prose pb-rule" style={{ paddingTop: 27 }}>
           {p.outcome.map((t) => (
             <p key={t} className="pb-modal-p">
               {t}

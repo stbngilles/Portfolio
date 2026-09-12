@@ -20,12 +20,12 @@ export default function Faq() {
     <section id="faq" className="pb-faq-grid">
       <div>
         <div className="pb-over">Questions</div>
-        <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 14 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 13 }}>
           <h2
             style={{
               margin: 0,
-              fontSize: "clamp(40px, 4.6vw, 72px)",
-              lineHeight: 0.9,
+              fontSize: "clamp(38.3px, 4.6vw, 78.8px)",
+              lineHeight: "var(--pb-lh-display)",
               letterSpacing: "-0.045em",
               fontWeight: 500,
               color: "rgba(15,15,20,0.32)",
@@ -35,12 +35,12 @@ export default function Faq() {
           </h2>
           <div
             className="pb-mono"
-            style={{ border: "1px solid rgba(15,15,20,0.4)", borderRadius: 10, fontSize: 15, padding: "9px 15px" }}
+            style={{ border: "1px solid rgba(15,15,20,0.4)", borderRadius: "var(--pb-r-s)", fontSize: "var(--pb-t-small)", padding: "10px 16px" }}
           >
             {FAQS.length}
           </div>
         </div>
-        <p className="pb-mono" style={{ fontSize: 11, lineHeight: 1.8, color: "var(--pb-accent)", marginTop: 40, maxWidth: 220 }}>
+        <p className="pb-mono" style={{ fontSize: "var(--pb-t-label)", lineHeight: "var(--pb-lh-read)", color: "var(--pb-accent)", marginTop: 43, maxWidth: 233 }}>
           Si votre question n&apos;est pas là, posez-la dans le formulaire ci-dessus.
         </p>
       </div>
