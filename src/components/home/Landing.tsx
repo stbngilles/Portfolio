@@ -65,7 +65,7 @@ export default function Landing({ over, title, lede, points, proofs, bullets, pr
           <BookCall className="pb-btn-solid">
             {cta} <Arrow dir="ne" />
           </BookCall>
-          <span className="pb-cap">Quinze minutes, sans engagement. Le devis est chiffré pendant l&apos;appel.</span>
+          <span className="pb-cap">Quinze minutes, sans engagement. Prix fixé pendant l&apos;appel, ou devis écrit sous 48&nbsp;h.</span>
         </div>
       </section>
 

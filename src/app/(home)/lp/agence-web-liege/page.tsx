@@ -49,7 +49,7 @@ export default function AgenceWebLiegePage() {
           caption: "Google · « nettoyage canapé waremme » · août 2026",
         },
       ]}
-      price={`Trois offres : Essentiel dès ${euro(SITE_FROM.essentiel)}, Signature dès ${euro(SITE_FROM.signature)}, sur mesure dès ${euro(SITE_FROM.surMesure)}. Hors TVA, socle mensuel compris. Moitié à la commande, moitié à la livraison.`}
+      price={`Trois offres : Essentiel dès ${euro(SITE_FROM.essentiel)}, Signature dès ${euro(SITE_FROM.signature)}, sur mesure dès ${euro(SITE_FROM.surMesure)}. Hors TVA, socle mensuel compris. Moitié à la commande, moitié à la livraison jusqu'à 6 000 €.`}
       faq={[
         {
           q: "Que se passe-t-il pendant l'appel ?",

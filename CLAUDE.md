@@ -60,8 +60,11 @@ province de Liège. Plus « indépendants et artisans » seuls.
 
 Tarifs publics : trois offres, jamais plus (Essentiel 2 500 € + 90 €/mois,
 Signature 5 500 € + 150 €/mois, sur mesure dès 9 000 € + 250 €/mois), socle
-mensuel compris dans chacune, « à partir de » affiché, 50 % à la commande, 50 % à
-la livraison. La grille vit dans `PRICING` (`data.ts`). Le catalogue de la
+mensuel compris dans chacune, « à partir de » affiché. Paiement moitié / moitié
+jusqu'à 6 000 €, 30 / 40 / 30 au-delà, code cédé au paiement intégral. Prix fixé
+pendant l'appel pour Essentiel et Signature, devis écrit sous 48 h pour le sur
+mesure. Délais, corrections comprises et durée du socle sont dans `TERMS`
+(`data.ts`), cités mot pour mot partout. La grille vit dans `PRICING` (`data.ts`). Le catalogue de la
 plateforme, `src/lib/pricing.ts`, est lu par vingt-sept écrans de `/app/*` et n'est
 pas importé par le site public : les deux grilles se tiennent alignées à la main.
 Ne pas réintroduire `/services/*`, `/realisations` ou `/equipe/*` : supprimées, et

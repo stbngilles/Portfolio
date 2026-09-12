@@ -43,7 +43,7 @@ export default function SiteAgenceImmobilierePage() {
           "L'alerte acheteur : ses critères, vos nouveaux biens avant le portail.",
         ],
       }}
-      price={`Signature dès ${euro(SITE_FROM.signature)}, sur mesure dès ${euro(SITE_FROM.surMesure)}. Hors TVA, socle mensuel compris. Moitié à la commande, moitié à la livraison.`}
+      price={`Signature dès ${euro(SITE_FROM.signature)}, sur mesure dès ${euro(SITE_FROM.surMesure)}. Hors TVA, socle mensuel compris. Paiement en tranches, échéancier écrit dans le devis.`}
       faq={[
         {
           q: "Est-ce que je garde Immoweb ?",

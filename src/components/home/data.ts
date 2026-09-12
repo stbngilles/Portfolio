@@ -690,7 +690,14 @@ export const QUOTES: Quote[] = [
  * alignés à la main, et le catalogue est en retard sur cette grille.
  *
  * Montants en centimes, hors TVA. Paiement : moitié à la commande, moitié à
- * la livraison, toujours.
+ * la livraison jusqu'à 6 000 € ; au-delà, trois tranches, 30 / 40 / 30. Le
+ * code est cédé au paiement intégral : quelqu'un qui paie la moitié,
+ * récupère le code et disparaît, ça s'est déjà vu.
+ *
+ * Les conditions de `TERMS` (délais, corrections comprises, durée du socle)
+ * sont écrites ici une fois et reprises telles quelles sur la page tarifs,
+ * la méthode et la FAQ : un délai qui diffère d'une page à l'autre n'engage
+ * plus personne.
  */
 
 /** « 2 500 € », espace fine insécable entre les milliers, insécable avant le signe. */
@@ -712,6 +719,8 @@ export type PriceTier = {
   monthly: number;
   /** À qui ça s'adresse, en une phrase. */
   who: string;
+  /** Délai de livraison, à compter du contenu reçu. */
+  delay: string;
   includes: string[];
   /** L'offre du milieu, celle à vendre. Une seule. */
   featured?: boolean;
@@ -724,7 +733,7 @@ export const PRICING: {
   socle: { name: string; items: string[] };
   monthly: PriceLine[];
   options: string[];
-  payment: string;
+  payment: { small: string; large: string };
 } = {
   sites: [
     {
@@ -733,6 +742,7 @@ export const PRICING: {
       from: SITE_FROM.essentiel,
       monthly: 9000,
       who: "Une entreprise qui doit être trouvée, comprise, puis appelée.",
+      delay: "Environ trois semaines, une fois le contenu reçu",
       includes: [
         "Site vitrine, cinq à sept pages",
         "Design sur mesure, lisible au téléphone",
@@ -747,6 +757,7 @@ export const PRICING: {
       from: SITE_FROM.signature,
       monthly: 15000,
       who: "Un site qui fait un travail précis : rentrer des mandats, vendre un programme, remplir un agenda.",
+      delay: "Environ cinq semaines, une fois le contenu reçu",
       includes: [
         "Dix à quinze pages",
         "Une fonctionnalité métier : recherche de biens, page programme, prise de rendez-vous",
@@ -760,6 +771,7 @@ export const PRICING: {
       from: SITE_FROM.surMesure,
       monthly: 25000,
       who: "Le site fait tourner une partie de l'activité, et se branche sur vos outils.",
+      delay: "Délai écrit dans le devis, livraison par étapes",
       includes: [
         "Espace client, tableau de bord",
         "Configurateur, boutique en ligne",
@@ -796,17 +808,39 @@ export const PRICING: {
     "Séance photo",
     "Formation à l'administration du site",
   ],
-  payment: "Moitié à la commande, moitié à la livraison.",
+  payment: {
+    small: "Jusqu'à 6 000 € : moitié à la commande, moitié à la livraison.",
+    large: "Au-delà : 30 % à la commande, 40 % à la validation de la maquette, 30 % à la livraison.",
+  },
 };
+
+/**
+ * Les conditions écrites dans chaque devis. Une phrase chacune, reprises
+ * mot pour mot partout où elles sont citées.
+ */
+export const TERMS = {
+  /** Qui reçoit un prix quand. */
+  quote:
+    "Prix fixé pendant l'appel de quinze minutes pour Essentiel et Signature. Pour le sur mesure, devis écrit sous 48 h ouvrées.",
+  /* Les étapes sont nommées dans la phrase même : sans ça, un client tient
+     tout le projet pour une seule étape et demande ses deux séries à la fin,
+     sur l'ensemble. */
+  revisions:
+    "Deux séries de corrections comprises à chacune des quatre étapes validées : maquette, intégration, contenu, recette. Au-delà, facturé, et annoncé avant.",
+  socle:
+    "Socle mensuel sur douze mois, puis au mois, avec un mois de préavis.",
+  handover:
+    "Le domaine est enregistré à votre nom dès le départ. Le code est cédé au paiement intégral.",
+} as const;
 
 export const FAQS = [
   {
     q: "Par quoi on commence ?",
-    a: "Un appel de quinze minutes, que vous réservez vous-même en ligne. Vous m'expliquez votre métier et ce qui coince aujourd'hui, et on chiffre le projet ensemble pendant l'appel : vous raccrochez en sachant ce que ça coûte et combien de temps ça prend. Sans engagement : rien à signer, ni pendant, ni après.",
+    a: `Un appel de quinze minutes, que vous réservez vous-même en ligne. Vous m'expliquez votre métier et ce qui coince aujourd'hui. ${TERMS.quote} Sans engagement : rien à signer, ni pendant, ni après.`,
   },
   {
     q: "Combien de temps prend un projet ?",
-    a: "Ça dépend entièrement du périmètre. Une vitrine avec un contenu prêt et un catalogue avec une gestion de stock ne se comparent pas. Je donne une durée après avoir compris le projet, pas avant.",
+    a: "Essentiel, environ trois semaines. Signature, environ cinq. Les deux à compter du contenu reçu : c'est presque toujours le contenu qui décide de la date, pas le code. Pour le sur mesure, le délai est écrit dans le devis, avec une livraison par étapes.",
   },
   {
     q: "Qu'est-ce qui fait varier le prix ?",

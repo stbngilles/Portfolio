@@ -119,7 +119,7 @@ ${faq.join("\n\n")}
 
 ${lien("Accueil", SITE_URL, "Le studio, les projets, la manière de travailler.")}
 ${lien("Projets", `${SITE_URL}/projets`, "Les cinq études de cas, avec les décisions prises et ce qui est vérifiable.")}
-${lien("Tarifs", `${SITE_URL}/tarifs`, "Trois offres, hors TVA, avant le premier appel : Essentiel dès 2 500 €, Signature dès 5 500 €, sur mesure dès 9 000 €, socle mensuel compris. Moitié à la commande, moitié à la livraison.")}
+${lien("Tarifs", `${SITE_URL}/tarifs`, "Trois offres, hors TVA, avant le premier appel : Essentiel dès 2 500 €, Signature dès 5 500 €, sur mesure dès 9 000 €, socle mensuel compris. Paiement en deux tranches jusqu'à 6 000 €, en trois au-delà. Code cédé au paiement intégral.")}
 ${lien("Comment je travaille", `${SITE_URL}/comment-je-travaille`, "Sept étapes, de l'appel de quinze minutes à l'après-livraison, ce que le client fournit, ce que le studio ne fait pas.")}
 ${lien("Sites pour agences immobilières", `${SITE_URL}/creation-site-agence-immobiliere`, "Ce qu'un site d'agence ou de promoteur doit faire que les portails ne font pas, et ce que le studio construit.")}
 ${lien("Création de site internet à Liège", `${SITE_URL}/creation-site-internet-liege`, "Ce que la concurrence de la ville change pour un site, et ce qui y fonctionne.")}

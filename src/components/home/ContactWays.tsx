@@ -22,13 +22,14 @@ import { AVAILABILITY, WHATSAPP_URL } from "./data";
  * son `href` reste la page Cal.com, qui sert de secours et de ⌘-clic.
  *
  * Les faits affichés sont ceux déjà tenus ailleurs sur le site : appel de
- * quinze minutes sans engagement (FAQ), 5,0 ★ sur trois avis (STUDIO.facts),
+ * quinze minutes sans engagement (FAQ), 5,0 ★ sur Google (STUDIO.facts, sans
+ * le compte : trois avis, c'est vrai, mais pas à mettre en avant à côté d'un prix),
  * une seule personne (Studio). La réponse sous 24 h n'y est plus : elle est
  * déjà dans l'œil-de-bœuf, sur le bouton d'envoi et sous le formulaire.
  */
 const TRUST = [
-  "Devis chiffré pendant l'appel, sans engagement",
-  "5,0 ★ · 3 avis Google",
+  "Prix fixé pendant l'appel, ou devis écrit sous 48 h",
+  "5,0 ★ sur Google",
   "Vous parlez à la personne qui code",
 ];
 

@@ -142,8 +142,9 @@ export default function BriefForm() {
           <li>
             <b>03</b>
             <span>
-              Si ça vous parle, on cale quinze minutes : on chiffre le projet ensemble
-              pendant l&apos;appel. Sans engagement, rien à signer, ni pendant, ni après.
+              Si ça vous parle, on cale quinze minutes : prix fixé pendant l&apos;appel pour
+              Essentiel et Signature, devis écrit sous 48&nbsp;h pour le sur mesure. Sans
+              engagement, rien à signer, ni pendant, ni après.
             </span>
           </li>
         </ol>

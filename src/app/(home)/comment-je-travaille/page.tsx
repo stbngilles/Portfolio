@@ -3,7 +3,7 @@ import Link from "next/link";
 import Header from "@/components/home/Header";
 import SiteFooter from "@/components/home/SiteFooter";
 import Arrow from "@/components/home/Arrow";
-import { SITE_FROM, euro } from "@/components/home/data";
+import { PRICING, SITE_FROM, TERMS, euro } from "@/components/home/data";
 
 const SITE_URL = "https://pixelbrute.be";
 const URL = `${SITE_URL}/comment-je-travaille`;
@@ -25,11 +25,11 @@ const URL = `${SITE_URL}/comment-je-travaille`;
 const STEPS = [
   {
     title: "L'appel, quinze minutes",
-    text: "Vous le réservez en ligne. Vous décrivez votre métier et ce qui coince aujourd'hui : les demandes qui n'arrivent pas, le temps perdu au téléphone, le site qu'on n'ose plus montrer. Je vous dis ce que je ferais, ce que je ne ferais pas, et ce que ça coûte. Vous raccrochez avec un chiffre.",
+    text: `Vous le réservez en ligne. Vous décrivez votre métier et ce qui coince aujourd'hui : les demandes qui n'arrivent pas, le temps perdu au téléphone, le site qu'on n'ose plus montrer. Je vous dis ce que je ferais, ce que je ne ferais pas, et ce que ça coûte. ${TERMS.quote}`,
   },
   {
     title: "Le devis, poste par poste",
-    text: "Le prix vient en premier, pas noyé en dernière page. Le devis reprend une des trois offres avec le périmètre écrit en clair : les pages, la fonction métier, le socle mensuel, ce que vous fournissez, ce que je fournis. Moitié à la commande, moitié à la livraison. Un poste qui ne sert à rien est retiré, pas facturé.",
+    text: `Le prix vient en premier, pas noyé en dernière page. Le devis reprend une des trois offres avec le périmètre écrit en clair : les pages, la fonction métier, le socle mensuel, le délai, ce que vous fournissez, ce que je fournis. ${PRICING.payment.small} ${PRICING.payment.large} ${TERMS.revisions} Un poste qui ne sert à rien est retiré, pas facturé.`,
   },
   {
     title: "La conception, écrite avant la maquette",
@@ -49,7 +49,7 @@ const STEPS = [
   },
   {
     title: "Après",
-    text: "Vous gardez le même interlocuteur. Le socle mensuel, annoncé dès le devis, prend le relais : hébergement, sécurité, petites modifications, et un rapport chaque mois sur les visites et les demandes. Les corrections liées au travail livré sont comprises. Le domaine reste à votre nom, le code reste lisible par un autre développeur.",
+    text: `Vous gardez le même interlocuteur. Le socle mensuel, annoncé dès le devis, prend le relais : hébergement, sécurité, petites modifications, et un rapport chaque mois sur les visites et les demandes. ${TERMS.socle} Les corrections liées au travail livré sont comprises. ${TERMS.handover}`,
   },
 ];
 
@@ -177,18 +177,20 @@ export default function MethodePage() {
 
             <h2 className="pb-gd-h2">Combien de temps, combien</h2>
             <p className="pb-gd-p">
-              Une durée se donne après avoir compris le projet, pas avant : une page avec un
-              contenu prêt et un site branché sur un logiciel métier ne se comparent pas. Le prix,
-              lui, est écrit avant l&apos;appel : Essentiel dès {euro(SITE_FROM.essentiel)},
+              Essentiel, environ trois semaines. Signature, environ cinq. Les deux à compter du
+              contenu reçu : c&apos;est presque toujours le contenu qui décide de la date, pas le
+              code. Pour le sur mesure, le délai est dans le devis, avec une livraison par étapes.
+              Le prix est écrit avant l&apos;appel : Essentiel dès {euro(SITE_FROM.essentiel)},
               Signature dès {euro(SITE_FROM.signature)}, sur mesure dès {euro(SITE_FROM.surMesure)},
-              hors TVA, socle mensuel compris. Moitié à la commande, moitié à la livraison.
+              hors TVA, socle mensuel compris.
             </p>
           </div>
 
           <div className="pb-case-cta">
             <h2 className="pb-d-s">La première étape prend quinze minutes.</h2>
             <p>
-              Vous la réservez en ligne, vous décrivez ce qui coince, vous raccrochez avec un chiffre.
+              Vous la réservez en ligne, vous décrivez ce qui coince, vous raccrochez avec un chiffre,
+              ou un devis écrit sous 48&nbsp;h pour le sur mesure.
               Rien à signer, ni pendant, ni après.
             </p>
             <Link href="/contact" className="pb-btn-line">

@@ -94,8 +94,8 @@ export default function BookingWidget() {
 
           <p className="pb-book-t">Cadrage et devis, 15 min</p>
           <p className="pb-book-p">
-            Vous décrivez ce qui coince, on chiffre le projet pendant l&apos;appel. Par téléphone ou
-            en visio, sans engagement.
+            Vous décrivez ce qui coince, vous repartez avec un prix, ou un devis écrit sous
+            48&nbsp;h pour le sur mesure. Par téléphone ou en visio, sans engagement.
           </p>
 
           {AVAILABILITY && <p className="pb-book-slot">{AVAILABILITY}</p>}

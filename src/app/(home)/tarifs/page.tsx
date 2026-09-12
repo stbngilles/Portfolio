@@ -3,8 +3,9 @@ import Link from "next/link";
 import Header from "@/components/home/Header";
 import SiteFooter from "@/components/home/SiteFooter";
 import Arrow from "@/components/home/Arrow";
-import { PRICING, SITE_FROM, euro } from "@/components/home/data";
-import { IDENTITE } from "@/components/home/legal";
+import BookCall from "@/components/home/BookCall";
+import { PRICING, QUOTES, SITE_FROM, TERMS, euro } from "@/components/home/data";
+import { IDENTITE, PROFILS } from "@/components/home/legal";
 
 const SITE_URL = "https://pixelbrute.be";
 const URL = `${SITE_URL}/tarifs`;
@@ -45,19 +46,19 @@ const QUESTIONS = [
   },
   {
     q: "Le socle mensuel est-il obligatoire ?",
-    a: "Oui. Aucun site n'est livré sans son hébergement, sa sécurité, ses petites modifications et son rapport mensuel : un site laissé seul finit hors ligne ou compromis, et c'est toujours le client qui le découvre. Le socle est dans chaque offre et annoncé dès le devis, jamais après.",
+    a: "Oui. Aucun site n'est livré sans son hébergement, sa sécurité, ses petites modifications et son rapport mensuel : un site laissé seul finit hors ligne ou compromis, et c'est toujours le client qui le découvre. Le socle est dans chaque offre et annoncé dès le devis, jamais après. L'engagement de douze mois couvre la mise en ligne, la sécurité et le suivi de la première année, la période où un site bouge le plus.",
   },
   {
     q: "Le prix de départ est-il le prix final ?",
-    a: "Le prix de départ couvre le périmètre décrit dans la case. Les options listées plus bas se chiffrent au devis, poste par poste. Le prix vient en premier sur le devis, pas en dernière page, et il est fixé pendant l'appel de quinze minutes.",
+    a: `Le prix de départ couvre le périmètre décrit dans la case. Les options listées plus bas se chiffrent au devis, poste par poste, et le prix vient en premier sur le devis, pas en dernière page. ${TERMS.quote}`,
   },
   {
     q: "Comment se passe le paiement ?",
-    a: `${PRICING.payment} Sur toutes les offres, sans exception. ${IDENTITE.regimeTva}.`,
+    a: `${PRICING.payment.small} ${PRICING.payment.large} ${IDENTITE.regimeTva}.`,
   },
   {
     q: "Que se passe-t-il si je pars ?",
-    a: "Vous emportez le domaine, enregistré à votre nom, et le code, lisible par un autre développeur. Rien n'est loué. Le socle mensuel s'arrête avec l'hébergement, et le site se réinstalle ailleurs : il est construit pour ça.",
+    a: `Vous emportez le domaine et le code, lisible par un autre développeur. Rien n'est loué. ${TERMS.handover} ${TERMS.socle} Quand il s'arrête, l'hébergement s'arrête avec lui, et le site se réinstalle ailleurs : il est construit pour ça.`,
   },
 ];
 
@@ -166,14 +167,15 @@ export default function TarifsPage() {
           <p className="pb-idx-lede">
             Trois offres, pas plus. Chacune comprend son socle mensuel, hébergement, sécurité,
             petites modifications, rapport : aucun site n&apos;est livré sans. Les prix sont des
-            prix de départ, hors TVA. Le chiffre exact se donne pendant l&apos;appel de quinze
-            minutes, une fois le périmètre compris.
+            prix de départ, hors TVA. Pour Essentiel et Signature, le prix est fixé pendant
+            l&apos;appel de quinze minutes. Pour le sur mesure, vous recevez un devis écrit sous
+            48&nbsp;h ouvrées.
           </p>
 
           <div className="pb-price-grid" data-cols="3">
             {PRICING.sites.map((t) => (
               <article key={t.key} className="pb-price-card" data-featured={t.featured ? "" : undefined}>
-                {t.featured && <span className="pb-price-tag pb-label">L&apos;offre du milieu</span>}
+                {t.featured && <span className="pb-price-tag pb-label">Celle qui rapporte</span>}
                 <h2 className="pb-d-s">{t.name}</h2>
                 <div className="pb-price-from">
                   <small>dès</small>
@@ -189,8 +191,16 @@ export default function TarifsPage() {
                     <li key={it}>{it}</li>
                   ))}
                 </ul>
+                <p className="pb-price-delay pb-cap">{t.delay}</p>
               </article>
             ))}
+          </div>
+
+          <div className="pb-price-cta">
+            <BookCall className="pb-btn-solid">
+              Réserver l&apos;appel <Arrow dir="ne" />
+            </BookCall>
+            <span className="pb-cap">Quinze minutes, sans engagement. Vous choisissez le créneau.</span>
           </div>
 
           <ul className="pb-price-socle">
@@ -202,7 +212,36 @@ export default function TarifsPage() {
             ))}
           </ul>
 
-          <p className="pb-price-pay">{PRICING.payment} Toujours.</p>
+          <h2 className="pb-price-h2">Dans chaque devis, noir sur blanc</h2>
+          <ul className="pb-gd-ul" style={{ marginTop: 22 }}>
+            <li>{PRICING.payment.small}</li>
+            <li>{PRICING.payment.large}</li>
+            <li>{TERMS.revisions}</li>
+            <li>{TERMS.socle}</li>
+            <li>{TERMS.handover}</li>
+            <li>Le délai, à compter du contenu reçu. C&apos;est presque toujours le contenu qui décide de la date.</li>
+          </ul>
+
+          <aside className="pb-price-proof">
+            <p className="pb-price-quote">{QUOTES[1].text}</p>
+            <p className="pb-cap">
+              {QUOTES[1].name} · {QUOTES[1].role}
+            </p>
+            <p className="pb-price-proof-facts">
+              {/* La note, pas le compte : trois avis, c'est vrai, et c'est
+                  visible sur la fiche, mais ce n'est pas à mettre en gras à
+                  l'endroit où le client vient de lire 9 000 €. Le compte
+                  revient ici à partir d'une dizaine d'avis. */}
+              <span>5,0 ★ sur Google</span>
+              <a href={PROFILS.studio[0]} target="_blank" rel="noopener">
+                Voir la fiche Google <Arrow dir="ne" />
+              </a>
+              <span>Deux clients en 1ʳᵉ position du pack local</span>
+              <Link href="/projets">
+                Vérifier <Arrow dir="e" />
+              </Link>
+            </p>
+          </aside>
 
           <h2 className="pb-price-h2">En plus, chaque mois, si vous le voulez</h2>
           <ul className="pb-price-rows">
@@ -248,7 +287,8 @@ export default function TarifsPage() {
             <h2 className="pb-d-s">Vous avez un ordre de grandeur. Il manque le vôtre.</h2>
             <p>
               Un appel de quinze minutes, réservé en ligne : vous décrivez le projet, vous raccrochez
-              avec un chiffre. Rien à signer, ni pendant, ni après.
+              avec un chiffre, ou un devis écrit sous 48&nbsp;h pour le sur mesure. Rien à signer,
+              ni pendant, ni après.
             </p>
             <Link href="/contact" className="pb-btn-line">
               Réserver l&apos;appel <Arrow dir="ne" />
