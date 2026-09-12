@@ -394,6 +394,170 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  /* ======================================================================= */
+  /* Immobilier : le pilier, puis un satellite. Les deux pointent vers la
+     page de secteur `/creation-site-agence-immobiliere`, c'est le maillage
+     qui fait monter la page de vente, pas l'inverse. Aucun chiffre de marché
+     ici : on n'en a pas de sourcé, alors on n'en écrit pas. */
+  {
+    slug: "site-internet-agence-immobiliere",
+    title: "Site internet d'agence immobilière : ce qui compte en Belgique",
+    h1: "Le site d'une agence immobilière ne vend pas des biens. Il vend l'agence.",
+    description:
+      "Ce qu'un site d'agence immobilière ou de promoteur doit faire que les portails ne font pas : rentrer des mandats, présenter les biens avec ses propres données, et sortir sur les recherches de sa commune.",
+    lede:
+      "Les portails vendent vos biens à des acheteurs. Personne d'autre que vous ne vend votre agence à des vendeurs. C'est le rôle du site, et c'est à cette aune qu'il faut le juger, avant de parler de design.",
+    date: "2026-09-12",
+    intent: "site internet agence immobilière / création site immobilier Belgique / site web promoteur immobilier",
+    related: ["motodistri", "lokigen"],
+    blocks: [
+      {
+        kind: "p",
+        text:
+          "Une agence belge publie ses biens sur un ou plusieurs portails, et c'est là que les acheteurs regardent. Le site de l'agence n'a aucune chance de rivaliser sur ce terrain, et il n'a pas à le faire. Il sert trois choses que le portail ne fait pas : convaincre un propriétaire de confier son bien, présenter les biens avec vos mots et vos photos, et sortir sur les recherches qui nomment votre commune.",
+      },
+
+      { kind: "h2", text: "Le vendeur, pas l'acheteur" },
+      {
+        kind: "p",
+        text:
+          "Un acheteur cherche un bien. Un vendeur cherche une agence. Le premier tape « maison 3 chambres Waremme » et tombe sur un portail. Le second tape « agence immobilière Waremme » ou « estimation maison Hannut », et là, c'est votre site ou celui du concurrent. Le mandat se joue sur cette recherche-là.",
+      },
+      {
+        kind: "p",
+        text:
+          "La page qui compte le plus sur un site d'agence est donc la demande d'estimation. Elle doit être courte, accessible depuis chaque page, et répondre à ce que le vendeur se demande vraiment : qui va venir, quand, et à quoi il s'engage. À rien, en général, et il faut l'écrire sous le bouton.",
+      },
+
+      { kind: "h2", text: "Les biens, avec vos données" },
+      {
+        kind: "p",
+        text:
+          "Un site où les biens sont recopiés à la main depuis le logiciel finit toujours en retard sur le portail, et un bien vendu qui reste affiché fait plus de mal qu'un bien absent. Les logiciels du marché belge, Whise, Omnicasa, Skarabee et les autres, exposent leurs données par un flux ou une interface. Le site se branche dessus : vous saisissez une fois, tout suit.",
+      },
+      {
+        kind: "ul",
+        items: [
+          "Des filtres qui correspondent à vos biens réels : type, commune, budget, chambres, PEB.",
+          "Une fiche par bien, à sa propre adresse, avec ses photos, son plan, son certificat PEB et sa commune dans le titre. Google peut la classer, un portail ne vous laisse pas ça.",
+          "Le statut, disponible, sous option, vendu, qui suit le logiciel sans intervention.",
+          "Une alerte par e-mail pour l'acheteur qui n'a rien trouvé aujourd'hui : il reçoit vos nouveaux biens avant le portail.",
+        ],
+      },
+
+      { kind: "h2", text: "Le programme neuf, une page par programme" },
+      {
+        kind: "p",
+        text:
+          "Pour un promoteur, un programme est un produit à part entière, avec son calendrier, ses lots, ses finitions et ses conditions. Une page par programme, avec le plan des lots et leur disponibilité, tient lieu de brochure et se met à jour au fil des ventes. Elle porte aussi le nom de la commune dans son titre, ce qu'aucune brochure PDF ne fait.",
+      },
+
+      { kind: "h2", text: "La commune avant la ville" },
+      {
+        kind: "p",
+        text:
+          "Le bloc de trois établissements en haut d'une recherche locale se décide sur la pertinence, la distance et la notoriété. Une agence a une adresse, une catégorie nette et des avis : elle a tout ce qu'il faut pour y figurer sur « agence immobilière + sa commune ». Le site doit nommer cette commune, et celles où vous vendez, dans ses titres et ses pages, pas seulement dans le pied de page.",
+      },
+      {
+        kind: "note",
+        text:
+          "Un site d'agence sur lequel les biens sont à jour, où la demande d'estimation tient en trois champs, et dont chaque page nomme une commune réelle, fait plus pour le mandat suivant qu'une refonte graphique.",
+      },
+
+      { kind: "h2", text: "Ce que ça coûte" },
+      {
+        kind: "p",
+        text:
+          "Un site d'agence sans flux de biens, avec la demande d'estimation, les pages de commune et la présentation de l'équipe, entre dans la fourchette d'un site vitrine. Dès que les biens arrivent du logiciel, avec filtres et fiches indexables, on passe dans celle d'un site avec données, et le prix suit ce qu'il faut brancher, plus que le nombre de pages. Les fourchettes sont publiées sur la page tarifs de ce site.",
+      },
+
+      { kind: "h2", text: "Ce que j'ai construit qui s'en rapproche" },
+      {
+        kind: "p",
+        text:
+          "Je n'ai pas encore livré de site d'agence, et je préfère l'écrire que de le laisser deviner. Deux projets en ligne montrent les deux pièces les plus lourdes d'un site immobilier : Motodistri, un catalogue de plus de soixante mille références avec filtres et fiches indexées, et Lokigen, un produit avec espace client, tableau de bord et paiement. Les deux dossiers sont en bas de page, avec ce qui se vérifie.",
+      },
+    ],
+  },
+
+  /* ======================================================================= */
+  {
+    slug: "rentrer-des-mandats-avec-son-site",
+    title: "Rentrer des mandats avec son site, sans dépendre des portails",
+    h1: "Rentrer des mandats avec son site, sans dépendre des portails",
+    description:
+      "Comment une agence obtient ses propres contacts vendeurs : la page d'estimation, les recherches de commune, les avis, et ce que le site doit faire dans l'heure qui suit la demande.",
+    lede:
+      "Un portail vous apporte des acheteurs, contre un abonnement. Il ne vous apportera pas de vendeur : le vendeur ne cherche pas un bien, il cherche quelqu'un à qui confier le sien. Cette page dit comment le site fait ce travail.",
+    date: "2026-09-12",
+    intent: "trouver des mandats agence immobilière / leads vendeurs immobilier / estimation immobilière en ligne",
+    related: ["zen-harmonie", "detail-wave"],
+    blocks: [
+      {
+        kind: "p",
+        text:
+          "Le raisonnement tient en une ligne : le mandat vient du vendeur, le vendeur vient d'une recherche locale ou d'une recommandation, et dans les deux cas il passe par votre site avant de décrocher son téléphone. Un site qui ne lui donne pas une raison de le faire le renvoie chez le voisin.",
+      },
+
+      { kind: "h2", text: "Ce que tape un vendeur" },
+      {
+        kind: "ul",
+        items: [
+          "« estimation maison + commune » : la plus directe, et la plus disputée, par les portails eux-mêmes.",
+          "« agence immobilière + commune » : la recherche de confiance, celle qui compare.",
+          "« vendre sa maison + commune » : plus rare, et souvent laissée libre.",
+          "Le nom de votre agence, après une recommandation : la page doit confirmer ce qu'on lui a dit.",
+        ],
+      },
+
+      { kind: "h2", text: "La page d'estimation" },
+      {
+        kind: "steps",
+        items: [
+          {
+            title: "Trois champs, pas douze",
+            text:
+              "Adresse, type de bien, comment vous joindre. Tout le reste se demande au téléphone. Chaque champ en plus retire des demandes, et un vendeur qui a le choix ne remplit pas un questionnaire.",
+          },
+          {
+            title: "Dire ce qui se passe ensuite",
+            text:
+              "Qui appelle, dans quel délai, et si l'estimation engage à quelque chose. Une phrase sous le bouton fait plus que dix arguments au-dessus.",
+          },
+          {
+            title: "Rappeler dans l'heure",
+            text:
+              "Le vendeur a souvent rempli deux ou trois formulaires le même soir. Le premier qui rappelle a l'avantage. Le site doit prévenir immédiatement, par e-mail ou par SMS, la personne qui rappelle, et pas une boîte générique relevée le lendemain.",
+          },
+          {
+            title: "Une preuve à côté du formulaire",
+            text:
+              "Le délai de vente de vos derniers mandats, ou trois avis récents. Une preuve datée, jamais un adjectif.",
+          },
+        ],
+      },
+
+      { kind: "h2", text: "Les avis, à demander à la signature" },
+      {
+        kind: "p",
+        text:
+          "Les avis pèsent dans le classement local, et davantage encore dans la décision d'un vendeur qui compare deux agences. Ils se demandent au moment où le client est content, à la signature de l'acte, et systématiquement. Douze avis répartis sur l'année valent plus que quarante d'un coup, puis plus rien pendant deux ans.",
+      },
+
+      { kind: "h2", text: "Ce que le portail continue de faire" },
+      {
+        kind: "p",
+        text:
+          "Rien de tout ceci ne remplace le portail pour vendre le bien une fois le mandat signé. Les acheteurs y sont, et ils y resteront. L'enjeu n'est pas de le quitter, mais de ne pas dépendre de lui pour le mandat suivant, la seule chose qu'il ne vous fournira pas.",
+      },
+      {
+        kind: "note",
+        text:
+          "Deux clients du studio sortent en première position du pack local sur leur commune, sans budget publicitaire. Ce ne sont pas des agences, mais la mécanique est la même, et elle se vérifie en tapant la requête. Les deux cas sont en bas de page.",
+      },
+    ],
+  },
+
 ];
 
 export const GUIDE_SLUGS = GUIDES.map((g) => g.slug);

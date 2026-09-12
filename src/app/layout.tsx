@@ -11,10 +11,21 @@ import { IDENTITE, PROFILS } from "@/components/home/legal";
 
 const SITE_URL = "https://pixelbrute.be";
 
+// DM Sans et Instrument Serif ne servent qu'à la plateforme : aucune règle du
+// site public ne les appelle. Elles sont pourtant déclarées ici, dans le seul
+// layout que les deux applications partagent, et `preload` (activé par
+// défaut) posait un `<link rel="preload">` sur *chaque* page publique, soit
+// sept fichiers woff2 et ~90 ko téléchargés en priorité haute pour rien, en
+// concurrence directe avec Archivo, la police du titre qu'on voit en premier.
+//
+// `preload: false` ne retire pas la police : la @font-face reste, et le
+// navigateur va la chercher dès qu'une règle l'utilise. Sur le site public,
+// jamais ; sur `/app/*`, au premier rendu qui en a besoin.
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-geist",
   weight: ["400", "500", "600", "700", "800"],
+  preload: false,
 });
 
 const instrumentSerif = Instrument_Serif({
@@ -22,6 +33,7 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
   weight: ["400"],
   style: ["normal", "italic"],
+  preload: false,
 });
 
 // Police de la homepage refondue (groupe `(home)`), variable, axes wdth+wght.
@@ -52,7 +64,7 @@ export const metadata: Metadata = {
     template: "%s | Pixelbrute · Studio web Liège",
   },
   description:
-    "Studio web solo à Liège. Création de sites internet sur mesure pour indépendants, artisans et petites structures. Conception, design et code par la même personne.",
+    "Studio web solo en province de Liège. Création de sites internet sur mesure pour PME, agences immobilières et indépendants. Conception, design et code par la même personne, tarifs publiés.",
   // NB : pas de `keywords`. Google ignore la balise depuis 2009 ; la laisser
   // ne servait qu'à figer un positionnement (Meta Ads) que le site ne tient plus.
   alternates: {
@@ -61,7 +73,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pixelbrute · Création de sites internet à Liège",
     description:
-      "Studio web solo à Liège. Conception, design et code par la même personne, pour des indépendants et de petites structures.",
+      "Studio web solo en province de Liège. Conception, design et code par la même personne, pour des PME, des agences immobilières et des indépendants.",
     type: "website",
     locale: "fr_BE",
     url: SITE_URL,
@@ -101,8 +113,8 @@ const WEBSITE_ID = `${SITE_URL}/#site`;
  *  un nom, un métier, un lieu, une clientèle. */
 const DEFINITION =
   `Pixelbrute est un studio web solo basé à ${IDENTITE.ville}, en province de Liège (Belgique). ` +
-  `Esteban Gilles y conçoit, dessine et code lui-même des sites sur mesure pour des indépendants, ` +
-  `des artisans et de petites structures.`;
+  `Esteban Gilles y conçoit, dessine et code lui-même des sites sur mesure pour des PME, ` +
+  `des agences immobilières et des indépendants. Les tarifs sont publiés sur le site.`;
 
 /**
  * Le balisage du site, en un seul graphe.
@@ -192,7 +204,7 @@ const knowledgeGraph = {
               "@type": "Service",
               name: "Création de site internet sur mesure",
               description:
-                "Sites sur mesure, rapides et responsive, conçus et codés à la main pour indépendants et artisans.",
+                "Sites sur mesure, rapides et responsive, conçus et codés à la main pour PME, agences immobilières et indépendants. Fourchettes de prix publiées sur /tarifs.",
               provider: { "@id": ORG_ID },
             },
           },
@@ -213,6 +225,27 @@ const knowledgeGraph = {
               name: "Boutique en ligne et réservation",
               description:
                 "Vente en ligne, prise de rendez-vous et formulaires métier intégrés au site.",
+              provider: { "@id": ORG_ID },
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Sites pour agences immobilières et promoteurs",
+              description:
+                "Biens synchronisés avec le logiciel de l'agence, demande d'estimation, pages programmes neufs, référencement par commune.",
+              url: `${SITE_URL}/creation-site-agence-immobiliere`,
+              provider: { "@id": ORG_ID },
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Campagnes publicitaires",
+              description:
+                "Gestion mensuelle de campagnes Meta et Google Ads : création, tests, arrêt de ce qui ne rapporte pas, rapport hebdomadaire.",
               provider: { "@id": ORG_ID },
             },
           },
@@ -265,6 +298,9 @@ const knowledgeGraph = {
         "Design d'interface",
         "Commerce en ligne",
         "Systèmes de réservation en ligne",
+        "Sites pour agences immobilières",
+        "Google Ads",
+        "Meta Ads",
       ],
       homeLocation: {
         "@type": "Place",

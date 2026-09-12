@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     absolute: "Création de sites internet à Liège, Pixelbrute",
   },
   description:
-    "Studio web solo à Liège. Création de sites internet pour indépendants et artisans, conception, design et code par la même personne.",
+    "Studio web en province de Liège. Sites internet pour PME, agences immobilières et indépendants, conçus et codés par la même personne. Tarifs publiés, résultats vérifiables.",
   alternates: { canonical: "https://pixelbrute.be" },
 };
 
@@ -32,7 +32,7 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        <Marquee items={["Sites vitrine", "SEO local", "Réservation en ligne", "E-commerce", "Hesbaye & province de Liège", "Conçu et codé à la main"]} />
+        <Marquee items={["Sites vitrine", "Sites immobiliers", "SEO local", "Réservation en ligne", "E-commerce", "Liège & Hesbaye", "Tarifs publiés", "Conçu et codé à la main"]} />
         <SelectedWork />
         <Manifesto />
         <Expertise />

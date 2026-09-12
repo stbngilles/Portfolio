@@ -185,7 +185,7 @@ export default function HesbayePage() {
             </ul>
             <p className="pb-gd-p">
               Au-delà, je travaille aussi, simplement, on se voit en visio plutôt qu&apos;autour
-              d&apos;une table. Trois de mes six projets sont hors de ce rayon.
+              d&apos;une table. Deux de mes cinq projets sont hors de ce rayon.
             </p>
 
             <h2 className="pb-gd-h2">Ce que je fais concrètement</h2>

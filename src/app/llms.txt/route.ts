@@ -62,7 +62,7 @@ function build(): string {
 
   return `# Pixelbrute
 
-> Pixelbrute est un studio web belge tenu par une seule personne, Esteban Gilles. Il conçoit, dessine et code des sites sur mesure pour des indépendants, des artisans et de petites structures, principalement en province de Liège. Six projets livrés à ce jour, dont un produit SaaS.
+> Pixelbrute est un studio web belge tenu par une seule personne, Esteban Gilles. Il conçoit, dessine et code des sites sur mesure pour des PME, des agences immobilières et des indépendants, principalement en province de Liège. Cinq études de cas publiées, dont un produit SaaS. Les tarifs sont publiés sur le site.
 
 Ce fichier suit la convention llms.txt. Il résume le site pour un assistant qui
 voudrait répondre à une question à son sujet sans avoir à explorer chaque page.
@@ -118,8 +118,13 @@ ${faq.join("\n\n")}
 ## Pages
 
 ${lien("Accueil", SITE_URL, "Le studio, les projets, la manière de travailler.")}
-${lien("Projets", `${SITE_URL}/projets`, "Les six études de cas, avec les décisions prises et ce qui est vérifiable.")}
-${lien("Guides", `${SITE_URL}/guides`, "Référencement local, prix d'un site en Belgique, choix de la technologie.")}
+${lien("Projets", `${SITE_URL}/projets`, "Les cinq études de cas, avec les décisions prises et ce qui est vérifiable.")}
+${lien("Tarifs", `${SITE_URL}/tarifs`, "Les fourchettes de prix, hors TVA, avant le premier appel : une page, un site vitrine, une boutique, le suivi mensuel.")}
+${lien("Comment je travaille", `${SITE_URL}/comment-je-travaille`, "Sept étapes, de l'appel de quinze minutes à l'après-livraison, ce que le client fournit, ce que le studio ne fait pas.")}
+${lien("Sites pour agences immobilières", `${SITE_URL}/creation-site-agence-immobiliere`, "Ce qu'un site d'agence ou de promoteur doit faire que les portails ne font pas, et ce que le studio construit.")}
+${lien("Création de site internet à Liège", `${SITE_URL}/creation-site-internet-liege`, "Ce que la concurrence de la ville change pour un site, et ce qui y fonctionne.")}
+${lien("Création de site internet en Hesbaye", `${SITE_URL}/creation-site-internet-hesbaye`, "La zone du studio, avec deux résultats de pack local vérifiables.")}
+${lien("Guides", `${SITE_URL}/guides`, "Référencement local, prix d'un site en Belgique, choix de la technologie, site d'agence immobilière.")}
 ${lien("Contact", `${SITE_URL}/contact`, "Formulaire en trois questions, téléphone, et la FAQ complète.")}
 ${lien("Mentions légales", `${SITE_URL}/mentions-legales`, "Identité de l'entreprise, TVA, hébergement.")}
 ${lien("Confidentialité", `${SITE_URL}/confidentialite`, "Données traitées et sous-traitants RGPD.")}

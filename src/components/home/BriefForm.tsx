@@ -1,9 +1,12 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import Link from "next/link";
 import Arrow from "./Arrow";
+import TrackLink from "./TrackLink";
+import { trackEvent } from "./track";
+import { SITE_FROM, euro } from "./data";
 
 /**
  * Formulaire de brief, trois blocs, deux champs obligatoires.
@@ -23,26 +26,31 @@ import Arrow from "./Arrow";
  *   se lit comme une consigne de plus : la preuve sociale vit sous les voies
  *   directes et sur la home, pas ici.
  *
- * Les tranches de budget encadrent le catalogue réel (src/lib/pricing.ts :
- * Starter 1 200 €, Essentiel 2 500 €, E-commerce 6 000 €) et gardent une
- * sortie « je ne sais pas » : sur cette clientèle, forcer une fourchette fait
- * surtout perdre des demandes légitimes.
+ * Les tranches de budget sont celles de la page tarifs, calculées depuis le
+ * même catalogue (`SITE_FROM`, voir `data.ts`) : un formulaire qui propose
+ * « moins de 1 500 € » sous un site qui affiche 2 500 € comme prix de départ
+ * contredit le positionnement au moment précis où le visiteur s'engage. La
+ * sortie « je ne sais pas » reste : forcer une fourchette fait surtout perdre
+ * des demandes légitimes.
  *
  * Envoi via le Formspree déjà utilisé par l'ancien formulaire du site.
  */
 const BESOINS = [
   "Site vitrine",
+  "Site immobilier",
   "Boutique en ligne",
+  "Réservation en ligne",
   "Refonte de site",
   "Référencement local",
-  "Maintenance",
+  "Campagnes publicitaires",
+  "Suivi mensuel",
 ];
 
 const BUDGETS = [
-  "Moins de 1 500 €",
-  "1 500 – 3 000 €",
-  "3 000 – 6 000 €",
-  "Plus de 6 000 €",
+  `Moins de ${euro(SITE_FROM.essentiel)}`,
+  `${euro(SITE_FROM.essentiel)} à ${euro(SITE_FROM.ecommerce)}`,
+  `${euro(SITE_FROM.ecommerce)} à 12\u202f000\u00a0€`,
+  "Plus de 12\u202f000\u00a0€",
   "Je ne sais pas",
 ];
 
@@ -107,6 +115,12 @@ function Field({
 export default function BriefForm() {
   const [state, handleSubmit] = useForm("xdaawkyd");
 
+  // Compté quand Formspree a accepté, pas au clic : un envoi refusé n'est pas
+  // une demande. L'effet ne joue qu'au passage à `succeeded`.
+  useEffect(() => {
+    if (state.succeeded) trackEvent("brief_sent");
+  }, [state.succeeded]);
+
   if (state.succeeded) {
     return (
       <div className="pb-form-done">
@@ -144,7 +158,11 @@ export default function BriefForm() {
         </div>
 
         <p className="pb-form-note">
-          C&apos;est urgent&nbsp;? Appelez directement le <a href={TEL_HREF}>{TEL}</a>.
+          C&apos;est urgent&nbsp;? Appelez directement le{" "}
+          <TrackLink event="tel_click" href={TEL_HREF}>
+            {TEL}
+          </TrackLink>
+          .
         </p>
       </div>
     );
@@ -194,7 +212,7 @@ export default function BriefForm() {
             id="projet"
             name="projet"
             className="pb-textarea"
-            placeholder="Ex. : « Électricien à Herstal, je n'ai qu'une page Facebook et je passe mes soirées à répondre aux mêmes questions. »"
+            placeholder="Ex. : « Agence immobilière à Waremme. Nos biens sont sur le portail, le site date de 2016, et personne ne nous demande d'estimation. »"
           />
           <ValidationError prefix="Projet" field="projet" errors={state.errors} className="pb-form-err" />
         </div>

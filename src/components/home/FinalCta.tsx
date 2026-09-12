@@ -2,6 +2,7 @@ import Link from "next/link";
 import Arrow from "./Arrow";
 import BookCall from "./BookCall";
 import Marquee from "./Marquee";
+import TrackLink from "./TrackLink";
 import { AVAILABILITY } from "./data";
 import { Lines } from "./Text";
 
@@ -60,9 +61,9 @@ export default function FinalCta() {
         </div>
       </div>
 
-      <a href="mailto:contact@pixelbrute.be" className="pb-final-mail" aria-label="Écrire à contact@pixelbrute.be">
+      <TrackLink event="mail_click" href="mailto:contact@pixelbrute.be" className="pb-final-mail" aria-label="Écrire à contact@pixelbrute.be">
         <Marquee tone="paper" items={["contact@pixelbrute.be", "+32 492 20 02 75", "contact@pixelbrute.be", "+32 492 20 02 75"]} />
-      </a>
+      </TrackLink>
     </section>
   );
 }

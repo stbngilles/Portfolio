@@ -1,5 +1,6 @@
 import Arrow from "./Arrow";
 import BookCall from "./BookCall";
+import TrackLink from "./TrackLink";
 import { AVAILABILITY, WHATSAPP_URL } from "./data";
 
 /**
@@ -44,18 +45,18 @@ export default function ContactWays() {
           <span className="pb-way-m">Vous choisissez le créneau</span>
           <Arrow dir="ne" />
         </BookCall>
-        <a href="tel:+32492200275" className="pb-way">
+        <TrackLink event="tel_click" href="tel:+32492200275" className="pb-way">
           <span className="pb-way-k">Le plus rapide</span>
           <span className="pb-way-v">+32 492 20 02 75</span>
           <span className="pb-way-m">Appel direct, pas de standard</span>
           <Arrow dir="ne" />
-        </a>
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="pb-way">
+        </TrackLink>
+        <TrackLink event="whatsapp_click" href={WHATSAPP_URL} target="_blank" rel="noopener" className="pb-way">
           <span className="pb-way-k">À l&apos;écrit</span>
           <span className="pb-way-v">WhatsApp</span>
           <span className="pb-way-m">Même numéro, même personne</span>
           <Arrow dir="ne" />
-        </a>
+        </TrackLink>
       </div>
 
       <ul className="pb-trust pb-cap">

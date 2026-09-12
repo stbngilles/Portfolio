@@ -7,8 +7,9 @@ import Arrow from "./Arrow";
 
 const LINKS = [
   { href: "/#projets", label: "Projets" },
+  { href: "/tarifs", label: "Tarifs" },
+  { href: "/creation-site-agence-immobiliere", label: "Immobilier" },
   { href: "/#expertises", label: "Ce que je fais" },
-  { href: "/#principes", label: "Principes" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -21,30 +22,51 @@ export default function Header({ variant = "home" }: { variant?: "home" | "page"
    * L'en-tête flotte au-dessus de sections tantôt craie, tantôt bleu Klein.
    * En encre sombre sur le bleu, le contraste tombe à 2,3:1 : on bascule donc
    * tout l'en-tête en craie dès qu'un panneau bleu passe sous la barre.
+   *
+   * Les bornes des panneaux sont mesurées quand la page change de taille, pas
+   * quand elle défile. `getBoundingClientRect()` appelé à chaque image de
+   * scroll obligeait le navigateur à recalculer la mise en page au moment
+   * précis où Lenis venait d'écrire la position, une lecture forcée par
+   * frame, sur toute la hauteur du document. En coordonnées document, la
+   * comparaison ne coûte plus qu'une soustraction.
    */
   useEffect(() => {
+    const band = 34; // milieu de la barre d'en-tête
+    let ranges: Array<[number, number]> = [];
     let raf: number | null = null;
-    const check = () => {
+
+    const apply = () => {
       raf = null;
-      const band = 34; // milieu de la barre d'en-tête
-      const hit = Array.from(
-        document.querySelectorAll<HTMLElement>(".pb-dark")
-      ).some((el) => {
-        const r = el.getBoundingClientRect();
-        return r.top <= band && r.bottom >= band;
-      });
-      setOverDark(hit);
+      const y = window.scrollY + band;
+      setOverDark(ranges.some(([top, bottom]) => top <= y && bottom >= y));
     };
+
+    const measure = () => {
+      const y = window.scrollY;
+      ranges = Array.from(document.querySelectorAll<HTMLElement>(".pb-dark")).map((el) => {
+        const r = el.getBoundingClientRect();
+        return [r.top + y, r.bottom + y] as [number, number];
+      });
+      apply();
+    };
+
     const onScroll = () => {
       if (raf !== null) return;
-      raf = requestAnimationFrame(check);
+      raf = requestAnimationFrame(apply);
     };
-    check();
+
+    measure();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", measure);
+    // Les images arrivent en différé : la hauteur des sections bouge après la
+    // première mesure, et les bornes seraient fausses jusqu'au redimensionnement.
+    const ro = new ResizeObserver(measure);
+    ro.observe(document.body);
+
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", measure);
+      ro.disconnect();
       if (raf !== null) cancelAnimationFrame(raf);
     };
   }, []);
@@ -113,6 +135,12 @@ export default function Header({ variant = "home" }: { variant?: "home" | "page"
             </Link>
             <Link href="/guides" onClick={() => setOpen(false)}>
               Guides
+            </Link>
+            <Link href="/comment-je-travaille" onClick={() => setOpen(false)}>
+              Méthode
+            </Link>
+            <Link href="/#principes" onClick={() => setOpen(false)}>
+              Principes
             </Link>
             <Link href="/#studio" onClick={() => setOpen(false)}>
               Le studio

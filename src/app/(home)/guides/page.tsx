@@ -10,12 +10,12 @@ const SITE_URL = "https://pixelbrute.be";
 export const metadata: Metadata = {
   title: { absolute: "Guides, sites web, référencement local et budgets | Pixelbrute" },
   description:
-    "Ce qu'il faut savoir avant de faire faire un site : comment fonctionne le pack local Google, combien coûte un site en Belgique, et comment choisir entre Wix, WordPress et le sur mesure.",
+    "Ce qu'il faut savoir avant de faire faire un site : le pack local Google, le prix d'un site en Belgique, Wix, WordPress ou sur mesure, et ce qu'un site d'agence immobilière doit faire.",
   alternates: { canonical: `${SITE_URL}/guides` },
   openGraph: {
     title: "Guides, sites web et référencement local",
     description:
-      "Le pack local Google, les prix réels du marché belge, et comment choisir sa technologie. Sans discours de vendeur.",
+      "Le pack local Google, les prix réels du marché belge, le choix de la technologie, et le site d'une agence immobilière. Sans discours de vendeur.",
     type: "website",
     locale: "fr_BE",
     url: `${SITE_URL}/guides`,
@@ -67,7 +67,7 @@ export default function GuidesIndexPage() {
           </h1>
 
           <p className="pb-idx-lede">
-            Trois pages écrites pour être utiles même si vous ne me confiez rien. Les chiffres sont
+            Cinq pages écrites pour être utiles même si vous ne me confiez rien. Les chiffres sont
             datés et sourcés dans le texte, et quand une solution moins chère que la mienne convient
             mieux, c&apos;est écrit noir sur blanc.
           </p>

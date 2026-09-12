@@ -68,7 +68,7 @@ export default function SelectedWork() {
         <div className="pb-over" data-reveal="">
           Projets · 2025, 2026
         </div>
-        <Lines className="pb-d-l" lines={["Six projets,", "et la preuve datée."]} muteFrom={1} />
+        <Lines className="pb-d-l" lines={["Cinq projets,", "et la preuve datée."]} muteFrom={1} />
       </div>
 
       <div className="pb-work-grid" ref={grid}>
@@ -120,7 +120,7 @@ export default function SelectedWork() {
 
       <div className="pb-work-more">
         <Link href="/projets" className="pb-btn-line">
-          Les six dossiers en entier <Arrow dir="ne" />
+          Les cinq dossiers en entier <Arrow dir="ne" />
         </Link>
       </div>
 

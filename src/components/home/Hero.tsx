@@ -1,12 +1,18 @@
 import Link from "next/link";
 import Arrow from "./Arrow";
 import { Lines } from "./Text";
+import SearchQuery from "./SearchQuery";
 
 /**
  * Premier écran, le titre occupe la largeur, puis la scène « recherche
- * Google » : votre métier + votre ville, votre site en première position,
- * les concurrents bien plus bas. Ça se comprend sans avoir ouvert un outil
- * de design. La scène est décorative pour les lecteurs d'écran.
+ * Google » : un métier + une ville, votre site en première position, les
+ * concurrents bien plus bas. Ça se comprend sans avoir ouvert un outil de
+ * design. La scène est décorative pour les lecteurs d'écran.
+ *
+ * La requête tapée tourne (`SearchQuery`) : agence immobilière, électricien,
+ * cabinet comptable. Figée sur « votre métier + votre ville », la scène
+ * racontait l'artisan qui attend un appel ; en tournant, elle dit à chaque
+ * cible visée que la mécanique est la même pour elle.
  */
 export default function Hero() {
   return (
@@ -24,11 +30,12 @@ export default function Hero() {
               tapent. Ce `h2` dit littéralement le métier et la ville, c'est
               le seul endroit de la page qui a le droit d'être plat. */}
           <h2 className="pb-hero-sub">
-            Création de sites internet à Hannut, en Hesbaye et en province de Liège, pour indépendants et artisans.
+            Création de sites internet à Liège et en Hesbaye, pour PME, agences immobilières et indépendants de la province.
           </h2>
           <p className="pb-hero-lede">
-            Studio web solo à Liège. Conception, design et code par la même personne, pour des
-            indépendants et des artisans qui veulent être trouvés, puis appelés.
+            Studio web à Hannut, en province de Liège. Conception, design et code par la même
+            personne, pour des dirigeants qui attendent d&apos;un site des demandes de clients, pas
+            une brochure.
           </p>
           <div className="pb-hero-acts">
             <Link href="/contact" className="pb-btn-solid">
@@ -62,9 +69,7 @@ export default function Hero() {
                 d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"
               />
             </svg>
-            <span className="pb-search-q">
-              votre métier <span>+ votre ville</span>
-            </span>
+            <SearchQuery />
             <i className="pb-search-caret" />
             <span className="pb-search-go">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">

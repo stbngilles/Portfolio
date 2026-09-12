@@ -1,12 +1,15 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import TrackLink from "./TrackLink";
 
 const PAGES = [
   { href: "/projets", label: "Projets" },
+  { href: "/tarifs", label: "Tarifs" },
+  { href: "/comment-je-travaille", label: "Méthode" },
+  { href: "/creation-site-agence-immobiliere", label: "Immobilier" },
   { href: "/guides", label: "Guides" },
+  { href: "/creation-site-internet-liege", label: "Liège" },
   { href: "/creation-site-internet-hesbaye", label: "Hesbaye" },
-  { href: "/#expertises", label: "Ce que je fais" },
-  { href: "/#principes", label: "Principes" },
   { href: "/#studio", label: "Le studio" },
   { href: "/contact", label: "Contact" },
 ];
@@ -27,8 +30,12 @@ export default function SiteFooter() {
         </div>
 
         <div className="pb-foot-reach">
-          <a href="mailto:contact@pixelbrute.be">contact@pixelbrute.be</a>
-          <a href="tel:+32492200275">+32 492 20 02 75</a>
+          <TrackLink event="mail_click" href="mailto:contact@pixelbrute.be">
+            contact@pixelbrute.be
+          </TrackLink>
+          <TrackLink event="tel_click" href="tel:+32492200275">
+            +32 492 20 02 75
+          </TrackLink>
         </div>
       </div>
 

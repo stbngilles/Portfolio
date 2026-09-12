@@ -20,15 +20,15 @@ const SITE_URL = "https://pixelbrute.be";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Projets, six sites livrés à Liège et en Belgique | Pixelbrute",
+    absolute: "Projets, cinq sites livrés à Liège et en Belgique | Pixelbrute",
   },
   description:
-    "Six études de cas détaillées : le problème du client, les arbitrages, ce qui a été construit, et le résultat vérifiable. Sites livrés pour des indépendants et artisans.",
+    "Cinq études de cas détaillées : le problème du client, les arbitrages, ce qui a été construit, et le résultat vérifiable. Sites livrés en province de Liège et en Belgique.",
   alternates: { canonical: `${SITE_URL}/projets` },
   openGraph: {
-    title: "Projets, six sites livrés | Pixelbrute",
+    title: "Projets, cinq sites livrés | Pixelbrute",
     description:
-      "Le problème, les arbitrages, ce qui a été construit, le résultat vérifiable. Six dossiers complets.",
+      "Le problème, les arbitrages, ce qui a été construit, le résultat vérifiable. Cinq dossiers complets.",
     type: "website",
     locale: "fr_BE",
     url: `${SITE_URL}/projets`,
@@ -76,7 +76,7 @@ export default function ProjectsIndexPage() {
           </div>
 
           <h1 className="pb-idx-title">
-            Six sites livrés,
+            Cinq sites livrés,
             <br />
             <span className="pb-mute">et le dossier de chacun.</span>
           </h1>

@@ -43,8 +43,22 @@ Le mouvement est piloté par `Motion.tsx` (Lenis + ScrollTrigger), monté une fo
 dans `(home)/layout.tsx`. Les composants n'initialisent pas leur propre smooth scroll.
 
 **Les URLs du site public, et elles seules** : `/`, `/contact`, `/projets`,
-`/projets/[slug]`, `/guides`, `/guides/[slug]`, `/creation-site-internet-hesbaye`,
-`/mentions-legales`, `/confidentialite`, plus `/llms.txt`.
+`/projets/[slug]`, `/guides`, `/guides/[slug]`, `/tarifs`, `/comment-je-travaille`,
+`/creation-site-agence-immobiliere`, `/creation-site-internet-liege`,
+`/creation-site-internet-hesbaye`, `/mentions-legales`, `/confidentialite`,
+plus `/llms.txt`. Les landings d'annonces `/lp/*` existent mais sont `noindex`
+et hors sitemap : une sortie, réserver quinze minutes, pas de menu.
+
+Mesure : `trackEvent()` dans `src/components/home/track.ts` envoie chaque
+conversion (réservation ouverte et confirmée, formulaire envoyé, clics
+téléphone, WhatsApp, e-mail) à Vercel Analytics et dans `window.dataLayer`.
+Aucune balise Google n'est posée : elle demanderait un consentement. Le jour
+des annonces, l'ajouter en mode consentement, les événements sont déjà nommés.
+
+Positionnement (septembre 2026) : PME, agences immobilières et indépendants de la
+province de Liège. Plus « indépendants et artisans » seuls. Les prix publics de
+`/tarifs` viennent de `src/lib/pricing.ts` via `PRICING` dans `data.ts` : c'est la
+seule dépendance du site public vers `src/lib/`, des constantes sans base ni session.
 Ne pas réintroduire `/services/*`, `/realisations` ou `/equipe/*` : supprimées, et
 redirigées en 301 dans `next.config.ts`. Toute page ajoutée doit entrer dans
 `sitemap.ts` — sinon elle n'existe pour aucun moteur.

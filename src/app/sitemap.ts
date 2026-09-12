@@ -8,7 +8,9 @@ const SITE_URL = "https://pixelbrute.be";
 
 /**
  * Le site public : la home, le contact, l'index des projets et une page par
- * étude de cas. Les anciennes pages (/services/*, /realisations, /equipe/*)
+ * étude de cas. Les landings d'annonces (`/lp/*`) n'y sont pas, et ne doivent
+ * jamais y entrer : elles sont `noindex`, et un sitemap qui liste une page
+ * interdite d'index envoie un signal contradictoire. Les anciennes pages (/services/*, /realisations, /equipe/*)
  * ont été retirées, les laisser ici enverrait Google sur des redirections.
  *
  * Les dates sont figées, pas dérivées de `new Date()` : un sitemap qui
@@ -16,10 +18,14 @@ const SITE_URL = "https://pixelbrute.be";
  * À remonter quand le contenu de la page bouge réellement.
  */
 const LAST_EDIT = {
-  home: "2026-08-23",
-  contact: "2026-08-23",
-  projets: "2026-08-23",
+  home: "2026-09-12",
+  contact: "2026-09-12",
+  projets: "2026-09-12",
   guides: "2026-08-23",
+  // Tarifs, page immobilier, page Liège : nées le même jour, avec le
+  // repositionnement du site vers les PME et les agences immobilières.
+  offre: "2026-09-12",
+  methode: "2026-09-13",
 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -54,6 +60,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly" as const,
       priority: 0.8,
     })),
+    {
+      url: `${SITE_URL}/tarifs`,
+      lastModified: LAST_EDIT.offre,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/comment-je-travaille`,
+      lastModified: LAST_EDIT.methode,
+      changeFrequency: "yearly",
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/creation-site-agence-immobiliere`,
+      lastModified: LAST_EDIT.offre,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/creation-site-internet-liege`,
+      lastModified: LAST_EDIT.offre,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     {
       url: `${SITE_URL}/creation-site-internet-hesbaye`,
       lastModified: LAST_EDIT.guides,
