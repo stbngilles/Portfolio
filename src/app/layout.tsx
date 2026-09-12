@@ -237,6 +237,17 @@ const knowledgeGraph = {
       email: "contact@pixelbrute.be",
       worksFor: { "@id": ORG_ID },
       founderOf: { "@id": ORG_ID },
+      // L'incubateur est une entité tierce, vérifiable ailleurs que sur ce
+      // domaine : c'est ce qui en fait un signal, et pas une auto-déclaration
+      // de plus. Décrite sur la `Person`, puisque c'est la personne qui est
+      // accompagnée, pas la société.
+      affiliation: {
+        "@type": "Organization",
+        name: "VentureLab",
+        description:
+          "Incubateur des étudiants et jeunes entrepreneurs de Liège.",
+        url: "https://www.venturelab.be/",
+      },
       nationality: { "@type": "Country", name: "Belgique" },
       knowsLanguage: "fr-BE",
       sameAs: [...PROFILS.personne],
