@@ -98,9 +98,14 @@ export default function Header({ variant = "home" }: { variant?: "home" | "page"
           <Logo tone={tone} />
         </a>
         <div className="pb-header-actions">
+          {/* Sur téléphone, le libellé tient en un mot : la pilule ne se casse
+              plus sur deux lignes et le burger garde sa hauteur. La flèche
+              « retour » précède le texte, comme on revient en arrière. */}
           <a href={onHome ? "/contact" : "/"} className="pb-contact-pill">
-            <span>{onHome ? "Me contacter" : "Retour à l'accueil"}</span>
-            <Arrow dir={onHome ? "ne" : "w"} />
+            {!onHome && <Arrow dir="w" />}
+            <span className="pb-pill-long">{onHome ? "Me contacter" : "Retour à l'accueil"}</span>
+            <span className="pb-pill-short">{onHome ? "Contact" : "Accueil"}</span>
+            {onHome && <Arrow dir="ne" />}
           </a>
           <button
             type="button"
