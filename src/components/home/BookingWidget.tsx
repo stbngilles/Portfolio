@@ -18,19 +18,18 @@ import { AVAILABILITY, STUDIO } from "./data";
  * ses délais et le nom de la personne au bout du fil. La ligne de rareté ici
  * est `AVAILABILITY`, tenue à la main dans `data.ts`, ou rien.
  *
- * Elle s'ouvre seule à l'arrivée, mais une fois par visite, et non à chaque
- * page : quelqu'un qui enchaîne trois guides ne doit pas la refermer trois
- * fois. Le drapeau tient dans `sessionStorage`, effacé à la fermeture de
- * l'onglet ; c'est un stockage technique, sans traceur ni consentement.
+ * La carte ne s'ouvre qu'au clic, jamais seule. Ouverte à l'arrivée, elle
+ * masquait le titre du hero, couvrait le premier écran sur mobile (ce que
+ * Google compte comme interstitiel intrusif) et proposait un appel à quelqu'un
+ * qui n'avait encore vu ni un projet ni un prix. Pas d'ouverture en fin de page
+ * non plus : chaque page y a déjà son appel à l'action, la carte le doublerait.
  *
- * Le délai d'ouverture n'est pas du théâtre : à zéro, la carte entre en même
- * temps que le hero et les deux animations se marchent dessus.
+ * Le délai d'apparition de la bulle n'est pas du théâtre : à zéro, elle entre
+ * en même temps que le hero et les deux animations se marchent dessus.
  */
 
-const GREETED = "pb-book-greeted";
-
 /** Le temps que la première section se pose. */
-const OPEN_DELAY = 1400;
+const SHOW_DELAY = 1400;
 
 /** Les cinq prochains jours, libellés en français. Calculés après montage. */
 function nextDays(count = 5) {
@@ -55,16 +54,10 @@ export default function BookingWidget() {
   const [days, setDays] = useState<ReturnType<typeof nextDays>>([]);
 
   useEffect(() => {
-    const greeted = sessionStorage.getItem(GREETED);
-
     const timer = window.setTimeout(() => {
       setDays(nextDays());
       setShown(true);
-      if (!greeted) {
-        setOpen(true);
-        sessionStorage.setItem(GREETED, "1");
-      }
-    }, OPEN_DELAY);
+    }, SHOW_DELAY);
 
     return () => window.clearTimeout(timer);
   }, []);
@@ -92,7 +85,7 @@ export default function BookingWidget() {
           </button>
 
           <div className="pb-book-who">
-            <Image src={STUDIO.img} alt="" width={44} height={44} className="pb-book-face" />
+            <Image src={STUDIO.img} alt="" width={43} height={43} className="pb-book-face" />
             <div>
               <b>{STUDIO.name}</b>
               <span>{STUDIO.role} · Pixelbrute</span>
