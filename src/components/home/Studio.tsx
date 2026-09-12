@@ -40,6 +40,25 @@ export default function Studio() {
             </div>
           ))}
         </dl>
+
+        <a
+          className="pb-studio-incub"
+          href={STUDIO.incubator.url}
+          target="_blank"
+          rel="noopener"
+          data-reveal=""
+        >
+          <span
+            className="pb-studio-incub-logo"
+            style={{ ["--logo" as string]: `url(${STUDIO.incubator.logo})` }}
+            role="img"
+            aria-label="Logo VentureLab"
+          />
+          <span>
+            <span className="pb-label">{STUDIO.incubator.lbl}</span>
+            <span className="pb-studio-incub-name">{STUDIO.incubator.name}</span>
+          </span>
+        </a>
       </div>
     </section>
   );

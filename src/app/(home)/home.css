@@ -511,6 +511,13 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 .pb-studio-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 24px; margin: 8px 0 0; border-top: 1px solid var(--pb-line); padding-top: 22px; }
 .pb-studio-facts dt { color: var(--pb-ink-3); }
 .pb-studio-facts dd { margin: 8px 0 0; font-size: var(--pb-body); }
+/* Incubateur : le logo est un masque teint par `currentColor`, pour rester
+   à l'encre du site au lieu d'importer le rose de VentureLab. */
+.pb-studio-incub { display: flex; align-items: center; gap: 22px; margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--pb-line); color: var(--pb-ink); text-decoration: none; transition: color .3s; }
+.pb-studio-incub:hover { color: var(--pb-accent); }
+.pb-studio-incub-logo { flex: none; width: 84px; aspect-ratio: 119 / 148; background: currentColor; -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
+.pb-studio-incub .pb-label { display: block; color: var(--pb-ink-3); }
+.pb-studio-incub-name { display: block; margin-top: 8px; font-size: var(--pb-body); }
 @media (max-width: 900px) {
   .pb-studio-img, .pb-studio-txt { grid-column: 1 / -1; }
   .pb-studio-txt { margin-top: 40px; }

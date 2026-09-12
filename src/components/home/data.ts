@@ -617,11 +617,20 @@ export const STUDIO = {
   ],
   facts: [
     { lbl: "Basé à", val: "Hannut · Hesbaye liégeoise" },
-    { lbl: "Incubé au", val: "VentureLab · Liège" },
     { lbl: "Rôle", val: "Conception, design, code" },
     { lbl: "Projets livrés", val: "Six, dont un produit SaaS" },
     { lbl: "Avis Google", val: "5,0 ★ · 3 avis" },
   ],
+  /**
+   * Logo officiel, tiré de venturelab.be, d'une seule couleur : il est posé
+   * en masque CSS, donc teint à l'encre du site plutôt qu'en rose VentureLab.
+   */
+  incubator: {
+    lbl: "Incubé au",
+    name: "VentureLab · Liège",
+    url: "https://www.venturelab.be/",
+    logo: "/venturelab.svg",
+  },
 };
 
 export type Quote = {
