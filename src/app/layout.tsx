@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, DM_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import { IDENTITE, PROFILS } from "@/components/home/legal";
 
 // Layout racine : uniquement le shell html, les polices, la mesure
@@ -56,6 +57,9 @@ const jetbrainsMono = JetBrains_Mono({
 // (« SITE_VERIFICATION ») invite à y coller la clé d'API Webmaster, qui est un
 // secret : elle finirait publiée dans le HTML de chaque page.
 const BING_MSVALIDATE_01 = process.env.BING_MSVALIDATE_01;
+
+// Identifiant de mesure GA4. Public par nature : il figure dans le HTML.
+const GA_ID = "G-TEYBR8LD27";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -348,9 +352,29 @@ export default function RootLayout({
         />
         {children}
         {/* Mesure d'audience sans cookie ni donnée personnelle : aucune bannière
-            de consentement n'est requise. Remplace Google Analytics, qui se
-            chargeait sans consentement, donc en infraction avec l'ePrivacy. */}
+            de consentement n'est requise. */}
         <Analytics />
+        {/* Google Analytics 4, en mode consentement : tout est refusé par
+            défaut, donc aucun cookie posé sans accord (ePrivacy). Google ne
+            reçoit que des pings anonymes tant qu'aucune bannière n'appelle
+            `gtag('consent', 'update', …)`. Les événements de `track.ts`
+            passent déjà par `window.dataLayer`. */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied'
+});
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+        </Script>
       </body>
     </html>
   );

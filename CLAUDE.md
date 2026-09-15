@@ -52,8 +52,8 @@ et hors sitemap : une sortie, réserver quinze minutes, pas de menu.
 Mesure : `trackEvent()` dans `src/components/home/track.ts` envoie chaque
 conversion (réservation ouverte et confirmée, formulaire envoyé, clics
 téléphone, WhatsApp, e-mail) à Vercel Analytics et dans `window.dataLayer`.
-Aucune balise Google n'est posée : elle demanderait un consentement. Le jour
-des annonces, l'ajouter en mode consentement, les événements sont déjà nommés.
+GA4 (`G-TEYBR8LD27`) est posé dans `layout.tsx` en mode consentement, tout
+refusé par défaut : sans bannière qui accorde le consentement, aucun cookie.
 
 Positionnement (septembre 2026) : PME, agences immobilières et indépendants de la
 province de Liège. Plus « indépendants et artisans » seuls.
