@@ -20,22 +20,22 @@ const SITE_URL = "https://pixelbrute.be";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Projets, cinq sites livrés à Liège et en Belgique | Pixelbrute",
+    absolute: "Projets, six études de cas, sites et marque | Pixelbrute",
   },
   description:
-    "Cinq études de cas détaillées : le problème du client, les arbitrages, ce qui a été construit, et le résultat vérifiable. Sites livrés en province de Liège et en Belgique.",
+    "Six études de cas : cinq sites livrés en province de Liège et en Belgique, et une marque immobilière dessinée de bout en bout. Le problème, les arbitrages, ce qui a été construit, le résultat vérifiable.",
   alternates: { canonical: `${SITE_URL}/projets` },
   openGraph: {
-    title: "Projets, cinq sites livrés | Pixelbrute",
+    title: "Projets, six dossiers | Pixelbrute",
     description:
-      "Le problème, les arbitrages, ce qui a été construit, le résultat vérifiable. Cinq dossiers complets.",
+      "Le problème, les arbitrages, ce qui a été construit, le résultat vérifiable. Six dossiers complets.",
     type: "website",
     locale: "fr_BE",
     url: `${SITE_URL}/projets`,
     siteName: "Pixelbrute",
     // Sans `images` explicite, un bloc `openGraph` de page masque l'image
     // générée par `app/opengraph-image.tsx` : la carte repartait vide.
-    images: [{ url: "/home/mockups/motodistri.jpg", width: 1200, height: 900, alt: "Sites livrés par Pixelbrute" }],
+    images: [{ url: "/home/mockups/maison.jpg", width: 1200, height: 900, alt: "Projets Pixelbrute, Maison en tête" }],
   },
 };
 
@@ -76,16 +76,14 @@ export default function ProjectsIndexPage() {
           </div>
 
           <h1 className="pb-idx-title">
-            Cinq sites livrés,
+            Six projets,
             <br />
             <span className="pb-mute">et le dossier de chacun.</span>
           </h1>
 
           <p className="pb-idx-lede">
-            Chaque étude de cas dit la même chose dans le même ordre : ce qui coinçait chez le
-            client, ce que j&apos;ai tranché et pourquoi, ce qui est en ligne aujourd&apos;hui, et ce
-            que ça a produit. Les chiffres sont relevés sur les sites eux-mêmes, ils sont là pour
-            être recomptés.
+            Ce qui coinçait, ce qui a été tranché, ce qui est en ligne, ce que ça a produit.
+            Cinq sites livrés, et une marque dessinée sans client.
           </p>
 
           <ol className="pb-idx-list">
@@ -132,10 +130,7 @@ export default function ProjectsIndexPage() {
 
           <div className="pb-case-cta">
             <h2 className="pb-d-s">Le vôtre ressemble à l&apos;un de ceux-là&nbsp;?</h2>
-            <p>
-              Décrivez ce qui coince en trois questions. Réponse sous 24&nbsp;h ouvrées, sans devis
-              expédié dans l&apos;heure.
-            </p>
+            <p>Décrivez ce qui coince. Réponse sous 24&nbsp;h ouvrées.</p>
             <Link href="/contact" className="pb-btn-line">
               Parler de votre projet <Arrow dir="ne" />
             </Link>

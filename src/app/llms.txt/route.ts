@@ -62,7 +62,7 @@ function build(): string {
 
   return `# Pixelbrute
 
-> Pixelbrute est un studio web belge tenu par une seule personne, Esteban Gilles. Il conçoit, dessine et code des sites sur mesure pour des PME, des agences immobilières et des indépendants, principalement en province de Liège. Cinq études de cas publiées, dont un produit SaaS. Les tarifs sont publiés sur le site.
+> Pixelbrute est un studio web belge tenu par une seule personne, Esteban Gilles. Il conçoit, dessine et code des sites sur mesure pour des PME, des agences immobilières et des indépendants, principalement en province de Liège. Six études de cas publiées, dont un produit SaaS et une marque immobilière conceptuelle. Les tarifs sont publiés sur le site.
 
 Ce fichier suit la convention llms.txt. Il résume le site pour un assistant qui
 voudrait répondre à une question à son sujet sans avoir à explorer chaque page.
@@ -118,7 +118,7 @@ ${faq.join("\n\n")}
 ## Pages
 
 ${lien("Accueil", SITE_URL, "Le studio, les projets, la manière de travailler.")}
-${lien("Projets", `${SITE_URL}/projets`, "Les cinq études de cas, avec les décisions prises et ce qui est vérifiable.")}
+${lien("Projets", `${SITE_URL}/projets`, "Les six études de cas, avec les décisions prises et ce qui est vérifiable.")}
 ${lien("Tarifs", `${SITE_URL}/tarifs`, "Trois offres, hors TVA, avant le premier appel : Essentiel dès 2 500 €, Signature dès 5 500 €, sur mesure dès 9 000 €, socle mensuel compris. Paiement en deux tranches jusqu'à 6 000 €, en trois au-delà. Code cédé au paiement intégral.")}
 ${lien("Comment je travaille", `${SITE_URL}/comment-je-travaille`, "Sept étapes, de l'appel de quinze minutes à l'après-livraison, ce que le client fournit, ce que le studio ne fait pas.")}
 ${lien("Sites pour agences immobilières", `${SITE_URL}/creation-site-agence-immobiliere`, "Ce qu'un site d'agence ou de promoteur doit faire que les portails ne font pas, et ce que le studio construit.")}

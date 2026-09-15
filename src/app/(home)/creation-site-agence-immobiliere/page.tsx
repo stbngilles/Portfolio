@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/home/Header";
 import SiteFooter from "@/components/home/SiteFooter";
@@ -18,11 +19,10 @@ const URL = `${SITE_URL}/creation-site-agence-immobiliere`;
  * votre agence.
  *
  * Pas d'étude de cas inventée. Le studio n'a pas encore livré de site
- * d'agence, et la page le dit : elle montre à la place les deux pièces les
- * plus lourdes d'un site immobilier déjà construites ailleurs, un catalogue
- * à filtres indexé (Motodistri) et un espace client avec paiement (Lokigen).
- * Un décideur immobilier vérifie ; une référence fictive coûterait la seule
- * chose que ce site a à vendre, la preuve.
+ * d'agence à un client, et la page le dit. Elle montre Maison, un chasseur
+ * de biens conceptuel dessiné de bout en bout, présenté comme tel, puis les
+ * deux pièces les plus lourdes d'un site immobilier déjà construites
+ * ailleurs (Motodistri, Lokigen). Un décideur immobilier vérifie.
  */
 
 const LOGICIELS = ["Whise", "Omnicasa", "Skarabee"];
@@ -31,27 +31,27 @@ const LOGICIELS = ["Whise", "Omnicasa", "Skarabee"];
 const BUILT = [
   {
     label: "La demande d'estimation",
-    text: "Trois champs, accessible depuis chaque page, avec une phrase qui dit qui rappelle et dans quel délai. C'est la page qui rentre les mandats.",
+    text: "Trois champs, depuis chaque page, avec qui rappelle et quand.",
   },
   {
     label: "Les biens, depuis votre logiciel",
-    text: `Le site se branche sur ${LOGICIELS.join(", ")} ou l'outil que vous utilisez déjà. Vous saisissez une fois, le site suit : statut, prix, photos, PEB.`,
+    text: `Branché sur ${LOGICIELS.join(", ")} ou votre outil. Vous saisissez une fois, le site suit.`,
   },
   {
     label: "Une fiche par bien, indexable",
-    text: "Chaque bien a sa propre adresse, ses photos, son plan et sa commune dans le titre. Google peut la classer, un portail ne vous laisse pas ça.",
+    text: "Sa propre adresse, ses photos, sa commune dans le titre.",
   },
   {
     label: "Une page par programme neuf",
-    text: "Pour le promoteur : le plan des lots, leur disponibilité, les finitions, le calendrier. Mise à jour au fil des ventes, elle remplace la brochure.",
+    text: "Lots, disponibilité, finitions, calendrier. Elle remplace la brochure.",
   },
   {
     label: "Les pages de commune",
-    text: "Une page par commune où vous vendez réellement, avec ce que vous y avez vendu. C'est ce qui sort sur « agence immobilière + commune ».",
+    text: "Une par commune où vous vendez, avec ce que vous y avez vendu.",
   },
   {
     label: "L'alerte acheteur",
-    text: "L'acheteur qui n'a rien trouvé aujourd'hui laisse ses critères. Il reçoit vos nouveaux biens avant qu'ils ne soient sur le portail.",
+    text: "Ses critères, vos nouveaux biens avant le portail.",
   },
 ];
 
@@ -59,23 +59,19 @@ const BUILT = [
 const QUESTIONS = [
   {
     q: "Est-ce que je garde Immoweb ?",
-    a: "Oui. Le portail vend vos biens aux acheteurs, et il continuera de le faire. Le site fait l'autre moitié du travail : convaincre un vendeur de vous confier le sien, et présenter l'agence avec vos mots et vos photos. Les deux ne se remplacent pas.",
+    a: "Oui. Le portail vend vos biens aux acheteurs. Le site convainc un vendeur de vous confier le sien. Les deux ne se remplacent pas.",
   },
   {
     q: "Comment les biens se mettent à jour ?",
-    a: "Depuis le logiciel que vous utilisez déjà, quand il expose ses données par un flux ou une interface, ce que font les logiciels du marché belge. Sinon, depuis une administration simple sur le site. Dans les deux cas, un bien vendu disparaît sans qu'on y pense.",
+    a: "Depuis le logiciel que vous utilisez déjà, quand il expose ses données. Sinon, depuis une administration simple sur le site. Un bien vendu disparaît sans qu'on y pense.",
   },
   {
     q: "Combien ça coûte ?",
-    a: `Un site d'agence, c'est l'offre Signature : dès ${euro(SITE_FROM.signature)} hors TVA, avec la recherche de biens ou la page programme, le contenu par commune et le suivi des conversions. Sans fonctionnalité métier, l'Essentiel dès ${euro(SITE_FROM.essentiel)}. Espace client, configurateur, intégrations lourdes : sur mesure dès ${euro(SITE_FROM.surMesure)}. Chaque offre comprend son socle mensuel, hébergement et maintenance, annoncé dès le devis. Les trois sont sur la page tarifs.`,
+    a: `Un site d'agence, c'est l'offre Signature : dès ${euro(SITE_FROM.signature)} hors TVA, socle mensuel compris. Sans fonction métier, l'Essentiel dès ${euro(SITE_FROM.essentiel)}. Espace client ou intégrations lourdes : sur mesure dès ${euro(SITE_FROM.surMesure)}.`,
   },
   {
     q: "Avez-vous déjà fait un site d'agence ?",
-    a: "Pas encore, et je préfère l'écrire que de le laisser deviner. Deux projets en ligne montrent les pièces les plus lourdes d'un site immobilier : un catalogue de plus de soixante mille références avec filtres et fiches indexées, et un produit avec espace client et paiement. Les deux se vérifient en bas de cette page.",
-  },
-  {
-    q: "Combien de temps ?",
-    a: "Une durée se donne après avoir compris le périmètre, pas avant. Un site d'agence sans flux se livre nettement plus vite qu'un site branché sur un logiciel, où le temps dépend surtout de la qualité de l'export.",
+    a: "Pas pour un client, et je préfère l'écrire. J'en ai dessiné un de bout en bout, Maison, un chasseur de biens conceptuel. Les trois dossiers sont en bas de cette page.",
   },
 ];
 
@@ -96,8 +92,9 @@ export const metadata: Metadata = {
   },
 };
 
-/** Les deux projets qui prouvent les pièces d'un site immobilier. */
-const PROOFS = ["motodistri", "lokigen"];
+/** Maison d'abord, le site d'agence dessiné en entier ; puis les deux
+ *  projets livrés qui prouvent les pièces lourdes d'un site immobilier. */
+const PROOFS = ["maison", "motodistri", "lokigen"];
 
 export default function ImmobilierPage() {
   const proofs = PROOFS.map((s) => PROJECTS.find((p) => p.slug === s)).filter(
@@ -179,24 +176,16 @@ export default function ImmobilierPage() {
 
           <h1 className="pb-gd-title">Sites internet pour agences immobilières et promoteurs</h1>
           <p className="pb-gd-lede">
-            Le portail vend vos biens à des acheteurs. Personne d&apos;autre que vous ne vend votre
-            agence à des vendeurs. C&apos;est le travail du site, et c&apos;est à cette aune que je
-            le construis : rentrer le mandat suivant, en province de Liège.
+            Le portail vend vos biens. Le site vend votre agence : c&apos;est lui qui rentre le
+            mandat suivant.
           </p>
 
           <div className="pb-gd-body">
             <h2 className="pb-gd-h2">Le vendeur, pas l&apos;acheteur</h2>
             <p className="pb-gd-p">
-              Un acheteur cherche un bien. Il tape «&nbsp;maison 3 chambres Waremme&nbsp;» et tombe
-              sur un portail. Un vendeur cherche une agence. Il tape «&nbsp;agence immobilière
-              Waremme&nbsp;» ou «&nbsp;estimation maison Hannut&nbsp;», et là, c&apos;est votre site
-              ou celui du concurrent. Le mandat se joue sur cette recherche-là, et sur les dix
-              secondes qui suivent.
-            </p>
-            <p className="pb-gd-p">
-              Un site d&apos;agence a donc trois choses à faire que le portail ne fait pas&nbsp;:
-              convaincre un propriétaire de confier son bien, présenter les biens avec vos données et
-              vos photos, et sortir sur les recherches qui nomment votre commune.
+              Un acheteur tape «&nbsp;maison 3 chambres Waremme&nbsp;» et tombe sur un portail. Un
+              vendeur tape «&nbsp;agence immobilière Waremme&nbsp;», et là, c&apos;est votre site ou
+              celui du concurrent.
             </p>
 
             <h2 className="pb-gd-h2">Ce que je construis</h2>
@@ -212,33 +201,38 @@ export default function ImmobilierPage() {
               ))}
             </ol>
 
-            <aside className="pb-gd-note">
-              <span className="pb-label pb-gd-note-l">À retenir</span>
-              <p>
-                Un site où les biens sont à jour sans qu&apos;on y pense, où la demande
-                d&apos;estimation tient en trois champs, et dont chaque page nomme une commune
-                réelle, fait plus pour le mandat suivant qu&apos;une refonte graphique.
-              </p>
-            </aside>
-
             <h2 className="pb-gd-h2">La commune avant la ville</h2>
             <p className="pb-gd-p">
-              Le bloc de trois établissements en haut d&apos;une recherche locale se décide sur la
-              pertinence, la distance et la notoriété. Une agence a une adresse, une catégorie nette
-              et des avis&nbsp;: elle a tout ce qu&apos;il faut pour y figurer sur «&nbsp;agence
-              immobilière + sa commune&nbsp;». Le site doit nommer cette commune, et celles où vous
-              vendez, dans ses titres et ses pages, pas seulement dans le pied de page. Deux clients
-              du studio sortent aujourd&apos;hui en première position du pack local sur leur commune,
-              sans budget publicitaire&nbsp;; la mécanique est la même.
+              Le pack local se gagne sur «&nbsp;agence immobilière + commune&nbsp;». Le site doit
+              nommer cette commune dans ses titres, pas seulement en pied de page. Deux clients du
+              studio y sont en première position, sans publicité.
             </p>
 
             <h2 className="pb-gd-h2">Ce que j&apos;ai déjà construit qui s&apos;en rapproche</h2>
             <p className="pb-gd-p">
-              Aucun des projets en ligne n&apos;est un site d&apos;agence, et je préfère
-              l&apos;écrire. Deux d&apos;entre eux montrent les pièces les plus lourdes d&apos;un
-              site immobilier&nbsp;: un catalogue de plus de soixante mille références, filtré et
-              indexé fiche par fiche, et un produit avec espace client, tableau de bord et paiement.
-              Les deux dossiers sont en bas de page, avec ce qui se vérifie.
+              Aucun site d&apos;agence livré à un client, et je préfère l&apos;écrire. Maison, un
+              chasseur de biens inventé pour l&apos;exercice, en est la démonstration la plus
+              proche : marque, site, fiches, supports.
+            </p>
+
+            <figure className="pb-modal-proof" style={{ marginTop: 43 }}>
+              <div className="pb-proof-shot">
+                <Image
+                  src="/home/mockups/maison.jpg"
+                  alt="Maison, site d'agence conceptuel, page d'accueil présentée sur ordinateur portable"
+                  width={2000}
+                  height={1500}
+                  sizes="(max-width: 1120px) 100vw, 760px"
+                />
+              </div>
+              <figcaption className="pb-proof-cap pb-cap">
+                Maison · l&apos;accueil, un titre, une carte de bien, quatre entrées de menu
+              </figcaption>
+            </figure>
+
+            <p className="pb-gd-p">
+              Deux projets livrés montrent les pièces lourdes : un catalogue de soixante mille
+              références indexé fiche par fiche, et un produit avec espace client et paiement.
             </p>
 
             <h2 className="pb-gd-h2">Questions</h2>
@@ -249,7 +243,7 @@ export default function ImmobilierPage() {
               </div>
             ))}
 
-            <h2 className="pb-gd-h2">Les deux dossiers</h2>
+            <h2 className="pb-gd-h2">Les trois dossiers</h2>
           </div>
 
           <ul className="pb-gd-rel-list">
@@ -266,11 +260,7 @@ export default function ImmobilierPage() {
 
           <div className="pb-case-cta">
             <h2 className="pb-d-s">Vous dirigez une agence, ou un programme&nbsp;?</h2>
-            <p>
-              Dites-moi votre commune et le logiciel que vous utilisez. Je regarde ce que donne la
-              recherche aujourd&apos;hui, et ce que l&apos;export de vos biens permet, avant de
-              parler de site.
-            </p>
+            <p>Dites-moi votre commune et votre logiciel. Je regarde avant de parler de site.</p>
             <Link href="/contact" className="pb-btn-line">
               Parler de votre agence <Arrow dir="ne" />
             </Link>
@@ -280,14 +270,8 @@ export default function ImmobilierPage() {
             <span className="pb-label">Pour aller plus loin</span>
             <ul>
               <li>
-                <Link href="/guides/site-internet-agence-immobiliere">
-                  Le site d&apos;une agence immobilière ne vend pas des biens. Il vend l&apos;agence.{" "}
-                  <Arrow dir="e" />
-                </Link>
-              </li>
-              <li>
                 <Link href="/guides/rentrer-des-mandats-avec-son-site">
-                  Rentrer des mandats avec son site, sans dépendre des portails <Arrow dir="e" />
+                  Rentrer des mandats avec son site <Arrow dir="e" />
                 </Link>
               </li>
               <li>

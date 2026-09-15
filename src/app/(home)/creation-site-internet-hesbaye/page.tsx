@@ -16,9 +16,7 @@ const URL = `${SITE_URL}/creation-site-internet-hesbaye`;
  * Ce n'est pas une page-passerelle : elle ne se décline pas commune par
  * commune avec le nom échangé. Elle n'existe qu'une fois, elle porte des
  * clients réels situés dans la zone, et deux captures datées de résultats
- * obtenus là. Décliner ce contenu pour dix communes en changeant le toponyme
- * serait exactement ce que Google sanctionne, et ce qu'on déconseille dans
- * le guide sur le pack local.
+ * obtenus là.
  *
  * L'angle : un indépendant de Hesbaye n'a pas besoin de sortir sur « Liège ».
  * Il a besoin de sortir sur sa commune, où presque personne ne se bat.
@@ -101,37 +99,25 @@ export default function HesbayePage() {
 
           <h1 className="pb-gd-title">Création de site internet en Hesbaye</h1>
           <p className="pb-gd-lede">
-            Je travaille depuis {IDENTITE.ville}. Mes trois clients les plus proches sont à Braives,
-            Hélécine et dans la région de Waremme, deux d&apos;entre eux sont aujourd&apos;hui en
-            première position du pack local Google. Cette page explique pourquoi c&apos;est plus
-            facile ici qu&apos;en ville, et ce que ça demande.
+            Je travaille depuis {IDENTITE.ville}. Deux clients de la zone sont en première position
+            du pack local Google. Ici, une commune se gagne.
           </p>
 
           <div className="pb-gd-body">
-            <h2 className="pb-gd-h2">Pourquoi une commune se gagne, et pas une grande ville</h2>
+            <h2 className="pb-gd-h2">Pourquoi une commune se gagne</h2>
             <p className="pb-gd-p">
-              Dans le bloc de trois établissements que Google affiche en haut d&apos;une recherche
-              locale, la distance entre celui qui cherche et l&apos;établissement compte lourdement.
-              À Liège, sur « coiffeur » ou « électricien », vous affrontez des dizaines de
-              concurrents installés dans les rues voisines du chercheur. Vous ne gagnerez pas la
-              proximité.
+              À Liège, vous affrontez des dizaines de concurrents dans les rues voisines du
+              chercheur. À Hannut, à Braives ou à Lincent, la plupart ont une fiche Google à moitié
+              vide, et la requête «&nbsp;votre métier + votre commune&nbsp;» est souvent libre.
             </p>
             <p className="pb-gd-p">
-              À Hannut, à Braives ou à Lincent, la situation s&apos;inverse. Il y a peu de
-              concurrents, la plupart ont une fiche Google à moitié vide, et beaucoup n&apos;ont pas
-              de site du tout. La requête « votre métier + votre commune » est souvent libre.
-            </p>
-            <p className="pb-gd-p">
-              Le lot est modeste et il faut le dire&nbsp;: on parle de quelques recherches par mois,
-              pas de centaines. Mais ces quelques personnes cherchent exactement votre prestation,
-              exactement dans votre commune, et elles appellent. C&apos;est une acquisition qui coûte
-              une fois et travaille ensuite sans budget publicitaire.
+              Le lot est modeste : quelques recherches par mois. Mais ces personnes cherchent
+              exactement votre prestation, dans votre commune, et elles appellent.
             </p>
 
-            <h2 className="pb-gd-h2">Deux résultats obtenus ici, vérifiables maintenant</h2>
+            <h2 className="pb-gd-h2">Deux résultats obtenus ici</h2>
             <p className="pb-gd-p">
-              Zen Harmonie est un cabinet de massage à Hélécine. Tapez «&nbsp;massage
-              hélécine&nbsp;»&nbsp;: le cabinet sort en première position du pack local.
+              Zen Harmonie, cabinet de massage à Hélécine. Tapez «&nbsp;massage hélécine&nbsp;».
             </p>
             <figure className="pb-gd-proof">
               <div className="pb-proof-shot">
@@ -149,8 +135,8 @@ export default function HesbayePage() {
             </figure>
 
             <p className="pb-gd-p">
-              Detail Wave nettoie canapés et intérieurs de voiture dans la région de Waremme. Même
-              mécanique sur «&nbsp;nettoyage canapé waremme&nbsp;».
+              Detail Wave, nettoyage à domicile autour de Waremme. Même mécanique sur
+              «&nbsp;nettoyage canapé waremme&nbsp;».
             </p>
             <figure className="pb-gd-proof">
               <div className="pb-proof-shot">
@@ -167,38 +153,17 @@ export default function HesbayePage() {
               </figcaption>
             </figure>
 
-            <p className="pb-gd-p">
-              Ni l&apos;un ni l&apos;autre n&apos;a de budget publicitaire. Ce sont des indépendants,
-              sur des requêtes que personne ne disputait, avec une fiche Google correctement remplie
-              et un site qui nomme leur zone.
-            </p>
+            <p className="pb-gd-p">Ni l&apos;un ni l&apos;autre n&apos;a de budget publicitaire.</p>
 
             <h2 className="pb-gd-h2">Les communes où j&apos;interviens</h2>
             <p className="pb-gd-p">
-              Je me déplace pour la première rencontre dans un rayon d&apos;environ trente minutes
-              autour de {IDENTITE.ville}&nbsp;:
+              Première rencontre autour d&apos;une table dans un rayon de trente minutes. Au-delà,
+              en visio.
             </p>
-            <ul className="pb-gd-ul">
+            <ul className="pb-gd-ul pb-gd-inline">
               {COMMUNES.map((c) => (
                 <li key={c}>{c}</li>
               ))}
-            </ul>
-            <p className="pb-gd-p">
-              Au-delà, je travaille aussi, simplement, on se voit en visio plutôt qu&apos;autour
-              d&apos;une table. Deux de mes cinq projets sont hors de ce rayon.
-            </p>
-
-            <h2 className="pb-gd-h2">Ce que je fais concrètement</h2>
-            <p className="pb-gd-p">
-              Le site et la visibilité locale vont ensemble&nbsp;: un site que personne ne trouve ne
-              sert à rien, et une fiche Google bien remplie qui renvoie vers un site vide ne
-              convertit pas. Je traite les deux.
-            </p>
-            <ul className="pb-gd-ul">
-              <li>Le site&nbsp;: conception, design, code et mise en ligne, par la même personne.</li>
-              <li>La fiche Google&nbsp;: catégorie, zone, services, description, photos.</li>
-              <li>La cohérence entre les deux&nbsp;: mêmes coordonnées, mêmes communes nommées.</li>
-              <li>Les fonctions dont votre métier a besoin&nbsp;: réservation, devis, boutique.</li>
             </ul>
 
             <h2 className="pb-gd-h2">Les projets de la zone</h2>
@@ -218,11 +183,7 @@ export default function HesbayePage() {
 
           <div className="pb-case-cta">
             <h2 className="pb-d-s">Vous êtes de la région&nbsp;?</h2>
-            <p>
-              Dites-moi votre métier et votre commune. Je regarde ce que donne la recherche
-              aujourd&apos;hui et je vous dis franchement s&apos;il y a quelque chose à prendre :
-              parfois la réponse est non.
-            </p>
+            <p>Dites-moi votre métier et votre commune. Parfois la réponse est non, et je le dis.</p>
             <Link href="/contact" className="pb-btn-line">
               Parler de votre projet <Arrow dir="ne" />
             </Link>
@@ -233,13 +194,12 @@ export default function HesbayePage() {
             <ul>
               <li>
                 <Link href="/guides/etre-trouve-sur-google-maps">
-                  Être trouvé sur Google Maps quand on travaille près de chez soi <Arrow dir="e" />
+                  Être trouvé sur Google Maps <Arrow dir="e" />
                 </Link>
               </li>
               <li>
-                <Link href="/guides/combien-coute-un-site-internet-en-belgique">
-                  Combien coûte un site internet, et pourquoi personne ne veut vous le dire{" "}
-                  <Arrow dir="e" />
+                <Link href="/creation-site-internet-liege">
+                  À Liège, l&apos;autre stratégie <Arrow dir="e" />
                 </Link>
               </li>
             </ul>

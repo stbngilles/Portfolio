@@ -85,6 +85,55 @@ export function openCal(date?: string) {
     });
 }
 
+/**
+ * Pose le calendrier dans `el`, ouvert, sans modale. Réservé à `/contact`,
+ * où le calendrier est l'action principale : l'appelant ne le déclenche qu'à
+ * l'approche de la section, la contrainte 1 tient donc toujours pour le
+ * premier écran. `onFail` sert aussi quand le script ne se charge pas.
+ */
+export function embedCal(el: HTMLElement, onReady: () => void, onFail: () => void) {
+  injectCal()
+    .then((Cal) => {
+      Cal("init", { origin: "https://cal.com" });
+      listenBookings(Cal);
+      Cal("on", { action: "linkReady", callback: onReady });
+      Cal("on", { action: "linkFailed", callback: onFail });
+      Cal("inline", {
+        elementOrSelector: el,
+        calLink: BOOKING_CAL_LINK,
+        layout: "month_view",
+        config: { layout: "month_view", theme: "light" },
+      });
+      Cal("ui", {
+        theme: "light",
+        cssVarsPerTheme: { light: { "cal-brand": "#1f3fbf" }, dark: { "cal-brand": "#1f3fbf" } },
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })
+    .catch(() => {
+      pending = null;
+      onFail();
+    });
+}
+
+/** Les prochains jours, libellés en français. À calculer après montage. */
+export function nextDays(count = 5) {
+  const fmtDay = new Intl.DateTimeFormat("fr-BE", { weekday: "short" });
+  const fmtNum = new Intl.DateTimeFormat("fr-BE", { day: "numeric" });
+  const out: { iso: string; day: string; num: string }[] = [];
+  const d = new Date();
+  for (let i = 0; i < count; i++) {
+    out.push({
+      iso: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`,
+      day: fmtDay.format(d).replace(".", ""),
+      num: fmtNum.format(d),
+    });
+    d.setDate(d.getDate() + 1);
+  }
+  return out;
+}
+
 /** Vrai quand l'utilisateur veut ouvrir un onglet, pas la modale. */
 export function wantsNewTab(e: React.MouseEvent) {
   return e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0;

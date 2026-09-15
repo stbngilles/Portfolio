@@ -12,11 +12,13 @@ const N = PROJECTS.length;
 
 const ORDER = PROJECTS;
 
-/** Largeur de chaque vignette sur la grille 12 colonnes, le rythme de la page. */
-const SPAN = ["8", "5", "5", "8", "8", "5"];
+/** Largeur de chaque vignette sur la grille 13 colonnes, le rythme de la
+ *  page. La première prend toute la largeur : c'est Maison, le projet le plus
+ *  complet, et il ouvre la section seul sur sa ligne. */
+const SPAN = ["13", "8", "5", "5", "8", "8"];
 
 /**
- * Le travail, en grand. Cinq projets sur une grille irrégulière : chaque
+ * Le travail, en grand. Six projets sur une grille irrégulière : chaque
  * capture est un cadre sans bordure, l'image scale au survol, un curseur
  * « Voir » suit la souris. Le nom et la preuve viennent sous l'image, rien
  * d'autre, l'étude de cas s'ouvre en modale.
@@ -68,12 +70,18 @@ export default function SelectedWork() {
         <div className="pb-over" data-reveal="">
           Projets · 2025, 2026
         </div>
-        <Lines className="pb-d-l" lines={["Cinq projets,", "et la preuve datée."]} muteFrom={1} />
+        <Lines className="pb-d-l" lines={["Six projets,", "et ce qui se vérifie."]} muteFrom={1} />
       </div>
 
       <div className="pb-work-grid" ref={grid}>
         {ORDER.map((p, i) => (
-          <article key={p.slug} className="pb-tile" style={{ ["--span" as string]: SPAN[i] }} data-reveal="">
+          <article
+            key={p.slug}
+            className="pb-tile"
+            style={{ ["--span" as string]: SPAN[i] }}
+            data-wide={SPAN[i] === "13" ? "" : undefined}
+            data-reveal=""
+          >
             <button type="button" className="pb-tile-img" onClick={() => setOpen(PROJECTS.indexOf(p))} aria-label={`Ouvrir l'étude de cas ${p.name}`}>
               <div className="pb-tile-frame">
                 {p.mockup ? (
@@ -120,7 +128,7 @@ export default function SelectedWork() {
 
       <div className="pb-work-more">
         <Link href="/projets" className="pb-btn-line">
-          Les cinq dossiers en entier <Arrow dir="ne" />
+          Les six dossiers en entier <Arrow dir="ne" />
         </Link>
       </div>
 

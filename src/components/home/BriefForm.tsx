@@ -156,18 +156,11 @@ export default function BriefForm() {
           </li>
           <li>
             <b>02</b>
-            <span>
-              Je réponds par e-mail : ce que je comprends du besoin, ce que je ferais, un ordre de
-              grandeur.
-            </span>
+            <span>Je réponds par e-mail : ce que je ferais, et un ordre de grandeur.</span>
           </li>
           <li>
             <b>03</b>
-            <span>
-              Si ça vous parle, on cale quinze minutes : prix fixé pendant l&apos;appel pour
-              Essentiel et Signature, devis écrit sous 48&nbsp;h pour le sur mesure. Sans
-              engagement, rien à signer, ni pendant, ni après.
-            </span>
+            <span>Si ça vous parle, on cale quinze minutes. Rien à signer.</span>
           </li>
         </ol>
 

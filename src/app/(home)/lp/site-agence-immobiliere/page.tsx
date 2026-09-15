@@ -18,7 +18,7 @@ export default function SiteAgenceImmobilierePage() {
     <Landing
       over="Agences immobilières et promoteurs"
       title={["Le portail vend vos biens.", "Le site vend l'agence."]}
-      lede="Un site d'agence immobilière qui rentre des mandats : demande d'estimation en trois champs, biens à jour depuis votre logiciel, une page par commune où vous vendez. Construit en province de Liège, par une seule personne."
+      lede="Demande d'estimation en trois champs, biens à jour depuis votre logiciel, une page par commune où vous vendez."
       points={[
         {
           title: "Le vendeur, pas l'acheteur",

@@ -153,10 +153,7 @@ export default async function GuidePage({
 
           <div className="pb-case-cta">
             <h2 className="pb-d-s">Une question que cette page ne règle pas&nbsp;?</h2>
-            <p>
-              Décrivez votre situation en trois questions. Je réponds sous 24&nbsp;h ouvrées, et si
-              votre besoin ne demande pas de sur mesure, je vous le dirai aussi.
-            </p>
+            <p>Décrivez votre situation. Réponse sous 24&nbsp;h ouvrées.</p>
             <Link href="/contact" className="pb-btn-line">
               Poser la question <Arrow dir="ne" />
             </Link>

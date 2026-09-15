@@ -18,7 +18,7 @@ export default function AgenceWebLiegePage() {
     <Landing
       over="Agence web · Liège et province"
       title={["Agence web à Liège.", "Un site qui trouve des clients."]}
-      lede="Conception, design et code par la même personne, en province de Liège. Deux clients en première position du pack local Google, vérifiable en tapant la requête. Les prix sont écrits avant l'appel."
+      lede="Conception, design et code par la même personne, en province de Liège. Deux clients en première position du pack local Google."
       points={[
         {
           title: "Un seul interlocuteur",

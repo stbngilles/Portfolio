@@ -56,7 +56,7 @@ export default function FinalCta() {
             Ou décrire votre projet <Arrow dir="ne" />
           </Link>
           <p className="pb-final-p">
-            Assez pour cadrer le projet et le chiffrer, et pour que vous sachiez quoi faire, même si ce n&apos;est pas avec moi.
+            Assez pour cadrer et chiffrer. Même si ce n&apos;est pas avec moi.
           </p>
         </div>
       </div>

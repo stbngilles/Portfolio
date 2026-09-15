@@ -21,6 +21,12 @@ const URL = `${SITE_URL}/tarifs`;
  * Trois offres, et l'offre du milieu est celle à vendre : voir `PRICING`
  * dans `data.ts` pour les règles, et pourquoi le socle mensuel n'est pas une
  * option.
+ *
+ * Septembre 2026 : la page a été vidée de ce qu'elle répétait. Les
+ * conditions tiennent en six lignes, une par phrase de `TERMS` et de
+ * `PRICING.payment` ; ce qui fait bouger le prix est dans la FAQ de
+ * /contact ; les questions restantes sont celles qu'aucune autre page ne
+ * traite.
  */
 
 export const metadata: Metadata = {
@@ -38,27 +44,29 @@ export const metadata: Metadata = {
   },
 };
 
+/** Ce qui est écrit dans chaque devis. Une ligne par condition, mot pour mot. */
+const CONTRACT = [
+  TERMS.quote,
+  PRICING.payment.small,
+  PRICING.payment.large,
+  TERMS.revisions,
+  TERMS.socle,
+  TERMS.handover,
+];
+
 /** Les questions propres à cette page. Rendu et balisage partent du même tableau. */
 const QUESTIONS = [
   {
     q: "Pourquoi publier les prix ?",
-    a: "Parce que c'est la première question, et que la cacher fait perdre du temps aux deux côtés. Les prix de départ ci-dessus sont ceux du devis. Ils servent à savoir si on parle du même ordre de grandeur avant de réserver un appel.",
+    a: "Parce que c'est la première question, et que la cacher fait perdre du temps aux deux côtés. Un prix de départ dit si on parle du même ordre de grandeur.",
   },
   {
     q: "Le socle mensuel est-il obligatoire ?",
-    a: "Oui. Aucun site n'est livré sans son hébergement, sa sécurité, ses petites modifications et son rapport mensuel : un site laissé seul finit hors ligne ou compromis, et c'est toujours le client qui le découvre. Le socle est dans chaque offre et annoncé dès le devis, jamais après. L'engagement de douze mois couvre la mise en ligne, la sécurité et le suivi de la première année, la période où un site bouge le plus.",
-  },
-  {
-    q: "Le prix de départ est-il le prix final ?",
-    a: `Le prix de départ couvre le périmètre décrit dans la case. Les options listées plus bas se chiffrent au devis, poste par poste, et le prix vient en premier sur le devis, pas en dernière page. ${TERMS.quote}`,
-  },
-  {
-    q: "Comment se passe le paiement ?",
-    a: `${PRICING.payment.small} ${PRICING.payment.large} ${IDENTITE.regimeTva}.`,
+    a: "Oui. Un site laissé seul finit hors ligne ou compromis. Hébergement, sécurité, petites modifications et rapport sont dans chaque offre, annoncés dès le devis.",
   },
   {
     q: "Que se passe-t-il si je pars ?",
-    a: `Vous emportez le domaine et le code, lisible par un autre développeur. Rien n'est loué. ${TERMS.handover} ${TERMS.socle} Quand il s'arrête, l'hébergement s'arrête avec lui, et le site se réinstalle ailleurs : il est construit pour ça.`,
+    a: `Vous emportez le domaine et le code, lisible par un autre développeur. ${IDENTITE.regimeTva}.`,
   },
 ];
 
@@ -165,11 +173,7 @@ export default function TarifsPage() {
           </h1>
 
           <p className="pb-idx-lede">
-            Trois offres, pas plus. Chacune comprend son socle mensuel, hébergement, sécurité,
-            petites modifications, rapport : aucun site n&apos;est livré sans. Les prix sont des
-            prix de départ, hors TVA. Pour Essentiel et Signature, le prix est fixé pendant
-            l&apos;appel de quinze minutes. Pour le sur mesure, vous recevez un devis écrit sous
-            48&nbsp;h ouvrées.
+            Trois offres, socle mensuel compris, hors TVA. Le reste se fixe pendant l&apos;appel.
           </p>
 
           <div className="pb-price-grid" data-cols="3">
@@ -200,7 +204,7 @@ export default function TarifsPage() {
             <BookCall className="pb-btn-solid">
               Réserver l&apos;appel <Arrow dir="ne" />
             </BookCall>
-            <span className="pb-cap">Quinze minutes, sans engagement. Vous choisissez le créneau.</span>
+            <span className="pb-cap">Quinze minutes, sans engagement.</span>
           </div>
 
           <ul className="pb-price-socle">
@@ -213,13 +217,10 @@ export default function TarifsPage() {
           </ul>
 
           <h2 className="pb-price-h2">Dans chaque devis, noir sur blanc</h2>
-          <ul className="pb-gd-ul" style={{ marginTop: 22 }}>
-            <li>{PRICING.payment.small}</li>
-            <li>{PRICING.payment.large}</li>
-            <li>{TERMS.revisions}</li>
-            <li>{TERMS.socle}</li>
-            <li>{TERMS.handover}</li>
-            <li>Le délai, à compter du contenu reçu. C&apos;est presque toujours le contenu qui décide de la date.</li>
+          <ul className="pb-gd-ul">
+            {CONTRACT.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
           </ul>
 
           <aside className="pb-price-proof">
@@ -230,8 +231,7 @@ export default function TarifsPage() {
             <p className="pb-price-proof-facts">
               {/* La note, pas le compte : trois avis, c'est vrai, et c'est
                   visible sur la fiche, mais ce n'est pas à mettre en gras à
-                  l'endroit où le client vient de lire 9 000 €. Le compte
-                  revient ici à partir d'une dizaine d'avis. */}
+                  l'endroit où le client vient de lire 9 000 €. */}
               <span>5,0 ★ sur Google</span>
               <a href={PROFILS.studio[0]} target="_blank" rel="noopener">
                 Voir la fiche Google <Arrow dir="ne" />
@@ -255,23 +255,8 @@ export default function TarifsPage() {
           </ul>
 
           <h2 className="pb-price-h2">Chiffré à part, au devis</h2>
-          <ul className="pb-gd-ul" style={{ marginTop: 22 }}>
-            {PRICING.options.map((o) => (
-              <li key={o}>{o}</li>
-            ))}
-          </ul>
-          <p className="pb-price-note">
-            Un prix ne descend jamais sans qu&apos;un poste soit retiré. Si le budget est plus
-            serré que l&apos;offre visée, on enlève une fonction, pas un zéro.
-          </p>
-
-          <h2 className="pb-price-h2">Ce qui fait bouger le prix</h2>
-          <ul className="pb-gd-ul" style={{ marginTop: 22 }}>
-            <li>La fonction métier : recherche de biens, page programme, agenda, espace client.</li>
-            <li>Des données à gérer : un catalogue, des biens, des créneaux, des stocks.</li>
-            <li>Quelqu&apos;un qui doit se connecter, ou payer, sur le site.</li>
-            <li>L&apos;état du contenu que vous fournissez : textes, photos, traductions.</li>
-          </ul>
+          <p className="pb-gd-p">{PRICING.options.join(", ").toLowerCase().replace(/^./, (c) => c.toUpperCase())}.</p>
+          <p className="pb-price-note">Un prix ne baisse qu&apos;en retirant un poste. Jamais un zéro.</p>
 
           <h2 className="pb-price-h2">Questions</h2>
           <div className="pb-gd-body" style={{ marginTop: 0 }}>
@@ -285,11 +270,7 @@ export default function TarifsPage() {
 
           <div className="pb-case-cta">
             <h2 className="pb-d-s">Vous avez un ordre de grandeur. Il manque le vôtre.</h2>
-            <p>
-              Un appel de quinze minutes, réservé en ligne : vous décrivez le projet, vous raccrochez
-              avec un chiffre, ou un devis écrit sous 48&nbsp;h pour le sur mesure. Rien à signer,
-              ni pendant, ni après.
-            </p>
+            <p>Quinze minutes, réservées en ligne. Rien à signer.</p>
             <Link href="/contact" className="pb-btn-line">
               Réserver l&apos;appel <Arrow dir="ne" />
             </Link>
@@ -300,17 +281,12 @@ export default function TarifsPage() {
             <ul>
               <li>
                 <Link href="/comment-je-travaille">
-                  Comment je travaille, du premier appel à la mise en ligne <Arrow dir="e" />
+                  Comment je travaille <Arrow dir="e" />
                 </Link>
               </li>
               <li>
                 <Link href="/guides/combien-coute-un-site-internet-en-belgique">
-                  Combien coûte un site internet en Belgique, les fourchettes du marché <Arrow dir="e" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/projets">
-                  Les cinq dossiers, avec ce qui a été construit <Arrow dir="e" />
+                  Combien coûte un site internet en Belgique <Arrow dir="e" />
                 </Link>
               </li>
             </ul>

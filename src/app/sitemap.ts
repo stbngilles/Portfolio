@@ -18,9 +18,12 @@ const SITE_URL = "https://pixelbrute.be";
  * À remonter quand le contenu de la page bouge réellement.
  */
 const LAST_EDIT = {
-  home: "2026-09-12",
+  // Maison, le sixième dossier, entre le 14 septembre 2026 : la home, l'index
+  // des projets et la page agences immobilières changent ce jour-là.
+  home: "2026-09-14",
   contact: "2026-09-12",
-  projets: "2026-09-12",
+  projets: "2026-09-14",
+  immo: "2026-09-14",
   guides: "2026-08-23",
   // Tarifs, page immobilier, page Liège : nées le même jour, avec le
   // repositionnement du site vers les PME et les agences immobilières.
@@ -74,7 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/creation-site-agence-immobiliere`,
-      lastModified: LAST_EDIT.offre,
+      lastModified: LAST_EDIT.immo,
       changeFrequency: "monthly",
       priority: 0.9,
     },

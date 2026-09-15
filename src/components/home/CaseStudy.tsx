@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Arrow from "./Arrow";
 import ProjectChart from "./ProjectChart";
+import Story from "./Story";
 import type { Project } from "./data";
 import { pad } from "./data";
 
@@ -47,21 +48,14 @@ export default function CaseStudy({
         <h1 className="pb-case-title">{p.name}</h1>
         <p className="pb-modal-lede">{p.lede}</p>
 
-        <div className="pb-modal-meta">
-          <div>
-            <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Rôle</div>
-            {p.role}
-          </div>
-          <div>
-            <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Livré</div>
-            {p.stack}
-          </div>
-          <div>
-            <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Résultat</div>
-            {p.result}
-          </div>
-        </div>
+        {/* Une ligne : « Livré » répète l'inventaire, « Résultat » répète les
+            chiffres relevés. Seul le rôle n'est écrit nulle part ailleurs. */}
+        <p className="pb-modal-role pb-cap">{p.role}</p>
       </header>
+
+      {/* Le récit en images vient avant les chiffres : on montre le site
+          avant d'en parler. Seuls les dossiers qui en ont un l'affichent. */}
+      {p.story && <Story name={p.name} story={p.story} heading="h2" />}
 
       {/* Les chiffres se lisent sur le site du client : ils sont là pour être
           recomptés, pas pour impressionner. */}
@@ -88,10 +82,10 @@ export default function CaseStudy({
           ))}
         </div>
 
-        <h2 className="pb-modal-lbl pb-case-h2 pb-rule" style={{ paddingTop: 34 }}>
+        <h2 className="pb-modal-lbl pb-case-h2 pb-rule" style={{ paddingTop: 89 }}>
           Le problème
         </h2>
-        <div className="pb-modal-prose pb-rule" style={{ paddingTop: 27 }}>
+        <div className="pb-modal-prose pb-rule" style={{ paddingTop: 55 }}>
           {p.problem.map((t) => (
             <p key={t} className="pb-modal-p">
               {t}
@@ -99,7 +93,7 @@ export default function CaseStudy({
           ))}
         </div>
 
-        <h2 className="pb-modal-lbl pb-case-h2 pb-rule" style={{ paddingTop: 34 }}>
+        <h2 className="pb-modal-lbl pb-case-h2 pb-rule" style={{ paddingTop: 89 }}>
           Décisions
         </h2>
         <div className="pb-rule" style={{ paddingTop: 8, display: "flex", flexDirection: "column" }}>
@@ -116,7 +110,7 @@ export default function CaseStudy({
           ))}
         </div>
 
-        <h2 className="pb-modal-lbl pb-case-h2 pb-rule" style={{ paddingTop: 34 }}>
+        <h2 className="pb-modal-lbl pb-case-h2 pb-rule" style={{ paddingTop: 89 }}>
           Ce qui est en ligne
         </h2>
         <div className="pb-rule" style={{ paddingTop: 8 }}>
@@ -130,10 +124,10 @@ export default function CaseStudy({
           </dl>
         </div>
 
-        <h2 className="pb-modal-lbl pb-case-h2 pb-rule" style={{ paddingTop: 34 }}>
+        <h2 className="pb-modal-lbl pb-case-h2 pb-rule" style={{ paddingTop: 89 }}>
           Résultat
         </h2>
-        <div className="pb-modal-prose pb-rule" style={{ paddingTop: 27 }}>
+        <div className="pb-modal-prose pb-rule" style={{ paddingTop: 55 }}>
           {p.outcome.map((t) => (
             <p key={t} className="pb-modal-p">
               {t}
@@ -180,10 +174,7 @@ export default function CaseStudy({
 
       <div className="pb-case-cta">
         <h2 className="pb-d-s">Un projet du même genre&nbsp;?</h2>
-        <p>
-          Décrivez ce qui coince en trois questions. Je réponds sous 24&nbsp;h ouvrées, par la
-          personne qui dessinera et codera le site.
-        </p>
+        <p>Décrivez ce qui coince. Réponse sous 24&nbsp;h ouvrées.</p>
         <Link href="/contact" className="pb-btn-line">
           Parler de votre projet <Arrow dir="ne" />
         </Link>

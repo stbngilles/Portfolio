@@ -33,9 +33,8 @@ export default function Hero() {
             Création de sites internet à Liège et en Hesbaye, pour PME, agences immobilières et indépendants de la province.
           </h2>
           <p className="pb-hero-lede">
-            Studio web à Hannut, en province de Liège. Conception, design et code par la même
-            personne, pour des dirigeants qui attendent d&apos;un site des demandes de clients, pas
-            une brochure.
+            Conception, design et code par la même personne, pour des dirigeants qui attendent
+            d&apos;un site des demandes de clients, pas une brochure.
           </p>
           <div className="pb-hero-acts">
             <Link href="/contact" className="pb-btn-solid">

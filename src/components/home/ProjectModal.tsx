@@ -6,6 +6,7 @@ import Link from "next/link";
 import Arrow from "./Arrow";
 import { PROJECTS, pad } from "./data";
 import ProjectChart from "./ProjectChart";
+import Story from "./Story";
 
 const N = PROJECTS.length;
 
@@ -88,20 +89,10 @@ export default function ProjectModal({
 
           <p className="pb-modal-lede">{p.lede}</p>
 
-          <div className="pb-modal-meta">
-            <div>
-              <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Rôle</div>
-              {p.role}
-            </div>
-            <div>
-              <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Livré</div>
-              {p.stack}
-            </div>
-            <div>
-              <div style={{ color: "var(--pb-accent)", marginBottom: 8 }}>Résultat</div>
-              {p.result}
-            </div>
-          </div>
+          <p className="pb-modal-role pb-cap">{p.role}</p>
+
+          {/* Le récit en images d'abord, quand le dossier en a un. */}
+          {p.story && <Story name={p.name} story={p.story} heading="h3" />}
 
           {/* Les chiffres se lisent sur le site du client : ils sont là pour
               être recomptés, pas pour impressionner. */}
@@ -128,10 +119,10 @@ export default function ProjectModal({
               ))}
             </div>
 
-            <div className="pb-modal-lbl pb-rule" style={{ paddingTop: 34 }}>
+            <div className="pb-modal-lbl pb-rule" style={{ paddingTop: 89 }}>
               Le problème
             </div>
-            <div className="pb-modal-prose pb-rule" style={{ paddingTop: 27 }}>
+            <div className="pb-modal-prose pb-rule" style={{ paddingTop: 55 }}>
               {p.problem.map((t) => (
                 <p key={t} className="pb-modal-p">
                   {t}
@@ -139,7 +130,7 @@ export default function ProjectModal({
               ))}
             </div>
 
-            <div className="pb-modal-lbl pb-rule" style={{ paddingTop: 34 }}>
+            <div className="pb-modal-lbl pb-rule" style={{ paddingTop: 89 }}>
               Décisions
             </div>
             <div className="pb-rule" style={{ paddingTop: 8, display: "flex", flexDirection: "column" }}>
@@ -156,7 +147,7 @@ export default function ProjectModal({
               ))}
             </div>
 
-            <div className="pb-modal-lbl pb-rule" style={{ paddingTop: 34 }}>
+            <div className="pb-modal-lbl pb-rule" style={{ paddingTop: 89 }}>
               Ce qui est en ligne
             </div>
             <div className="pb-rule" style={{ paddingTop: 8 }}>
@@ -170,10 +161,10 @@ export default function ProjectModal({
               </dl>
             </div>
 
-            <div className="pb-modal-lbl pb-rule" style={{ paddingTop: 34 }}>
+            <div className="pb-modal-lbl pb-rule" style={{ paddingTop: 89 }}>
               Résultat
             </div>
-            <div className="pb-modal-prose pb-rule" style={{ paddingTop: 27 }}>
+            <div className="pb-modal-prose pb-rule" style={{ paddingTop: 55 }}>
               {p.outcome.map((t) => (
                 <p key={t} className="pb-modal-p">
                   {t}

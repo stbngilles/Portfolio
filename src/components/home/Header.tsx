@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 import Arrow from "./Arrow";
+import BookCall from "./BookCall";
 
 const LINKS = [
   { href: "/#projets", label: "Projets" },
@@ -13,7 +14,12 @@ const LINKS = [
   { href: "/contact", label: "Contact" },
 ];
 
-export default function Header({ variant = "home" }: { variant?: "home" | "page" } = {}) {
+/**
+ * `contact` : la page où arrivent les annonces. La pilule n'y ramène pas à
+ * l'accueil, une sortie tout en haut de la page qu'on paie au clic ; elle
+ * ouvre le calendrier.
+ */
+export default function Header({ variant = "home" }: { variant?: "home" | "page" | "contact" } = {}) {
   const onHome = variant === "home";
   const [open, setOpen] = useState(false);
   const [overDark, setOverDark] = useState(false);
@@ -101,12 +107,20 @@ export default function Header({ variant = "home" }: { variant?: "home" | "page"
           {/* Sur téléphone, le libellé tient en un mot : la pilule ne se casse
               plus sur deux lignes et le burger garde sa hauteur. La flèche
               « retour » précède le texte, comme on revient en arrière. */}
-          <a href={onHome ? "/contact" : "/"} className="pb-contact-pill">
-            {!onHome && <Arrow dir="w" />}
-            <span className="pb-pill-long">{onHome ? "Me contacter" : "Retour à l'accueil"}</span>
-            <span className="pb-pill-short">{onHome ? "Contact" : "Accueil"}</span>
-            {onHome && <Arrow dir="ne" />}
-          </a>
+          {variant === "contact" ? (
+            <BookCall className="pb-contact-pill" data-solid="">
+              <span className="pb-pill-long">Réserver 15 min</span>
+              <span className="pb-pill-short">Réserver</span>
+              <Arrow dir="ne" />
+            </BookCall>
+          ) : (
+            <a href={onHome ? "/contact" : "/"} className="pb-contact-pill">
+              {!onHome && <Arrow dir="w" />}
+              <span className="pb-pill-long">{onHome ? "Me contacter" : "Retour à l'accueil"}</span>
+              <span className="pb-pill-short">{onHome ? "Contact" : "Accueil"}</span>
+              {onHome && <Arrow dir="ne" />}
+            </a>
+          )}
           <button
             type="button"
             className="pb-burger"

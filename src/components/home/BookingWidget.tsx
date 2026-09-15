@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { openCal } from "./cal";
+import { usePathname } from "next/navigation";
+import { nextDays, openCal } from "./cal";
 import { AVAILABILITY, STUDIO } from "./data";
 
 /**
@@ -31,24 +32,11 @@ import { AVAILABILITY, STUDIO } from "./data";
 /** Le temps que la première section se pose. */
 const SHOW_DELAY = 1400;
 
-/** Les cinq prochains jours, libellés en français. Calculés après montage. */
-function nextDays(count = 5) {
-  const fmtDay = new Intl.DateTimeFormat("fr-BE", { weekday: "short" });
-  const fmtNum = new Intl.DateTimeFormat("fr-BE", { day: "numeric" });
-  const out: { iso: string; day: string; num: string }[] = [];
-  const d = new Date();
-  for (let i = 0; i < count; i++) {
-    out.push({
-      iso: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`,
-      day: fmtDay.format(d).replace(".", ""),
-      num: fmtNum.format(d),
-    });
-    d.setDate(d.getDate() + 1);
-  }
-  return out;
-}
+/** `/contact` a sa propre barre (`StickyBook`) : la bulle y ferait doublon. */
+const OWN_BAR = ["/contact"];
 
 export default function BookingWidget() {
+  const pathname = usePathname();
   const [shown, setShown] = useState(false);
   const [open, setOpen] = useState(false);
   const [days, setDays] = useState<ReturnType<typeof nextDays>>([]);
@@ -74,7 +62,7 @@ export default function BookingWidget() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  if (!shown) return null;
+  if (!shown || OWN_BAR.includes(pathname)) return null;
 
   return (
     <div className="pb-book" data-open={open ? "" : undefined}>

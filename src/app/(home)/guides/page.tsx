@@ -67,9 +67,8 @@ export default function GuidesIndexPage() {
           </h1>
 
           <p className="pb-idx-lede">
-            Cinq pages écrites pour être utiles même si vous ne me confiez rien. Les chiffres sont
-            datés et sourcés dans le texte, et quand une solution moins chère que la mienne convient
-            mieux, c&apos;est écrit noir sur blanc.
+            Cinq pages utiles même si vous ne me confiez rien. Les chiffres sont datés et
+            sourcés.
           </p>
 
           <ol className="pb-gd-list">

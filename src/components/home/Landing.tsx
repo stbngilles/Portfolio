@@ -119,10 +119,7 @@ export default function Landing({ over, title, lede, points, proofs, bullets, pr
 
       <section className="pb-lp-final">
         <h2 className="pb-d-s">On en parle quinze minutes&nbsp;?</h2>
-        <p>
-          Vous décrivez ce qui coince, je vous dis ce que je ferais et ce que ça coûte. Même si ce
-          n&apos;est pas avec moi, vous raccrochez en sachant quoi faire.
-        </p>
+        <p>Vous décrivez ce qui coince, je dis ce que je ferais et ce que ça coûte.</p>
         <BookCall className="pb-btn-solid">
           {cta} <Arrow dir="ne" />
         </BookCall>
