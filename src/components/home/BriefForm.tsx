@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import Link from "next/link";
 import Arrow from "./Arrow";
@@ -133,9 +133,9 @@ export default function BriefForm() {
   const [state, handleSubmit] = useForm("xdaawkyd");
   const found = useRef("");
   // Provenance de la visite, enregistrée par `Consent` si le visiteur a
-  // accepté. Lue au montage : `sessionStorage` n'existe pas côté serveur.
-  const [source, setSource] = useState("");
-  useEffect(() => setSource(readSource()), []);
+  // accepté. Lue à l'envoi et pas au montage : un visiteur qui arrive sur
+  // cette page et accepte les cookies juste avant d'écrire compte aussi.
+  const provenance = useRef<HTMLInputElement>(null);
 
   // Compté quand Formspree a accepté, pas au clic : un envoi refusé n'est pas
   // une demande. L'effet ne joue qu'au passage à `succeeded`.
@@ -191,12 +191,13 @@ export default function BriefForm() {
       data-clarity-mask="true"
       onSubmit={(e) => {
         found.current = String(new FormData(e.currentTarget).get("trouve") ?? "");
+        if (provenance.current) provenance.current.value = readSource();
         return handleSubmit(e);
       }}
     >
       {/* Objet lisible dans la boîte de réception, et piège à robots (Formspree). */}
       <input type="hidden" name="_subject" value="Nouvelle demande, pixelbrute.be/contact" />
-      {source && <input type="hidden" name="provenance" value={source} />}
+      <input ref={provenance} type="hidden" name="provenance" defaultValue="" />
       <input
         type="text"
         name="_gotcha"
