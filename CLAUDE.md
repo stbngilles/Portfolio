@@ -52,7 +52,7 @@ et hors sitemap : une sortie, réserver quinze minutes, pas de menu.
 Mesure : `trackEvent()` dans `src/components/home/track.ts` envoie chaque
 conversion (réservation ouverte et confirmée, formulaire envoyé, clics
 téléphone, WhatsApp, e-mail) à Vercel Analytics et dans `window.dataLayer`.
-GA4 (`G-TEYBR8LD27`) est posé dans `layout.tsx` en mode consentement, tout
+GA4 (`G-TEYBR8LD27`) et GTM (`GTM-WSJD329S`) sont posés dans `layout.tsx` en mode consentement, tout
 refusé par défaut : sans bannière qui accorde le consentement, aucun cookie.
 
 Positionnement (septembre 2026) : PME, agences immobilières et indépendants de la

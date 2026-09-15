@@ -60,6 +60,7 @@ const BING_MSVALIDATE_01 = process.env.BING_MSVALIDATE_01;
 
 // Identifiant de mesure GA4. Public par nature : il figure dans le HTML.
 const GA_ID = "G-TEYBR8LD27";
+const GTM_ID = "GTM-WSJD329S";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -340,6 +341,14 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${archivo.variable} antialiased`}
       >
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         {/* JSON-LD rendu côté serveur, présent dans le HTML source.
             Il passait auparavant par `next/script` en `afterInteractive` :
             le balisage n'existait qu'après hydratation React, donc invisible
@@ -354,11 +363,12 @@ export default function RootLayout({
         {/* Mesure d'audience sans cookie ni donnée personnelle : aucune bannière
             de consentement n'est requise. */}
         <Analytics />
-        {/* Google Analytics 4, en mode consentement : tout est refusé par
-            défaut, donc aucun cookie posé sans accord (ePrivacy). Google ne
-            reçoit que des pings anonymes tant qu'aucune bannière n'appelle
-            `gtag('consent', 'update', …)`. Les événements de `track.ts`
-            passent déjà par `window.dataLayer`. */}
+        {/* Google Analytics 4 et Google Tag Manager, en mode consentement :
+            tout est refusé par défaut, donc aucun cookie posé sans accord
+            (ePrivacy). Le consentement par défaut est poussé dans le même
+            script, *avant* le chargement de GTM : dans l'autre ordre, les
+            balises du conteneur partiraient sans lui. Les événements de
+            `track.ts` arrivent dans `window.dataLayer`, où GTM les lit. */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
@@ -373,7 +383,12 @@ gtag('consent', 'default', {
   analytics_storage: 'denied'
 });
 gtag('js', new Date());
-gtag('config', '${GA_ID}');`}
+gtag('config', '${GA_ID}');
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`}
         </Script>
       </body>
     </html>
