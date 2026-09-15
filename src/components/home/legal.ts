@@ -102,6 +102,18 @@ export const SOUS_TRAITANTS = [
     pays: "États-Unis",
     donnees: "Nom, e-mail, téléphone et message que vous saisissez",
   },
+  {
+    nom: "Google Ireland Ltd",
+    role: "Google Tag Manager, Google Analytics, Google Ads, avec votre accord",
+    pays: "Irlande, transferts possibles vers les États-Unis",
+    donnees: "Identifiant de cookie, pages vues, provenance, appareil, adresse IP tronquée",
+  },
+  {
+    nom: "Microsoft Ireland Operations Ltd",
+    role: "Microsoft Clarity, avec votre accord",
+    pays: "Irlande, transferts possibles vers les États-Unis",
+    donnees: "Identifiant de cookie, clics, défilement, appareil. Les champs saisis sont masqués",
+  },
 ] as const;
 
 /** Autorité de contrôle compétente en Belgique. */

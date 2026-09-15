@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import Link from "next/link";
 import Arrow from "./Arrow";
 import TrackLink from "./TrackLink";
 import { trackEvent } from "./track";
+import { readSource } from "./Consent";
 import { SITE_FROM, euro } from "./data";
 
 /**
@@ -52,6 +53,22 @@ const BUDGETS = [
   `${euro(SITE_FROM.signature)} à ${euro(SITE_FROM.surMesure)}`,
   `Plus de ${euro(SITE_FROM.surMesure)}`,
   "Je ne sais pas",
+];
+
+/**
+ * « Comment m'avez-vous trouvé ? », facultatif. La seule mesure qui voit ce
+ * que les outils ne voient pas : le bouche-à-oreille, l'annonce vue sur un
+ * téléphone puis le site tapé sur l'ordinateur.
+ */
+const TROUVE = [
+  "Google",
+  "Google Maps",
+  "Bing",
+  "Instagram",
+  "LinkedIn",
+  "Une annonce",
+  "Bouche-à-oreille",
+  "Autre",
 ];
 
 const TEL = "+32 492 20 02 75";
@@ -114,11 +131,16 @@ function Field({
 
 export default function BriefForm() {
   const [state, handleSubmit] = useForm("xdaawkyd");
+  const found = useRef("");
+  // Provenance de la visite, enregistrée par `Consent` si le visiteur a
+  // accepté. Lue au montage : `sessionStorage` n'existe pas côté serveur.
+  const [source, setSource] = useState("");
+  useEffect(() => setSource(readSource()), []);
 
   // Compté quand Formspree a accepté, pas au clic : un envoi refusé n'est pas
   // une demande. L'effet ne joue qu'au passage à `succeeded`.
   useEffect(() => {
-    if (state.succeeded) trackEvent("brief_sent");
+    if (state.succeeded) trackEvent("brief_sent", { trouve: found.current || "non précisé" });
   }, [state.succeeded]);
 
   if (state.succeeded) {
@@ -170,9 +192,18 @@ export default function BriefForm() {
   }
 
   return (
-    <form id="brief" className="pb-form" onSubmit={handleSubmit}>
+    <form
+      id="brief"
+      className="pb-form"
+      data-clarity-mask="true"
+      onSubmit={(e) => {
+        found.current = String(new FormData(e.currentTarget).get("trouve") ?? "");
+        return handleSubmit(e);
+      }}
+    >
       {/* Objet lisible dans la boîte de réception, et piège à robots (Formspree). */}
       <input type="hidden" name="_subject" value="Nouvelle demande, pixelbrute.be/contact" />
+      {source && <input type="hidden" name="provenance" value={source} />}
       <input
         type="text"
         name="_gotcha"
@@ -243,6 +274,12 @@ export default function BriefForm() {
             />
           </div>
           <ValidationError prefix="E-mail" field="email" errors={state.errors} className="pb-form-err" />
+          <div className="pb-chips-lbl pb-cap">Comment m&apos;avez-vous trouvé&nbsp;? · facultatif</div>
+          <div className="pb-chips" role="radiogroup" aria-label="Comment m'avez-vous trouvé ?">
+            {TROUVE.map((t) => (
+              <Chip key={t} name="trouve" value={t} type="radio" />
+            ))}
+          </div>
         </div>
       </Field>
 

@@ -1514,3 +1514,31 @@ html.lenis, html.lenis body { height: auto; }
 .pb-price-proof-facts { margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--pb-ink-2); }
 .pb-price-proof-facts a { color: var(--pb-accent); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
 .pb-price-proof-facts a:hover { text-decoration: underline; }
+
+/* ---------------------------------------------------------------------------
+   Bannière de consentement, en bas à gauche : la bulle de réservation tient
+   la droite. Même carte que la bulle, blanc chaud et filet, pas d'ombre.
+   Les deux boutons ont le même trait : l'APD refuse un « Accepter » plus
+   visible que « Refuser ». Sur téléphone, la bulle s'efface le temps du choix.
+--------------------------------------------------------------------------- */
+.pb-consent {
+  position: fixed; left: 21px; bottom: 21px; z-index: 310;
+  width: min(377px, calc(100vw - 42px));
+  background: var(--pb-paper); color: var(--pb-ink);
+  border: 1px solid var(--pb-line-soft); border-radius: var(--pb-r-l);
+  padding: 21px; display: flex; flex-direction: column; gap: 16px;
+  animation: pb-in 260ms ease both;
+}
+.pb-consent-t { margin: 0; font-size: var(--pb-t-small); line-height: var(--pb-lh-read); color: var(--pb-ink-2); }
+.pb .pb-consent-t a { color: var(--pb-ink); text-decoration: underline; text-underline-offset: 3px; }
+.pb-consent-acts { display: flex; gap: 8px; }
+.pb-consent-acts .pb-btn-line { flex: 1; justify-content: center; padding: 13px 16px; }
+.pb .pb-consent-link {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit;
+}
+.pb .pb-consent-link:hover { color: var(--pb-accent); }
+@media (max-width: 600px) {
+  .pb-consent { left: 16px; bottom: 16px; width: calc(100vw - 32px); }
+  .pb:has(.pb-consent) .pb-book { display: none; }
+}

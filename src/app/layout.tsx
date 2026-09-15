@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Archivo, DM_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
 import { IDENTITE, PROFILS } from "@/components/home/legal";
 
 // Layout racine : uniquement le shell html, les polices, la mesure
@@ -57,11 +56,6 @@ const jetbrainsMono = JetBrains_Mono({
 // (« SITE_VERIFICATION ») invite à y coller la clé d'API Webmaster, qui est un
 // secret : elle finirait publiée dans le HTML de chaque page.
 const BING_MSVALIDATE_01 = process.env.BING_MSVALIDATE_01;
-
-// Identifiant de mesure GA4. Public par nature : il figure dans le HTML.
-const GA_ID = "G-TEYBR8LD27";
-const GTM_ID = "GTM-WSJD329S";
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -341,14 +335,6 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${archivo.variable} antialiased`}
       >
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
         {/* JSON-LD rendu côté serveur, présent dans le HTML source.
             Il passait auparavant par `next/script` en `afterInteractive` :
             le balisage n'existait qu'après hydratation React, donc invisible
@@ -361,35 +347,9 @@ export default function RootLayout({
         />
         {children}
         {/* Mesure d'audience sans cookie ni donnée personnelle : aucune bannière
-            de consentement n'est requise. */}
+            de consentement n'est requise. La mesure à cookies (GTM, GA4,
+            Clarity) vit dans `(home)/layout.tsx`, derrière la bannière. */}
         <Analytics />
-        {/* Google Analytics 4 et Google Tag Manager, en mode consentement :
-            tout est refusé par défaut, donc aucun cookie posé sans accord
-            (ePrivacy). Le consentement par défaut est poussé dans le même
-            script, *avant* le chargement de GTM : dans l'autre ordre, les
-            balises du conteneur partiraient sans lui. Les événements de
-            `track.ts` arrivent dans `window.dataLayer`, où GTM les lit. */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('consent', 'default', {
-  ad_storage: 'denied',
-  ad_user_data: 'denied',
-  ad_personalization: 'denied',
-  analytics_storage: 'denied'
-});
-gtag('js', new Date());
-gtag('config', '${GA_ID}');
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');`}
-        </Script>
       </body>
     </html>
   );

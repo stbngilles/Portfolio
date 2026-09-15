@@ -7,7 +7,7 @@
 2. **La plateforme** — `/app/*` : espaces admin, client, dev, commercial, comptable.
    Auth Better-Auth, paiements Stripe, base PostgreSQL via Prisma.
 
-Les deux ne partagent que le layout racine (`src/app/layout.tsx` : polices, GA, JSON-LD).
+Les deux ne partagent que le layout racine (`src/app/layout.tsx` : polices, Vercel Analytics, JSON-LD).
 Rien d'autre. Une modification de la home ne peut pas casser la plateforme, et l'inverse.
 
 ## Stack
@@ -52,8 +52,14 @@ et hors sitemap : une sortie, réserver quinze minutes, pas de menu.
 Mesure : `trackEvent()` dans `src/components/home/track.ts` envoie chaque
 conversion (réservation ouverte et confirmée, formulaire envoyé, clics
 téléphone, WhatsApp, e-mail) à Vercel Analytics et dans `window.dataLayer`.
-GA4 (`G-TEYBR8LD27`) et GTM (`GTM-WSJD329S`) sont posés dans `layout.tsx` en mode consentement, tout
-refusé par défaut : sans bannière qui accorde le consentement, aucun cookie.
+Toute la mesure à cookies passe par GTM (`GTM-WSJD329S`), posé dans
+`(home)/layout.tsx` et nulle part ailleurs : GA4 (`G-TEYBR8LD27`), Clarity,
+Google Ads se configurent dans le conteneur, pas dans le code. Consentement
+par défaut refusé, bannière `Consent.tsx` (Refuser et Accepter au même poids,
+choix gardé six mois, lien « Cookies » du footer pour le retirer). Tout outil
+ajouté doit entrer dans `SOUS_TRAITANTS` (`legal.ts`) et dans le tableau des
+cookies de `/confidentialite`. Le formulaire joint la provenance de la visite
+(champ `provenance`) et « Comment m'avez-vous trouvé ? » (champ `trouve`).
 
 Positionnement (septembre 2026) : PME, agences immobilières et indépendants de la
 province de Liège. Plus « indépendants et artisans » seuls.

@@ -68,7 +68,7 @@ export default function ConfidentialitePage() {
               comme l&apos;impose la législation comptable belge.
             </p>
 
-            <h3 className="pb-gd-h3">La mesure d&apos;audience</h3>
+            <h3 className="pb-gd-h3">La mesure d&apos;audience sans cookie</h3>
             <p className="pb-gd-p">
               Le site compte les visites et les pages lues avec Vercel Web Analytics. Cet outil ne
               dépose <strong>aucun cookie</strong>, ne crée aucun identifiant permanent et ne suit
@@ -77,9 +77,28 @@ export default function ConfidentialitePage() {
             </p>
             <p className="pb-gd-p">
               Base légale&nbsp;: l&apos;intérêt légitime à connaître l&apos;audience de son propre site
-              (article 6.1.f du RGPD). Comme aucune donnée personnelle n&apos;est traitée et
-              qu&apos;aucun cookie n&apos;est déposé, votre consentement n&apos;est pas requis, et
-              aucune bannière ne vous est imposée.
+              (article 6.1.f du RGPD). Aucune donnée personnelle n&apos;est traitée, votre
+              consentement n&apos;est donc pas requis pour cet outil.
+            </p>
+
+            <h3 className="pb-gd-h3">La mesure et la publicité avec cookies</h3>
+            <p className="pb-gd-p">
+              Seulement si vous cliquez sur «&nbsp;Accepter&nbsp;», le site charge aussi Google
+              Analytics et Microsoft Clarity, par Google Tag Manager. Ils disent d&apos;où viennent
+              les visites, quelles pages mènent à une prise de contact, et où la lecture
+              s&apos;arrête. Clarity enregistre les clics et le défilement, jamais ce que vous tapez.
+              Si des annonces Google sont diffusées, les mêmes balises mesurent lesquelles
+              amènent une demande.
+            </p>
+            <p className="pb-gd-p">
+              Avec votre accord, le formulaire de contact joint aussi la provenance de votre visite
+              (site d&apos;origine, campagne, première page vue), pour savoir quel canal a mené à
+              votre demande.
+            </p>
+            <p className="pb-gd-p">
+              Base légale&nbsp;: votre consentement (article 6.1.a du RGPD). Sans lui, ces outils
+              reçoivent au plus un signal anonyme, sans cookie ni identifiant. Vous pouvez le
+              retirer à tout moment, aussi simplement que vous l&apos;avez donné.
             </p>
 
             <h3 className="pb-gd-h3">Les journaux techniques</h3>
@@ -122,16 +141,49 @@ export default function ConfidentialitePage() {
               types de la Commission européenne.
             </p>
 
-            <h2 className="pb-gd-h2">Cookies</h2>
+            <h2 className="pb-gd-h2" id="cookies">
+              Cookies
+            </h2>
             <p className="pb-gd-p">
-              <strong>Ce site ne dépose aucun cookie.</strong> Ni publicitaire, ni de mesure, ni de
-              confort. C&apos;est la raison pour laquelle aucune bannière ne vous demande votre
-              accord&nbsp;: il n&apos;y a rien à accepter.
+              <strong>Aucun cookie n&apos;est déposé avant votre choix.</strong> Si vous refusez, il
+              n&apos;y en aura aucun. Si vous acceptez&nbsp;:
             </p>
+            <div className="pb-legal-tw">
+              <table className="pb-legal-t">
+                <thead>
+                  <tr>
+                    <th>Cookie</th>
+                    <th>Outil</th>
+                    <th>Rôle</th>
+                    <th>Durée</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>_ga, _ga_*</td>
+                    <td>Google Analytics</td>
+                    <td>Distinguer les visites, mesurer la provenance</td>
+                    <td>13 mois</td>
+                  </tr>
+                  <tr>
+                    <td>_gcl_*</td>
+                    <td>Google Ads</td>
+                    <td>Relier une demande à l&apos;annonce qui l&apos;a amenée</td>
+                    <td>90 jours</td>
+                  </tr>
+                  <tr>
+                    <td>_clck, _clsk</td>
+                    <td>Microsoft Clarity</td>
+                    <td>Regrouper les pages d&apos;une même visite</td>
+                    <td>1 an, 1 jour</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <p className="pb-gd-p">
-              Si votre navigateur conserve encore un cookie commençant par <span className="pb-mono">_ga</span>,
-              il provient d&apos;une version antérieure du site qui utilisait Google Analytics. Il
-              n&apos;est plus alimenté et vous pouvez le supprimer sans conséquence.
+              Votre choix lui-même est gardé dans votre navigateur (
+              <span className="pb-mono">pb-consent</span>) pendant six mois, puis la question revient.
+              Pour le changer, utilisez le lien «&nbsp;Cookies&nbsp;» en bas de chaque page.
             </p>
 
             <h2 className="pb-gd-h2">Vos droits</h2>
@@ -159,7 +211,7 @@ export default function ConfidentialitePage() {
             <h2 className="pb-gd-h2">Modifications</h2>
             <p className="pb-gd-p">
               Cette politique peut évoluer si les outils utilisés changent. La version en ligne est
-              toujours la version applicable. Dernière mise à jour&nbsp;: 23 août 2026.
+              toujours la version applicable. Dernière mise à jour&nbsp;: 15 septembre 2026.
             </p>
           </div>
         </article>

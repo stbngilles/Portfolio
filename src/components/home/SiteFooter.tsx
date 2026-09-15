@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import TrackLink from "./TrackLink";
+import { ConsentLink } from "./Consent";
 
 const PAGES = [
   { href: "/projets", label: "Projets" },
@@ -52,6 +53,7 @@ export default function SiteFooter() {
         <span className="pb-foot-legal">
           <Link href="/mentions-legales">Mentions légales</Link>
           <Link href="/confidentialite">Confidentialité</Link>
+          <ConsentLink />
         </span>
         <span>Studio web solo, conçu et codé à la main</span>
       </div>

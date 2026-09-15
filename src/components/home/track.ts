@@ -14,11 +14,10 @@ import { track as vercelTrack } from "@vercel/analytics";
  *    événements personnalisés y sont comptés sur les offres Pro et
  *    Entreprise ; sur l'offre gratuite, l'appel est accepté et ignoré, il ne
  *    casse rien.
- * , `window.dataLayer`, la file que lisent Google Tag Manager et la balise
- *    Google. Rien ne la consomme aujourd'hui, et c'est voulu : une balise
- *    Google pose des cookies, donc demande une bannière de consentement. Le
- *    jour où les annonces démarrent, on ajoute la balise en mode consentement,
- *    et les conversions sont déjà là, nommées, sans retoucher une page.
+ * , `window.dataLayer`, que lit Google Tag Manager (`(home)/layout.tsx`).
+ *    Chaque nom y est un déclencheur « Événement personnalisé », relié à un
+ *    événement GA4 du même nom. Les balises n'envoient rien sans l'accord
+ *    donné dans la bannière (`Consent.tsx`).
  *
  * Les noms sont courts, en anglais, stables : ils deviennent des noms de
  * conversion dans Google Ads, et un nom qui change casse l'historique.
