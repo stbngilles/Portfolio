@@ -55,7 +55,10 @@ async function toBrevo(email: string, prenom: string, nom: string) {
       console.error("[ressource:brevo:attributes]", await res.text());
       res = await post();
     }
-    if (res.ok) return true;
+    if (res.ok) {
+      console.log("[ressource:brevo:ok]", res.status);
+      return true;
+    }
     console.error("[ressource:brevo:error]", res.status, await res.text());
   } catch (err) {
     console.error("[ressource:brevo:throw]", err);
@@ -91,7 +94,10 @@ async function sendRessource(r: Ressource, email: string, prenom: string, nom: s
   const { subject, html } = ressourceEmail(r, prenom, link);
 
   if (!BREVO_API_KEY) {
-    if (process.env.NODE_ENV === "production") return false;
+    if (process.env.NODE_ENV === "production") {
+      console.error("[ressource:send:no-key] BREVO_API_KEY absente de cet environnement");
+      return false;
+    }
     console.log("[ressource:noop]", email, link);
     return true;
   }
@@ -108,7 +114,10 @@ async function sendRessource(r: Ressource, email: string, prenom: string, nom: s
         tags: ["ressource", r.slug],
       }),
     });
-    if (res.ok) return true;
+    if (res.ok) {
+      console.log("[ressource:send:ok]", r.slug, await res.text());
+      return true;
+    }
     console.error("[ressource:send:error]", res.status, await res.text());
   } catch (err) {
     console.error("[ressource:send:throw]", err);
@@ -120,7 +129,10 @@ export async function requestRessource(form: FormData): Promise<SubscribeState> 
   const text = (k: string) => String(form.get(k) ?? "").trim().slice(0, 200);
 
   // Piège à robots : on fait comme si tout allait bien, sans rien envoyer.
-  if (text("_gotcha")) return { ok: true };
+  if (text("_gotcha")) {
+    console.warn("[ressource:gotcha] champ piège rempli, rien n'est envoyé");
+    return { ok: true };
+  }
 
   const r = getRessource(text("ressource"));
   if (!r) return { ok: false, error: "Cette ressource n'existe plus." };
