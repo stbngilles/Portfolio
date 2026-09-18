@@ -129,8 +129,12 @@ export async function requestRessource(form: FormData): Promise<SubscribeState> 
   const text = (k: string) => String(form.get(k) ?? "").trim().slice(0, 200);
 
   // Piège à robots : on fait comme si tout allait bien, sans rien envoyer.
-  if (text("_gotcha")) {
-    console.warn("[ressource:gotcha] champ piège rempli, rien n'est envoyé");
+  // Anti-robot : un humain met plus de deux secondes à remplir trois champs.
+  // Pas de champ piège caché : l'autocomplétion des navigateurs le remplit,
+  // et le vrai visiteur repartait sans rien recevoir.
+  const elapsed = Number(text("elapsed"));
+  if (!Number.isFinite(elapsed) || elapsed < 2000) {
+    console.warn("[ressource:bot] envoi en", elapsed, "ms, ignoré");
     return { ok: true };
   }
 

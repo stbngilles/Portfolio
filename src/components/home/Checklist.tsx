@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useSyncExternalStore, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Arrow from "./Arrow";
@@ -94,8 +94,13 @@ export function ChecklistGate({
   const [last, setLast] = useState("");
   const [error, setError] = useState("");
   const [pending, start] = useTransition();
+  const shownAt = useRef(0);
 
   // Déjà reçue sur ce navigateur : retour direct à la liste.
+  useEffect(() => {
+    shownAt.current = Date.now();
+  }, []);
+
   useEffect(() => {
     if (!saved) return;
     if (expired) write(slug, null);
@@ -106,6 +111,7 @@ export function ChecklistGate({
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     data.set("provenance", readSource());
+    data.set("elapsed", String(Date.now() - shownAt.current));
     setError("");
     start(async () => {
       try {
@@ -153,7 +159,6 @@ export function ChecklistGate({
       </div>
 
       <input type="hidden" name="ressource" value={slug} />
-      <input type="text" name="_gotcha" className="pb-hp" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div className="pb-ck-fields">
         <label className="pb-ck-field">
           <span className="pb-cap">Prénom</span>
