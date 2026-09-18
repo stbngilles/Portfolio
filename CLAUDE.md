@@ -46,7 +46,12 @@ dans `(home)/layout.tsx`. Les composants n'initialisent pas leur propre smooth s
 `/projets/[slug]`, `/guides`, `/guides/[slug]`, `/tarifs`, `/comment-je-travaille`,
 `/creation-site-agence-immobiliere`, `/creation-site-internet-liege`,
 `/creation-site-internet-hesbaye`, `/mentions-legales`, `/confidentialite`,
-plus `/llms.txt`. Les landings d'annonces `/lp/*` existent mais sont `noindex`
+plus `/llms.txt`. `/ressources/<slug>` : une ressource gratuite par vidéo YouTube, déclarée dans
+`src/components/home/ressources.ts` (une entrée = une page). Elle part par e-mail
+(Brevo) contre une inscription à la newsletter (`BREVO_NEWSLETTER_LIST_ID`) ; l'e-mail
+porte un lien signé (`?t=`, `CHECKLIST_SECRET`) vers la version à cocher. Tutoie,
+reste `noindex` hors sitemap. `/checklist` redirige vers la première.
+Les landings d'annonces `/lp/*` existent mais sont `noindex`
 et hors sitemap : une sortie, réserver quinze minutes, pas de menu.
 
 Mesure : `trackEvent()` dans `src/components/home/track.ts` envoie chaque

@@ -37,6 +37,8 @@ const nextConfig: NextConfig = {
       { source: "/equipe/:slug", destination: "/#studio", permanent: true },
       // Étude de cas retirée à la demande du client.
       { source: "/projets/azimut-games", destination: "/projets", permanent: true },
+      // Première adresse de la checklist, avant le passage à `/ressources/*`.
+      { source: "/checklist", destination: "/ressources/checklist-site-internet", permanent: true },
     ];
   },
   serverExternalPackages: [

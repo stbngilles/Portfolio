@@ -32,8 +32,13 @@ import { AVAILABILITY, STUDIO } from "./data";
 /** Le temps que la première section se pose. */
 const SHOW_DELAY = 1400;
 
-/** `/contact` a sa propre barre (`StickyBook`) : la bulle y ferait doublon. */
+/**
+ * `/contact` a sa propre barre (`StickyBook`) : la bulle y ferait doublon.
+ * Les ressources (`/ressources/*`) ont leur formulaire, que la barre mobile
+ * recouvrait, et leur propre appel à réserver sous le score.
+ */
 const OWN_BAR = ["/contact"];
+const ownBar = (p: string) => OWN_BAR.includes(p) || p.startsWith("/ressources/");
 
 export default function BookingWidget() {
   const pathname = usePathname();
@@ -62,7 +67,7 @@ export default function BookingWidget() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  if (!shown || OWN_BAR.includes(pathname)) return null;
+  if (!shown || ownBar(pathname)) return null;
 
   return (
     <div className="pb-book" data-open={open ? "" : undefined}>

@@ -103,6 +103,12 @@ export const SOUS_TRAITANTS = [
     donnees: "Nom, e-mail, téléphone et message que vous saisissez",
   },
   {
+    nom: "Sendinblue SAS (Brevo)",
+    role: "Envoi des ressources gratuites et de la newsletter, avec votre accord",
+    pays: "France",
+    donnees: "Prénom, nom et adresse e-mail donnés pour recevoir une ressource",
+  },
+  {
     nom: "Google Ireland Ltd",
     role: "Google Tag Manager, Google Analytics, Google Ads, avec votre accord",
     pays: "Irlande, transferts possibles vers les États-Unis",

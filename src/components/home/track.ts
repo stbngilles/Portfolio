@@ -29,6 +29,8 @@ export type PbEvent =
   | "booking_done"
   /** Le formulaire de contact est parti (Formspree a répondu OK). */
   | "brief_sent"
+  /** Une ressource `/ressources/<slug>` est partie par e-mail, avec l'inscription à la newsletter. Propriété `ressource` : le slug. */
+  | "ressource_requested"
   | "tel_click"
   | "whatsapp_click"
   | "mail_click";

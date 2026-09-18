@@ -68,6 +68,25 @@ export default function ConfidentialitePage() {
               comme l&apos;impose la législation comptable belge.
             </p>
 
+            <h3 className="pb-gd-h3" id="newsletter">
+              La newsletter
+            </h3>
+            <p className="pb-gd-p">
+              Pour recevoir une ressource gratuite (une checklist liée à une vidéo), vous donnez
+              votre prénom, votre nom et votre adresse e-mail, et vous acceptez de recevoir la
+              newsletter. Ces données servent uniquement à vous envoyer la ressource, puis la
+              newsletter.
+            </p>
+            <p className="pb-gd-p">
+              Base légale&nbsp;: votre consentement (article 6.1.a du RGPD), donné en cochant la case
+              du formulaire. Chaque envoi contient un lien de désinscription, et un e-mail à{" "}
+              <a href={`mailto:${IDENTITE.email}`}>{IDENTITE.email}</a> suffit aussi.
+            </p>
+            <p className="pb-gd-p">
+              Conservation&nbsp;: jusqu&apos;à votre désinscription. L&apos;adresse est alors retirée
+              de la liste d&apos;envoi.
+            </p>
+
             <h3 className="pb-gd-h3">La mesure d&apos;audience sans cookie</h3>
             <p className="pb-gd-p">
               Le site compte les visites et les pages lues avec Vercel Web Analytics. Cet outil ne
@@ -211,7 +230,7 @@ export default function ConfidentialitePage() {
             <h2 className="pb-gd-h2">Modifications</h2>
             <p className="pb-gd-p">
               Cette politique peut évoluer si les outils utilisés changent. La version en ligne est
-              toujours la version applicable. Dernière mise à jour&nbsp;: 15 septembre 2026.
+              toujours la version applicable. Dernière mise à jour&nbsp;: 16 septembre 2026.
             </p>
           </div>
         </article>
