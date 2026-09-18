@@ -13,7 +13,7 @@ import { createToken } from "./token";
  * d'envoi ne se remplit que d'adresses réelles. L'e-mail porte la liste
  * complète et un lien signé vers la version à cocher (`token.ts`).
  *
- * Ensuite, le contact entre dans la liste Brevo `BREVO_NEWSLETTER_LIST_ID`,
+ * Ensuite, le contact entre dans la liste Brevo n° 1 (`BREVO_NEWSLETTER_LIST_ID`),
  * avec la même clé que les e-mails de la plateforme. La clé doit avoir les
  * droits « Contacts » et « E-mails transactionnels ».
  *
@@ -24,8 +24,10 @@ import { createToken } from "./token";
  */
 
 const BREVO_API_KEY = process.env.BREVO_API_KEY;
-const LIST_ID = Number(process.env.BREVO_NEWSLETTER_LIST_ID);
-const FROM_EMAIL = process.env.BREVO_FROM_EMAIL ?? "hello@pixelbrute.be";
+// Liste « Newsletter » du compte Brevo, et expéditeur sur le domaine
+// vérifié. Des valeurs, pas des secrets : seule la clé vit dans Vercel.
+const LIST_ID = Number(process.env.BREVO_NEWSLETTER_LIST_ID ?? 1);
+const FROM_EMAIL = process.env.BREVO_FROM_EMAIL ?? "contact@pixelbrute.be";
 const FROM_NAME = process.env.BREVO_FROM_NAME ?? "Esteban, Pixelbrute";
 const SITE_URL = "https://pixelbrute.be";
 const FORMSPREE = "https://formspree.io/f/xdaawkyd";
