@@ -132,8 +132,9 @@ export async function requestRessource(form: FormData): Promise<SubscribeState> 
   // Anti-robot : un humain met plus de deux secondes à remplir trois champs.
   // Pas de champ piège caché : l'autocomplétion des navigateurs le remplit,
   // et le vrai visiteur repartait sans rien recevoir.
-  const elapsed = Number(text("elapsed"));
-  if (!Number.isFinite(elapsed) || elapsed < 2000) {
+  // Sans durée (un onglet ouvert avant un déploiement), on laisse passer.
+  const elapsed = text("elapsed") === "" ? Infinity : Number(text("elapsed"));
+  if (elapsed < 2000) {
     console.warn("[ressource:bot] envoi en", elapsed, "ms, ignoré");
     return { ok: true };
   }
