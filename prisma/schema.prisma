@@ -452,3 +452,82 @@ model Ticket {
   author   User     @relation("TicketAuthor", fields: [authorId], references: [id])
   assignee User?    @relation("TicketAssignee", fields: [assigneeId], references: [id])
 }
+
+// =====================================================================
+// SUIVI CLIENT — /suivi/<slug>
+// Un espace par client, ouvert par un mot de passe partagé (pas de compte).
+// Le contenu initial arrive d'un paquet chiffré (`src/lib/suivi/paquets`),
+// importé à la première connexion : le dépôt est public, rien n'y est en clair.
+// =====================================================================
+
+model SuiviProjet {
+  slug       String   @id
+  nom        String
+  site       String?
+  motDePasse String // scrypt$<sel>$<hash>
+  contenu    Json // devis, tarifs, hébergement : figés, relus tels quels
+  // Présentation d'accueil : s'ouvre seule tant que le client ne l'a pas fermée.
+  presentationVueLe DateTime?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  elements  SuiviElement[]
+  demandes  SuiviDemande[]
+  documents SuiviDocument[]
+}
+
+model SuiviElement {
+  id          String   @id @default(cuid())
+  projetSlug  String
+  etat        String // LIVRE | EN_COURS
+  groupe      String
+  titre       String
+  devis       String? // ligne du devis, ou « dans le devis ? »
+  detail      String? // où le voir (livré), ce qui manque (en cours)
+  besoin      String? // ce qu'on attend du client
+  date        String? // vérifié le (livré), date prévue (en cours) : texte libre
+  statut      String?
+  remarque    String?
+  ordre       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  projet SuiviProjet @relation(fields: [projetSlug], references: [slug], onDelete: Cascade)
+
+  @@index([projetSlug, etat, ordre])
+}
+
+model SuiviDemande {
+  id            String    @id @default(cuid())
+  projetSlug    String
+  // CLIENT : le client écrit à Pixelbrute. PIXELBRUTE : Pixelbrute demande au client
+  // (une validation s'il y a un prix, une action sinon).
+  sens          String    @default("CLIENT")
+  texte         String
+  detail        String? // explication jointe par Pixelbrute à sa demande
+  priorite      String    @default("Utile")
+  auteur        String?
+  dansDevis     String?
+  reponse       String? // réponse de Pixelbrute
+  reponseClient String? // mot du client en retour
+  prix          String?
+  statut        String    @default("Reçue")
+  traiteLe      DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  projet SuiviProjet @relation(fields: [projetSlug], references: [slug], onDelete: Cascade)
+
+  @@index([projetSlug, sens, createdAt])
+}
+
+model SuiviDocument {
+  id         String   @id @default(cuid())
+  projetSlug String
+  nom        String
+  fichier    Bytes
+  type       String   @default("application/pdf")
+  createdAt  DateTime @default(now())
+
+  projet SuiviProjet @relation(fields: [projetSlug], references: [slug], onDelete: Cascade)
+}

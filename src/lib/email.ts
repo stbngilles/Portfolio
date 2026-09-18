@@ -170,3 +170,23 @@ export async function sendDevTicketReady(args: {
     ),
   });
 }
+
+export async function sendSuiviNotif(args: {
+  slug: string;
+  sujet: string;
+  titre: string;
+  lignes: (string | null | undefined)[];
+}) {
+  // Notif interne : le client a écrit, validé, refusé ou répondu dans son espace de suivi.
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
+  return sendBrevo({
+    to: process.env.ADMIN_NOTIFY_EMAIL ?? "contact@pixelbrute.be",
+    subject: args.sujet,
+    html: wrap(
+      esc(args.titre),
+      args.lignes.filter(Boolean).map((l) => `<p style="white-space:pre-wrap">${esc(l!)}</p>`).join(""),
+      "Ouvrir mon interface",
+      `${APP_URL}/suivi/${args.slug}/admin`,
+    ),
+  });
+}
