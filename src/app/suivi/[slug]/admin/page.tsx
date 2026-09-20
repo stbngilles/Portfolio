@@ -5,6 +5,7 @@ import { prisma } from "@/lib/db";
 import { lireAcces } from "@/lib/suivi/acces";
 import type { Contenu } from "@/lib/suivi/paquet";
 import { ATTENTE_CLIENT } from "@/lib/suivi/presentation";
+import { Connexion } from "@/components/suivi/Connexion";
 import { AdminMaDemande, AdminNouvelleDemande, AdminPresentation, AdminReponse } from "@/components/suivi/Admin";
 import {
   Avancement,
@@ -26,8 +27,8 @@ import { Badge, Carte, Icone, TitreSection, Vide, boutonPrimaire, libelleStatut,
 
 /**
  * Interface de l'admin : ses demandes à traiter, ce que j'attends de lui,
- * ses réponses, et l'édition de tout le reste. Ouverte par la session
- * plateforme ADMIN, jamais par le mot de passe du client.
+ * ses réponses, et l'édition de tout le reste. Ouverte par le mot de
+ * passe admin (`SUIVI_ADMIN_MDP`), jamais par celui du client.
  */
 
 export const dynamic = "force-dynamic";
@@ -60,17 +61,7 @@ export default async function PageAdmin({
   if (!acces) notFound();
   const base = `/suivi/${slug}/admin`;
 
-  if (!acces.admin) {
-    return (
-      <Porte titre="Espace réservé">
-        Cette page est ton interface de suivi. Connecte-toi d&apos;abord à la plateforme avec ton compte administrateur,
-        puis reviens ici.
-        <Link href="/app/login" className={`${boutonPrimaire} mt-6 w-full`}>
-          Me connecter
-        </Link>
-      </Porte>
-    );
-  }
+  if (!acces.admin) return <Connexion slug={slug} nom="admin" admin />;
   if (!acces.importe) {
     return (
       <Porte titre="Pas encore ouvert">

@@ -21,6 +21,21 @@
         "3010"
       ],
       "port": 3010
+    },
+    {
+      "name": "suivi-test",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "DATABASE_URL=postgresql://postgres:postgres@127.0.0.1:54329/postgres?sslmode=disable",
+        "NODE_OPTIONS=--require /private/tmp/claude-504/-Users-gille-Desktop-Etudiant-ind-pendant-Pixelbrute/1dd299c6-4b2f-4016-98f3-60c7a64e7eeb/scratchpad/pg/sans-ssl.cjs",
+        "BETTER_AUTH_URL=http://localhost:3020",
+        "npx",
+        "next",
+        "dev",
+        "-p",
+        "3020"
+      ],
+      "port": 3020
     }
   ]
 }

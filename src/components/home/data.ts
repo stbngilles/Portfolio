@@ -125,9 +125,9 @@ export const PROJECTS: Project[] = [
     name: "Maison",
     sector: "Chasseur immobilier · projet conceptuel, 2026",
     brief:
-      "Un chasseur de biens rares, quelques acheteurs par an, et un site qui doit montrer la rareté sans la proclamer.",
+      "Une agence qui vend quatre biens à la fois, pas quarante, et dont le site doit amener des demandes de visite sérieuses.",
     answer:
-      "Dessiner la marque avant le site : une signature à la main, une palette tirée d'un moodboard de matières, quatre biens et pas un de plus.",
+      "Bâtir chaque page vers une seule action, la visite privée, et tenir la même marque du site au panneau de façade.",
     metric: "Marque, site et supports · projet conceptuel",
     rating: null,
     query: null,
@@ -137,53 +137,53 @@ export const PROJECTS: Project[] = [
     stack: "Identité, site, fiches de biens, brand book, papeterie, panneau, vitrine",
     result: "Projet conceptuel · aucun chiffre avancé",
     lede:
-      "Aucun client derrière ce projet. Une agence inventée pour montrer un site immobilier sans rien qui presse.",
+      "Le site complet d'une agence immobilière haut de gamme : la marque, les fiches de biens, la prise de contact, les supports. Projet conceptuel, mené comme une commande.",
     context: [
-      "Maison cherche, pour quelques acheteurs par an, la maison rare, partout en Belgique. Trois à cinq biens par recherche, un seul interlocuteur. Le positionnement tient en une phrase : le chasseur discret.",
+      "Maison cherche la maison rare pour quelques acheteurs par an, partout en Belgique. Trois à cinq biens par recherche, un seul interlocuteur. Ses clients comparent peu et décident lentement : le site doit donner confiance avant le premier appel.",
     ],
     problem: [
-      "Quatre biens en ligne, pas quarante. Il faut que quatre suffisent, et que la rareté se lise dans la mise en page plutôt que dans un bandeau.",
-      "Le secteur a ses codes. Les reprendre, c'est ressembler à tout le monde ; les inverser un à un, c'est se définir contre les autres.",
+      "Un site immobilier classique est un moteur de recherche : filtres, carte, quarante résultats. Avec quatre biens, ce modèle sonne creux.",
+      "Il fallait donc que chaque bien porte sa page à lui seul, et que le visiteur sache à tout moment quoi faire : demander une visite.",
     ],
     decisions: [
       {
-        title: "Une signature à la main plutôt qu'un monogramme",
-        text: "« Maison », tracé d'un seul geste par le fondateur, sans retouche. Le geste se suffit.",
+        title: "Une action par page",
+        text: "L'accueil mène à la sélection, la fiche mène à la visite privée. Aucun bouton ne se dispute l'attention du visiteur.",
       },
       {
-        title: "Une palette tirée des matières",
-        text: "Neuf matières prises de près, aucune maison. L'ambre devient le bordeaux, le cuir donne le bronze, la pierre donne l'ivoire.",
+        title: "La fiche de bien fait le travail du vendeur",
+        text: "Photos, description, caractéristiques, puis « pourquoi ce bien » : l'argument écrit, celui qu'on donne en visite. Le prix et le bouton restent à l'écran pendant toute la lecture.",
       },
       {
-        title: "Le contraste mesuré avant la couleur",
-        text: "Le bronze sur ivoire tient 2,66:1 : gardé pour les filets, doublé d'un bronze encre à 5,34:1 pour le texte.",
+        title: "Un formulaire de quatre champs",
+        text: "Nom, téléphone, e-mail, la recherche. Le délai de réponse est écrit sous le bouton : deux jours ouvrés.",
       },
       {
-        title: "Deux familles, une échelle",
-        text: "Morganite pour les titres, Plus Jakarta Sans pour le reste. Échelle en φ, espacements Fibonacci, définis une fois.",
+        title: "Le parcours expliqué avant l'appel",
+        text: "Quatre étapes, de l'entretien aux clés. L'acheteur sait comment l'agence travaille avant de décrocher.",
       },
       {
-        title: "Quatre biens, aucune urgence",
-        text: "Un prix sur demande, une seule surface bordeaux par page, un délai de réponse écrit : deux jours ouvrés.",
+        title: "Une page qui charge vite",
+        text: "Photo d'accueil passée de 681 KB à 212 KB, police de titres de 292 KB à 30 KB. Un téléphone ne télécharge que 110 KB.",
       },
     ],
     built: [
-      { label: "Identité", text: "Signature en trois déclinaisons, M seul pour le favicon, zone de protection fixée." },
-      { label: "Brand book", text: "Palette nommée, contrastes mesurés, lexique, mésusages du logo." },
-      { label: "Site", text: "Accueil, sélection, quatre fiches, menu plein écran, formulaire d'entretien. Une page HTML, sans framework." },
-      { label: "Système", text: "Échelle φ, espacements Fibonacci, partages 38,2 / 61,8, définis une fois en CSS." },
-      { label: "Supports", text: "Carte de visite, bannière « Vendue », panneau, vitrine, dossier de bien." },
-      { label: "Mentions", text: "Statut du projet, crédits photo et retrait sous 48 h, écrits dans la page." },
+      { label: "Site", text: "Accueil, sélection, quatre fiches de biens, parcours, formulaire d'entretien." },
+      { label: "Fiche de bien", text: "Galerie, description, caractéristiques, situation, conseiller, autres biens." },
+      { label: "Identité", text: "Signature, déclinaisons, favicon, règles d'usage réunies dans un brand book." },
+      { label: "Supports", text: "Carte de visite, panneau, bannière « Vendue », vitrine, dossier de bien." },
+      { label: "Accessibilité", text: "Contrastes de texte mesurés, 5,3:1 au minimum. Navigation au clavier." },
+      { label: "Légal", text: "Mentions, crédits photo, retrait d'image sous 48 h, écrits dans la page." },
     ],
     facts: [
-      { value: "4", label: "biens en ligne, pas quarante" },
-      { value: "2", label: "familles de polices" },
-      { value: "φ", label: "échelle et partages 38,2 / 61,8" },
-      { value: "5,3:1", label: "contraste minimal des labels" },
+      { value: "1", label: "action par page : la visite privée" },
+      { value: "4", label: "champs dans le formulaire" },
+      { value: "2 j", label: "délai de réponse, écrit sous le bouton" },
+      { value: "-69 %", label: "poids de la photo d'accueil" },
     ],
     outcome: [
-      "Aucun client, aucun chiffre. Ce dossier montre le travail complet, de la phrase de positionnement au panneau de façade.",
-      "Le site n'est pas public : les photos de biens viennent d'annonces existantes et seront remplacées avant toute mise en ligne.",
+      "Maison est un projet conceptuel : pas de client, donc pas de chiffre de trafic à avancer. Ce dossier montre ce qu'une agence reçoit, du site au panneau de façade.",
+      "Les photos de biens viennent d'annonces existantes, créditées dans les mentions du site.",
     ],
     chart: {
       kind: "bars",
@@ -197,9 +197,9 @@ export const PROJECTS: Project[] = [
         { label: "Morganite · WOFF2", value: 30, display: "30 KB", strong: true },
       ],
     },
-    /* Pas d'URL tant que les photos de biens ne sont pas sous licence : le
-       site tourne en local, la capture et les planches en tiennent lieu. */
-    url: null,
+    /* Servi par ce domaine, depuis `public/maison/` : une page statique,
+       `noindex`, hors sitemap. Source : `EG_Immo/Site/`. */
+    url: "/maison/index.html",
     shot: "/home/sites/maison.webp",
     mockup: "/home/mockups/maison.jpg",
     /* Les captures viennent du site lui-même, en mode « capture » (hauteur
@@ -208,39 +208,39 @@ export const PROJECTS: Project[] = [
       {
         title: "L'accueil",
         text: [
-          "Une photo, un titre, quatre entrées de menu. Une seule carte de bien, un seul bouton.",
+          "Un bien mis en avant, un seul bouton. En trois secondes, le visiteur sait chez qui il est.",
         ],
         images: [{ src: "/home/sites/maison.webp", w: 1440, h: 900, caption: "l'accueil à 1440 px" }],
       },
       {
         title: "La sélection",
         text: [
-          "Quatre biens, pas quarante. Le lieu, la surface, une phrase, le prix.",
+          "Quatre biens, chacun en une ligne : le lieu, la surface, le prix. Le visiteur compare sans filtre ni carte.",
         ],
         images: [{ src: "/home/maison/selection.webp", w: 1440, h: 1715, caption: "la sélection, quatre biens" }],
       },
       {
-        title: "Quatre temps",
+        title: "Le parcours",
         text: [
-          "Une note sur un fossile, puis le parcours. C'est la seule surface bordeaux de la page.",
+          "Comment l'agence travaille, en quatre étapes. L'acheteur sait à quoi s'attendre avant d'appeler.",
         ],
         layout: "two",
         images: [
-          { src: "/home/maison/accroche.webp", w: 1440, h: 787, caption: "la note sur le fossile" },
+          { src: "/home/maison/accroche.webp", w: 1440, h: 787, caption: "la note d'intention" },
           { src: "/home/maison/parcours.webp", w: 1440, h: 864, caption: "le parcours en quatre temps" },
         ],
       },
       {
         title: "Un premier entretien",
         text: [
-          "Quatre champs, une réponse sous deux jours ouvrés. Aucun bandeau.",
+          "Quatre champs, et le délai de réponse écrit sous le bouton. Moins on demande, plus on reçoit.",
         ],
         images: [{ src: "/home/maison/contact.webp", w: 1440, h: 751, caption: "le formulaire d'entretien" }],
       },
       {
         title: "La fiche de bien",
         text: [
-          "Galerie à gauche, fiche collante à droite. Un seul bouton : demander une visite privée.",
+          "Les photos à gauche, le prix et le bouton toujours à l'écran à droite. Une seule action : demander une visite privée.",
         ],
         images: [
           { src: "/home/maison/fiche.webp", w: 1440, h: 1630, caption: "la fiche de la Villa sous les chênes" },
@@ -248,20 +248,9 @@ export const PROJECTS: Project[] = [
         ],
       },
       {
-        title: "Sur téléphone",
+        title: "La marque hors écran",
         text: [
-          "Une colonne, la photo pleine largeur, le titre réduit à quatre mots.",
-        ],
-        layout: "phones",
-        images: [
-          { src: "/home/maison/mobile-accueil.webp", w: 780, h: 1688, caption: "l'accueil sur téléphone" },
-          { src: "/home/maison/mobile-fiche.webp", w: 780, h: 1688, caption: "la fiche de bien sur téléphone" },
-        ],
-      },
-      {
-        title: "La signature",
-        text: [
-          "Tracée d'un seul geste. En vitrine, sur la carte, sur la bannière : la même ligne.",
+          "La même signature en vitrine, sur la carte, sur la bannière « Vendue ». L'agence se reconnaît depuis le trottoir.",
         ],
         layout: "two",
         images: [
@@ -269,14 +258,6 @@ export const PROJECTS: Project[] = [
           { src: "/home/maison/carte.webp", w: 1600, h: 1200, caption: "la carte de visite" },
           { src: "/home/maison/vendue.webp", w: 1600, h: 1067, caption: "la bannière « Vendue »" },
         ],
-      },
-      {
-        title: "Les matières",
-        text: [
-          "Neuf matières prises de près, aucune maison. La palette vient de là.",
-        ],
-        layout: "narrow",
-        images: [{ src: "/home/maison/moodboard.webp", w: 1080, h: 1350, caption: "le moodboard" }],
       },
     ],
   },
@@ -746,7 +727,7 @@ export const STUDIO = {
   img: "/esteban.jpg",
   body: [
     "Pixelbrute, c'est une personne. Conception, design, code et mise en ligne, du premier appel jusqu'après la livraison.",
-    "Je travaille depuis Hannut. La plupart de mes clients sont à moins de vingt minutes.",
+    "Je travaille depuis Hannut, pour des agences de toute la Wallonie et de Bruxelles.",
   ],
   facts: [
     { lbl: "Basé à", val: "Hannut · Hesbaye liégeoise" },

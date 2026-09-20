@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Arrow from "./Arrow";
@@ -8,17 +8,20 @@ import { PROJECTS, pad } from "./data";
 import ProjectModal from "./ProjectModal";
 import { Lines } from "./Text";
 
-const N = PROJECTS.length;
+/** L'accueil ne montre plus Lokigen : c'est un SaaS, il ne dit rien à une
+ *  agence immobilière. Le dossier reste publié sur /projets et /projets/lokigen,
+ *  seule la sélection de la home est resserrée. */
+const ORDER = PROJECTS.filter((p) => p.slug !== "lokigen");
 
-const ORDER = PROJECTS;
+const N = ORDER.length;
 
 /** Largeur de chaque vignette sur la grille 13 colonnes, le rythme de la
  *  page. La première prend toute la largeur : c'est Maison, le projet le plus
  *  complet, et il ouvre la section seul sur sa ligne. */
-const SPAN = ["13", "8", "5", "5", "8", "8"];
+const SPAN = ["13", "8", "5", "5", "8"];
 
 /**
- * Le travail, en grand. Six projets sur une grille irrégulière : chaque
+ * Le travail, en grand. Cinq projets sur une grille irrégulière : chaque
  * capture est un cadre sans bordure, l'image scale au survol, un curseur
  * « Voir » suit la souris. Le nom et la preuve viennent sous l'image, rien
  * d'autre, l'étude de cas s'ouvre en modale.
@@ -70,65 +73,72 @@ export default function SelectedWork() {
         <div className="pb-over" data-reveal="">
           Projets · 2025, 2026
         </div>
-        <Lines className="pb-d-l" lines={["Six projets,", "et ce qui se vérifie."]} muteFrom={1} />
+        <Lines className="pb-d-l" lines={["Cinq projets,", "et ce qui se vérifie."]} muteFrom={1} />
       </div>
 
       <div className="pb-work-grid" ref={grid}>
         {ORDER.map((p, i) => (
-          <article
-            key={p.slug}
-            className="pb-tile"
-            style={{ ["--span" as string]: SPAN[i] }}
-            data-wide={SPAN[i] === "13" ? "" : undefined}
-            data-reveal=""
-          >
-            <button type="button" className="pb-tile-img" onClick={() => setOpen(PROJECTS.indexOf(p))} aria-label={`Ouvrir l'étude de cas ${p.name}`}>
-              <div className="pb-tile-frame">
-                {p.mockup ? (
-                  <Image src={p.mockup} alt={`${p.name}, site livré, présenté sur ordinateur portable`} fill sizes="(max-width: 900px) 100vw, 60vw" />
-                ) : p.shot ? (
-                  <Image src={p.shot} alt={`Page d'accueil de ${p.name}, capture du site livré`} fill sizes="(max-width: 900px) 100vw, 60vw" />
-                ) : (
-                  <div className="pb-tile-missing pb-label">{p.name} · capture à venir</div>
-                )}
-              </div>
-            </button>
+          <Fragment key={p.slug}>
+            {i === 1 && (
+              <p className="pb-work-note" data-reveal="">
+                Ces projets viennent d&apos;autres secteurs. Le travail est le même :
+                sortir premier sur Google dans votre commune.
+              </p>
+            )}
+            <article
+              className="pb-tile"
+              style={{ ["--span" as string]: SPAN[i] }}
+              data-wide={SPAN[i] === "13" ? "" : undefined}
+              data-reveal=""
+            >
+              <button type="button" className="pb-tile-img" onClick={() => setOpen(i)} aria-label={`Ouvrir l'étude de cas ${p.name}`}>
+                <div className="pb-tile-frame">
+                  {p.mockup ? (
+                    <Image src={p.mockup} alt={`${p.name}, site livré, présenté sur ordinateur portable`} fill sizes="(max-width: 900px) 100vw, 60vw" />
+                  ) : p.shot ? (
+                    <Image src={p.shot} alt={`Page d'accueil de ${p.name}, capture du site livré`} fill sizes="(max-width: 900px) 100vw, 60vw" />
+                  ) : (
+                    <div className="pb-tile-missing pb-label">{p.name} · capture à venir</div>
+                  )}
+                </div>
+              </button>
 
-            <div className="pb-tile-foot">
-              <div className="pb-tile-id">
-                <span className="pb-mono pb-cap">{pad(i)}</span>
-                {/* Le nom mène à la page du dossier. La vignette ouvre toujours
-                    la modale : un lecteur pressé garde l'aperçu, et le moteur
-                    obtient enfin un lien qu'il peut suivre, la modale n'a
-                    aucune URL à indexer. */}
-                <h3 className="pb-d-s pb-tile-name">
-                  <Link href={`/projets/${p.slug}`}>{p.name}</Link>
-                </h3>
-                <span className="pb-cap">{p.sector}</span>
+              <div className="pb-tile-foot">
+                <div className="pb-tile-id">
+                  <span className="pb-mono pb-cap">{pad(i)}</span>
+                  {/* Le nom mène à la page du dossier. La vignette ouvre toujours
+                      la modale : un lecteur pressé garde l'aperçu, et le moteur
+                      obtient enfin un lien qu'il peut suivre, la modale n'a
+                      aucune URL à indexer. */}
+                  <h3 className="pb-d-s pb-tile-name">
+                    <Link href={`/projets/${p.slug}`}>{p.name}</Link>
+                  </h3>
+                  <span className="pb-cap">{p.sector}</span>
+                </div>
+                <div className="pb-tile-metric">
+                  {p.query ? (
+                    <a
+                      className="pb-verify pb-label"
+                      href={`https://www.google.com/search?q=${encodeURIComponent(p.query)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i aria-hidden="true" />
+                      {p.metric} <Arrow dir="ne" />
+                    </a>
+                  ) : (
+                    <span className="pb-label pb-tile-fact">{p.metric}</span>
+                  )}
+                </div>
               </div>
-              <div className="pb-tile-metric">
-                {p.query ? (
-                  <a
-                    className="pb-verify pb-label"
-                    href={`https://www.google.com/search?q=${encodeURIComponent(p.query)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i aria-hidden="true" />
-                    {p.metric} <Arrow dir="ne" />
-                  </a>
-                ) : (
-                  <span className="pb-label pb-tile-fact">{p.metric}</span>
-                )}
-              </div>
-            </div>
-          </article>
+            </article>
+          </Fragment>
         ))}
       </div>
 
       <div className="pb-work-more">
         <Link href="/projets" className="pb-btn-line">
-          Les six dossiers en entier <Arrow dir="ne" />
+          Tous les dossiers en entier <Arrow dir="ne" />
         </Link>
       </div>
 
@@ -136,7 +146,14 @@ export default function SelectedWork() {
         Voir <Arrow dir="ne" />
       </div>
 
-      {open !== null && <ProjectModal index={open} onClose={close} onNext={next} onPrev={prev} />}
+      {open !== null && (
+        <ProjectModal
+          index={PROJECTS.indexOf(ORDER[open])}
+          onClose={close}
+          onNext={next}
+          onPrev={prev}
+        />
+      )}
     </section>
   );
 }

@@ -1,0 +1,183 @@
+<title>Maison Pistes Logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="brand.css">
+<style>
+  .piste { display: grid; grid-template-columns: var(--or-min) 1fr; gap: var(--s-5); padding-block: var(--s-6); border-bottom: 1px solid var(--filet); }
+  .piste > header { position: sticky; top: 55px; align-self: start; }
+  .piste > header .chiffre { display: block; font-size: var(--t-4); color: var(--bronze-encre); margin-bottom: var(--s-2); }
+  .piste > header h2 { font-size: clamp(var(--t-3), 4vw, var(--t-4)); }
+  .piste > header p { margin-top: var(--s-3); max-width: 22em; color: var(--encre-douce); font-size: 0.9375rem; }
+  .piste > header .pour { margin-top: var(--s-3); color: var(--noir); }
+  .piste > header .contre { color: var(--encre-douce); }
+  .piste > div { display: grid; gap: var(--s-3); min-width: 0; }
+  .essai { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); }
+  .fond { border-radius: 3px; min-height: 220px; display: grid; place-items: center; padding: var(--s-4); position: relative; overflow: hidden; }
+  .fond--papier { background: var(--papier); }
+  .fond--bordeaux { background: var(--bordeaux); color: var(--ivoire); }
+  .fond--photo { background: url("photo/brasschaat-01-640.webp") center / cover; color: var(--ivoire); }
+  .fond--photo::before { content: ""; position: absolute; inset: 0; background: rgba(26, 20, 18, 0.28); }
+  .fond > * { position: relative; }
+  .fond--petit { min-height: 120px; gap: var(--s-4); grid-auto-flow: column; }
+  .fond--petit .legende { position: absolute; left: var(--s-2); bottom: var(--s-1); margin: 0; }
+
+  /* Composants de logo */
+  .lock { display: inline-flex; align-items: center; gap: 0.6em; color: var(--bordeaux); }
+  .fond--bordeaux .lock, .fond--photo .lock { color: var(--ivoire); }
+  .eg { height: 1em; width: auto; fill: currentColor; flex: none; }
+
+  /* 1 · Sceau */
+  .sceau { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; text-transform: uppercase; letter-spacing: 0.24em; font-size: 28px; line-height: 1; }
+  .sceau .eg { height: 1.4em; }
+  .sceau small { display: block; font-size: 0.42em; letter-spacing: 0.42em; margin-top: 0.55em; color: var(--bronze-encre); font-weight: 500; }
+  .fond--bordeaux .sceau small, .fond--photo .sceau small { color: var(--bronze); }
+
+  /* 2 · Couture */
+  .couture { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: 0.34em; font-size: 14px; line-height: 1; }
+  .couture svg { width: 3.2em; height: auto; flex: none; }
+  .couture b { font-weight: 500; }
+  .couture i { font-style: normal; font-weight: 300; opacity: 0.8; }
+
+  /* 3 · Ligature */
+  .ligature { font-family: "Fraunces", Georgia, serif; font-variation-settings: "opsz" 144; font-weight: 400; font-size: 64px; line-height: 0.9; letter-spacing: -0.06em; display: inline-grid; justify-items: center; gap: 0.16em; }
+  .ligature .mg { display: inline-flex; }
+  .ligature .mg i { font-style: italic; font-weight: 300; color: var(--bronze-encre); margin-left: -0.12em; }
+  .fond--bordeaux .ligature .mg i, .fond--photo .ligature .mg i { color: var(--bronze); }
+  .ligature small { font-family: "Plus Jakarta Sans", sans-serif; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; font-weight: 500; }
+
+  /* 4 · Signature */
+  .signature { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 52px; line-height: 1; letter-spacing: -0.01em; display: inline-flex; align-items: baseline; }
+  .signature i { font-style: italic; }
+  .signature .point { display: inline-block; width: 0.16em; height: 0.16em; background: var(--bronze); margin-left: 0.14em; transform: translateY(-0.02em); }
+
+  .favicon { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 4px; background: var(--bordeaux); color: var(--ivoire); font-size: 14px; }
+  .favicon svg { width: 20px; fill: currentColor; }
+  .comparatif td:first-child { font-weight: 500; }
+  @media (max-width: 900px) { .piste { grid-template-columns: 1fr; gap: var(--s-4); } .piste > header { position: static; } }
+  @media (max-width: 600px) { .essai { grid-template-columns: 1fr; } .ligature { font-size: 48px; } .signature { font-size: 40px; } .sceau { font-size: 22px; } }
+</style>
+
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="mg" viewBox="0 0 360.61 232.89">
+    <polygon points="197.9 38.64 360.61 79.32 360.61 38.64 197.9 0 0 38.64 0 79.32 0 116.95 0 156.61 0 196.27 0 232.89 197.9 196.27 360.61 232.89 360.61 196.27 197.9 156.61 65.36 183.18 65.36 143.51 197.9 116.95 292.48 140.95 292.48 102.31 197.9 79.32 65.36 104.52 65.36 65.89 197.9 38.64"/>
+    <polygon points="329.12 183.48 329.12 110.85 360.61 118.42 360.61 231.58 329.12 224.16 329.12 183.48"/>
+  </symbol>
+  <symbol id="couture-mark" viewBox="0 0 162 100">
+    <rect x="1" y="1" width="160" height="98" fill="none" stroke="currentColor" stroke-width="2"/>
+    <rect x="1" y="1" width="61.2" height="98" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<div class="page">
+
+<header class="entete">
+  <div>
+    <span class="label">Maison</span>
+    <h1 class="display">Pistes<br>de logo</h1>
+  </div>
+  <div class="entete__meta">
+    <span class="etiquette">Exploration · à choisir</span>
+    <p>Quatre directions, chacune vue sur papier, en négatif sur bordeaux, sur photo, et à 32 px. Les polices sont libres (OFL) ; la piste retenue sera ensuite tracée en chemins SVG.</p>
+    <p class="doux">Archive : ces pistes datent d'avant la décision de nommer la marque « Maison » et de partir du tracé à la main.</p>
+  </div>
+</header>
+
+<section class="piste" id="sceau">
+  <header>
+    <span class="chiffre">1</span>
+    <h2 class="display">Sceau</h2>
+    <p>Le nom en capitales Garamond largement espacées, le monogramme EG réduit au rôle de sceau. C'est le registre des maisons de vente : Christie's, Émile Garcin.</p>
+    <p class="pour">Pour : lisible comme une maison établie, tient sur une carte de visite, s'imprime bien en gaufrage.</p>
+    <p class="contre">Contre : le serif Garamond est le code le plus attendu du secteur ; la différence se fera par la couleur et le vide.</p>
+  </header>
+  <div>
+    <div class="fond fond--papier"><div class="lock sceau"><svg class="eg"><use href="#mg"/></svg><span>Maison<small>Anvers · Brasschaat · Kapellen</small></span></div></div>
+    <div class="essai">
+      <div class="fond fond--bordeaux"><div class="lock sceau"><svg class="eg"><use href="#mg"/></svg><span>Maison<small>Chasseur de biens</small></span></div></div>
+      <div class="fond fond--photo"><div class="lock sceau"><span>Maison</span></div></div>
+    </div>
+    <div class="fond fond--papier fond--petit"><div class="favicon"><svg><use href="#mg"/></svg></div><div class="lock sceau" style="font-size:14px"><svg class="eg"><use href="#mg"/></svg><span>Maison</span></div><p class="legende">32 px et 14 px</p></div>
+  </div>
+</section>
+
+<section class="piste" id="couture">
+  <header>
+    <span class="chiffre">2</span>
+    <h2 class="display">Couture</h2>
+    <p>Un nouveau signe tiré du site lui-même : le rectangle d'or partagé à 38,2 %, la couture ivoire / photo du hero. Le nom en capitales fines de Plus Jakarta Sans, très espacées.</p>
+    <p class="pour">Pour : un signe qui n'appartient qu'à cette maison, abstrait, architectural, sans initiale à décoder. Une seule police pour toute la marque.</p>
+    <p class="contre">Contre : plus froid ; il faut que le bordeaux fasse la chaleur. Le monogramme EG disparaît.</p>
+  </header>
+  <div>
+    <div class="fond fond--papier"><div class="lock couture"><svg><use href="#couture-mark"/></svg><span><b>Maison</b> <i>Gilles</i></span></div></div>
+    <div class="essai">
+      <div class="fond fond--bordeaux"><div class="lock couture"><svg><use href="#couture-mark"/></svg><span><b>Maison</b> <i>Gilles</i></span></div></div>
+      <div class="fond fond--photo"><div class="lock couture"><svg><use href="#couture-mark"/></svg><span><b>Maison</b> <i>Gilles</i></span></div></div>
+    </div>
+    <div class="fond fond--papier fond--petit"><div class="favicon"><svg style="width:18px"><use href="#couture-mark"/></svg></div><div class="lock couture" style="font-size:10px"><svg><use href="#couture-mark"/></svg><span><b>Maison</b> <i>Gilles</i></span></div><p class="legende">32 px et 10 px</p></div>
+  </div>
+</section>
+
+<section class="piste" id="ligature">
+  <header>
+    <span class="chiffre">3</span>
+    <h2 class="display">Ligature</h2>
+    <p>Un monogramme typographique : M droit et G italique en Fraunces, un serif à fort contraste et à grande taille optique. Le G en bronze, légèrement entré dans le M.</p>
+    <p class="pour">Pour : chaleur et caractère, le contraste serif que le secteur attend mais avec un dessin peu vu. Le monogramme est lisible sans explication.</p>
+    <p class="contre">Contre : demande un dessin soigné des deux lettres (les tracer, pas juste les composer). Risque « mode » si le G est trop expressif.</p>
+  </header>
+  <div>
+    <div class="fond fond--papier"><div class="lock ligature"><span class="mg">M<i>G</i></span><small>Maison</small></div></div>
+    <div class="essai">
+      <div class="fond fond--bordeaux"><div class="lock ligature"><span class="mg">M<i>G</i></span><small>Maison</small></div></div>
+      <div class="fond fond--photo"><div class="lock ligature"><span class="mg">M<i>G</i></span></div></div>
+    </div>
+    <div class="fond fond--papier fond--petit"><div class="favicon" style="font-family:'Fraunces',serif;font-size:17px;line-height:1">M<i style="font-weight:300;color:#a38560">G</i></div><div class="lock ligature" style="font-size:22px"><span class="mg">M<i>G</i></span></div><p class="legende">32 px et 22 px</p></div>
+  </div>
+</section>
+
+<section class="piste" id="signature">
+  <header>
+    <span class="chiffre">4</span>
+    <h2 class="display">Signature</h2>
+    <p>Pas de signe du tout. Le nom en bas de casse Instrument Serif, un point carré bronze pour clore. La retenue d'Aman : la marque est un nom prononcé calmement.</p>
+    <p class="pour">Pour : la plus discrète, la plus « grande maison ». Rien à expliquer, rien à décliner ; le point bronze suffit en favicon.</p>
+    <p class="contre">Contre : moins reconnaissable de loin (panneau, avatar). Instrument Serif est gratuit et commence à être vu sur des sites primés.</p>
+  </header>
+  <div>
+    <div class="fond fond--papier"><div class="lock signature"><span>Maison <i>Gilles</i></span><span class="point"></span></div></div>
+    <div class="essai">
+      <div class="fond fond--bordeaux"><div class="lock signature"><span>Maison <i>Gilles</i></span><span class="point"></span></div></div>
+      <div class="fond fond--photo"><div class="lock signature"><span>Maison <i>Gilles</i></span><span class="point"></span></div></div>
+    </div>
+    <div class="fond fond--papier fond--petit"><div class="favicon"><span style="display:block;width:8px;height:8px;background:#a38560"></span></div><div class="lock signature" style="font-size:20px"><span>Maison <i>Gilles</i></span><span class="point"></span></div><p class="legende">32 px et 20 px</p></div>
+  </div>
+</section>
+
+<section class="section" style="grid-template-columns:1fr">
+  <div>
+    <div class="bloc">
+      <h3>Comparatif</h3>
+      <div class="table--scroll">
+      <table class="table comparatif">
+        <thead><tr><th>Piste</th><th>Garde le EG</th><th>Polices</th><th>Panneau de loin</th><th>Registre</th></tr></thead>
+        <tbody>
+          <tr><td>1 · Sceau</td><td>Oui, en petit</td><td>Cormorant Garamond + Plus Jakarta</td><td class="ok">Bon</td><td>Maison de vente, classique</td></tr>
+          <tr><td>2 · Couture</td><td>Non</td><td>Plus Jakarta seule</td><td class="ok">Bon</td><td>Architecte, contemporain</td></tr>
+          <tr><td>3 · Ligature</td><td>Non</td><td>Fraunces + Plus Jakarta</td><td class="ok">Bon</td><td>Éditorial chaud</td></tr>
+          <tr><td>4 · Signature</td><td>Non</td><td>Instrument Serif + Plus Jakarta</td><td class="ko">Faible</td><td>Hôtel, retenue maximale</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="corps petit">Dans les quatre cas, Morganite quitte le logo : la condensée reste pour les titres du site, où l'air autour la porte, mais dans un logo elle tire vers le sport ou le magazine. C'est probablement ce qui ne passait pas.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="pied">
+  <span class="etiquette">Projet conceptuel</span>
+  <p>Planche d'exploration. La piste retenue sera tracée en chemins SVG, déclinée (horizontal, empilé, négatif, monochrome) et reportée dans le site, le brand book et le case study.</p>
+</footer>
+
+</div>

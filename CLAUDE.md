@@ -51,6 +51,8 @@ plus `/llms.txt`. `/ressources/<slug>` : une ressource gratuite par vidéo YouTu
 (Brevo) contre une inscription à la newsletter (`BREVO_NEWSLETTER_LIST_ID`) ; l'e-mail
 porte un lien signé (`?t=`, `CHECKLIST_SECRET`) vers la version à cocher. Tutoie,
 reste `noindex` hors sitemap. `/checklist` redirige vers la première.
+`/maison/index.html` : le site du projet conceptuel Maison, statique, copié de
+`EG_Immo/Site/` vers `public/maison/` (`rsync -a --delete`), `noindex`, hors sitemap.
 Les landings d'annonces `/lp/*` existent mais sont `noindex`
 et hors sitemap : une sortie, réserver quinze minutes, pas de menu.
 

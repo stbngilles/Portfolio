@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison</title>
+<meta name="description" content="Maison, chasseur de biens rares en Belgique. Trois à cinq biens par recherche, un seul interlocuteur.">
+<meta name="robots" content="noindex, nofollow, noimageindex, noarchive">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap">
+<link rel="preload" as="image" type="image/avif" imagesrcset="img/r/hero-facade-640.avif 640w, img/r/hero-facade-1080.avif 1080w, img/r/hero-facade-1600.avif 1600w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="fonts/Morganite-Bold.woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="m" viewBox="0 0 61 100"><path d="M2.36,74.43c-3.11-6.9-.07-15.82.9-23.58,1.59-9.71,3.21-19.81,3.81-23.97.07-.72-.22-.14.28.52,1.04,1.52,3.32.98,4.7.35,2.19-.81,3.29-.84,10.29-5.03,1.56-.93,3.21-1.95,4.74-2.9,7.42-4.62,15.07-9.81,22.69-14.77,3.46-2.34,9.35-5.59,10.09-3.21,1.55,3.37-6.04,16.56-16,32.04-6.31,9.82-12.52,18.96-18.97,28.65-7.43,11.86-21.58,30.65-18.95,34.5,1.68,2.81,5.43,1.59,7.09-.74"/></symbol>
+  <symbol id="maison" viewBox="0 0 137 100"><path d="M2.36,74.43c-3.11-6.9-.07-15.82.9-23.58,1.59-9.71,3.21-19.81,3.81-23.97.07-.72-.22-.14.28.52,1.04,1.52,3.32.98,4.7.35,2.19-.81,3.29-.84,10.29-5.03,1.56-.93,3.21-1.95,4.74-2.9,7.42-4.62,15.07-9.81,22.69-14.77,3.46-2.34,9.35-5.59,10.09-3.21,1.55,3.37-6.04,16.56-16,32.04-6.31,9.82-12.52,18.96-18.97,28.65-7.43,11.86-21.58,30.65-18.95,34.5,1.68,2.81,5.43,1.59,7.09-.74"/><path d="M42.95,49.56c-14.87,31.67,10.16,11.72,8.82-.31-.47-2.05-3.24-3.02-5.01-2.03-2.76,1.64,1.72,8.75,2.95,12.86,1.58,3.78-.19,11.38,4.94,12.28"/><path d="M59.12,52.01s-1.83,9.39,0,12.31"/><path d="M72.42,44.07s-12.31,6.34-6.46,7.92,20.85,6.95,2.44,16.46"/><path d="M84.84,53.7s-7.31,6.58,0,8.9,22.92-4.15,20.73-10.61c-2.19-6.46-20.24-5.36-19.38,2.07s7.5,7.44,7.5,7.44"/><path d="M110.08,46.77s2.91-1.72,2.93,1.69-2.47,12.32,1.95,9.69,15.36-10.09,16.09-7.15,1.18,9.73,4.98,10.3"/><path d="M59.57,48.76s-1.24.44-.62.85.62-.85.62-.85Z"/></symbol>
+</svg>
+
+<main id="contenu" class="cadre">
+
+<!-- ================= ACCUEIL ================= -->
+<div id="accueil">
+
+  <section class="hero" id="maison" aria-label="Maison">
+    <div class="hero__photo">
+      <picture><source type="image/avif" srcset="img/r/hero-facade-640.avif 640w, img/r/hero-facade-1080.avif 1080w, img/r/hero-facade-1600.avif 1600w" sizes="100vw"><source type="image/webp" srcset="img/r/hero-facade-640.webp 640w, img/r/hero-facade-1080.webp 1080w, img/r/hero-facade-1600.webp 1600w" sizes="100vw"><img src="img/r/hero-facade-1080.webp" width="2000" height="1664" alt="Angle d'un bâtiment à bardage sombre, sous-face orange, sur ciel bleu" fetchpriority="high"></picture>
+    </div>
+
+    <a class="hero__logo" href="#maison" aria-label="Maison, accueil">
+      <svg class="trait" viewBox="0 0 137 100"><use href="#maison"/></svg>
+    </a>
+    <button class="burger" type="button" data-menu-ouvrir aria-label="Ouvrir le menu" aria-controls="menu" aria-expanded="false"><span></span></button>
+
+    <h1 class="display hero__titre"><span class="label hero__surtitre">Recherche immobilière privée</span> <span>L’exception</span> <span class="hero__titre-fort">comme seul critère.</span></h1>
+
+    <div class="hero__pied">
+      <nav class="hero__nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#maison" aria-current="page">Maison</a></li>
+          <li><a href="#selection">Sélection</a></li>
+          <li><a href="#parcours">Parcours</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <a class="hero__carte" href="#bien/MG-0027">
+      <picture><source type="image/avif" srcset="img/r/brasschaat-02-640.avif 640w, img/r/brasschaat-02-1080.avif 1080w, img/r/brasschaat-02-1600.avif 1600w" sizes="(max-width: 860px) 89px, 341px"><source type="image/webp" srcset="img/r/brasschaat-02-640.webp 640w, img/r/brasschaat-02-1080.webp 1080w, img/r/brasschaat-02-1600.webp 1600w" sizes="(max-width: 860px) 89px, 341px"><img src="img/r/brasschaat-02-1080.webp" width="1080" height="810" alt="" loading="lazy"></picture>
+      <span class="hero__carte-texte">
+        <span class="label">Brasschaat</span>
+        <span class="hero__carte-nom">Villa sous les chênes</span>
+      </span>
+      <span class="hero__carte-fleche" aria-hidden="true">→</span>
+    </a>
+  </section>
+
+  <section class="section maison" aria-labelledby="maison-label">
+    <div class="maison__gauche">
+      <p class="label" id="maison-label">Maison</p>
+      <figure class="maison__matiere"><picture><source type="image/avif" srcset="img/r/verre-cannele-400.avif 400w, img/r/verre-cannele-640.avif 640w" sizes="min(24vw, 330px)"><source type="image/webp" srcset="img/r/verre-cannele-400.webp 400w, img/r/verre-cannele-640.webp 640w" sizes="min(24vw, 330px)"><img src="img/r/verre-cannele-640.webp" width="640" height="1138" alt="Verre cannelé devant une lumière ambrée" loading="lazy"></picture></figure>
+    </div>
+    <div>
+      <p class="maison__enonce">Nous cherchons, pour quelques acheteurs par an, la maison rare, partout en Belgique. Une sélection courte, un accompagnement entièrement <span class="mot">personnalisé</span>.</p>
+    </div>
+    <div class="maison__chiffres">
+      <div><span class="chiffre">3 à 5</span><p>biens présentés par recherche</p></div>
+      <div><span class="chiffre">1</span><p>interlocuteur, du premier entretien aux clés</p></div>
+      <div><span class="chiffre">4</span><p>temps, de la compréhension à l’acquisition</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="selection" aria-labelledby="selection-titre">
+    <div class="section__tete">
+      <div>
+        <p class="label">Sélection</p>
+        <h2 class="display titre" id="selection-titre">Quatre biens</h2>
+      </div>
+      <p class="corps">Chaque bien est choisi, visité, puis raconté. Certains sont hors marché. Le dossier complet est remis sur demande.</p>
+    </div>
+    <div class="selection__grille">
+      <article class="bien-carte">
+        <div class="bien-carte__image"><picture><source type="image/avif" srcset="img/r/brasschaat-03-640.avif 640w, img/r/brasschaat-03-1080.avif 1080w, img/r/brasschaat-03-1600.avif 1600w" sizes="(max-width: 860px) 100vw, min(62vw, 890px)"><source type="image/webp" srcset="img/r/brasschaat-03-640.webp 640w, img/r/brasschaat-03-1080.webp 1080w, img/r/brasschaat-03-1600.webp 1600w" sizes="(max-width: 860px) 100vw, min(62vw, 890px)"><img src="img/r/brasschaat-03-1080.webp" width="1600" height="1067" alt="Villa sous les chênes, façade et piscine à Brasschaat" loading="lazy"></picture></div>
+        <div class="bien-carte__texte">
+          <div>
+            <h3><a href="#bien/MG-0027">Villa sous les chênes</a></h3>
+            <p class="recit">Quatre chambres, un parc de 4 200 m², quinze minutes d’Anvers.</p>
+            <p class="lieu">Brasschaat · 625 m²</p>
+          </div>
+          <span class="chiffre prix">2 950 000 €</span>
+        </div>
+      </article>
+      <article class="bien-carte">
+        <div class="bien-carte__image"><picture><source type="image/avif" srcset="img/r/anvers-01-640.avif 640w, img/r/anvers-01-1080.avif 1080w, img/r/anvers-01-1600.avif 1600w" sizes="(max-width: 860px) 100vw, min(62vw, 890px)"><source type="image/webp" srcset="img/r/anvers-01-640.webp 640w, img/r/anvers-01-1080.webp 1080w, img/r/anvers-01-1600.webp 1600w" sizes="(max-width: 860px) 100vw, min(62vw, 890px)"><img src="img/r/anvers-01-1080.webp" width="2000" height="1333" alt="Maison de verre, façade béton et verre près d’Anvers" loading="lazy"></picture></div>
+        <div class="bien-carte__texte">
+          <div>
+            <h3><a href="#bien/MG-0031">Maison de verre</a></h3>
+            <p class="recit">Livrée en 2023, terrasses plein sud, intimité totale.</p>
+            <p class="lieu">Oud-Turnhout · 465 m²</p>
+          </div>
+          <span class="chiffre prix">3 295 000 €</span>
+        </div>
+      </article>
+      <article class="bien-carte">
+        <div class="bien-carte__image"><picture><source type="image/avif" srcset="img/r/kapellen-01-640.avif 640w, img/r/kapellen-01-1080.avif 1080w, img/r/kapellen-01-1600.avif 1600w" sizes="(max-width: 860px) 100vw, min(62vw, 890px)"><source type="image/webp" srcset="img/r/kapellen-01-640.webp 640w, img/r/kapellen-01-1080.webp 1080w, img/r/kapellen-01-1600.webp 1600w" sizes="(max-width: 860px) 100vw, min(62vw, 890px)"><img src="img/r/kapellen-01-1080.webp" width="2000" height="1333" alt="Pavillon des pins, piscine et villa à toit de chaume à Kapellen" loading="lazy"></picture></div>
+        <div class="bien-carte__texte">
+          <div>
+            <h3><a href="#bien/MG-0034">Pavillon des pins</a></h3>
+            <p class="recit">Six chambres, piscine chauffée, plus de 5 000 m² de jardin.</p>
+            <p class="lieu">Kapellen · 495 m²</p>
+          </div>
+          <span class="chiffre prix">Sur demande</span>
+        </div>
+      </article>
+      <article class="bien-carte">
+        <div class="bien-carte__image"><picture><source type="image/avif" srcset="img/r/kapellen-b-01-640.avif 640w, img/r/kapellen-b-01-1080.avif 1080w, img/r/kapellen-b-01-1600.avif 1600w" sizes="(max-width: 860px) 100vw, min(62vw, 890px)"><source type="image/webp" srcset="img/r/kapellen-b-01-640.webp 640w, img/r/kapellen-b-01-1080.webp 1080w, img/r/kapellen-b-01-1600.webp 1600w" sizes="(max-width: 860px) 100vw, min(62vw, 890px)"><img src="img/r/kapellen-b-01-1080.webp" width="2000" height="1333" alt="Maison du parc, volumes en pierre grise sur pelouse à Kapellen" loading="lazy"></picture></div>
+        <div class="bien-carte__texte">
+          <div>
+            <h3><a href="#bien/MG-0036">Maison du parc</a></h3>
+            <p class="recit">Plain-pied, patio central, à deux pas du centre.</p>
+            <p class="lieu">Kapellen · 447 m²</p>
+          </div>
+          <span class="chiffre prix">1 690 000 €</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="accroche" aria-label="Note">
+    <figure class="accroche__matiere">
+      <picture><source type="image/avif" srcset="img/r/fossile-640.avif 640w, img/r/fossile-1080.avif 1080w" sizes="(max-width: 860px) 62vw, min(38vw, 530px)"><source type="image/webp" srcset="img/r/fossile-640.webp 640w, img/r/fossile-1080.webp 1080w" sizes="(max-width: 860px) 62vw, min(38vw, 530px)"><img src="img/r/fossile-1080.webp" width="960" height="1200" alt="Fossile d’ammonite, teinté bordeaux" loading="lazy"></picture>
+    </figure>
+    <div>
+      <p class="label">Note</p>
+      <p class="accroche__texte">Une compréhension profonde du client, avant toute proposition.</p>
+      <p class="accroche__signature">Maison</p>
+    </div>
+  </section>
+
+  <section class="parcours" id="parcours" aria-labelledby="parcours-titre">
+    <div>
+      <p class="label">Parcours</p>
+      <h2 class="display titre" id="parcours-titre">Quatre temps</h2>
+      <p class="parcours__intro">Un entretien d’abord. Le client est compris, puis il choisit.</p>
+      <ol class="etapes">
+        <li><span class="chiffre">01</span><h3>Compréhension du mode de vie</h3><p>Un entretien long, chez le client ou dans un lieu calme. Rythme, famille, travail, lumière, silence.</p></li>
+        <li><span class="chiffre">02</span><h3>Sélection des biens</h3><p>Trois à cinq biens au plus, dont certains hors marché. Chaque proposition est argumentée.</p></li>
+        <li><span class="chiffre">03</span><h3>Visites ciblées</h3><p>Visites privées, au moment de la journée qui compte pour le client. Jamais de porte ouverte.</p></li>
+        <li><span class="chiffre">04</span><h3>Accompagnement jusqu’à l’acquisition</h3><p>Négociation, notaire, experts, remise des clés. Un seul interlocuteur, du début à la fin.</p></li>
+      </ol>
+    </div>
+    <div class="parcours__image">
+      <picture><source type="image/avif" srcset="img/r/anvers-02-640.avif 640w, img/r/anvers-02-1080.avif 1080w, img/r/anvers-02-1600.avif 1600w" sizes="(max-width: 1100px) 100vw, min(38vw, 530px)"><source type="image/webp" srcset="img/r/anvers-02-640.webp 640w, img/r/anvers-02-1080.webp 1080w, img/r/anvers-02-1600.webp 1600w" sizes="(max-width: 1100px) 100vw, min(38vw, 530px)"><img src="img/r/anvers-02-1080.webp" width="1600" height="1067" alt="Terrasse couverte avec cheminée suspendue, ouverte sur la piscine" loading="lazy"></picture>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact" aria-labelledby="contact-titre">
+    <div class="contact__intro">
+      <p class="label">Contact</p>
+      <h2 class="display titre" id="contact-titre">Un premier entretien</h2>
+      <p>Chez vous ou dans un lieu calme. L’échange reste confidentiel.</p>
+      <div class="contact__coord">
+        <span><strong>Esteban Gilles</strong> · Fondateur</span>
+        <a href="tel:+32400000000">+32 4 00 00 00 00</a>
+        <a href="mailto:esteban@maison.be">esteban@maison.be</a>
+        <span>Belgique</span>
+      </div>
+    </div>
+
+    <form class="formulaire" id="formulaire" novalidate>
+      <div class="formulaire__ligne">
+        <div class="champ">
+          <label for="nom">Nom</label>
+          <input id="nom" name="nom" type="text" autocomplete="name" required>
+        </div>
+        <div class="champ">
+          <label for="telephone">Téléphone</label>
+          <input id="telephone" name="telephone" type="tel" autocomplete="tel" inputmode="tel">
+        </div>
+      </div>
+      <div class="champ">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+      </div>
+      <div class="champ">
+        <label for="recherche">Votre recherche</label>
+        <textarea id="recherche" name="recherche" rows="3" placeholder="Lieu, rythme de vie, lumière, ce qui compte."></textarea>
+      </div>
+      <div class="formulaire__pied">
+        <p class="label">Réponse sous deux jours ouvrés</p>
+        <button class="btn" type="submit">Demander un entretien</button>
+      </div>
+    </form>
+  </section>
+
+</div>
+
+<!-- ================= FICHE BIEN ================= -->
+<section id="bien" class="bien" hidden aria-labelledby="bien-titre">
+  <div class="bien__hero">
+    <a class="hero__logo" href="#maison" aria-label="Maison, accueil"><svg class="trait" viewBox="0 0 137 100"><use href="#maison"/></svg></a>
+    <button class="burger" type="button" data-menu-ouvrir aria-label="Ouvrir le menu" aria-controls="menu" aria-expanded="false"><span></span></button>
+    <div class="bien__hero-image" data-bien-hero></div>
+  </div>
+
+  <div class="bien__corps">
+    <div class="galerie" data-bien-galerie></div>
+    <aside class="bien__fiche">
+      <p class="label" data-bien-ref></p>
+      <h1 class="display" id="bien-titre" data-bien-titre tabindex="-1"></h1>
+      <p class="bien__lieu" data-bien-lieu></p>
+      <p class="bien__accroche" data-bien-accroche></p>
+      <div class="bien__prix">
+        <span class="label">Prix</span>
+        <span class="chiffre" data-bien-prix></span>
+      </div>
+      <ul class="faits" data-bien-faits></ul>
+      <div class="bien__actions">
+        <a class="btn" href="#contact" data-bien-visite>Demander une visite privée</a>
+        <a class="lien" href="#contact" data-bien-visite>Recevoir le dossier complet</a>
+      </div>
+    </aside>
+  </div>
+
+  <div class="bien__section">
+    <p class="label">Description</p>
+    <div class="bien__description" data-bien-description></div>
+  </div>
+
+  <div class="bien__section">
+    <p class="label">Caractéristiques</p>
+    <ul class="caracteristiques" data-bien-caracteristiques></ul>
+  </div>
+
+  <div class="bien__section bien__section--matiere">
+    <div>
+      <p class="label">Pourquoi ce bien</p>
+      <figure class="bien__matiere"><picture><source type="image/avif" srcset="img/r/pierre-640.avif 640w, img/r/pierre-1080.avif 1080w" sizes="(max-width: 860px) 62vw, min(38vw, 530px)"><source type="image/webp" srcset="img/r/pierre-640.webp 640w, img/r/pierre-1080.webp 1080w" sizes="(max-width: 860px) 62vw, min(38vw, 530px)"><img src="img/r/pierre-1080.webp" width="1200" height="1200" alt="Strates de pierre, teintées noir chaud" loading="lazy"></picture></figure>
+    </div>
+    <ul class="pourquoi" data-bien-pourquoi></ul>
+  </div>
+
+  <div class="bien__section">
+    <p class="label">Situation</p>
+    <ul class="situation" data-bien-situation></ul>
+  </div>
+
+  <div class="bien__section">
+    <p class="label">Votre conseiller</p>
+    <div class="conseiller">
+      <div>
+        <p class="conseiller__nom">Esteban Gilles</p>
+        <p class="conseiller__role">Fondateur · un seul interlocuteur, du premier entretien aux clés</p>
+      </div>
+      <div class="contact__coord">
+        <a href="tel:+32400000000">+32 4 00 00 00 00</a>
+        <a href="mailto:esteban@maison.be">esteban@maison.be</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bien__section bien__section--large">
+    <p class="label">Autres biens de la sélection</p>
+    <div class="similaires" data-bien-similaires></div>
+  </div>
+
+  <div class="bien__retour">
+    <a class="lien" href="#selection">Retour à la sélection</a>
+    <p class="label">Dossier complet sur demande</p>
+  </div>
+</section>
+
+<!-- ================= MENTIONS LÉGALES ================= -->
+<section id="mentions-legales" class="mentions" hidden aria-labelledby="mentions-titre">
+  <div class="mentions__barre">
+    <a class="hero__logo" href="#maison" aria-label="Maison, accueil"><svg class="trait" viewBox="0 0 137 100"><use href="#maison"/></svg></a>
+    <a class="lien" href="#maison">Retour au site</a>
+  </div>
+
+  <div class="section__tete">
+    <div>
+      <p class="label">Informations</p>
+      <h1 class="display titre" id="mentions-titre" tabindex="-1">Mentions légales</h1>
+    </div>
+    <p class="corps">Mise à jour le 14 septembre 2026.</p>
+  </div>
+
+  <div class="mentions__bloc">
+    <h2 class="label">Statut du site</h2>
+    <div class="mentions__texte">
+      <p>Ce site est un projet conceptuel réalisé pour un portfolio de design. Maison n’est pas une agence immobilière en activité et n’est affiliée à aucune agence réelle.</p>
+      <p>Les biens, prix, surfaces et descriptions sont des mises en situation. Ils ne constituent ni une offre de vente, ni un mandat, ni une information précontractuelle, et aucune transaction ne peut être conclue par ce site. Le téléphone et l’adresse maison.be affichés sont fictifs.</p>
+      <p>Maison n’est pas inscrite à l’Institut professionnel des agents immobiliers (IPI) et n’exerce aucune activité d’intermédiation immobilière.</p>
+    </div>
+  </div>
+
+  <div class="mentions__bloc">
+    <h2 class="label">Éditeur</h2>
+    <div class="mentions__texte">
+      <ul class="faits">
+        <li><span>Éditeur</span><span>Esteban Gilles, à titre personnel et non commercial</span></li>
+        <li><span>Adresse</span><span>Rue Victor Gilles 3A, 4280 Hannut, Belgique</span></li>
+        <li><span>Contact</span><span><a href="mailto:contact@pixelbrute.be">contact@pixelbrute.be</a></span></li>
+        <li><span>Numéro d’entreprise</span><span>Sans objet, aucune activité commerciale</span></li>
+        <li><span>Hébergeur</span><span>Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis, vercel.com</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mentions__bloc">
+    <h2 class="label">Photographies des biens</h2>
+    <div class="mentions__texte">
+      <p>Les photographies des biens n’appartiennent pas à l’éditeur. Elles ont été reprises d’annonces publiques diffusées sur la plateforme JamesEdition. Leurs photographes n’ont pas pu être identifiés. Tous les droits restent à leurs auteurs, ainsi qu’aux agences et propriétaires concernés.</p>
+      <p>Aucune autorisation n’a été demandée ni obtenue. Ces images servent uniquement à illustrer une maquette, sans contrepartie financière, sans exploitation commerciale et sans revendication d’aucun droit. Elles ont été redimensionnées et leurs couleurs harmonisées. Leur présence n’indique aucun partenariat avec les agences citées, ni aucune approbation de leur part.</p>
+      <p>Les titres des biens sont inventés. Les descriptions reprennent librement les annonces d’origine, réécrites.</p>
+      <ul class="faits mentions__credits">
+        <li><span>Villa sous les chênes, Brasschaat</span><span>Annonce de Sotheby’s International Realty Belgique</span></li>
+        <li><span>Maison de verre, Oud-Turnhout</span><span>Annonce de Rodenburgh Immobiliën</span></li>
+        <li><span>Pavillon des pins, Kapellen</span><span>Annonce de Found &amp; Baker Properties, filigrane « FB » d’origine conservé</span></li>
+        <li><span>Maison du parc, Kapellen</span><span>Annonce de Rodenburgh Immobiliën</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mentions__bloc">
+    <h2 class="label">Retrait sur simple demande</h2>
+    <div class="mentions__texte">
+      <p>Un photographe, une agence, le propriétaire d’un bien reconnaissable ou tout ayant droit peut demander le retrait d’une image en écrivant à <a href="mailto:contact@pixelbrute.be">contact@pixelbrute.be</a>. Il suffit d’indiquer l’image concernée.</p>
+      <p>L’image est retirée dans les 48 heures suivant la réception de la demande. Sur demande de l’auteur, un crédit peut aussi être ajouté ou corrigé.</p>
+    </div>
+  </div>
+
+  <div class="mentions__bloc">
+    <h2 class="label">Matières et typographies</h2>
+    <div class="mentions__texte">
+      <ul class="faits">
+        <li><span>Façade de l’accueil</span><span>Adrien Olichon, Pexels, licence Pexels</span></li>
+        <li><span>Fossile, pierre, verre cannelé</span><span>Images de moodboard, auteurs non identifiés, retrait sur simple demande</span></li>
+        <li><span>Morganite</span><span>Rajesh Rajput, gratuite pour usage personnel et commercial</span></li>
+        <li><span>Plus Jakarta Sans</span><span>Tokotype, SIL Open Font License 1.1</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mentions__bloc">
+    <h2 class="label">Création</h2>
+    <div class="mentions__texte">
+      <p>La signature « Maison », les textes, la mise en page et le système graphique sont l’œuvre d’Esteban Gilles. Leur reproduction demande son accord écrit. Cette réserve ne couvre ni les photographies ni les images de matières citées plus haut, sur lesquelles l’éditeur ne détient aucun droit.</p>
+    </div>
+  </div>
+
+  <div class="mentions__bloc">
+    <h2 class="label">Données personnelles</h2>
+    <div class="mentions__texte">
+      <p>Le formulaire de contact est une démonstration : aucune donnée saisie n’est envoyée, enregistrée ni conservée. Le site n’utilise ni cookie, ni mesure d’audience, ni publicité.</p>
+      <p>La police Plus Jakarta Sans est chargée depuis les serveurs de Google, qui reçoivent à cette occasion l’adresse IP du visiteur.</p>
+      <p>Pour toute question : <a href="mailto:contact@pixelbrute.be">contact@pixelbrute.be</a>. Une réclamation peut être adressée à l’Autorité de protection des données (autoriteprotectiondonnees.be).</p>
+    </div>
+  </div>
+
+  <div class="mentions__bloc">
+    <h2 class="label">Responsabilité et droit applicable</h2>
+    <div class="mentions__texte">
+      <p>Les informations du site sont données à titre d’illustration et peuvent être inexactes. Le site est régi par le droit belge.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied cadre">
+  <div>
+    <svg class="trait pied__mot" viewBox="0 0 137 100" role="img" aria-label="Maison"><use href="#maison"/></svg>
+  </div>
+  <nav aria-label="Pied de page">
+    <ul>
+      <li><a href="#maison">Maison</a></li>
+      <li><a href="#selection">Sélection</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <small>maison.be · Anvers<br>Projet conceptuel, non affilié à une agence réelle.<br>Photographies reprises d’annonces publiques, droits réservés à leurs auteurs · <a href="#mentions-legales">Mentions légales</a></small>
+</footer>
+
+<!-- ================= MENU ================= -->
+<div class="menu" id="menu" data-open="false" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu__tete">
+    <a class="menu__logo" href="#maison" aria-label="Maison, accueil"><svg class="trait" viewBox="0 0 137 100"><use href="#maison"/></svg></a>
+    <button class="menu__fermer" type="button" data-menu-fermer aria-label="Fermer le menu"><span></span></button>
+  </div>
+  <div class="menu__bande menu__bande--g" aria-hidden="true">
+    <picture><source type="image/avif" srcset="img/r/brasschaat-05-640.avif 640w, img/r/brasschaat-05-1080.avif 1080w, img/r/brasschaat-05-1600.avif 1600w" sizes="178px"><source type="image/webp" srcset="img/r/brasschaat-05-640.webp 640w, img/r/brasschaat-05-1080.webp 1080w, img/r/brasschaat-05-1600.webp 1600w" sizes="178px"><img src="img/r/brasschaat-05-1080.webp" alt="" loading="lazy"></picture>
+    <picture><source type="image/avif" srcset="img/r/kapellen-03-640.avif 640w, img/r/kapellen-03-1080.avif 1080w, img/r/kapellen-03-1600.avif 1600w" sizes="178px"><source type="image/webp" srcset="img/r/kapellen-03-640.webp 640w, img/r/kapellen-03-1080.webp 1080w, img/r/kapellen-03-1600.webp 1600w" sizes="178px"><img src="img/r/kapellen-03-1080.webp" alt="" loading="lazy"></picture>
+  </div>
+  <nav class="menu__nav" aria-label="Menu">
+    <ul>
+      <li><a href="#maison" aria-current="page">Maison</a></li>
+      <li><a href="#selection">Sélection</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="menu__bande menu__bande--d" aria-hidden="true">
+    <picture><source type="image/avif" srcset="img/r/anvers-05-640.avif 640w, img/r/anvers-05-1080.avif 1080w, img/r/anvers-05-1600.avif 1600w" sizes="178px"><source type="image/webp" srcset="img/r/anvers-05-640.webp 640w, img/r/anvers-05-1080.webp 1080w, img/r/anvers-05-1600.webp 1600w" sizes="178px"><img src="img/r/anvers-05-1080.webp" alt="" loading="lazy"></picture>
+    <picture><source type="image/avif" srcset="img/r/kapellen-b-02-640.avif 640w, img/r/kapellen-b-02-1080.avif 1080w, img/r/kapellen-b-02-1600.avif 1600w" sizes="178px"><source type="image/webp" srcset="img/r/kapellen-b-02-640.webp 640w, img/r/kapellen-b-02-1080.webp 1080w, img/r/kapellen-b-02-1600.webp 1600w" sizes="178px"><img src="img/r/kapellen-b-02-1080.webp" alt="" loading="lazy"></picture>
+  </div>
+  <div class="menu__pied">
+    <p class="label">Chasseur immobilier · Belgique</p>
+    <p class="menu__contact"><a href="tel:+32400000000">+32 4 00 00 00 00</a> <a href="mailto:esteban@maison.be">esteban@maison.be</a></p>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -10,8 +10,10 @@ import { ouvrirPaquet, paquetExiste } from "./paquet";
  * Deux portes :
  *  - le client : un mot de passe partagé, puis un cookie signé de 60 jours,
  *    limité au chemin de son espace ;
- *  - l'administrateur : sa session Better-Auth réelle (rôle ADMIN, sans
- *    impersonation). Il voit tout et peut modifier.
+ *  - l'administrateur : un mot de passe à lui (`SUIVI_ADMIN_MDP`, jamais dans
+ *    le dépôt, qui est public), puis un cookie signé valable pour tous les
+ *    espaces. Sa session Better-Auth ADMIN ouvre aussi. Il voit tout et peut
+ *    modifier.
  */
 
 const DUREE_S = 60 * 24 * 3600;
@@ -43,7 +45,44 @@ function signer(slug: string, exp: number, hash: string) {
   return createHmac("sha256", secret()).update(`${slug}.${exp}.${hash}`).digest("base64url");
 }
 
+const COOKIE_ADMIN = "suivi_admin";
+
+// Le mot de passe entre dans la signature : le changer déconnecte l'admin.
+function signerAdmin(exp: number, mdp: string) {
+  return createHmac("sha256", secret()).update(`admin.${exp}.${mdp}`).digest("base64url");
+}
+
+function egal(a: string, b: string) {
+  const x = createHmac("sha256", secret()).update(a).digest();
+  const y = createHmac("sha256", secret()).update(b).digest();
+  return timingSafeEqual(x, y);
+}
+
+async function cookieAdminValide() {
+  const mdp = process.env.SUIVI_ADMIN_MDP;
+  if (!mdp) return false;
+  const [exp, sig] = (await cookies()).get(COOKIE_ADMIN)?.value.split(".") ?? [];
+  if (!exp || !sig || !(Number(exp) > Date.now() / 1000)) return false;
+  return egal(sig, signerAdmin(Number(exp), mdp));
+}
+
+/** Renvoie `false` si le mot de passe est faux ou si `SUIVI_ADMIN_MDP` est vide. */
+export async function connecterAdmin(saisi: string) {
+  const mdp = process.env.SUIVI_ADMIN_MDP;
+  if (!mdp || !egal(saisi, mdp)) return false;
+  const exp = Math.floor(Date.now() / 1000) + DUREE_S;
+  (await cookies()).set(COOKIE_ADMIN, `${exp}.${signerAdmin(exp, mdp)}`, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/suivi",
+    maxAge: DUREE_S,
+  });
+  return true;
+}
+
 export async function estAdmin() { if (process.env.NODE_ENV !== "production") return true; // TEST-TEMP
+  if (await cookieAdminValide()) return true;
   try {
     const s = await getRealSession();
     return (s?.user as { role?: string } | undefined)?.role === "ADMIN";

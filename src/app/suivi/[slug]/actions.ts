@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db";
-import { connecter, deconnecter, lireAcces } from "@/lib/suivi/acces";
+import { connecter, connecterAdmin, deconnecter, lireAcces } from "@/lib/suivi/acces";
 import { sendSuiviNotif } from "@/lib/email";
 
 export type Retour = { erreur?: string; ok?: boolean };
@@ -42,6 +42,17 @@ export async function seConnecter(_: Retour, f: FormData): Promise<Retour> {
     return { erreur: "Mot de passe incorrect. Vérifie les majuscules." };
   }
   redirect(`/suivi/${slug}`);
+}
+
+export async function seConnecterAdmin(_: Retour, f: FormData): Promise<Retour> {
+  const slug = slugDe(f);
+  const mdp = txt(f, "motdepasse", 200);
+  if (!mdp) return { erreur: "Entre le mot de passe." };
+  if (!(await connecterAdmin(mdp))) {
+    await new Promise((r) => setTimeout(r, 800));
+    return { erreur: "Mot de passe incorrect. Vérifie les majuscules." };
+  }
+  redirect(`/suivi/${slug}/admin`);
 }
 
 export async function seDeconnecter(f: FormData) {

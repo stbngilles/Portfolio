@@ -1,0 +1,227 @@
+<title>Maison Signature</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="brand.css">
+<style>
+  .piste { display: grid; grid-template-columns: var(--or-min) 1fr; gap: var(--s-5); padding-block: var(--s-6); border-bottom: 1px solid var(--filet); }
+  .piste > header { position: sticky; top: 55px; align-self: start; }
+  .piste > header .chiffre { display: block; font-size: var(--t-4); color: var(--bronze-encre); margin-bottom: var(--s-2); }
+  .piste > header h2 { font-size: clamp(var(--t-3), 4vw, var(--t-4)); }
+  .piste > header p { margin-top: var(--s-3); max-width: 22em; color: var(--encre-douce); font-size: 0.9375rem; }
+  .piste > div { display: grid; gap: var(--s-3); min-width: 0; }
+  .essai { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); }
+  .fond { border-radius: 3px; min-height: 240px; display: grid; place-items: center; padding: var(--s-4); position: relative; overflow: hidden; color: var(--bordeaux); }
+  .fond--papier { background: var(--papier); }
+  .fond--ivoire { background: var(--ivoire); }
+  .fond--bordeaux { background: var(--bordeaux); color: var(--ivoire); }
+  .fond--noir { background: var(--noir); color: var(--ivoire); }
+  .fond--photo { background: url("photo/brasschaat-01-640.webp") center / cover; color: var(--ivoire); }
+  .fond--photo::before { content: ""; position: absolute; inset: 0; background: rgba(26, 20, 18, 0.3); }
+  .fond > * { position: relative; }
+  .fond--petit { min-height: 130px; grid-auto-flow: column; gap: var(--s-5); align-items: end; }
+  .fond .legende { position: absolute; left: var(--s-2); bottom: var(--s-1); margin: 0; }
+
+  /* Le tracé à la main : trait en currentColor, épaisseur en unités du dessin */
+  .script { display: block; height: 1em; width: auto; overflow: visible; }
+  .script { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .script--fort { stroke-width: 3; }
+  .script--fin { stroke-width: 1.4; }
+
+  /* A · Empilé */
+  .empile { display: grid; justify-items: end; gap: 0.1em; font-size: 140px; }
+  .empile .script { height: 1em; }
+  .empile .gilles { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.13em; letter-spacing: 0.42em; text-transform: uppercase; font-weight: 500; margin-right: -0.42em; padding-right: 0.15em; }
+
+  /* B · Une ligne */
+  .ligne { display: flex; align-items: flex-end; gap: 0.18em; font-size: 110px; }
+  .ligne .script { height: 1em; }
+  .ligne .gilles { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 0.34em; letter-spacing: 0.22em; text-transform: uppercase; line-height: 1; padding-bottom: 0.72em; }
+
+  /* C · Signature seule */
+  .seule { display: grid; justify-items: start; gap: 0.12em; font-size: 150px; }
+  .seule .script { height: 1em; }
+  .seule .sous { display: flex; align-items: center; gap: 0.6em; font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.085em; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 500; margin-left: 0.32em; }
+  .seule .sous::before { content: ""; width: 2.4em; height: 1px; background: currentColor; opacity: 0.6; }
+
+  /* D · Monogramme M */
+  .m { display: block; height: 1em; overflow: visible; }
+  .m { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .favicon { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 4px; background: var(--bordeaux); color: var(--ivoire); }
+  .favicon .m { height: 24px; }
+  .favicon .m { stroke-width: 11; }
+  .favicon--16 { width: 16px; height: 16px; border-radius: 2px; }
+  .favicon--16 .m { height: 12px; }
+  .favicon--16 .m { stroke-width: 18; }
+
+  /* In situ */
+  .situ { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-3); }
+  .coin { aspect-ratio: 4 / 5; background: var(--papier); border-radius: 3px; position: relative; padding: 8%; display: grid; grid-template-rows: auto 1fr auto; color: var(--bordeaux); }
+  .coin .m { height: 34px; }
+  .coin nav { font-family: "Plus Jakarta Sans", sans-serif; font-size: 11px; line-height: 2.2; align-self: end; color: var(--noir); }
+  .coin nav span { display: block; }
+  .carte { aspect-ratio: 85 / 55; background: var(--bordeaux); color: var(--ivoire); border-radius: 2px; display: grid; place-items: center; box-shadow: 0 13px 34px rgba(26, 20, 18, 0.22); align-self: center; }
+  .carte .m { height: 44%; }
+  .carte .m { stroke-width: 2.4; }
+  .panneau { aspect-ratio: 1 / 1.2; background: var(--bordeaux); color: var(--ivoire); padding: 9%; display: grid; grid-template-rows: 1fr auto; box-shadow: 0 13px 34px rgba(26, 20, 18, 0.3); }
+  .panneau .empile { font-size: clamp(60px, 9vw, 96px); justify-items: start; align-self: center; }
+  .panneau .empile .gilles { margin-right: 0; padding-right: 0; }
+  .panneau .contact { font-family: "Plus Jakarta Sans", sans-serif; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; border-top: 1px solid rgba(232, 225, 213, 0.3); padding-top: 1em; display: grid; gap: 4px; }
+
+  @media (max-width: 900px) { .piste { grid-template-columns: 1fr; gap: var(--s-4); } .piste > header { position: static; } .situ { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .essai { grid-template-columns: 1fr; } .empile { font-size: 96px; } .ligne { font-size: 72px; } .seule { font-size: 100px; } }
+</style>
+
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="maison-script" viewBox="0 0 137 100"><path d="M2.36,74.43c-3.11-6.9-.07-15.82.9-23.58,1.59-9.71,3.21-19.81,3.81-23.97.07-.72-.22-.14.28.52,1.04,1.52,3.32.98,4.7.35,2.19-.81,3.29-.84,10.29-5.03,1.56-.93,3.21-1.95,4.74-2.9,7.42-4.62,15.07-9.81,22.69-14.77,3.46-2.34,9.35-5.59,10.09-3.21,1.55,3.37-6.04,16.56-16,32.04-6.31,9.82-12.52,18.96-18.97,28.65-7.43,11.86-21.58,30.65-18.95,34.5,1.68,2.81,5.43,1.59,7.09-.74"/><path d="M42.95,49.56c-14.87,31.67,10.16,11.72,8.82-.31-.47-2.05-3.24-3.02-5.01-2.03-2.76,1.64,1.72,8.75,2.95,12.86,1.58,3.78-.19,11.38,4.94,12.28"/><path d="M59.12,52.01s-1.83,9.39,0,12.31"/><path d="M72.42,44.07s-12.31,6.34-6.46,7.92,20.85,6.95,2.44,16.46"/><path d="M84.84,53.7s-7.31,6.58,0,8.9,22.92-4.15,20.73-10.61c-2.19-6.46-20.24-5.36-19.38,2.07s7.5,7.44,7.5,7.44"/><path d="M110.08,46.77s2.91-1.72,2.93,1.69-2.47,12.32,1.95,9.69,15.36-10.09,16.09-7.15,1.18,9.73,4.98,10.3"/><path d="M59.57,48.76s-1.24.44-.62.85.62-.85.62-.85Z"/></symbol>
+  <symbol id="m-script" viewBox="0 0 61 100"><path d="M2.36,74.43c-3.11-6.9-.07-15.82.9-23.58,1.59-9.71,3.21-19.81,3.81-23.97.07-.72-.22-.14.28.52,1.04,1.52,3.32.98,4.7.35,2.19-.81,3.29-.84,10.29-5.03,1.56-.93,3.21-1.95,4.74-2.9,7.42-4.62,15.07-9.81,22.69-14.77,3.46-2.34,9.35-5.59,10.09-3.21,1.55,3.37-6.04,16.56-16,32.04-6.31,9.82-12.52,18.96-18.97,28.65-7.43,11.86-21.58,30.65-18.95,34.5,1.68,2.81,5.43,1.59,7.09-.74"/></symbol>
+</svg>
+
+<div class="page">
+
+<header class="entete">
+  <div>
+    <span class="label">Maison</span>
+    <h1 class="display">Signature</h1>
+  </div>
+  <div class="entete__meta">
+    <span class="etiquette">Retenu · la signature seule</span>
+    <p>Votre tracé « Maison » à la main, tel quel, mis en logo. Le trait est passé en bouts ronds et en bordeaux ; rien d'autre n'a été retouché.</p>
+    <p class="doux">Décision du 14 septembre : la marque s'appelle Maison, sans autre mot, et le logo est le tracé tel quel. Une flèche dans le M a été essayée puis retirée. Les montages A à E restent en dessous comme archive.</p>
+  </div>
+</header>
+
+<section class="piste" id="retenu">
+  <header>
+    <span class="chiffre">✓</span>
+    <h2 class="display">Retenu</h2>
+    <p>Le tracé « Maison » tel quel, en bordeaux, bouts ronds. Aucun mot à côté, aucun signe ajouté. Le M seul sert de marque compacte.</p>
+  </header>
+  <div>
+    <div class="fond fond--papier"><svg class="script" style="font-size:190px;color:var(--bordeaux)"><use href="#maison-script"/></svg></div>
+    <div class="essai">
+      <div class="fond fond--bordeaux"><svg class="script" style="font-size:140px"><use href="#maison-script"/></svg></div>
+      <div class="fond fond--photo"><svg class="script" style="font-size:140px"><use href="#maison-script"/></svg></div>
+    </div>
+    <div class="essai">
+      <div class="fond fond--papier"><svg class="m" style="height:180px"><use href="#m-script"/></svg></div>
+      <div class="fond fond--papier fond--petit">
+        <img src="logo/favicon.svg" alt="Favicon 32 px" width="32" height="32" style="width:32px">
+        <img src="logo/favicon.svg" alt="Favicon 16 px" width="16" height="16" style="width:16px">
+        <svg class="m" style="height:34px;color:var(--bordeaux)"><use href="#m-script"/></svg>
+        <svg class="m" style="height:22px;color:var(--bordeaux)"><use href="#m-script"/></svg>
+        <p class="legende">32 px · 16 px · 34 px · 22 px</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="piste" id="empile">
+  <header>
+    <span class="chiffre">A</span>
+    <h2 class="display">Empilé</h2>
+    <p>Le geste au-dessus, le nom en dessous : « Maison » à la main, « GILLES » en capitales fines très espacées, calées à droite sous les minuscules. C'est le moodboard inversé : là, le nom était droit et le prénom en script.</p>
+    <p>La signature fait la chaleur, les capitales font la tenue. Deux registres, un seul trait de couleur.</p>
+  </header>
+  <div>
+    <div class="fond fond--papier"><div class="empile"><svg class="script"><use href="#maison-script"/></svg><span class="gilles">Gilles</span></div></div>
+    <div class="essai">
+      <div class="fond fond--bordeaux"><div class="empile" style="font-size:110px"><svg class="script"><use href="#maison-script"/></svg><span class="gilles">Gilles</span></div></div>
+      <div class="fond fond--photo"><div class="empile" style="font-size:110px"><svg class="script"><use href="#maison-script"/></svg><span class="gilles">Gilles</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="piste" id="ligne">
+  <header>
+    <span class="chiffre">B</span>
+    <h2 class="display">Une ligne</h2>
+    <p>« Maison » puis « GILLES » sur la même ligne, en petites capitales Garamond posées sur la ligne de base des minuscules. Plus classique, plus horizontal : en-tête de lettre, pied de page, signature mail.</p>
+  </header>
+  <div>
+    <div class="fond fond--papier"><div class="ligne"><svg class="script"><use href="#maison-script"/></svg><span class="gilles">Gilles</span></div></div>
+    <div class="essai">
+      <div class="fond fond--bordeaux"><div class="ligne" style="font-size:80px"><svg class="script"><use href="#maison-script"/></svg><span class="gilles">Gilles</span></div></div>
+      <div class="fond fond--noir"><div class="ligne" style="font-size:80px"><svg class="script script--fin"><use href="#maison-script"/></svg><span class="gilles">Gilles</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="piste" id="seule">
+  <header>
+    <span class="chiffre">C</span>
+    <h2 class="display">Seule</h2>
+    <p>La signature seule, un filet bronze et une mention en dessous. La plus discrète : elle suppose que « Maison » suffise à nommer, comme une griffe. « Gilles » passe dans la mention.</p>
+  </header>
+  <div>
+    <div class="fond fond--ivoire"><div class="seule"><svg class="script"><use href="#maison-script"/></svg><span class="sous">Gilles · chasseur de biens</span></div></div>
+    <div class="essai">
+      <div class="fond fond--bordeaux"><div class="seule" style="font-size:110px"><svg class="script"><use href="#maison-script"/></svg><span class="sous">Belgique</span></div></div>
+      <div class="fond fond--papier"><div class="seule" style="font-size:110px"><svg class="script script--fort"><use href="#maison-script"/></svg><span class="sous">Trait fort · panneau, gaufrage</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="piste" id="monogramme">
+  <header>
+    <span class="chiffre">D</span>
+    <h2 class="display">Le M</h2>
+    <p>Le premier tracé, seul : un M qui monte et qui plonge. Il tient en 16 px si le trait est épaissi, et il remplace le monogramme EG partout où un signe seul est attendu : favicon, coin du site, recto de carte, filigrane.</p>
+  </header>
+  <div>
+    <div class="essai">
+      <div class="fond fond--papier"><svg class="m" style="height:180px"><use href="#m-script"/></svg></div>
+      <div class="fond fond--bordeaux"><svg class="m" style="height:180px"><use href="#m-script"/></svg></div>
+    </div>
+    <div class="fond fond--papier fond--petit">
+      <div class="favicon"><svg class="m"><use href="#m-script"/></svg></div>
+      <div class="favicon favicon--16"><svg class="m"><use href="#m-script"/></svg></div>
+      <svg class="m" style="height:34px;color:var(--bordeaux)"><use href="#m-script"/></svg>
+      <svg class="m" style="height:22px;color:var(--bordeaux)"><use href="#m-script"/></svg>
+      <p class="legende">32 px · 16 px · 34 px · 22 px</p>
+    </div>
+  </div>
+</section>
+
+<section class="piste" id="situ">
+  <header>
+    <span class="chiffre">E</span>
+    <h2 class="display">En situation</h2>
+    <p>Le coin du site (panneau ivoire du hero, navigation verticale), le recto de la carte de visite, le panneau extérieur.</p>
+  </header>
+  <div>
+    <div class="situ">
+      <div class="coin">
+        <svg class="m"><use href="#m-script"/></svg>
+        <div></div>
+        <nav><span>/ Maison</span><span>Sélection</span><span>Parcours</span><span>Contact</span></nav>
+      </div>
+      <div class="carte"><svg class="m"><use href="#m-script"/></svg></div>
+      <div class="panneau">
+        <div class="empile"><svg class="script"><use href="#maison-script"/></svg><span class="gilles">Gilles</span></div>
+        <div class="contact"><span>Sur demande</span><span>+32 4 00 00 00 00</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="grid-template-columns:1fr">
+  <div>
+    <div class="bloc">
+      <h3>Ce que je ferais ensuite</h3>
+      <ul class="petit" style="margin:0;padding-left:1.1em;display:grid;gap:8px;max-width:40em">
+        <li><b style="font-weight:500">Garder le geste, égaliser le trait.</b> Le M et le « aison » ont été tracés à des vitesses différentes ; le « s » et le « o » sont un peu plus hésitants. Si vous refaites « aison » d'un seul geste rapide, je le remonte tel quel. Je ne redessine pas votre main.</li>
+        <li><b style="font-weight:500">Deux épaisseurs seulement.</b> Trait 2 pour l'écran et le papier, trait 3 pour le panneau et le gaufrage. Jamais de contour, jamais de remplissage.</li>
+        <li><b style="font-weight:500">Une seule police à côté.</b> Plus Jakarta Sans en capitales espacées (piste A) ou Cormorant Garamond (piste B). Morganite reste aux titres du site.</li>
+        <li><b style="font-weight:500">Fichiers.</b> <code>Logo/export/maison-script-*.svg</code> et <code>m-script-*.svg</code> existent déjà en bordeaux, ivoire, noir et trait fort.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="pied">
+  <span class="etiquette">Projet conceptuel</span>
+  <p>Planche d'exploration à partir du tracé fourni le 14 septembre 2026. La piste retenue sera déclinée et reportée dans le site, le brand book et le case study.</p>
+</footer>
+
+</div>

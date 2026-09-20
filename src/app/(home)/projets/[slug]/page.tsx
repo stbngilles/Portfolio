@@ -106,7 +106,8 @@ export default async function ProjectPage({
           mentions: {
             "@type": "WebSite",
             name: p.name,
-            url: p.url,
+            // Maison est servi par ce domaine : son lien est relatif.
+            url: new URL(p.url, SITE_URL).href,
             creator: { "@id": `${SITE_URL}/#studio` },
           },
         }

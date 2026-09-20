@@ -1,11 +1,11 @@
 "use client";
 
 import { useActionState, useState } from "react";
-import { seConnecter, type Retour } from "@/app/suivi/[slug]/actions";
+import { seConnecter, seConnecterAdmin, type Retour } from "@/app/suivi/[slug]/actions";
 import { Icone, boutonPrimaire, champ } from "./ui";
 
-export function Connexion({ slug, nom }: { slug: string; nom: string }) {
-  const [etat, action, envoi] = useActionState<Retour, FormData>(seConnecter, {});
+export function Connexion({ slug, nom, admin = false }: { slug: string; nom: string; admin?: boolean }) {
+  const [etat, action, envoi] = useActionState<Retour, FormData>(admin ? seConnecterAdmin : seConnecter, {});
   const [voir, setVoir] = useState(false);
 
   return (
@@ -16,13 +16,15 @@ export function Connexion({ slug, nom }: { slug: string; nom: string }) {
           <div className="mb-5 flex size-10 items-center justify-center rounded-full bg-accent-soft text-accent">
             <Icone nom="cadenas" className="size-5" />
           </div>
-          <h1 className="text-xl font-semibold tracking-[-0.01em]">Suivi du site {nom}</h1>
-          <p className="mt-1.5 text-[15px] text-muted">Entre le mot de passe que je t&apos;ai envoyé.</p>
+          <h1 className="text-xl font-semibold tracking-[-0.01em]">{admin ? "Admin du suivi" : `Suivi du site ${nom}`}</h1>
+          <p className="mt-1.5 text-[15px] text-muted">
+            {admin ? "Entre ton mot de passe administrateur." : "Entre le mot de passe que je t'ai envoyé."}
+          </p>
 
           <form action={action} className="mt-6" noValidate>
             <input type="hidden" name="slug" value={slug} />
             {/* Champ identifiant masqué : aide les gestionnaires de mots de passe à ranger l'entrée. */}
-            <input type="text" name="username" autoComplete="username" value={nom} readOnly hidden />
+            <input type="text" name="username" autoComplete="username" value={admin ? "Pixelbrute admin" : nom} readOnly hidden />
             <label htmlFor="motdepasse" className="mb-1.5 block text-sm font-medium">
               Mot de passe
             </label>
@@ -53,16 +55,18 @@ export function Connexion({ slug, nom }: { slug: string; nom: string }) {
               </p>
             )}
             <button type="submit" disabled={envoi} className={`${boutonPrimaire} mt-5 w-full`}>
-              {envoi ? "Connexion…" : "Accéder au suivi"}
+              {envoi ? "Connexion…" : admin ? "Ouvrir l'admin" : "Accéder au suivi"}
             </button>
           </form>
         </div>
-        <p className="mt-6 text-center text-sm text-muted">
-          Mot de passe perdu ?{" "}
-          <a href="mailto:contact@pixelbrute.be" className="text-accent underline underline-offset-2">
-            contact@pixelbrute.be
-          </a>
-        </p>
+        {!admin && (
+          <p className="mt-6 text-center text-sm text-muted">
+            Mot de passe perdu ?{" "}
+            <a href="mailto:contact@pixelbrute.be" className="text-accent underline underline-offset-2">
+              contact@pixelbrute.be
+            </a>
+          </p>
+        )}
       </div>
     </main>
   );

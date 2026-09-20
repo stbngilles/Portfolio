@@ -5,14 +5,14 @@ import SearchQuery from "./SearchQuery";
 
 /**
  * Premier écran, le titre occupe la largeur, puis la scène « recherche
- * Google » : un métier + une ville, votre site en première position, les
+ * Google » : une requête + une ville, votre site en première position, les
  * concurrents bien plus bas. Ça se comprend sans avoir ouvert un outil de
  * design. La scène est décorative pour les lecteurs d'écran.
  *
- * La requête tapée tourne (`SearchQuery`) : agence immobilière, électricien,
- * cabinet comptable. Figée sur « votre métier + votre ville », la scène
- * racontait l'artisan qui attend un appel ; en tournant, elle dit à chaque
- * cible visée que la mécanique est la même pour elle.
+ * La requête tapée tourne (`SearchQuery`) : agence immobilière, estimation
+ * maison, programme neuf, sur Bruxelles, Namur et Liège. Figée sur une seule
+ * ville, la scène rendait le studio local ; en tournant, elle couvre le
+ * territoire réel et les trois requêtes qui amènent un mandat.
  */
 export default function Hero() {
   return (
@@ -21,28 +21,30 @@ export default function Hero() {
         <Lines
           as="h1"
           className="pb-d-xl"
-          lines={["Votre site", "trouve des clients.", "Vous, vous décrochez."]}
+          lines={["Votre site", "ramène des mandats.", "Vous, vous décrochez."]}
           muteFrom={2}
         />
 
         <div className="pb-hero-meta">
           {/* Le `h1` est une accroche : il ne contient aucun terme que les gens
-              tapent. Ce `h2` dit littéralement le métier et la ville, c'est
-              le seul endroit de la page qui a le droit d'être plat. */}
+              tapent. Ce `h2` dit littéralement le métier visé et le
+              territoire, c'est le seul endroit de la page qui a le droit
+              d'être plat. */}
           <h2 className="pb-hero-sub">
-            Création de sites internet à Liège et en Hesbaye, pour PME, agences immobilières et indépendants de la province.
+            Sites internet pour agences immobilières et promoteurs immobiliers, en Belgique
+            francophone. Conçus, dessinés et codés par la même personne.
           </h2>
           <p className="pb-hero-lede">
-            Conception, design et code par la même personne, pour des dirigeants qui attendent
-            d&apos;un site des demandes de clients, pas une brochure.
+            Pour des agences qui attendent de leur site des demandes d&apos;estimation et des
+            vendeurs, pas une brochure.
           </p>
           <div className="pb-hero-acts">
             <Link href="/contact" className="pb-btn-solid">
               Parler de votre projet <Arrow dir="ne" />
             </Link>
-            <a href="#projets" className="pb-btn-line">
-              Voir le travail <Arrow dir="s" />
-            </a>
+            <Link href="/creation-site-agence-immobiliere" className="pb-btn-line">
+              Voir le travail <Arrow dir="ne" />
+            </Link>
           </div>
         </div>
       </div>

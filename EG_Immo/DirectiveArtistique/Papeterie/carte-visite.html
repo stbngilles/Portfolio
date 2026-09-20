@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maison · Carte de visite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&display=block" rel="stylesheet">
+<style>
+  /* 85 × 55 mm, 10 px = 1 mm. Rendu ×2,362 → 2008 × 1299 px = 600 dpi. */
+  @font-face { font-family: "Morganite"; font-weight: 700; src: url("../Site/fonts/Morganite-Bold.ttf") format("truetype"); font-display: block; }
+  :root {
+    --ivoire: #e8e1d5; --papier: #f5f1ea; --noir: #1a1412; --bordeaux: #390517;
+    --bronze: #a38560; --bronze-encre: #6f5536; --encre-douce: rgba(26, 20, 18, 0.66);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 850px; height: 550px; overflow: hidden; }
+  body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .carte { width: 850px; height: 550px; display: none; }
+  .recto .carte--recto, .verso .carte--verso, .photo .carte--photo { display: grid; }
+
+  /* Recto photo : Maison du parc, voile bordeaux depuis le bas, signature en bas à gauche */
+  .carte--photo { position: relative; background: var(--bordeaux) url("../Site/img/kapellen-b-01.webp") center 38.2% / cover no-repeat; }
+  .carte--photo::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(57, 5, 23, 0.9) 0%, rgba(57, 5, 23, 0.55) 38.2%, rgba(57, 5, 23, 0.08) 61.8%, rgba(57, 5, 23, 0.18) 100%); }
+  .carte--photo svg { position: absolute; left: 55px; bottom: 34px; height: 144px; color: var(--ivoire); stroke: currentColor; }
+
+  /* Recto : la signature seule, centrée, sur bordeaux */
+  .carte--recto { background: var(--bordeaux); place-items: center; }
+  .carte--recto svg { height: 210px; color: var(--ivoire); stroke: currentColor; }
+
+  /* Verso : 38,2 / 61,8 en hauteur, marges Fibonacci (55 px = 5,5 mm) */
+  .carte--verso { background: var(--papier); color: var(--noir); padding: 55px; grid-template-rows: 1fr auto; }
+  .nom { font-family: "Morganite", sans-serif; font-weight: 700; text-transform: uppercase; color: var(--bordeaux); font-size: 110px; line-height: 0.82; letter-spacing: 0.01em; }
+  .role { margin-top: 21px; font-size: 16px; font-weight: 500; letter-spacing: 0.236em; text-transform: uppercase; color: var(--bronze-encre); }
+  .pied { display: grid; gap: 13px; }
+  .coord { display: grid; gap: 5px; font-size: 21px; line-height: 1.3; }
+  .ligne { border-top: 1.5px solid var(--bronze); padding-top: 13px; display: flex; justify-content: space-between; align-items: baseline; font-size: 16px; letter-spacing: 0.08em; color: var(--encre-douce); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="maison" viewBox="0 0 137 100">
+    <g fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.36,74.43c-3.11-6.9-.07-15.82.9-23.58,1.59-9.71,3.21-19.81,3.81-23.97.07-.72-.22-.14.28.52,1.04,1.52,3.32.98,4.7.35,2.19-.81,3.29-.84,10.29-5.03,1.56-.93,3.21-1.95,4.74-2.9,7.42-4.62,15.07-9.81,22.69-14.77,3.46-2.34,9.35-5.59,10.09-3.21,1.55,3.37-6.04,16.56-16,32.04-6.31,9.82-12.52,18.96-18.97,28.65-7.43,11.86-21.58,30.65-18.95,34.5,1.68,2.81,5.43,1.59,7.09-.74"/><path d="M42.95,49.56c-14.87,31.67,10.16,11.72,8.82-.31-.47-2.05-3.24-3.02-5.01-2.03-2.76,1.64,1.72,8.75,2.95,12.86,1.58,3.78-.19,11.38,4.94,12.28"/><path d="M59.12,52.01s-1.83,9.39,0,12.31"/><path d="M72.42,44.07s-12.31,6.34-6.46,7.92,20.85,6.95,2.44,16.46"/><path d="M84.84,53.7s-7.31,6.58,0,8.9,22.92-4.15,20.73-10.61c-2.19-6.46-20.24-5.36-19.38,2.07s7.5,7.44,7.5,7.44"/><path d="M110.08,46.77s2.91-1.72,2.93,1.69-2.47,12.32,1.95,9.69,15.36-10.09,16.09-7.15,1.18,9.73,4.98,10.3"/><path d="M59.57,48.76s-1.24.44-.62.85.62-.85.62-.85Z"/></g>
+  </symbol>
+</svg>
+
+<div class="carte carte--recto">
+  <svg viewBox="0 0 137 100" role="img" aria-label="Maison"><use href="#maison"/></svg>
+</div>
+
+<div class="carte carte--photo">
+  <svg viewBox="0 0 137 100" role="img" aria-label="Maison"><use href="#maison"/></svg>
+</div>
+
+<div class="carte carte--verso">
+  <div>
+    <div class="nom">Esteban Gilles</div>
+    <div class="role">Fondateur</div>
+  </div>
+  <div class="pied">
+    <div class="coord">
+      <span>+32 4 00 00 00 00</span>
+      <span>esteban@maison.be</span>
+    </div>
+    <div class="ligne">
+      <span>maison.be · Belgique</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.body.className = location.hash.slice(1) || "recto";
+</script>
+</body>
+</html>

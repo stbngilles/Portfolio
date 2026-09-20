@@ -32,7 +32,7 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        <Marquee items={["Sites vitrine", "Sites immobiliers", "SEO local", "Réservation en ligne", "Liège & Hesbaye"]} />
+        <Marquee items={["Sites d'agence", "Pages programme neuf", "Estimation en ligne", "SEO local", "Wallonie & Bruxelles"]} />
         <SelectedWork />
         <Manifesto />
         <Expertise />

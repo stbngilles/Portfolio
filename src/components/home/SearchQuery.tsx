@@ -5,10 +5,11 @@ import { useEffect, useState } from "react";
 /**
  * La requête tapée dans la scène « recherche Google » du hero.
  *
- * Elle tourne entre quelques métiers réels de la cible, agence immobilière,
- * électricien, cabinet comptable, et revient sur la forme générique. Chaque
- * requête est tapée lettre à lettre, tenue, puis effacée, comme dans une
- * barre de recherche.
+ * Elle tourne entre les requêtes que tapent réellement les vendeurs et les
+ * acheteurs, agence, estimation, programme neuf, sur trois villes qui disent
+ * le territoire, Bruxelles, Namur, Liège, et revient sur la forme où le
+ * lecteur met sa propre commune. Chaque requête est tapée lettre à lettre,
+ * tenue, puis effacée, comme dans une barre de recherche.
  *
  * Le rendu serveur et le premier rendu client sont identiques, la forme
  * générique : pas de décalage d'hydratation, et sans JavaScript la scène
@@ -18,10 +19,10 @@ import { useEffect, useState } from "react";
  * qu'aux yeux : pas de région live, pas d'annonce à chaque changement.
  */
 const QUERIES: [string, string][] = [
-  ["agence immobilière", "Waremme"],
-  ["électricien", "Herstal"],
-  ["expert-comptable", "Liège"],
-  ["votre métier", "votre ville"],
+  ["agence immobilière", "Bruxelles"],
+  ["estimation maison", "Namur"],
+  ["programme neuf", "Liège"],
+  ["agence immobilière", "votre commune"],
 ];
 
 const GENERIC = QUERIES.length - 1;
@@ -30,7 +31,7 @@ const ERASE_MS = 22;
 const HOLD_MS = 2600;
 const FIRST_HOLD_MS = 3400;
 
-/** La requête écrite comme on la tape : « agence immobilière + Waremme ». */
+/** La requête écrite comme on la tape : « agence immobilière + Bruxelles ». */
 const full = ([job, town]: [string, string]) => `${job} + ${town}`;
 
 export default function SearchQuery() {
@@ -77,7 +78,7 @@ export default function SearchQuery() {
 
   const [job, town] = QUERIES[idx];
   const typed = full([job, town]).slice(0, len);
-  // Le métier en encre, « + ville » en gris : même coupe que le texte figé.
+  // La requête en encre, « + ville » en gris : même coupe que le texte figé.
   const head = typed.slice(0, Math.min(typed.length, job.length));
   const tail = typed.slice(job.length);
 

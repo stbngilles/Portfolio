@@ -51,6 +51,14 @@ export default function CaseStudy({
         {/* Une ligne : « Livré » répète l'inventaire, « Résultat » répète les
             chiffres relevés. Seul le rôle n'est écrit nulle part ailleurs. */}
         <p className="pb-modal-role pb-cap">{p.role}</p>
+
+        {/* Le site avant le récit : qui veut juger sur pièce n'a pas à
+            descendre jusqu'au résultat pour trouver le lien. */}
+        {p.url && (
+          <a className="pb-modal-visit pb-case-visit pb-label" href={p.url} target="_blank" rel="noopener noreferrer">
+            Voir le site <Arrow dir="ne" />
+          </a>
+        )}
       </header>
 
       {/* Le récit en images vient avant les chiffres : on montre le site

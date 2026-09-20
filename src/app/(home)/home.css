@@ -422,8 +422,19 @@ html:has(.pb), html:has(.pb) body { background: #f2f1ee; }
 .pb-tile { grid-column: span var(--span); display: flex; flex-direction: column; gap: 16px; container-type: inline-size; }
 /* La première vignette est seule sur sa ligne ; le décalage qui casse
    l'alignement d'une paire tombe donc sur la troisième, la petite de la
-   première paire, plus sur la deuxième. */
-.pb-tile:nth-child(3) { margin-top: clamp(55px, 10vw, 183px); }
+   première paire, plus sur la deuxième. `nth-of-type` et pas `nth-child` :
+   la phrase qui sépare Maison des autres est un enfant de la grille, elle
+   décalerait le compte. */
+.pb-tile:nth-of-type(3) { margin-top: clamp(55px, 10vw, 183px); }
+
+/* La phrase qui ouvre les quatre autres projets : ils viennent d'autres
+   secteurs, on le dit avant qu'on se le demande. Pleine largeur, posée sur
+   la colonne de gauche, au calme entre deux rangées. */
+.pb-work-note {
+  grid-column: 1 / -1; margin: 0; max-width: 45ch;
+  font-size: var(--pb-lede); line-height: var(--pb-lh-snug);
+  color: var(--pb-ink-2); text-wrap: pretty;
+}
 /* Le projet qui ouvre, pleine largeur : le cadre s'allonge en 2:1 pour que
    le mockup 4:3 garde l'écran entier, et le nom monte d'un cran. */
 .pb-tile[data-wide] .pb-tile-frame { aspect-ratio: 2 / 1; }
@@ -1189,6 +1200,7 @@ html.lenis, html.lenis body { height: auto; }
 /* --- enveloppe d'une étude de cas ---------------------------------------- */
 .pb-case { padding: 144px var(--pb-pad) var(--pb-sec-sm); max-width: 987px; margin: 0 auto; }
 .pb-case-head { display: flex; flex-direction: column; }
+.pb-case-visit { align-self: flex-start; margin-top: 34px; }
 
 .pb-case-crumb {
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
