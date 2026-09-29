@@ -11,6 +11,8 @@ import type { SuiviDemande, SuiviElement } from "@prisma/client";
  */
 
 export const ATTENTE_CLIENT = ["Attente client", "Attente confirmation"];
+/** « Fait » vaut livré, même si l'élément n'a pas encore quitté « en cours » en base. */
+export const EST_LIVRE = (e: { etat: string; statut?: string | null }) => e.etat === "LIVRE" || e.statut === "Fait";
 export const SANS_BESOIN = (b?: string | null) => !b || /^rien\.?$/i.test(b.trim());
 
 export type Ligne = { titre: string; meta?: string; ton: "fait" | "cours" | "vous" | "option" | "info" };

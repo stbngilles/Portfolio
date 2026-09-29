@@ -102,6 +102,7 @@ export function AdminElement({ slug, e }: { slug: string; e: SuiviElement }) {
       <form action={majElement} className="space-y-3 px-3 pb-3">
         <input type="hidden" name="slug" value={slug} />
         <input type="hidden" name="id" value={e.id} />
+        <input type="hidden" name="etat" value={etat} />
         <ChampsElement e={e} etat={etat} />
         <div className="flex flex-wrap gap-2 pt-1">
           <button type="submit" className={petitPrimaire}>

@@ -4,7 +4,7 @@ import type { SuiviDemande } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import { lireAcces } from "@/lib/suivi/acces";
 import type { Contenu } from "@/lib/suivi/paquet";
-import { ATTENTE_CLIENT, SANS_BESOIN, construireDiapos } from "@/lib/suivi/presentation";
+import { ATTENTE_CLIENT, EST_LIVRE, SANS_BESOIN, construireDiapos } from "@/lib/suivi/presentation";
 import { Connexion } from "@/components/suivi/Connexion";
 import { FormDemande } from "@/components/suivi/FormDemande";
 import { Presentation } from "@/components/suivi/Presentation";
@@ -94,8 +94,8 @@ export default async function PageClient({
   // L'admin qui regarde la page du client : il voit tout, mais ne clique pas à sa place.
   const apercu = acces.admin && !acces.client;
 
-  const livres = projet.elements.filter((e) => e.etat === "LIVRE");
-  const enCours = projet.elements.filter((e) => e.etat === "EN_COURS");
+  const livres = projet.elements.filter(EST_LIVRE);
+  const enCours = projet.elements.filter((e) => !EST_LIVRE(e));
   const pourToi = projet.demandes.filter(attendClient);
   const mesDemandes = projet.demandes.filter((d) => d.sens === "PIXELBRUTE").reverse();
   const tesDemandes = projet.demandes.filter((d) => d.sens === "CLIENT").reverse();

@@ -198,6 +198,8 @@ export async function majElement(f: FormData) {
   await exiger(slug, "admin");
   const data = champsElement(f);
   if (!data.titre) return;
+  // Un « en cours » passé à « Fait » quitte la liste : il part dans « livré », comme via « Marquer livré ».
+  if (data.statut === "Fait" && txt(f, "etat") !== "LIVRE") return marquerLivre(f);
   await prisma.suiviElement.update({ where: { id: txt(f, "id"), projetSlug: slug }, data });
   rafraichir(slug);
 }
