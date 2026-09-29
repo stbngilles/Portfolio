@@ -4,7 +4,7 @@ import type { SuiviDemande } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import { lireAcces } from "@/lib/suivi/acces";
 import type { Contenu } from "@/lib/suivi/paquet";
-import { ATTENTE_CLIENT } from "@/lib/suivi/presentation";
+import { ATTENTE_CLIENT, EST_LIVRE } from "@/lib/suivi/presentation";
 import { Connexion } from "@/components/suivi/Connexion";
 import { AdminMaDemande, AdminNouvelleDemande, AdminPresentation, AdminReponse } from "@/components/suivi/Admin";
 import {
@@ -87,8 +87,8 @@ export default async function PageAdmin({
   const contenu = projet.contenu as unknown as Contenu;
   const prenom = contenu.contact ?? "le client";
 
-  const livres = projet.elements.filter((e) => e.etat === "LIVRE");
-  const enCours = projet.elements.filter((e) => e.etat === "EN_COURS");
+  const livres = projet.elements.filter(EST_LIVRE);
+  const enCours = projet.elements.filter((e) => !EST_LIVRE(e));
   const sesDemandes = projet.demandes.filter((d) => d.sens === "CLIENT").reverse();
   const mesDemandes = projet.demandes.filter((d) => d.sens === "PIXELBRUTE").reverse();
   const traiter = sesDemandes.filter(aTraiter);
