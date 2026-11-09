@@ -1,6 +1,7 @@
 import { createDecipheriv, scryptSync } from "node:crypto";
 import { gunzipSync } from "node:zlib";
 import { paquet as azimutGames } from "./paquets/azimut-games";
+import { paquet as terranovaVans } from "./paquets/terranova-vans";
 
 /**
  * Paquets chiffrés, un par espace de suivi. La clé de la table est le slug
@@ -8,6 +9,7 @@ import { paquet as azimutGames } from "./paquets/azimut-games";
  */
 const PAQUETS: Record<string, string> = {
   "azimut-games": azimutGames,
+  "terranova-vans": terranovaVans,
 };
 
 export type Tarif = { libelle: string; montant: string; precision: string; detail?: string };
