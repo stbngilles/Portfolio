@@ -6,6 +6,7 @@ import { lireAcces } from "@/lib/suivi/acces";
 import type { Contenu } from "@/lib/suivi/paquet";
 import { ATTENTE_CLIENT, EST_LIVRE } from "@/lib/suivi/presentation";
 import { Connexion } from "@/components/suivi/Connexion";
+import { RemplacerPdf } from "@/components/suivi/RemplacerPdf";
 import { AdminMaDemande, AdminNouvelleDemande, AdminPresentation, AdminReponse } from "@/components/suivi/Admin";
 import {
   Avancement,
@@ -321,7 +322,21 @@ export default async function PageAdmin({
 
           {onglet === "en-cours" && <EnCours slug={slug} admin prenom={prenom} elements={enCours} />}
           {onglet === "livre" && <Livre slug={slug} admin elements={livres} />}
-          {onglet === "devis" && <DevisPrix slug={slug} contenu={contenu} admin />}
+          {onglet === "devis" && (
+            <div className="space-y-10">
+              <DevisPrix slug={slug} contenu={contenu} admin />
+              <section aria-labelledby="remplacer-pdf">
+                <TitreSection>
+                  <span id="remplacer-pdf">Remplacer un PDF</span>
+                </TitreSection>
+                <Carte className="divide-y divide-line">
+                  {contenu.devis.map((d) => (
+                    <RemplacerPdf key={d.numero} slug={slug} fichier={d.fichier} titre={`Devis ${d.numero} · ${d.fichier}`} />
+                  ))}
+                </Carte>
+              </section>
+            </div>
+          )}
         </div>
       </main>
     </>

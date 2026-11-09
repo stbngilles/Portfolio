@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
   // À réactiver via rewrites au moment du déploiement prod si besoin SEO.
   // Disable source maps to avoid a Turbopack bug with non-ASCII chars in the project path
   productionBrowserSourceMaps: false,
+  // Les PDF de devis des espaces de suivi passent par une action serveur
+  // (1 Mo par défaut). Vercel plafonne le corps à 4,5 Mo.
+  experimental: {
+    serverActions: { bodySizeLimit: "4mb" },
+  },
   // Force le bon dossier racine : un package-lock.json parasite dans
   // C:\Users\gille\ trompe sinon la détection auto de Turbopack.
   turbopack: {

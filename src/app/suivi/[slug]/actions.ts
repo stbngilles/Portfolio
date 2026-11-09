@@ -244,6 +244,32 @@ export async function supprimerElement(f: FormData) {
   rafraichir(slug);
 }
 
+// ---------------------------------------------------------------- admin : documents
+
+/**
+ * Remplace le PDF d'un devis. Le nom du fichier ne change pas : c'est lui que
+ * le contenu du projet cite, et le lien de téléchargement reste le même.
+ */
+export async function remplacerDocument(_: Retour, f: FormData): Promise<Retour> {
+  const slug = slugDe(f);
+  await exiger(slug, "admin");
+  const nom = txt(f, "nom", 200);
+  const fichier = f.get("pdf");
+  if (!nom || !(fichier instanceof File) || fichier.size === 0) return { erreur: "Choisis un PDF." };
+  if (fichier.size > 4 * 1024 * 1024) return { erreur: "Le PDF dépasse 4 Mo." };
+  const octets = Buffer.from(await fichier.arrayBuffer());
+  if (octets.subarray(0, 5).toString("latin1") !== "%PDF-") return { erreur: "Ce fichier n'est pas un PDF." };
+
+  const existant = await prisma.suiviDocument.findFirst({ where: { projetSlug: slug, nom }, select: { id: true } });
+  if (existant) {
+    await prisma.suiviDocument.update({ where: { id: existant.id }, data: { fichier: octets, type: "application/pdf" } });
+  } else {
+    await prisma.suiviDocument.create({ data: { projetSlug: slug, nom, fichier: octets } });
+  }
+  rafraichir(slug);
+  return { ok: true };
+}
+
 // ---------------------------------------------------------------- présentation
 
 /**
