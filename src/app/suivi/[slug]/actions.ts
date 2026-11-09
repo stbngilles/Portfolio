@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { connecter, connecterAdmin, deconnecter, lireAcces } from "@/lib/suivi/acces";
 import { sendSuiviNotif } from "@/lib/email";
+import type { Contenu } from "@/lib/suivi/paquet";
 
 export type Retour = { erreur?: string; ok?: boolean };
 
@@ -266,6 +267,46 @@ export async function remplacerDocument(_: Retour, f: FormData): Promise<Retour>
   } else {
     await prisma.suiviDocument.create({ data: { projetSlug: slug, nom, fichier: octets } });
   }
+  rafraichir(slug);
+  return { ok: true };
+}
+
+/**
+ * Cartes « Tes tarifs » et « Devis » : figées à l'import, corrigées ici.
+ * Le fichier PDF d'un devis ne change pas ici (voir `remplacerDocument`).
+ */
+export async function majContenu(_: Retour, f: FormData): Promise<Retour> {
+  const slug = slugDe(f);
+  await exiger(slug, "admin");
+  const p = await prisma.suiviProjet.findUniqueOrThrow({ where: { slug }, select: { contenu: true } });
+  const contenu = p.contenu as unknown as Contenu;
+
+  const tarifs = contenu.tarifs.map((t, i) => ({
+    ...t,
+    libelle: txt(f, `tarif_libelle_${i}`, 120) || t.libelle,
+    montant: txt(f, `tarif_montant_${i}`, 60) || t.montant,
+    precision: txt(f, `tarif_precision_${i}`, 120),
+    detail: opt(f, `tarif_detail_${i}`, 600) ?? undefined,
+  }));
+  const devis = contenu.devis.map((d, i) => ({
+    ...d,
+    numero: txt(f, `devis_numero_${i}`, 60) || d.numero,
+    titre: txt(f, `devis_titre_${i}`, 200) || d.titre,
+    emis: txt(f, `devis_emis_${i}`, 40),
+    valide: txt(f, `devis_valide_${i}`, 40),
+    total: txt(f, `devis_total_${i}`, 60),
+    lignes: txt(f, `devis_lignes_${i}`, 3000)
+      .split("\n")
+      .map((l) => l.trim())
+      .filter(Boolean),
+  }));
+  const numeros = devis.map((d) => d.numero);
+  if (new Set(numeros).size !== numeros.length) return { erreur: "Deux devis ont le même numéro." };
+
+  await prisma.suiviProjet.update({
+    where: { slug },
+    data: { contenu: { ...contenu, tarifs, devis, tva: opt(f, "tva", 600) ?? undefined } as object },
+  });
   rafraichir(slug);
   return { ok: true };
 }

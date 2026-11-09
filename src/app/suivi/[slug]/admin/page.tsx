@@ -6,6 +6,7 @@ import { lireAcces } from "@/lib/suivi/acces";
 import type { Contenu } from "@/lib/suivi/paquet";
 import { ATTENTE_CLIENT, EST_LIVRE } from "@/lib/suivi/presentation";
 import { Connexion } from "@/components/suivi/Connexion";
+import { ModifierContenu } from "@/components/suivi/ModifierContenu";
 import { RemplacerPdf } from "@/components/suivi/RemplacerPdf";
 import { AdminMaDemande, AdminNouvelleDemande, AdminPresentation, AdminReponse } from "@/components/suivi/Admin";
 import {
@@ -325,6 +326,14 @@ export default async function PageAdmin({
           {onglet === "devis" && (
             <div className="space-y-10">
               <DevisPrix slug={slug} contenu={contenu} admin />
+              <section aria-labelledby="modifier-cartes">
+                <TitreSection>
+                  <span id="modifier-cartes">Modifier les cartes</span>
+                </TitreSection>
+                <Carte>
+                  <ModifierContenu slug={slug} contenu={contenu} />
+                </Carte>
+              </section>
               <section aria-labelledby="remplacer-pdf">
                 <TitreSection>
                   <span id="remplacer-pdf">Remplacer un PDF</span>
